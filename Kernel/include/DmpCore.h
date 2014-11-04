@@ -34,8 +34,8 @@ public:
   const long& GetCurrentEventID() const {return fCurrentEventID;}
   bool EventInTimeWindow(const int &t) const{return ((fStartTime<=t)&&(t<=fStopTime))?true:false;} // use second of event header
   const bool& InitializeDone() const {return fInitializeDone;}
-  const int&  StartTimeCut() const {return fStartTime;}
-  const int&  StopTimeCut() const {return fStopTime;}
+  const int&  GetStartTime() const {return fStartTime;}
+  const int&  GetStopTime() const {return fStopTime;}
 
 public:
   void Set(const std::string &type,const std::string &value);
@@ -60,7 +60,7 @@ private:
 private:
   DmpAlgorithmManager   *fAlgMgr;       // algorithm manager, singleton
   DmpServiceManager     *fSvcMgr;       // service manager, singleton
-  std::string           fLaunchTime;    // lauch time, 20130101-0000
+  int                   fLaunchTime;    // lauch time, 20130101-0000
   long                  fMaxEventNo;    // run how many event
   int                   fStartTime;     // unit: second. start time of time window
   int                   fStopTime;      // unit: second. stop time of time window

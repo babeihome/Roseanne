@@ -12,6 +12,8 @@
 #pragma link off all namespaces;
 
 #pragma link C++ namespace DmpTimeConvertor;
+#pragma link C++ class DmpVAlg;
+#pragma link C++ class DmpVSvc;
 #pragma link C++ class DmpAlgorithmManager;
 #pragma link C++ class DmpServiceManager;
 #pragma link C++ class DmpCore;

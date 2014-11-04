@@ -15,10 +15,10 @@
 DmpCore::DmpCore()
  :fAlgMgr(0),
   fSvcMgr(0),
-  fLaunchTime("20130101-0000"),
+  fLaunchTime(DmpTimeConvertor::Date2Second("2013-01-01 00:00:00")),
   fMaxEventNo(-1),
-  fStartTime(DmpTimeConvertor::Date2Second("2013-01-01 00:00:00")),
-  fStopTime(DmpTimeConvertor::Date2Second("2113-01-01 00:00:00")),
+  fStartTime(fLaunchTime),
+  fStopTime(DmpTimeConvertor::Date2Second("2053-01-01 00:00:00")),
   fInitializeDone(false),
   fTerminateRun(false),
   fCurrentEventID(0)    // must == 0
@@ -123,11 +123,13 @@ void DmpCore::Set(const std::string &type,const std::string &value){
     case 3: // StartTime
     {
       fStartTime = DmpTimeConvertor::Date2Second(value);
+      DmpLogInfo<<"Setting start time:  "<<value<<"\t"<<fStartTime<<DmpLogEndl;
       break;
     }
     case 4: // StopTime
     {
       fStopTime = DmpTimeConvertor::Date2Second(value);
+      DmpLogInfo<<"Setting stop time:  "<<value<<"\t"<<fStopTime<<DmpLogEndl;
       break;
     }
     case 5: // FromEvent

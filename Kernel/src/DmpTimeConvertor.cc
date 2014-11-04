@@ -9,26 +9,32 @@
 #include <stdio.h>
 #include <sstream>
 #include "DmpTimeConvertor.h"
-
 namespace DmpTimeConvertor{
 
 std::string Second2Date(const int &second){
 //  struct tm DatT0={0,0,0,1,0,113,1,0,-1};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900),wday(0-6),yday(0-365),isdst(+,0,-)}
   //conminder time zone
-  struct tm DatT0={0,0,8,1,0,113,1,0,-1};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900),wday(0-6),yday(0-365),isdst(+,0,-)}
+  struct tm DatT0={0,0,0,1,0,113,1,0,-1};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900),wday(0-6),yday(0-365),isdst(+,0,-)}
   time_t Astime0=mktime(&DatT0);
   time_t Astime1=Astime0+second;
+  time_t localtime;
+  time_t timediff;
   struct tm *DatT=gmtime(&Astime1);
+  time(&localtime);
+  timediff=Astime1-localtime;
+//  std::cout<<"timediff:"<<timediff<<std::endl;
+  int hourdiff=(int)(((double)timediff)/3600.);
+//  std::cout<<"hourdiff:"<<hourdiff<<std::endl;
   int year=DatT->tm_year+1900;
   int month=DatT->tm_mon+1;
   int day=DatT->tm_mday;
-  int hour=DatT->tm_hour;
+  int hour=(DatT->tm_hour-hourdiff)%24;
   int min=DatT->tm_min;
   int sec=DatT->tm_sec;
   //char* date=(char*)malloc(30);
   char date[50];
 //  char* date=new char[30];
-  snprintf(date,50,"%d/%02d/%02d %02d:%02d:%02d",year,month,day,hour,min,sec);
+  snprintf(date,50,"%d-%02d-%02d %02d:%02d:%02d",year,month,day,hour,min,sec);
   return (std::string)date;
 }
 
