@@ -134,7 +134,7 @@ void DmpCore::Set(const std::string &type,const std::string &value){
     }
     case 5: // FromEvent
     {
-      fCurrentEventID = boost::lexical_cast<long>(value);
+      FromEvent(boost::lexical_cast<long>(value));
       break;
     }
   }

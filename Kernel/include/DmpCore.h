@@ -48,6 +48,7 @@ public:
    *    |--StopTime
    *    `--FromeEvent
    */
+  void FromEvent(const long &i){fCurrentEventID = i;}
   DmpAlgorithmManager*  AlgorithmManager() const {return fAlgMgr;}
   DmpServiceManager*    ServiceManager() const {return fSvcMgr;}
 
