@@ -1,5 +1,5 @@
 /*
- *  $Id: DmpKernelLinkDef.h, 2014-11-01 00:13:35 DAMPE $
+ *  $Id: DmpKernelLinkDef.h, 2014-11-05 21:48:01 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 29/10/2014
 */
@@ -12,6 +12,7 @@
 #pragma link off all namespaces;
 
 #pragma link C++ namespace DmpTimeConvertor;
+#pragma link C++ class DmpJobOptLogger+;
 #pragma link C++ class DmpVAlg;
 #pragma link C++ class DmpVSvc;
 #pragma link C++ class DmpAlgorithmManager;

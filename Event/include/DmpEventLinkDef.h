@@ -11,7 +11,6 @@
 #pragma link off all functions;
 #pragma link off all namespaces;
 
-#pragma link C++ class DmpMetadata+;
 #pragma link C++ class DmpEvtBgoHits+;
 // common
 /*

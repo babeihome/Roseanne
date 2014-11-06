@@ -17,87 +17,71 @@ DmpRootIOSvc::DmpRootIOSvc()
   fOutRootFile(0),
   fOutFileKey(""),
   fInPath("./"),
-  fOutPath("./")
+  fOutPath("./"),
+  fJobLogger(0)
 {
   fInFileName = "";
   fOutFileName = "";
-  OptMap.insert(std::make_pair("Input/Path",   0));
-  OptMap.insert(std::make_pair("Input/FileName", 1));
-  OptMap.insert(std::make_pair("Output/Path",  2));
-  OptMap.insert(std::make_pair("Output/FileName",  3));
-  OptMap.insert(std::make_pair("Output/WriteList", 4));
-  OptMap.insert(std::make_pair("Output/Key", 5));  // in the constructor of algorithm
+  fJobLogger = new DmpJobOptLogger();
 }
 
 //-------------------------------------------------------------------
 DmpRootIOSvc::~DmpRootIOSvc(){
+  delete fJobLogger;
 }
 
 //-------------------------------------------------------------------
-void DmpRootIOSvc::Set(const std::string &option,const std::string &argv){
-  if(OptMap.find(option) == OptMap.end()){
-    DmpLogError<<"No argument type \""<<option<<"\"\tPossible option are:"<<DmpLogEndl;
-    for(std::map<std::string,short>::iterator anOpt= OptMap.begin();anOpt!=OptMap.end();anOpt++){
-      DmpLogCout<<anOpt->first<<DmpLogEndl;
-    }
-    throw;
+void DmpRootIOSvc::InputPath(const std::string &argv){
+  if('/' == argv[argv.length()-1]){
+    fInPath = argv;
+  }else{
+    fInPath = argv+"/";
   }
-  switch (OptMap[option]){
-    case 0: // Input/Path
-    {
-      if('/' == argv[argv.length()-1]){
-        fInPath = argv;
-      }else{
-        fInPath = argv+"/";
-      }
-      break;
-    }
-    case 1: // Input/FileName
-    {
-      boost::filesystem::path temp(argv);
-      fInFileName = temp.filename().string();
-      if((temp.parent_path().string()!="") && (fInPath=="./")){
-        fInPath = temp.parent_path().string()+"/";
-      }
-      break;
-    }
-    case 2: // Output/Path
-    {
-      if('/' == argv[argv.length()-1]){
-        fOutPath = argv;
-      }else{
-        fOutPath = argv+"/";
-      }
-      break;
-    }
-    case 3: // Output/FileName
-    {
-      boost::filesystem::path temp(argv);
-      fOutFileName = temp.filename().string();
-      if((temp.parent_path().string()!="") && (fOutPath=="./")){
-        fOutPath = temp.parent_path().string()+"/";
-      }
-      break;
-    }
-    case 4: // Output/WriteList
-    {
-      boost::split(fWriteList,argv,boost::is_any_of(";"));
-      for(short i=0;i<fWriteList.size();++i){
-        std::vector<std::string>  temp;
-        boost::split(temp,fWriteList[i],boost::is_any_of("/"));
-        if(2 != temp.size()){
-          DmpLogError<<"Setting \""<<option<<"\":\t"<<fWriteList[i]<<DmpLogEndl;
-          throw;
-        }
-      }
-      break;
-    }
-    case 5: // Output/Key
-    {
-      fOutFileKey = argv;
-      break;
+  fJobLogger->SetOption("IO/Input/Path",argv);
+}
+
+//-------------------------------------------------------------------
+void DmpRootIOSvc::InputFile(const std::string &v){
+  boost::filesystem::path temp(v);
+  fInFileName = temp.filename().string();
+  if((temp.parent_path().string()!="") && (fInPath=="./")){
+    fInPath = temp.parent_path().string()+"/";
+  }
+  fJobLogger->SetOption("IO/Input/File",v);
+}
+
+//-------------------------------------------------------------------
+void DmpRootIOSvc::OutputPath(const std::string &argv){
+  if('/' == argv[argv.length()-1]){
+    fOutPath = argv;
+  }else{
+    fOutPath = argv+"/";
+  }
+  fJobLogger->SetOption("IO/Output/Path",argv);
+}
+
+//-------------------------------------------------------------------
+void DmpRootIOSvc::OutputFile(const std::string &v){
+  boost::filesystem::path temp(v);
+  fOutFileName = temp.filename().string();
+  if((temp.parent_path().string()!="") && (fOutPath=="./")){
+    fOutPath = temp.parent_path().string()+"/";
+  }
+  fJobLogger->SetOption("IO/Output/File",v);
+}
+
+//-------------------------------------------------------------------
+bool DmpRootIOSvc::WriteList(const std::string &argv){
+  boost::split(fWriteList,argv,boost::is_any_of(";"));
+  for(short i=0;i<fWriteList.size();++i){
+    std::vector<std::string>  temp;
+    boost::split(temp,fWriteList[i],boost::is_any_of("/"));
+    if(2 != temp.size()){
+      DmpLogError<<"Setting WriteList \":\t"<<fWriteList[i]<<DmpLogEndl;
+      throw;
     }
   }
+  fJobLogger->SetOption("IO/Output/WirteList",argv);
 }
 
 //-------------------------------------------------------------------
@@ -106,7 +90,6 @@ bool DmpRootIOSvc::Initialize(){
   //-------------------------------------------------------------------
   fInFileName = fInPath+GetInputStem()+GetInputExtension();
   if(fInFileName.string() != "./"){   // has input file
-    std::cout<<"\tInput file:\t"<<fInFileName.string()<<DmpLogEndl;
     if(fInFileName.extension().string() == ".root"){
       fInRootFile = new TFile(fInFileName.string().c_str(),"read");
     }else if(fInFileName.extension().string() == ".txt"){
@@ -127,9 +110,9 @@ void DmpRootIOSvc::CreateOutRootFile(){
     }
     if(fOutFileName.string() == ""){
       if(this->GetInputExtension() == ""){
-        Set("Output/FileName","DmpData.root");
+        this->OutputFile("DmpData.root");
       }else{
-        Set("Output/FileName",this->GetInputStem());
+        this->OutputFile(this->GetInputStem()+".root");
       }
     }
     std::string splitMark = "-";
@@ -144,7 +127,6 @@ void DmpRootIOSvc::CreateOutRootFile(){
       fOutFileName = output.substr(0,found)+fOutFileKey+".root";
     }
     fOutRootFile = new TFile(fOutFileName.string().c_str(),"RECREATE");
-    std::cout<<"\tOutput file:\t"<<fOutFileName.string()<<DmpLogEndl;
   }
 }
 
@@ -167,6 +149,12 @@ bool DmpRootIOSvc::Finalize(){
         delete it->second;
       }
     }
+    DmpLogInfo<<"| |-JobOption"<<DmpLogEndl;
+    TTree *outputOptTree = new TTree("JobOption","JobOption");
+    outputOptTree->Branch("JobOption","DmpJobOptLogger",&fJobLogger,32000,2);
+    outputOptTree->Fill();
+    outputOptTree->Write();
+    delete outputOptTree;
     DmpLogInfo<<"`-Done"<<DmpLogEndl;
   }
   // delete root files
@@ -266,6 +254,23 @@ void DmpRootIOSvc::FillData(const std::string &floder){
     DmpLogDebug<<it->first<<"\tFill "<<floder<<" data "<<it->second->GetEntries()<<DmpLogEndl;
     it->second->Fill();
   }
+}
+
+//-------------------------------------------------------------------
+DmpJobOptLogger *DmpRootIOSvc::GetInputFileJobOption()const{
+// *
+// *  TODO:  could not get it correctly
+// *
+std::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<")"<<std::endl;
+  static bool haveLoad = false;
+  DmpJobOptLogger *inputOpt=0;
+  if(not haveLoad){
+    inputOpt = new DmpJobOptLogger();
+    TTree *theTree = dynamic_cast<TTree*>(fInRootFile->Get("JobOption"));
+    theTree->SetBranchAddress("JobOption",&inputOpt);
+    haveLoad = true;
+  }
+  return inputOpt;
 }
 
 //-------------------------------------------------------------------

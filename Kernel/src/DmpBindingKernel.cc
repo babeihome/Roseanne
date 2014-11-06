@@ -6,7 +6,7 @@
 
 #include <boost/python.hpp>
 
-#include "DmpVSvc.h"
+#include "DmpRootIOSvc.h"
 #include "DmpVAlg.h"
 #include "DmpAlgorithmManager.h"
 #include "DmpServiceManager.h"
@@ -25,6 +25,7 @@ struct DmpVAlgWrapper : public DmpVAlg, boost::python::wrapper<DmpVAlg>{
   bool Finalize(){
     return this->get_override("Finalize")();
   }
+  /*
   void Set(const std::string &type,const std::string &argv){
     if(boost::python::override Set = this->get_override("Set")(type,argv)){
       Set(type,argv);
@@ -35,6 +36,7 @@ struct DmpVAlgWrapper : public DmpVAlg, boost::python::wrapper<DmpVAlg>{
   void Default_Set(const std::string &type,const std::string &argv){
     this->DmpVAlg::Set(type,argv);
   }
+  */
 };
     // Wrap DmpVSvc
 struct DmpVSvcWrapper : public DmpVSvc, boost::python::wrapper<DmpVSvc>{
@@ -44,16 +46,6 @@ struct DmpVSvcWrapper : public DmpVSvc, boost::python::wrapper<DmpVSvc>{
   }
   bool Finalize(){
     return this->get_override("Finalize")();
-  }
-  void Set(const std::string &type,const std::string &argv){
-    if(boost::python::override Set = this->get_override("Set")(type,argv)){
-      Set(type,argv);
-    }else{
-      DmpVSvc::Set(type,argv);
-    }
-  }
-  void Default_Set(const std::string &type,const std::string &argv){
-    this->DmpVSvc::Set(type,argv);
   }
 };
 
@@ -66,14 +58,14 @@ BOOST_PYTHON_MODULE(libDmpKernel){
   class_<DmpVSvcWrapper,boost::noncopyable>("DmpVSvc",init<std::string>())
     .def("Initialize",  pure_virtual(&DmpVSvc::Initialize))
     .def("Finalize",    pure_virtual(&DmpVSvc::Finalize))
-    .def("Set", &DmpVSvc::Set,  &DmpVSvcWrapper::Default_Set)
+    //.def("Set", &DmpVSvc::Set,  &DmpVSvcWrapper::Default_Set)
   ;
   // DmpVAlg
   class_<DmpVAlgWrapper,boost::noncopyable>("DmpVAlg",init<std::string>())
     .def("Initialize",      pure_virtual(&DmpVAlg::Initialize))
     .def("ProcessThisEvent",pure_virtual(&DmpVAlg::ProcessThisEvent))
     .def("Finalize",        pure_virtual(&DmpVAlg::Finalize))
-    .def("Set", &DmpVAlg::Set,  &DmpVAlgWrapper::Default_Set)
+    //.def("Set", &DmpVAlg::Set,  &DmpVAlgWrapper::Default_Set)
   ;
   // DmpAlgorithmManager
   class_<DmpAlgorithmManager,boost::noncopyable>("DmpAlgorithmManager",no_init)
@@ -96,9 +88,23 @@ BOOST_PYTHON_MODULE(libDmpKernel){
     .def("Initialize",  &DmpCore::Initialize)
     .def("Run",         &DmpCore::Run)
     .def("Finalize",    &DmpCore::Finalize)
-    .def("Set", &DmpCore::Set)
+    .def("LogLevel", &DmpCore::LogLevel)
+    .def("LogHeader", &DmpCore::LogHeader)
+    .def("MaxEventNumber", &DmpCore::MaxEventNumber)
+    .def("StartTime", &DmpCore::StartTime)
+    .def("StopTime", &DmpCore::StopTime)
+    .def("FromEvent", &DmpCore::FromEvent)
     .def("AlgorithmManager",    &DmpCore::AlgorithmManager,return_value_policy<reference_existing_object>())
     .def("ServiceManager",      &DmpCore::ServiceManager,return_value_policy<reference_existing_object>())
+  ;
+  // DmpRootIOSvc
+  class_<DmpRootIOSvc,boost::noncopyable,bases<DmpVSvc> >("DmpRootIOSvc",no_init)
+    .def("InputPath", &DmpRootIOSvc::InputPath)
+    .def("InputFile", &DmpRootIOSvc::InputFile)
+    .def("OutputPath",&DmpRootIOSvc::OutputPath)
+    .def("OutputFile",&DmpRootIOSvc::OutputFile)
+    .def("WriteList", &DmpRootIOSvc::WriteList)
+    .def("SetOutputKey",&DmpRootIOSvc::SetOutputKey)
   ;
 
 }

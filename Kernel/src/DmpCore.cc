@@ -31,12 +31,6 @@ DmpCore::DmpCore()
   fSvcMgr = DmpServiceManager::GetInstance();
   fSvcMgr->Append(DmpRootIOSvc::GetInstance());     // must use GetInstance instead of global variable, since, Mac create global variable later than DmpCore::DmpCore()
   fSvcMgr->Append(DmpDataBuffer::GetInstance());
-  OptMap.insert(std::make_pair("LogLevel",  0));    // value: None, Error, Warning, Info, Debug
-  OptMap.insert(std::make_pair("LogHeader", 1));    // value: On, Off 
-  OptMap.insert(std::make_pair("EventNumber",2));   // value: any number
-  OptMap.insert(std::make_pair("StartTime", 3));    // value: format 20131231-1430
-  OptMap.insert(std::make_pair("StopTime",  4));    // value: format 20131231-1430
-  OptMap.insert(std::make_pair("FromEvent",5));     // value: any number
 }
 
 //-------------------------------------------------------------------
@@ -94,50 +88,21 @@ bool DmpCore::Finalize(){
 }
 
 //-------------------------------------------------------------------
-#include <boost/lexical_cast.hpp>
-void DmpCore::Set(const std::string &type,const std::string &value){
-  if(OptMap.find(type) == OptMap.end()){
-    DmpLogError<<"[DmpCore::Set] No argument type: "<<type<<DmpLogEndl;
-    std::cout<<"\tPossible options are:"<<DmpLogEndl;
-    for(std::map<std::string,short>::iterator anOpt= OptMap.begin();anOpt!=OptMap.end();anOpt++){
-      std::cout<<"\t\t"<<anOpt->first<<DmpLogEndl;
-    }
-    throw;
-  }
-  switch(OptMap[type]){
-    case 0: // LogLevel
-    {
-      DmpLog::SetLogLevel(value);
-      break;
-    }
-    case 1: // LogHeader
-    {
-      DmpLog::SetLogHeader(value);
-      break;
-    }
-    case 2: // EventNumber
-    {
-      fMaxEventNo = boost::lexical_cast<long>(value);
-      break;
-    }
-    case 3: // StartTime
-    {
-      fStartTime = DmpTimeConvertor::Date2Second(value);
-      DmpLogInfo<<"Setting start time:  "<<value<<"\t"<<fStartTime<<DmpLogEndl;
-      break;
-    }
-    case 4: // StopTime
-    {
-      fStopTime = DmpTimeConvertor::Date2Second(value);
-      DmpLogInfo<<"Setting stop time:  "<<value<<"\t"<<fStopTime<<DmpLogEndl;
-      break;
-    }
-    case 5: // FromEvent
-    {
-      FromEvent(boost::lexical_cast<long>(value));
-      break;
-    }
-  }
+void DmpCore::MaxEventNumber(const long &n){
+  fMaxEventNo = n;
+  gRootIOSvc->JobOptionLogger()->SetOption("MaxEventNumber",boost::lexical_cast<std::string>(n));
+}
+
+//-------------------------------------------------------------------
+void DmpCore::StartTime(const std::string &t0){
+  fStartTime = DmpTimeConvertor::Date2Second(t0);
+  gRootIOSvc->JobOptionLogger()->SetOption("StartTime",t0);
+}
+
+//-------------------------------------------------------------------
+void DmpCore::StopTime(const std::string &t1){
+  fStopTime = DmpTimeConvertor::Date2Second(t1);
+  gRootIOSvc->JobOptionLogger()->SetOption("StopTime",t1);
 }
 
 //-------------------------------------------------------------------

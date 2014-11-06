@@ -24,7 +24,6 @@ public:
   virtual bool Initialize()=0;
   virtual bool ProcessThisEvent()=0;
   virtual bool Finalize()=0;
-  virtual void Set(const std::string&,const std::string&){}    // for options, binding me
 
 public:
   const std::string& Name() const {return fName;}

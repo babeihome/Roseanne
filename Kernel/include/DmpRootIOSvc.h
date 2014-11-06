@@ -1,5 +1,5 @@
 /*
- *  $Id: DmpRootIOSvc.h, 2014-07-21 09:38:42 DAMPE $
+ *  $Id: DmpRootIOSvc.h, 2014-11-05 23:07:56 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/05/2014
 */
@@ -10,8 +10,10 @@
 #ifndef __CINT__
 #include <boost/filesystem.hpp>     // path
 #endif
+#include <map>
 #include <vector>
 #include "DmpVSvc.h"
+#include "DmpJobOptLogger.h"
 
 class TFile;
 class TTree;
@@ -31,20 +33,16 @@ public:
     return &instance;
   }
   ~DmpRootIOSvc();
-  void Set(const std::string &option,const std::string &v);
-  /*
-   * Options:
-   *    +--Input
-   *    |  |--Path
-   *    |  `--FileName
-   *    +--Output
-   *    |  |--Path
-   *    |  |--FileName
-   *    |  |--WriteList
-   *    |  `--Key
-   */
   bool Initialize();
   bool Finalize();
+
+public:         // binding functions
+  void InputPath(const std::string &v);
+  void InputFile(const std::string &v);
+  void OutputPath(const std::string &v);
+  void OutputFile(const std::string &v);
+  bool WriteList(const std::string &v);
+  void SetOutputKey(const std::string &v){fOutFileKey = v;}
 
 public:
   bool WriteValid(const std::string &treeName); // in write list, no branch
@@ -70,6 +68,8 @@ public:
   std::string GetInputExtension()const{return fInFileName.extension().string();}
   std::string GetOutputExtension()const{return fOutFileName.extension().string();}
   std::string GetOutFileKey()const{return fOutFileKey;}
+  DmpJobOptLogger *JobOptionLogger()const{return fJobLogger;}
+  DmpJobOptLogger *GetInputFileJobOption()const;
 
 private:
   DmpRootIOSvc();
@@ -91,6 +91,7 @@ typedef std::map<std::string, DmpRootIOTreeMap>  DmpRootIOFolderMap;    // key i
   std::map<std::string,long>    fEntriesOfTree; // entries of each input event tree. key is "Folder/Tree"
   DmpRootIOFolderMap    fInTreeSet;     // input trees
   DmpRootIOFolderMap    fOutTreeSet;    // output trees
+  DmpJobOptLogger       *fJobLogger;    // output job option
 };
 
 //-------------------------------------------------------------------

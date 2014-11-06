@@ -7,7 +7,6 @@
 #ifndef DmpVSvc_H
 #define DmpVSvc_H
 
-#include <map>
 #include <string>
 #include "DmpLog.h"
 
@@ -26,13 +25,7 @@ public:
   virtual bool Finalize()=0;
 
 public:
-  virtual void Set(const std::string&,const std::string&){}    // for global options, binding me
-
-public:
   const std::string& Name() const {return fName;}
-
-protected:
-  std::map<std::string,short>   OptMap; // a map of set options
 
 private:
   std::string   fName;

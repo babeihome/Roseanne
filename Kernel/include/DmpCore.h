@@ -1,11 +1,15 @@
 /*
- *  $Id: DmpCore.h, 2014-06-27 09:56:59 DAMPE $
+ *  $Id: DmpCore.h, 2014-11-05 21:45:14 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 22/04/2014
 */
 
 #ifndef DmpCore_H
 #define DmpCore_H
+
+#ifndef __CINT__
+#include <boost/lexical_cast.hpp>
+#endif
 
 #include "DmpAlgorithmManager.h"
 #include "DmpServiceManager.h"
@@ -29,6 +33,16 @@ public:     // binding functions
   bool Run();                   // run one job
   bool Finalize();              // execute all elements' Finalize() in all *Mgr
 
+public:     // binding functions
+  void LogLevel(const std::string &v)const{DmpLog::SetLogLevel(v);}
+  void LogHeader(const std::string &v)const{DmpLog::SetLogHeader(v);}
+  void MaxEventNumber(const long &n);
+  void StartTime(const std::string &t0);
+  void StopTime(const std::string &t1);
+  void FromEvent(const long &i){fCurrentEventID = i;}
+  DmpAlgorithmManager*  AlgorithmManager() const {return fAlgMgr;}
+  DmpServiceManager*    ServiceManager() const {return fSvcMgr;}
+
 public:
   const long& GetMaxEventNumber() const {return fMaxEventNo;}
   const long& GetCurrentEventID() const {return fCurrentEventID;}
@@ -36,21 +50,6 @@ public:
   const bool& InitializeDone() const {return fInitializeDone;}
   const int&  GetStartTime() const {return fStartTime;}
   const int&  GetStopTime() const {return fStopTime;}
-
-public:
-  void Set(const std::string &type,const std::string &value);
-  /*
-   * Options:
-   *    +--LogLevel
-   *    |--LogHeader
-   *    |--EventNumber
-   *    |--StartTime
-   *    |--StopTime
-   *    `--FromeEvent
-   */
-  void FromEvent(const long &i){fCurrentEventID = i;}
-  DmpAlgorithmManager*  AlgorithmManager() const {return fAlgMgr;}
-  DmpServiceManager*    ServiceManager() const {return fSvcMgr;}
 
 public:
   void TerminateRun()   {fTerminateRun = true;} // call me in algorithms
@@ -69,7 +68,6 @@ private:
 private:
   bool      fInitializeDone;        // default is false
   bool      fTerminateRun;          // concrete algorithm could set this value
-  std::map<std::string,short>    OptMap; // option map
 
 private:
   long      fCurrentEventID;        // the current event ID (processing)
