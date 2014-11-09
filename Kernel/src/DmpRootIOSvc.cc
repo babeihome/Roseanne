@@ -135,6 +135,12 @@ bool DmpRootIOSvc::Finalize(){
   // save trees
   if(fOutRootFile){
     DmpLogInfo<<"+-Writing "<<fOutFileName<<DmpLogEndl;
+    DmpLogInfo<<"| |-JobOption"<<DmpLogEndl;
+    TTree *outputOptTree = new TTree("JobOption","JobOption");
+    outputOptTree->Branch("JobOption","DmpJobOptLogger",&fJobLogger,32000,2);
+    outputOptTree->Fill();
+    outputOptTree->Write();
+    delete outputOptTree;
     for(DmpRootIOFolderMap::iterator aFolderMap=fOutTreeSet.begin();aFolderMap != fOutTreeSet.end();++aFolderMap){
       if(aFolderMap->first != "Event"){
         FillData(aFolderMap->first);
@@ -149,12 +155,6 @@ bool DmpRootIOSvc::Finalize(){
         delete it->second;
       }
     }
-    DmpLogInfo<<"| |-JobOption"<<DmpLogEndl;
-    TTree *outputOptTree = new TTree("JobOption","JobOption");
-    outputOptTree->Branch("JobOption","DmpJobOptLogger",&fJobLogger,32000,2);
-    outputOptTree->Fill();
-    outputOptTree->Write();
-    delete outputOptTree;
     DmpLogInfo<<"`-Done"<<DmpLogEndl;
   }
   // delete root files
