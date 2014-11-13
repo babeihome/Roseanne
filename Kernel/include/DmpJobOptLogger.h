@@ -23,7 +23,7 @@ public:
   void LoadFrom(DmpJobOptLogger *r);
 
 public:
-  void PrintJobTime(const short &l=0)const;     // dd-mm-yy
+  std::string PrintJobTime(const short &l=0)const;     // dd-mm-yy
   long JobTime()const{return Time;}
   short OptionSize()const{return CmdList.size();}
   void ListOptions()const;

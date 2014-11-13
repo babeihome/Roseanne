@@ -39,10 +39,11 @@ void DmpJobOptLogger::LoadFrom(DmpJobOptLogger *r){
 }
 
 //-------------------------------------------------------------------
-void DmpJobOptLogger::PrintJobTime(const short &level)const{
+std::string DmpJobOptLogger::PrintJobTime(const short &level)const{
 // *
 // *  TODO: 
 // *
+  return DmpTimeConvertor::Second2Date(Time);
   DmpLogCout<<"Time: "<<Time<<"\t"<<DmpTimeConvertor::Second2Date(Time)<<DmpLogEndl;
 }
 
