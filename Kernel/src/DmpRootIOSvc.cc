@@ -44,7 +44,7 @@ void DmpRootIOSvc::InputPath(const std::string &argv){
 void DmpRootIOSvc::InputFile(const std::string &v){
   boost::filesystem::path temp(v);
   fInFileName = temp.filename().string();
-  if((temp.parent_path().string()!="") && (fInPath=="./")){
+  if(temp.parent_path().string()!=""){
     fInPath = temp.parent_path().string()+"/";
   }
   fJobLogger->SetOption("IO/Input/File",v);

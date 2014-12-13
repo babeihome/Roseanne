@@ -17,6 +17,7 @@ env = Environment(ENV = os.environ)
 env.ParseConfig("root-config --cflags --libs")
 includeDir="./include"
 env.Prepend(CPPPATH=[includeDir])
+env.Prepend(CPPPATH=['../BaseLib/include'])
 
 # install share
 #--------------------------------------------------------------------
