@@ -1,5 +1,5 @@
 /*
- *  $Id: DmpTimeConvertor.h, 2014-10-27 19:39:09 DAMPE $
+ *  $Id: DmpTimeConvertor.cc, 2014-12-14 08:22:11 DAMPE $
  *  Author(s):
  *    Zhiyong ZHANG (zhzhy@mail.ustc.edu.cn) 27/10/2014
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 28/10/2014
@@ -9,54 +9,31 @@
 #include <stdio.h>
 #include <sstream>
 #include "DmpTimeConvertor.h"
+
 namespace DmpTimeConvertor{
 
+//-------------------------------------------------------------------
 std::string Second2Date(const int &second){
-//  struct tm DatT0={0,0,0,1,0,113,1,0,-1};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900),wday(0-6),yday(0-365),isdst(+,0,-)}
   //conminder time zone
-  struct tm DatT0={0,0,0,1,0,113,1,0,-1};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900),wday(0-6),yday(0-365),isdst(+,0,-)}
-  time_t Astime0=mktime(&DatT0);
-  time_t Astime1=Astime0+second;
-  time_t localtime;
-  time_t timediff;
-  struct tm *DatT=gmtime(&Astime1);
-  time(&localtime);
-  timediff=Astime1-localtime;
-//  std::cout<<"timediff:"<<timediff<<std::endl;
-  int hourdiff=(int)(((double)timediff)/3600.);
-//  std::cout<<"hourdiff:"<<hourdiff<<std::endl;
-  int year=DatT->tm_year+1900;
-  int month=DatT->tm_mon+1;
-  int day=DatT->tm_mday;
-  int hour=(DatT->tm_hour-hourdiff)%24;
-  int min=DatT->tm_min;
-  int sec=DatT->tm_sec;
-  //char* date=(char*)malloc(30);
-  char date[50];
-//  char* date=new char[30];
-  snprintf(date,50,"%d-%02d-%02d %02d:%02d:%02d",year,month,day,hour,min,sec);
-  return (std::string)date;
+  struct tm t0= {0,0,0,1,1-1,1970-1900};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900)}
+  struct tm launchTime= {0,0,0,1,1-1,2013-1900};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900)}
+  time_t mytime = (int)difftime(mktime(&launchTime),mktime(&t0))+second;
+  char tmp[256];
+  strftime(tmp,256,"%F %T",gmtime(&mytime));
+  return (std::string)tmp;
 }
 
+//-------------------------------------------------------------------
 int Date2Second(const std::string &date){
-  struct tm DatT;
 //time YYYY-MM-DD HH:MM:SS
   std::string tmp = date.substr(0,4)+" "+date.substr(5,2)+" "+date.substr(8,2)+" "+date.substr(11,2)+" "+date.substr(14,2)+" "+date.substr(17,2);
   std::istringstream iss(tmp);
   int year,month,day,hour,min,sec;
   iss>>year>>month>>day>>hour>>min>>sec;
-  DatT.tm_year=year-1900;
-  DatT.tm_mon=month-1;
-  DatT.tm_mday=day;
-  DatT.tm_hour=hour;
-  DatT.tm_min=min;
-  DatT.tm_sec=sec;
-  time_t Astime1=mktime(&DatT);
-  struct tm DatT0={0,0,0,1,0,113,1,0,-1};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900),wday(0-6),yday(0-365),isdst(+,0,-)}
-  time_t Astime0=mktime(&DatT0);
-  int Astime=(int)difftime(Astime1,Astime0);
+  struct tm mytime={sec,min,hour,day,month-1,year-1900};
+  struct tm launchTime= {0,0,0,1,1-1,2013-1900};//{sec,min,hour,mday(1-31),mon(0-11),year(real-1900)}
 
-  return Astime;
+  return (int)difftime(mktime(&mytime),mktime(&launchTime));
 }
 
 }
