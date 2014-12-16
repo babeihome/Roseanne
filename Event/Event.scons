@@ -1,5 +1,5 @@
 '''
- *  $Id: Event.scons, 2014-08-08 11:29:22 DAMPE $
+ *  $Id: Event.scons, 2014-12-16 10:05:56 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 24/07/2013
 '''
@@ -17,6 +17,7 @@ env = Environment(ENV = os.environ)
 env.ParseConfig("root-config --cflags --libs")
 includeDir="./include"
 env.Prepend(CPPPATH=[includeDir])
+#env.Prepend(CPPPATH=['../Kernel/include'])
 env.Prepend(CPPPATH=['../BaseLib/include'])
 
 # install share

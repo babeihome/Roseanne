@@ -10,8 +10,19 @@
 #pragma link off all classes;
 #pragma link off all functions;
 #pragma link off all namespaces;
+#pragma link C++ nestedtypedef;
 
+#pragma link C++ namespace DmpEDetectorID;
 #pragma link C++ class DmpEvtBgoHits+;
+#pragma link C++ class DmpEvtAMSCluster+;
+#pragma link C++ class DmpEvtBTAnc+;
+#pragma link C++ class DmpEvtHeader+;
+#pragma link C++ class DmpFeeNavig+;
+#pragma link C++ class DmpEvtBgoRaw+;
+#pragma link C++ typedef DmpEvtPsdRaw;
+#pragma link C++ class DmpEvtNudRaw+;
+#pragma link C++ class DmpEvtStkRaw+;
+
 // common
 /*
 #pragma link C++ class DmpEvtHeader+;
