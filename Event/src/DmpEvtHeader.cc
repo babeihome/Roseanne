@@ -10,7 +10,7 @@
 ClassImp(DmpEvtHeader)
 
 //-------------------------------------------------------------------
-DmpEvtHeader::DmpEvtHeader():fSecond(0),fMillisecond(0){
+DmpEvtHeader::DmpEvtHeader(){
   Reset();
 }
 

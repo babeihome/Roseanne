@@ -62,7 +62,6 @@ DmpERunMode::Type DmpEvtBgoRaw::GetRunMode(const short &index)const{
 //-------------------------------------------------------------------
 bool DmpEvtBgoRaw::TriggersMatch()const{
   bool tmp = true;
-  if(fFeeNavig.size() == 0) return true;
   short trig = fFeeNavig.at(0).GetTrigger();
   for(size_t i=1;i<fFeeNavig.size();++i){
     if(trig != fFeeNavig.at(i).GetTrigger()){
@@ -76,7 +75,6 @@ bool DmpEvtBgoRaw::TriggersMatch()const{
 //-------------------------------------------------------------------
 short DmpEvtBgoRaw::GetTrigger(const short &index)const{
   short trig = -1;
-  if(fFeeNavig.size() == 0) return trig;
   if(index == 99){  // check all Fee
     if(TriggersMatch()){
       trig = fFeeNavig.at(0).GetTrigger();
