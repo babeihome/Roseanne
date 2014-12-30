@@ -15,6 +15,7 @@
 #pragma link C++ namespace DmpEDetectorID;
 #pragma link C++ class DmpEvtBgoHits+;
 #pragma link C++ typedef DmpEvtPsdHits;
+#pragma link C++ class DmpEvtNudHits+;
 #pragma link C++ class Cluster+;
 #pragma link C++ class RHClass+;
 #pragma link C++ class Event+;
@@ -25,6 +26,7 @@
 #pragma link C++ typedef DmpEvtPsdRaw;
 #pragma link C++ class DmpEvtNudRaw+;
 #pragma link C++ class DmpEvtStkRaw+;
+#pragma link C++ class DmpEvtRec0+;
 
 // common
 /*
