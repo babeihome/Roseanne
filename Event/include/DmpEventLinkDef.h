@@ -26,7 +26,7 @@
 #pragma link C++ typedef DmpEvtPsdRaw;
 #pragma link C++ class DmpEvtNudRaw+;
 #pragma link C++ class DmpEvtStkRaw+;
-#pragma link C++ class DmpEvtRec0+;
+//#pragma link C++ class DmpEvtRec0+;
 
 // common
 /*
