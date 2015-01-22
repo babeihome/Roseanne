@@ -34,10 +34,10 @@ DmpEvtHeader& DmpEvtHeader::operator=(const DmpEvtHeader &r){
 
 //-------------------------------------------------------------------
 void DmpEvtHeader::Reset(){
-  fTrigger = 0x0000;
-  fDeltaTime = 0.0;
-  //fSecond = 0;    // no NOT reset second and millisecond, they will be used in next event
-  //fMillisecond = 0;
+  fTrigger = -9;
+  fDeltaTime = -9;
+  fSecond = -9;
+  fMillisecond = -9;
   fTriggerStatus.reset();
   fPsdStatus.reset();
   fStkStatus.reset();
@@ -71,8 +71,11 @@ bool DmpEvtHeader::IsGoodEvent(const short &id)const{
     v = (fBgoStatus.count()==1 && fBgoStatus.test(6))?true:false;
   }else if(id == DmpEDetectorID::kNud){
     v = (fNudStatus.count()==1 && fNudStatus.test(6))?true:false;
-  }else if(id < 0){
+  }else if(id == -1){
     v = (IsGoodEvent(DmpEDetectorID::kPsd) && IsGoodEvent(DmpEDetectorID::kStk) && IsGoodEvent(DmpEDetectorID::kBgo) && (IsGoodEvent(DmpEDetectorID::kNud)));
+  }else{
+    std::cout<<"WARNING:  parameter range: 0 ~ 3"<<std::endl;
+    v = false;
   }
   return v;
 }
@@ -89,7 +92,7 @@ bool DmpEvtHeader::IsFakeData(const short &id)const{
   }else if(id == DmpEDetectorID::kNud){
     v = fNudStatus[6];
   }else{
-    throw;
+    std::cout<<"WARNING:  parameter range: 0 ~ 3"<<std::endl;
   }
   return v;
 }
@@ -108,7 +111,8 @@ bool DmpEvtHeader::TriggersMatch(const short &id)const{
   }else if(-1 == id){
     v = not (fPsdStatus[1] || fBgoStatus[1] || fNudStatus[1] || fStkStatus[1]);
   }else{
-    throw;
+    std::cout<<"WARNING:  parameter range: 0 ~ 3"<<std::endl;
+    v = false;
   }
   return v;
 }
@@ -130,6 +134,24 @@ short DmpEvtHeader::ChoosedTriggerType(const short &group_id)const{
   return id;
 }
 
+/*
+DmpSubDetStatus DmpEvtHeader::GetSubDetectorStatus(const short &id)const
+{
+  DmpSubDetStatus v;
+  if(id == DmpEDetectorID::kPsd){
+    v = fPsdStatus;
+  }else if(id == DmpEDetectorID::kStk){
+    v = fStkStatus;
+  }else if(id == DmpEDetectorID::kBgo){
+    v = fBgoStatus;
+  }else if(id == DmpEDetectorID::kNud){
+    v = fNudStatus;
+  }else{
+    std::cout<<"WARNING:  parameter range: 0 ~ 3"<<std::endl;
+  }
+  return v;
+}
+*/
 //-------------------------------------------------------------------
 void DmpEvtHeader::SetTriggerChoose(const unsigned short &choosing){
   std::bitset<16> tmp = choosing;
@@ -163,7 +185,7 @@ void DmpEvtHeader::SetTriggerEnable(const unsigned char &e){
 //-------------------------------------------------------------------
 void DmpEvtHeader::SetDeltaTime(const float &v){
   if(fTmpDeltaTime > 6){
-    fDeltaTime = (fTmpDeltaTime>999999)?-1:(fTmpDeltaTime/6)*6+v;
+    fDeltaTime = (fTmpDeltaTime>999999)?999:(fTmpDeltaTime/6)*6+v;
   }else{
     fDeltaTime = v;
   }
@@ -171,9 +193,27 @@ void DmpEvtHeader::SetDeltaTime(const float &v){
 
 //-------------------------------------------------------------------
 void DmpEvtHeader::SetTime(const int &s,const short &ms){
-  fTmpDeltaTime = (s-fSecond)*1000 + ms - fMillisecond;
+  static int last_s = 0, last_ms = 0;
   fSecond = s;
   fMillisecond = ms;
+  fTmpDeltaTime = (fSecond-last_s)*1000 + fMillisecond - last_ms;
+  last_s = fSecond;
+  last_ms = fMillisecond;
+}
+
+//-------------------------------------------------------------------
+void DmpEvtHeader::SetTime(const int &s,const short &ms,const float &v){
+  static int last_s = 0, last_ms = 0;
+  fSecond = s;
+  fMillisecond = ms;
+  int deltaTime = (fSecond-last_s)*1000 + fMillisecond - last_ms;
+  if(deltaTime > 6){
+    fDeltaTime = (deltaTime>999999)?-99:(deltaTime/6)*6+v;
+  }else{
+    fDeltaTime = v;
+  }
+  last_s = fSecond;
+  last_ms = fMillisecond;
 }
 
 //-------------------------------------------------------------------
@@ -187,6 +227,7 @@ void DmpEvtHeader::SetTag(const short &id,TagType tagType){
   }else if(id == DmpEDetectorID::kNud){
     fNudStatus.set(tagType);
   }else{
+    std::cout<<"WARNING:  parameter range: 0 ~ 3"<<std::endl;
     throw;
   }
 }

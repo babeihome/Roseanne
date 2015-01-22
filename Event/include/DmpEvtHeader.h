@@ -10,6 +10,7 @@
 #include "TObject.h"
 #include <bitset>
 
+
 class DmpEvtHeader : public TObject{
 /*
  * DmpEvtHeader
@@ -92,6 +93,8 @@ public: // Get functions
   bool EnabledExternalTrigger()const{return fTriggerStatus[6];}
   bool EnabledPeriodTrigger()const{return fTriggerStatus[5];}
   bool EnabledTrigger(const short &group_id)const;
+  //DmpTriggerStatus GetTriggerStatus()const{return fTrigger;}
+  //DmpSubDetStatus GetSubDetectorStatus(const short &SubDetectorID)const;
 
 public: // Set functions
   void SetTriggerSumCheckError(){fTriggerStatus.set(30);}
@@ -101,6 +104,7 @@ public: // Set functions
   void SetTrigger(const short &v){fTrigger = v;}
   void SetDeltaTime(const float &v);
   void SetTime(const int &s,const short &ms);
+  void SetTime(const int &s,const short &ms, const float &del); // next version, use this one, delete fTmpDeltaTime
   void SetTag(const short &detectorID,TagType tagType);
 
 private:
