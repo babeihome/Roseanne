@@ -76,22 +76,22 @@ public:
   void LoadFrom(DmpEvtHeader *r);
 
 public: // Get functions
-  bool IsGoodEvent(const short &id=99)const;
+  bool IsGoodEvent(const short &SubDetectorID=-1)const;
   short GetTrigger()const{return fTrigger;} // ONLY trigger of trigger system
   const float &GetDeltaTime()const{return fDeltaTime;}
   const int &GetSecond()const{return fSecond;}
   const short &GetMillisecond()const{return fMillisecond;}
-  bool IsFakeData(const short &id)const;
+  bool IsFakeData(const short &SubDetectorID)const;
   bool TriggerDataCheckRight()const{return (not fTriggerStatus[30]);}
-  bool TriggersMatch(const short &id=99)const;  // if the argument is sub-det id, just check triggers of all fee of this sub-det
+  bool TriggersMatch(const short &SubDetectorID=-1)const;  // if the argument is sub-det id, just check triggers of all fee of this sub-det
   bool TriggerValid()const {return (TriggerDataCheckRight()&&TriggersMatch());}
-  short ChoosedTriggerType(const short &class_id)const; // class_id = 4~0
-  bool InjectedExternalTrigger()const{return fTriggerStatus[14];}
+  short ChoosedTriggerType(const short &group_id)const; // group_id = 4~0
+  bool InputAnExternalTrigger()const{return fTriggerStatus[14];}
   bool GeneratedPeriodTrigger()const{return fTriggerStatus[13];}
-  bool GeneratedTrigger(const short &class_id)const;
+  bool GeneratedTrigger(const short &group_id)const;
   bool EnabledExternalTrigger()const{return fTriggerStatus[6];}
   bool EnabledPeriodTrigger()const{return fTriggerStatus[5];}
-  bool EnabledTrigger(const short &class_id)const;
+  bool EnabledTrigger(const short &group_id)const;
 
 public: // Set functions
   void SetTriggerSumCheckError(){fTriggerStatus.set(30);}

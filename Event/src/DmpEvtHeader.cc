@@ -43,6 +43,7 @@ void DmpEvtHeader::Reset(){
   fStkStatus.reset();
   fBgoStatus.reset();
   fNudStatus.reset();
+  fTmpDeltaTime = 0.0;
 }
 
 //-------------------------------------------------------------------
@@ -70,7 +71,7 @@ bool DmpEvtHeader::IsGoodEvent(const short &id)const{
     v = (fBgoStatus.count()==1 && fBgoStatus.test(6))?true:false;
   }else if(id == DmpEDetectorID::kNud){
     v = (fNudStatus.count()==1 && fNudStatus.test(6))?true:false;
-  }else if(id == 99){
+  }else if(id < 0){
     v = (IsGoodEvent(DmpEDetectorID::kPsd) && IsGoodEvent(DmpEDetectorID::kStk) && IsGoodEvent(DmpEDetectorID::kBgo) && (IsGoodEvent(DmpEDetectorID::kNud)));
   }
   return v;
@@ -104,7 +105,7 @@ bool DmpEvtHeader::TriggersMatch(const short &id)const{
     v = not fBgoStatus[0];
   }else if(id == DmpEDetectorID::kNud){
     v = not fNudStatus[0];
-  }else if(99 == id){
+  }else if(-1 == id){
     v = not (fPsdStatus[1] || fBgoStatus[1] || fNudStatus[1] || fStkStatus[1]);
   }else{
     throw;
@@ -113,17 +114,17 @@ bool DmpEvtHeader::TriggersMatch(const short &id)const{
 }
 
 //-------------------------------------------------------------------
-short DmpEvtHeader::ChoosedTriggerType(const short &class_id)const{
+short DmpEvtHeader::ChoosedTriggerType(const short &group_id)const{
   short id = -1;
-  if(4 == class_id){
+  if(4 == group_id){
     id = (fTriggerStatus.to_ulong()>>27) & 0x07;
-  }else if(3 == class_id){
+  }else if(3 == group_id){
     id = (fTriggerStatus.to_ulong()>>22) & 0x1f;
-  }else if(2 == class_id){
+  }else if(2 == group_id){
     id = (fTriggerStatus.to_ulong()>>20) & 0x03;
-  }else if(1 == class_id){
+  }else if(1 == group_id){
     id = (fTriggerStatus.to_ulong()>>18) & 0x03;
-  }else if(0 == class_id){
+  }else if(0 == group_id){
     id = (fTriggerStatus.to_ulong()>>16) & 0x03;
   }
   return id;
@@ -190,20 +191,20 @@ void DmpEvtHeader::SetTag(const short &id,TagType tagType){
   }
 }
 
-bool DmpEvtHeader::GeneratedTrigger(const short &class_id)const
+bool DmpEvtHeader::GeneratedTrigger(const short &group_id)const
 {
-  if(class_id >4){
+  if(group_id >4){
     std::cout<<"WARNING:  parameter range: 0 ~ 4"<<std::endl;
     return false;
   }
-  return fTriggerStatus[8+class_id];
+  return fTriggerStatus[8+group_id];
 } 
 
-bool DmpEvtHeader::EnabledTrigger(const short &class_id)const
+bool DmpEvtHeader::EnabledTrigger(const short &group_id)const
 {
-  if(class_id >4){
+  if(group_id >4){
     std::cout<<"WARNING:  parameter range: 0 ~ 4"<<std::endl;
     return false;
   }
-  return fTriggerStatus[class_id];
+  return fTriggerStatus[group_id];
 }
