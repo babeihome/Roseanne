@@ -4,6 +4,7 @@
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 09/10/2014
 */
 
+#include <iostream>
 #include "DmpEDetectorID.h"
 #include "DmpEvtHeader.h"
 
@@ -189,4 +190,20 @@ void DmpEvtHeader::SetTag(const short &id,TagType tagType){
   }
 }
 
+bool DmpEvtHeader::GeneratedTrigger(const short &class_id)const
+{
+  if(class_id >4){
+    std::cout<<"WARNING:  parameter range: 0 ~ 4"<<std::endl;
+    return false;
+  }
+  return fTriggerStatus[8+class_id];
+} 
 
+bool DmpEvtHeader::EnabledTrigger(const short &class_id)const
+{
+  if(class_id >4){
+    std::cout<<"WARNING:  parameter range: 0 ~ 4"<<std::endl;
+    return false;
+  }
+  return fTriggerStatus[class_id];
+}

@@ -88,10 +88,10 @@ public: // Get functions
   short ChoosedTriggerType(const short &class_id)const; // class_id = 4~0
   bool InjectedExternalTrigger()const{return fTriggerStatus[14];}
   bool GeneratedPeriodTrigger()const{return fTriggerStatus[13];}
-  bool GeneratedTrigger(const short &class_id)const{return fTriggerStatus[8+class_id];}
+  bool GeneratedTrigger(const short &class_id)const;
   bool EnabledExternalTrigger()const{return fTriggerStatus[6];}
   bool EnabledPeriodTrigger()const{return fTriggerStatus[5];}
-  bool EnabledTrigger(const short &class_id)const{return fTriggerStatus[class_id];}
+  bool EnabledTrigger(const short &class_id)const;
 
 public: // Set functions
   void SetTriggerSumCheckError(){fTriggerStatus.set(30);}
