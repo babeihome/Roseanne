@@ -65,7 +65,6 @@ public:
   ClassDef(DmpEvtBgoCluster,1)
 };
 
-class TH2D;
 class DmpEvtBgoShower : public TObject
 {
 public:

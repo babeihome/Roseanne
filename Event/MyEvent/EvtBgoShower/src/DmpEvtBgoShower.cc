@@ -506,18 +506,19 @@ void DmpEvtBgoShower::Calculation()
 //-------------------------------------------------------------------
 void DmpEvtBgoShower::MyPrint(bool allInfor)const
 {
-  std::cout<<"(Energy, nClusters, Max_E_L, fLRMS)\t"<<fTotE<<"\t"<<fClusters->GetEntriesFast()<<"\t"<<GetMaxEnergyLayerID()<<"\t"<<fLRMS<<std::endl;
-  std::cout<<"XZ fit parameters (Pa0,P1,P0_E,P1_E,Chi2):";
+  std::cout<<"===> Energy, nClusters, Max_E_L, fLRMS:\t"<<fTotE<<"\t"<<fClusters->GetEntriesFast()<<"\t"<<GetMaxEnergyLayerID()<<"\t"<<fLRMS<<std::endl;
+  std::cout<<"===> Linear fit parameters (Pa0,P1,P0_E,P1_E,Chi2):\n\tXZ:\t";
   for(int i=0;i<5;++i){
     std::cout<<"\t"<<fXZFitPar[i];
   }
-  std::cout<<"\nYZ fit parameters (Pa0,P1,P0_E,P1_E,Chi2):";
+  std::cout<<"\n\tYZ:\t";
   for(int i=0;i<5;++i){
     std::cout<<"\t"<<fYZFitPar[i];
   }
   std::cout<<std::endl;
-  for(int i=0;i<BGO_LayerNO;++i){
-    std::cout<<"(RMS,FValue):   "<<fRMS[i]<<"\t"<<fFValue[i]<<std::endl;
+  std::cout<<"===> RMS and FValue:  X\t\t\tY"<<std::endl;
+  for(int i=0;i<BGO_LayerNO/2;++i){
+    std::cout<<"\t"<<fRMS[i*2+1]<<", "<<fFValue[i*2+1]<<"\t"<<fRMS[i*2]<<", "<<fFValue[i*2]<<std::endl;
   }
   if(allInfor){
     for(short i=0;i<fClusters->GetEntriesFast();++i){
