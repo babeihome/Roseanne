@@ -126,13 +126,6 @@ short DmpEvtBgoHits::FiredBarNumber(const short &lid)const{
 }
 
 //-------------------------------------------------------------------
-short DmpEvtBgoHits::SeedAddress(const short &lid)const{
-  std::vector<double> e_b = EnergyArray(lid);
-  std::vector<double>::iterator it_max = std::max_element(e_b.begin(),e_b.end());
-  return std::distance(e_b.begin(),it_max);
-}
-
-//-------------------------------------------------------------------
 double DmpEvtBgoHits::CentroidAddress(const short &lid)const{
   std::vector<double> e_b=EnergyArray(lid);
   double centroid = 0.;
@@ -215,12 +208,6 @@ std::vector<double>  DmpEvtBgoHits::EnergyArray(const short &lid)const{
     }
   }
   return e_b;
-}
-
-//-------------------------------------------------------------------
-double DmpEvtBgoHits::SeedSignal(const short &layerid)const{
-   std::vector<double> v = EnergyArray(layerid);
-   return v[SeedAddress(layerid)];
 }
 
 
