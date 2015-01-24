@@ -73,6 +73,8 @@ public:
 
   void Reset();
   void LoadFrom(const DmpEvtBgoShower *&r);
+  void MyPrint(bool allInformation = true)const;
+
   DmpEvtBgoCluster* GetSeedCluster()const;
   double GetTotalEnergy(int layerID = -1)const;
   double GetEnergyOfBar(int layerID, int barID)const;
@@ -82,7 +84,6 @@ public:
   double GetWindowEnergy(int nBars=3,int nHalf=1)const;  //nHalf: include how may layers above(below) seed layer. Totally: 2*nHalf + 1 layers
   int GetFiredBarNumber()const;
 
-  DmpEvtBgoCluster* AddNewCluster(DmpBgoFiredBar *seedBar);
   std::vector<DmpEvtBgoCluster*> GetAllClusterInLayer(int layerID)const;
   double GetCoGBarIDInLayer(int layerID)const;
   Position GetCoGPositionInLayer(int layerID)const;
@@ -92,8 +93,10 @@ public:
   double GetNormalizedRMS(int layerID)const;
   Position GetEntryPoint()const;
   Direction GetTrackDirection()const;
+
+public:
+  DmpEvtBgoCluster* AddNewCluster(DmpBgoFiredBar *seedBar);
   void Calculation();   // fTotE, Direction fit parameters
-  void MyPrint(bool allInformation = true)const;
 
 public:
   double        fTotE;          // total energy. MeV
