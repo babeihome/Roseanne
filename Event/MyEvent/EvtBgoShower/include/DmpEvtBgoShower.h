@@ -76,12 +76,13 @@ public:
   void MyPrint(bool allInformation = true)const;
 
   DmpEvtBgoCluster* GetSeedCluster()const;
-  double GetTotalEnergy(int layerID = -1)const;
-  int  GetMaxEnergyLayerID()const;
   Position GetEntryPoint()const;
   Direction GetTrackDirection()const;
+  double GetTotalEnergy(int layerID = -1)const;
+  int  GetMaxEnergyLayerID()const;
   double GetTotalRMS()const;
   double GetPileupRatio()const;     // (-1,0): some layer not fired. 0: one track. > 1: multi-track
+  int GetFiredBarNumber()const;
 
   double GetEnergyOfBar(int layerID, int barID)const;
   DmpEvtBgoCluster *GetMaxClusterInLayer(int layerID)const;
@@ -97,7 +98,6 @@ public:
   double GetRMSOfEMaxLayer()const;
   double GetRFRatioOfEMaxLayer()const;
 
-  int GetFiredBarNumber()const;
   std::vector<DmpEvtBgoCluster*> GetAllClusterInLayer(int layerID)const;
 
 public:
