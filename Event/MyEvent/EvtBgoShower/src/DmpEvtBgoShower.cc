@@ -312,6 +312,12 @@ double DmpEvtBgoShower::GetEnergyOfEMaxLayer()const
 }
 
 //-------------------------------------------------------------------
+double DmpEvtBgoShower::GetEnergyRatioOfEMaxLayer()const
+{
+  return this->GetEnergyOfEMaxLayer() / fTotE;
+}
+
+//-------------------------------------------------------------------
 DmpEvtBgoCluster* DmpEvtBgoShower::GetMaxClusterInLayer(int l)const
 {
   DmpEvtBgoCluster *cc = 0;
@@ -341,6 +347,12 @@ double DmpEvtBgoShower::GetWindowEnergy(int nBars,int nHalf)const
     aClu = this->GetMaxClusterInLayer(lid+(i+1));   if(aClu){TE += aClu->GetWindowEnergy(nBars);}
   }
   return TE;
+}
+
+//-------------------------------------------------------------------
+double DmpEvtBgoShower::GetWindowEnergyRatio(int nBars,int nHalf)const
+{
+  return this->GetWindowEnergy(nBars,nHalf) / fTotE;
 }
 
 int DmpEvtBgoShower::GetFiredBarNumber()const
@@ -558,5 +570,10 @@ double DmpEvtBgoShower::GetRFRatioOfEMaxLayer()const
   return this->GetRFRatio(this->GetMaxEnergyLayerID());
 }
 
+//-------------------------------------------------------------------
+double DmpEvtBgoShower::GetRMSOfEMaxLayer()const
+{
+  return this->fRMS[this->GetMaxEnergyLayerID()];
+}
 
 
