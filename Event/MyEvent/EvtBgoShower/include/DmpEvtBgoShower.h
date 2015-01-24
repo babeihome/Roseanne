@@ -77,22 +77,23 @@ public:
 
   DmpEvtBgoCluster* GetSeedCluster()const;
   double GetTotalEnergy(int layerID = -1)const;
-  double GetEnergyOfBar(int layerID, int barID)const;
   int  GetMaxEnergyLayerID()const;
   double GetEnergyOfEMaxLayer()const;
-  DmpEvtBgoCluster *GetMaxClusterInLayer(int layerID)const;
-  double GetWindowEnergy(int nBars=3,int nHalf=1)const;  //nHalf: include how may layers above(below) seed layer. Totally: 2*nHalf + 1 layers
-  int GetFiredBarNumber()const;
-
-  std::vector<DmpEvtBgoCluster*> GetAllClusterInLayer(int layerID)const;
-  double GetCoGBarIDInLayer(int layerID)const;
-  Position GetCoGPositionInLayer(int layerID)const;
-  double GetPileupRatio()const;     // (-1,0): some layer not fired. 0: one track. > 1: multi-track
-  double GetRFRatio(int layerID)const;  // NOTE:   fRMS[layerID] / fFValue[layerID].consist of information of total energy, energy in layerID and RMS2 in this layer
-  double GetTotalRMS()const;
-  double GetNormalizedRMS(int layerID)const;
   Position GetEntryPoint()const;
   Direction GetTrackDirection()const;
+  double GetTotalRMS()const;
+  double GetPileupRatio()const;     // (-1,0): some layer not fired. 0: one track. > 1: multi-track
+  double GetWindowEnergy(int nBars=3,int nHalf=1)const;  //nHalf: include how may layers above(below) seed layer. Totally: 2*nHalf + 1 layers
+  double GetEnergyOfBar(int layerID, int barID)const;
+  DmpEvtBgoCluster *GetMaxClusterInLayer(int layerID)const;
+  double GetCoGBarIDInLayer(int layerID)const;
+  Position GetCoGPositionInLayer(int layerID)const;
+  double GetNormalizedRMS(int layerID)const;
+  double GetRFRatio(int layerID)const;  // NOTE:   fRMS[layerID] / fFValue[layerID].consist of information of total energy, energy in layerID and RMS2 in this layer
+  double GetRFRatioOfEMaxLayer()const;
+
+  int GetFiredBarNumber()const;
+  std::vector<DmpEvtBgoCluster*> GetAllClusterInLayer(int layerID)const;
 
 public:
   DmpEvtBgoCluster* AddNewCluster(DmpBgoFiredBar *seedBar);

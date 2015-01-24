@@ -552,3 +552,11 @@ void DmpEvtBgoShower::MyPrint(bool allInfor)const
   }
 }
 
+//-------------------------------------------------------------------
+double DmpEvtBgoShower::GetRFRatioOfEMaxLayer()const
+{
+  return this->GetRFRatio(this->GetMaxEnergyLayerID());
+}
+
+
+
