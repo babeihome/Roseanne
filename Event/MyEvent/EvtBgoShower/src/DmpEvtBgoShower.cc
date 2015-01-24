@@ -306,6 +306,12 @@ int DmpEvtBgoShower::GetMaxEnergyLayerID()const
 }
 
 //-------------------------------------------------------------------
+double DmpEvtBgoShower::GetEnergyOfEMaxLayer()const
+{
+  return this->GetTotalEnergy(this->GetMaxEnergyLayerID());
+}
+
+//-------------------------------------------------------------------
 DmpEvtBgoCluster* DmpEvtBgoShower::GetMaxClusterInLayer(int l)const
 {
   DmpEvtBgoCluster *cc = 0;
@@ -403,6 +409,25 @@ Position DmpEvtBgoShower::GetCoGPositionInLayer(int l)const
 double DmpEvtBgoShower::GetPileupRatio()const
 {
   return (fClusters->GetEntriesFast() / (double)BGO_LayerNO - 1);
+}
+
+double DmpEvtBgoShower::GetRFRatio(int layerID)const
+{
+  return fRMS[layerID] / fFValue[layerID];
+}
+
+double DmpEvtBgoShower::GetTotalRMS()const
+{
+  double v = 0.;
+  for(int i=0;i<BGO_LayerNO;++i){
+    v += fRMS[i];
+  }
+  return v;
+}
+
+double DmpEvtBgoShower::GetNormalizedRMS(int layerID)const
+{
+  return fRMS[layerID]/this->GetTotalRMS();
 }
 
 #define Z0 58.5         // first layer z
