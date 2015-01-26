@@ -155,7 +155,7 @@ double DmpEvtBgoCluster::GetWindowEnergy(int len)const
   int n = fFiredBar->GetEntriesFast();
   for(int i=0;i<n;++i){
     DmpBgoFiredBar *aB = dynamic_cast<DmpBgoFiredBar*>(fFiredBar->At(i));
-    if((aB->fBar - fSeedBarID)<len){
+    if(abs(aB->fBar - fSeedBarID)<len){
       e += aB->fE;
     }
   }
@@ -576,4 +576,5 @@ double DmpEvtBgoShower::GetRMSOfEMaxLayer()const
   return this->fRMS[this->GetMaxEnergyLayerID()];
 }
 
+double 
 

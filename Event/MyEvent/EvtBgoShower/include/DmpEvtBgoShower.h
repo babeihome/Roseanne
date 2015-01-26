@@ -97,6 +97,9 @@ public:
   double GetWindowEnergyRatio(int nBars=3,int nHalf = 1)const;
   double GetRMSOfEMaxLayer()const;
   double GetRFRatioOfEMaxLayer()const;
+  double GetMaxRFRatio()const;
+  int GetLayerIDOfMaxRFRatio()const;
+  double GetMyValue()const;
 
   std::vector<DmpEvtBgoCluster*> GetAllClusterInLayer(int layerID)const;
 
