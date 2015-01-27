@@ -11,6 +11,7 @@
 #include <iostream>
 #include "TH2D.h"
 #include "TF1.h"
+#include "TMath.h"
 #include "DmpEvtBgoShower.h"
 
 ClassImp(DmpBgoFiredBar)
@@ -155,7 +156,7 @@ double DmpEvtBgoCluster::GetWindowEnergy(int len)const
   int n = fFiredBar->GetEntriesFast();
   for(int i=0;i<n;++i){
     DmpBgoFiredBar *aB = dynamic_cast<DmpBgoFiredBar*>(fFiredBar->At(i));
-    if(abs(aB->fBar - fSeedBarID)<len){
+    if(TMath::Abs(aB->fBar - fSeedBarID)<len){
       e += aB->fE;
     }
   }
@@ -338,13 +339,14 @@ DmpEvtBgoCluster* DmpEvtBgoShower::GetMaxClusterInLayer(int l)const
 double DmpEvtBgoShower::GetWindowEnergy(int nBars,int nHalf)const
 {
   double TE = 0;
-  DmpEvtBgoCluster *aClu = this->GetSeedCluster();
-  if(aClu == 0){return TE;}
-  int lid = aClu->fLayer;
-  TE += aClu->GetWindowEnergy(nBars);
-  for(int i=0;i<nHalf;++i){
-    aClu = this->GetMaxClusterInLayer(lid-(i+1));   if(aClu){TE += aClu->GetWindowEnergy(nBars);}
-    aClu = this->GetMaxClusterInLayer(lid+(i+1));   if(aClu){TE += aClu->GetWindowEnergy(nBars);}
+  int lid = this->GetMaxEnergyLayerID();
+  int min = (lid - nHalf)<0 ? 0 : lid - nHalf;
+  int max = (lid + nHalf)>BGO_LayerNO -1? BGO_LayerNO -1: lid + nHalf;
+  for(int i = min;i<= max;++i){
+    DmpEvtBgoCluster *aClu = this->GetMaxClusterInLayer(i);
+    if(aClu != 0){
+      TE += aClu->GetWindowEnergy(nBars);
+    }
   }
   return TE;
 }
@@ -576,5 +578,54 @@ double DmpEvtBgoShower::GetRMSOfEMaxLayer()const
   return this->fRMS[this->GetMaxEnergyLayerID()];
 }
 
-double 
+//-------------------------------------------------------------------
+int DmpEvtBgoShower::GetLayerIDOfMaxRFRatio()const
+{
+  double v = 0,tmp = 0;
+  int id =0;
+  for(int i=0;i<BGO_LayerNO;++i){
+    tmp = fRMS[i]  / fFValue[i];
+    if(tmp > v){
+      v = tmp;
+      id = i;
+    }
+  }
+  return id;
+}
+
+//-------------------------------------------------------------------
+double DmpEvtBgoShower::GetMaxRFRatio()const
+{
+  int lid = this->GetLayerIDOfMaxRFRatio();
+  return fRMS[lid] / fFValue[lid];
+}
+
+//-------------------------------------------------------------------
+double DmpEvtBgoShower::GetMyValue(int nHalfLayer)const
+{
+  int id = this->GetLayerIDOfMaxRFRatio();
+  double v = 0;
+  int min = (id - nHalfLayer)<0 ? 0: (id-nHalfLayer);
+  int max = (id + nHalfLayer)>13 ? 13: (id+nHalfLayer);
+  for(int i = min;i<=max;++i){
+    v += fRMS[i] / fFValue[i];
+  }
+  return v;
+}
+
+int DmpEvtBgoShower::GetLayerIDOfMaxRMS()const
+{
+  int id = 0;
+  double v = 0;
+  for(int i = 0;i<BGO_LayerNO;++i){
+    if(fRMS[i]>v){
+      v = fRMS[i];
+      id = i;
+    }
+  }
+  return id;
+}
+
+
+
 
