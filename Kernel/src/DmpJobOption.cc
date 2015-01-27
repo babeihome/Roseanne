@@ -1,29 +1,29 @@
 /*
- *  $Id: DmpJobOptLogger.cc, 2014-10-03 20:08:34 DAMPE $
+ *  $Id: DmpJobOption.cc, 2015-01-27 10:56:00 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 01/10/2014
 */
 
 #include <iostream>
 #include <time.h>   // time_t
-#include "DmpJobOptLogger.h"
+#include "DmpJobOption.h"
 #include "DmpLog.h"
 #include "DmpTimeConvertor.h"
 
-ClassImp(DmpJobOptLogger)
+ClassImp(DmpJobOption)
 
 //-------------------------------------------------------------------
-DmpJobOptLogger::DmpJobOptLogger()
+DmpJobOption::DmpJobOption()
  :Time(time((time_t*)NULL))
 {
 }
 
 //-------------------------------------------------------------------
-DmpJobOptLogger::~DmpJobOptLogger(){
+DmpJobOption::~DmpJobOption(){
 }
 
 //-------------------------------------------------------------------
-DmpJobOptLogger& DmpJobOptLogger::operator=(const DmpJobOptLogger &r){
+DmpJobOption& DmpJobOption::operator=(const DmpJobOption &r){
   Reset();
   Time = r.Time;
   Option =r.Option;
@@ -31,7 +31,7 @@ DmpJobOptLogger& DmpJobOptLogger::operator=(const DmpJobOptLogger &r){
 }
 
 //-------------------------------------------------------------------
-void DmpJobOptLogger::LoadFrom(DmpJobOptLogger *r){
+void DmpJobOption::LoadFrom(DmpJobOption *r){
   Reset();
   Time = r->Time;
   Option = r->Option;
@@ -39,7 +39,7 @@ void DmpJobOptLogger::LoadFrom(DmpJobOptLogger *r){
 }
 
 //-------------------------------------------------------------------
-std::string DmpJobOptLogger::PrintJobTime(const short &level)const{
+std::string DmpJobOption::PrintJobTime(const short &level)const{
 // *
 // *  TODO: 
 // *
@@ -48,7 +48,7 @@ std::string DmpJobOptLogger::PrintJobTime(const short &level)const{
 }
 
 //-------------------------------------------------------------------
-void DmpJobOptLogger::SetOption(std::string tmp,const std::string &v){
+void DmpJobOption::SetOption(std::string tmp,const std::string &v){
   tmp = (tmp[0]!='/')?tmp:tmp.substr(1);
   if(HasCommand(tmp)){
     DmpLogWarning<<"Resetting "<<tmp<<":\t\""<<Option[tmp]<<"\" ---> \""<<v<<"\""<<DmpLogEndl;
@@ -61,14 +61,14 @@ void DmpJobOptLogger::SetOption(std::string tmp,const std::string &v){
 }
 
 //-------------------------------------------------------------------
-void DmpJobOptLogger::ListOptions()const{
+void DmpJobOption::ListOptions()const{
   for(std::map<std::string,std::string>::const_iterator it=Option.begin();it!=Option.end();it++){
     DmpLogCout<<it->first<<":\t"<<it->second<<DmpLogEndl;
   }
 }
 
 //-------------------------------------------------------------------
-bool DmpJobOptLogger::HasCommand(std::string o)const{
+bool DmpJobOption::HasCommand(std::string o)const{
   o = (o[0]!='/') ? o : o.substr(1);
   bool status = (Option.find(o) != Option.end()) ? true : false;
   if(not status){
@@ -82,7 +82,7 @@ bool DmpJobOptLogger::HasCommand(std::string o)const{
 }
 
 //-------------------------------------------------------------------
-std::string DmpJobOptLogger::GetValue(const std::string &tmp)const{
+std::string DmpJobOption::GetValue(const std::string &tmp)const{
   if(HasCommand(tmp)){
     return Option.at(tmp);
   }
@@ -90,12 +90,12 @@ std::string DmpJobOptLogger::GetValue(const std::string &tmp)const{
 }
 
 //-------------------------------------------------------------------
-std::string DmpJobOptLogger::GetValue(const short &i)const{
+std::string DmpJobOption::GetValue(const short &i)const{
   return Option.at(CmdList.at(i));
 }
 
 //-------------------------------------------------------------------
-void DmpJobOptLogger::Reset(){
+void DmpJobOption::Reset(){
   Option.clear();
   CmdList.clear();
 }

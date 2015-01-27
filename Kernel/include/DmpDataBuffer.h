@@ -1,5 +1,5 @@
 /*
- *  $Id: DmpDataBuffer.h, 2014-10-06 14:55:59 DAMPE $
+ *  $Id: DmpDataBuffer.h, 2015-01-27 11:48:31 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/07/2014
 */
@@ -28,7 +28,7 @@ public:
   bool Initialize();
   bool Finalize();
   TObject* ReadObject(const std::string &path);  // if path/dataPtr not in any data buffer, return 0
-  template<typename T> void RegisterObject(const std::string &path,T *&dataPtr,const std::string &className="TClonesArray");   // path = Folder/Tree/Branch
+  template<typename T> void RegisterObject(const std::string &path,T *&dataPtr);   // path = Folder/Tree/Branch
   template<typename T> void LinkRootFile(const std::string &path,T *&dataPtr);  // use dataPtr to read a branch from input rootfile, if not find branch, break job;
 
 private:
@@ -42,11 +42,10 @@ typedef std::map<std::string, DmpDataBufTreeMap>        DmpDataBufFolderMap;    
 
   DmpDataBufFolderMap    fDataBufPool;           // new created data pointers in pool. 3-level path: Folder, Tree, Branch
   DmpDataBufFolderMap    fInputDataBufPool;      // inputed data pointers in pool. 3-level path: Folder, Tree, Branch
-
 };
 
 //-------------------------------------------------------------------
-template<typename T> void DmpDataBuffer::RegisterObject(const std::string &path,T *&dataPtr,const std::string &className){
+template<typename T> void DmpDataBuffer::RegisterObject(const std::string &path,T *&dataPtr){
   // path check
   std::string folderName, treeName, branchName;
   PathCheck(path,folderName,treeName,branchName);
@@ -69,10 +68,10 @@ template<typename T> void DmpDataBuffer::RegisterObject(const std::string &path,
   if(gRootIOSvc->WriteValid(folderName+"/"+treeName)){
     TTree *tree = gRootIOSvc->GetOutputTree(folderName,treeName);
     if(0 == tree->GetListOfBranches()->FindObject(branchName.c_str())){
-      if("TClonesArray" == className){
+      if("TClonesArray" == dataPtr->GetName()){
         tree->Branch(branchName.c_str(),dataPtr,32000,2);
       }else{
-        tree->Branch(branchName.c_str(),className.c_str(),&dataPtr,32000,2);
+        tree->Branch(branchName.c_str(),dataPtr->GetName(),&dataPtr,32000,2);
       }
     }else{
       DmpLogError<<branchName<<" is existing in the tree: "<<folderName<<"/"<<treeName<<DmpLogEndl;

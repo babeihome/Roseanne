@@ -1,26 +1,26 @@
 /*
- *  $Id: DmpJobOptLogger.h, 2014-10-03 20:03:20 DAMPE $
+ *  $Id: DmpJobOption.h, 2015-01-27 10:56:02 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 01/10/2014
 */
 
-#ifndef DmpJobOptLogger_H
-#define DmpJobOptLogger_H
+#ifndef DmpJobOption_H
+#define DmpJobOption_H
 
 #include "TObject.h"
 #include <map>
 
-class DmpJobOptLogger : public TObject{
+class DmpJobOption : public TObject{
 /*
  *  JobOptHolder for each Alg
  *
  */
 public:
-  DmpJobOptLogger();
-  ~DmpJobOptLogger();
-  DmpJobOptLogger& operator=(const DmpJobOptLogger &r);
+  DmpJobOption();
+  ~DmpJobOption();
+  DmpJobOption& operator=(const DmpJobOption &r);
   void Reset();
-  void LoadFrom(DmpJobOptLogger *r);
+  void LoadFrom(DmpJobOption *r);
 
 public:
   std::string PrintJobTime(const short &l=0)const;     // dd-mm-yy
@@ -38,7 +38,7 @@ private:
   std::map<std::string,std::string> Option;         // option map
   std::vector<std::string>          CmdList;        //! order of command
 
-  ClassDef(DmpJobOptLogger,1)
+  ClassDef(DmpJobOption,1)
 };
 
 #endif

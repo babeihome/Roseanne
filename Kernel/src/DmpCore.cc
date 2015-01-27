@@ -88,21 +88,21 @@ bool DmpCore::Finalize(){
 }
 
 //-------------------------------------------------------------------
-void DmpCore::MaxEventNumber(const long &n){
+void DmpCore::SetEventNumber(const long &n){
   fMaxEventNo = n;
-  gRootIOSvc->JobOptionLogger()->SetOption("MaxEventNumber",boost::lexical_cast<std::string>(n));
+  gRootIOSvc->JobOption()->SetOption("MaxEventNumber",boost::lexical_cast<std::string>(n));
 }
 
 //-------------------------------------------------------------------
-void DmpCore::StartTime(const std::string &t0){
+void DmpCore::SetStartTime(const std::string &t0){
   fStartTime = DmpTimeConvertor::Date2Second(t0);
-  gRootIOSvc->JobOptionLogger()->SetOption("StartTime",t0);
+  gRootIOSvc->JobOption()->SetOption("StartTime",t0);
 }
 
 //-------------------------------------------------------------------
-void DmpCore::StopTime(const std::string &t1){
+void DmpCore::SetStopTime(const std::string &t1){
   fStopTime = DmpTimeConvertor::Date2Second(t1);
-  gRootIOSvc->JobOptionLogger()->SetOption("StopTime",t1);
+  gRootIOSvc->JobOption()->SetOption("StopTime",t1);
 }
 
 //-------------------------------------------------------------------

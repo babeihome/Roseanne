@@ -18,60 +18,65 @@ DmpRootIOSvc::DmpRootIOSvc()
   fOutFileKey(""),
   fInPath("./"),
   fOutPath("./"),
-  fJobLogger(0)
+  fJobOpt(0)
 {
   fInFileName = "";
   fOutFileName = "";
-  fJobLogger = new DmpJobOptLogger();
+  fJobOpt = new DmpJobOption();
 }
 
 //-------------------------------------------------------------------
 DmpRootIOSvc::~DmpRootIOSvc(){
-  delete fJobLogger;
+  delete fJobOpt;
 }
 
 //-------------------------------------------------------------------
-void DmpRootIOSvc::InputPath(const std::string &argv){
+void DmpRootIOSvc::SetInputPath(const std::string &argv)
+{
   if('/' == argv[argv.length()-1]){
     fInPath = argv;
   }else{
     fInPath = argv+"/";
   }
-  fJobLogger->SetOption("IO/Input/Path",argv);
+  fJobOpt->SetOption("IO/Input/Path",argv);
 }
 
 //-------------------------------------------------------------------
-void DmpRootIOSvc::InputFile(const std::string &v){
+void DmpRootIOSvc::SetInputFile(const std::string &v)
+{
   boost::filesystem::path temp(v);
   fInFileName = temp.filename().string();
   if(temp.parent_path().string()!=""){
     fInPath = temp.parent_path().string()+"/";
   }
-  fJobLogger->SetOption("IO/Input/File",v);
+  fJobOpt->SetOption("IO/Input/File",v);
 }
 
 //-------------------------------------------------------------------
-void DmpRootIOSvc::OutputPath(const std::string &argv){
+void DmpRootIOSvc::SetOutputPath(const std::string &argv)
+{
   if('/' == argv[argv.length()-1]){
     fOutPath = argv;
   }else{
     fOutPath = argv+"/";
   }
-  fJobLogger->SetOption("IO/Output/Path",argv);
+  fJobOpt->SetOption("IO/Output/Path",argv);
 }
 
 //-------------------------------------------------------------------
-void DmpRootIOSvc::OutputFile(const std::string &v){
+void DmpRootIOSvc::SetOutputFile(const std::string &v)
+{
   boost::filesystem::path temp(v);
   fOutFileName = temp.filename().string();
   if((temp.parent_path().string()!="") && (fOutPath=="./")){
     fOutPath = temp.parent_path().string()+"/";
   }
-  fJobLogger->SetOption("IO/Output/File",v);
+  fJobOpt->SetOption("IO/Output/File",v);
 }
 
 //-------------------------------------------------------------------
-bool DmpRootIOSvc::WriteList(const std::string &argv){
+bool DmpRootIOSvc::SetWriteList(const std::string &argv)
+{
   boost::split(fWriteList,argv,boost::is_any_of(";"));
   for(short i=0;i<fWriteList.size();++i){
     std::vector<std::string>  temp;
@@ -81,7 +86,7 @@ bool DmpRootIOSvc::WriteList(const std::string &argv){
       throw;
     }
   }
-  fJobLogger->SetOption("IO/Output/WirteList",argv);
+  fJobOpt->SetOption("IO/Output/WriteList",argv);
 }
 
 //-------------------------------------------------------------------
@@ -93,6 +98,9 @@ bool DmpRootIOSvc::Initialize(){
     if(fInFileName.extension().string() == ".root"){
       fInRootFile = new TFile(fInFileName.string().c_str(),"read");
     }else if(fInFileName.extension().string() == ".txt"){
+// *
+// *  TODO: 
+// *
     }else if(fInFileName.extension().string() == ".frd"){
     }
   }
@@ -110,9 +118,9 @@ void DmpRootIOSvc::CreateOutRootFile(){
     }
     if(fOutFileName.string() == ""){
       if(this->GetInputExtension() == ""){
-        this->OutputFile("DmpData.root");
+        this->SetOutputFile("DmpData.root");
       }else{
-        this->OutputFile(this->GetInputStem()+".root");
+        this->SetOutputFile(this->GetInputStem()+".root");
       }
     }
     std::string splitMark = "-";
@@ -135,12 +143,6 @@ bool DmpRootIOSvc::Finalize(){
   // save trees
   if(fOutRootFile){
     DmpLogInfo<<"+-Writing "<<fOutFileName<<DmpLogEndl;
-    DmpLogInfo<<"| |-JobOption"<<DmpLogEndl;
-    TTree *outputOptTree = new TTree("JobOption","JobOption");
-    outputOptTree->Branch("JobOption","DmpJobOptLogger",&fJobLogger,32000,2);
-    outputOptTree->Fill();
-    outputOptTree->Write();
-    delete outputOptTree;
     for(DmpRootIOFolderMap::iterator aFolderMap=fOutTreeSet.begin();aFolderMap != fOutTreeSet.end();++aFolderMap){
       if(aFolderMap->first != "Event"){
         FillData(aFolderMap->first);
@@ -155,6 +157,14 @@ bool DmpRootIOSvc::Finalize(){
         delete it->second;
       }
     }
+    DmpLogInfo<<"| |-JobOption"<<DmpLogEndl;
+    fOutRootFile->mkdir("Metadata");
+    fOutRootFile->cd("Metadata");
+    TTree *outputOptTree = new TTree("JobOption","JobOption");
+    outputOptTree->Branch("JobOption",fJobOpt->GetName(),&fJobOpt);
+    outputOptTree->Fill();
+    outputOptTree->Write();
+    delete outputOptTree;
     DmpLogInfo<<"`-Done"<<DmpLogEndl;
   }
   // delete root files
@@ -257,21 +267,23 @@ void DmpRootIOSvc::FillData(const std::string &floder){
 }
 
 //-------------------------------------------------------------------
-DmpJobOptLogger *DmpRootIOSvc::GetInputFileJobOption()const{
+/*
+DmpJobOption *DmpRootIOSvc::GetInputFileJobOption()const{
 // *
 // *  TODO:  could not get it correctly
 // *
 std::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<")"<<std::endl;
   static bool haveLoad = false;
-  DmpJobOptLogger *inputOpt=0;
+  DmpJobOption *inputOpt=0;
   if(not haveLoad){
-    inputOpt = new DmpJobOptLogger();
+    inputOpt = new DmpJobOption();
     TTree *theTree = dynamic_cast<TTree*>(fInRootFile->Get("JobOption"));
     theTree->SetBranchAddress("JobOption",&inputOpt);
     haveLoad = true;
   }
   return inputOpt;
 }
+*/
 
 //-------------------------------------------------------------------
 DmpRootIOSvc *gRootIOSvc = DmpRootIOSvc::GetInstance();

@@ -13,7 +13,7 @@
 #include <map>
 #include <vector>
 #include "DmpVSvc.h"
-#include "DmpJobOptLogger.h"
+#include "DmpJobOption.h"
 
 class TFile;
 class TTree;
@@ -37,11 +37,11 @@ public:
   bool Finalize();
 
 public:         // binding functions
-  void InputPath(const std::string &v);
-  void InputFile(const std::string &v);
-  void OutputPath(const std::string &v);
-  void OutputFile(const std::string &v);
-  bool WriteList(const std::string &v);
+  void SetInputPath(const std::string &v);
+  void SetInputFile(const std::string &v);
+  void SetOutputPath(const std::string &v);
+  void SetOutputFile(const std::string &v);
+  bool SetWriteList(const std::string &v);
   void SetOutputKey(const std::string &v){fOutFileKey = v;}
 
 public:
@@ -68,8 +68,8 @@ public:
   std::string GetInputExtension()const{return fInFileName.extension().string();}
   std::string GetOutputExtension()const{return fOutFileName.extension().string();}
   std::string GetOutFileKey()const{return fOutFileKey;}
-  DmpJobOptLogger *JobOptionLogger()const{return fJobLogger;}
-  DmpJobOptLogger *GetInputFileJobOption()const;
+  DmpJobOption *JobOption()const{return fJobOpt;}
+  //DmpJobOption *GetInputFileJobOption()const;
 
 private:
   DmpRootIOSvc();
@@ -91,7 +91,7 @@ typedef std::map<std::string, DmpRootIOTreeMap>  DmpRootIOFolderMap;    // key i
   std::map<std::string,long>    fEntriesOfTree; // entries of each input event tree. key is "Folder/Tree"
   DmpRootIOFolderMap    fInTreeSet;     // input trees
   DmpRootIOFolderMap    fOutTreeSet;    // output trees
-  DmpJobOptLogger       *fJobLogger;    // output job option
+  DmpJobOption       *fJobOpt;    // output job option
 };
 
 //-------------------------------------------------------------------

@@ -1,5 +1,5 @@
 /*
- *  $Id: DmpDataBuffer.cc, 2014-07-24 15:11:16 DAMPE $
+ *  $Id: DmpDataBuffer.cc, 2015-01-27 11:48:33 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/07/2014
 */

@@ -34,12 +34,12 @@ public:     // binding functions
   bool Finalize();              // execute all elements' Finalize() in all *Mgr
 
 public:     // binding functions
-  void LogLevel(const std::string &v)const{DmpLog::SetLogLevel(v);}
-  void LogHeader(const std::string &v)const{DmpLog::SetLogHeader(v);}
-  void MaxEventNumber(const long &n);
-  void StartTime(const std::string &t0);
-  void StopTime(const std::string &t1);
-  void FromEvent(const long &i){fCurrentEventID = i;}
+  void SetLogLevel(const std::string &v)const{DmpLog::SetLogLevel(v);}
+  void SetLogHeader(const std::string &v)const{DmpLog::SetLogHeader(v);}
+  void SetEventNumber(const long &n);
+  void SetStartTime(const std::string &t0);
+  void SetStopTime(const std::string &t1);
+  void StartFromEvent(const long &i){fCurrentEventID = i;}
   DmpAlgorithmManager*  AlgorithmManager() const {return fAlgMgr;}
   DmpServiceManager*    ServiceManager() const {return fSvcMgr;}
 

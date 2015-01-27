@@ -12,7 +12,7 @@
 #pragma link off all namespaces;
 
 #pragma link C++ namespace DmpTimeConvertor;
-#pragma link C++ class DmpJobOptLogger+;
+#pragma link C++ class DmpJobOption+;
 #pragma link C++ class DmpVAlg;
 #pragma link C++ class DmpVSvc;
 #pragma link C++ class DmpAlgorithmManager;
