@@ -292,7 +292,7 @@ double DmpEvtBgoShower::GetEnergyOfBar(int l,int barID)const
 }
 
 //-------------------------------------------------------------------
-int DmpEvtBgoShower::GetMaxEnergyLayerID()const
+int DmpEvtBgoShower::GetLayerIDOfMaxE()const
 {
   double max_e = 0.;
   int id = -1;
@@ -309,7 +309,7 @@ int DmpEvtBgoShower::GetMaxEnergyLayerID()const
 //-------------------------------------------------------------------
 double DmpEvtBgoShower::GetEnergyOfEMaxLayer()const
 {
-  return this->GetTotalEnergy(this->GetMaxEnergyLayerID());
+  return this->GetTotalEnergy(this->GetLayerIDOfMaxE());
 }
 
 //-------------------------------------------------------------------
@@ -339,7 +339,7 @@ DmpEvtBgoCluster* DmpEvtBgoShower::GetMaxClusterInLayer(int l)const
 double DmpEvtBgoShower::GetWindowEnergy(int nBars,int nHalf)const
 {
   double TE = 0;
-  int lid = this->GetMaxEnergyLayerID();
+  int lid = this->GetLayerIDOfMaxE();
   int min = (lid - nHalf)<0 ? 0 : lid - nHalf;
   int max = (lid + nHalf)>BGO_LayerNO -1? BGO_LayerNO -1: lid + nHalf;
   for(int i = min;i<= max;++i){
@@ -357,14 +357,31 @@ double DmpEvtBgoShower::GetWindowEnergyRatio(int nBars,int nHalf)const
   return this->GetWindowEnergy(nBars,nHalf) / fTotE;
 }
 
-int DmpEvtBgoShower::GetFiredBarNumber()const
+int DmpEvtBgoShower::GetFiredBarNumber(int layerID)const
 {
   int b = 0;
   int nClus = fClusters->GetEntriesFast();
   for(int l=0;l<nClus;++l){
-    b += (dynamic_cast<DmpEvtBgoCluster*>(fClusters->At(l)))->fFiredBar->GetEntriesFast();
+    DmpEvtBgoCluster *aC = dynamic_cast<DmpEvtBgoCluster*>(fClusters->At(l));
+    if(layerID == aC->fLayer || layerID == -1){
+      b += aC->fFiredBar->GetEntriesFast();
+    }
   }
   return b;
+}
+
+int DmpEvtBgoShower::GetLayerIDOfMaxFiredBarNo()const
+{
+  int id=-1;
+  int mn=0;
+  for(int i=0;i<BGO_LayerNO;++i){
+    int n = this->GetFiredBarNumber(i);
+    if(n > mn){
+      id = i;
+      mn = n;
+    }
+  }
+  return id;
 }
 
 //-------------------------------------------------------------------
@@ -545,7 +562,7 @@ void DmpEvtBgoShower::Calculation()
 //-------------------------------------------------------------------
 void DmpEvtBgoShower::MyPrint(bool allInfor)const
 {
-  std::cout<<"===> Energy, nClusters, Max_E_L, fLRMS:\t"<<fTotE<<"\t"<<fClusters->GetEntriesFast()<<"\t"<<GetMaxEnergyLayerID()<<"\t"<<fLRMS<<std::endl;
+  std::cout<<"===> Energy, nClusters, Max_E_L, fLRMS:\t"<<fTotE<<"\t"<<fClusters->GetEntriesFast()<<"\t"<<GetLayerIDOfMaxE()<<"\t"<<fLRMS<<std::endl;
   std::cout<<"===> Linear fit parameters (Pa0,P1,P0_E,P1_E,Chi2):\n\tXZ:\t";
   for(int i=0;i<5;++i){
     std::cout<<"\t"<<fXZFitPar[i];
@@ -569,13 +586,13 @@ void DmpEvtBgoShower::MyPrint(bool allInfor)const
 //-------------------------------------------------------------------
 double DmpEvtBgoShower::GetRFRatioOfEMaxLayer()const
 {
-  return this->GetRFRatio(this->GetMaxEnergyLayerID());
+  return this->GetRFRatio(this->GetLayerIDOfMaxE());
 }
 
 //-------------------------------------------------------------------
 double DmpEvtBgoShower::GetRMSOfEMaxLayer()const
 {
-  return this->fRMS[this->GetMaxEnergyLayerID()];
+  return this->fRMS[this->GetLayerIDOfMaxE()];
 }
 
 //-------------------------------------------------------------------
@@ -586,6 +603,21 @@ int DmpEvtBgoShower::GetLayerIDOfMaxRFRatio()const
   for(int i=0;i<BGO_LayerNO;++i){
     tmp = fRMS[i]  / fFValue[i];
     if(tmp > v){
+      v = tmp;
+      id = i;
+    }
+  }
+  return id;
+}
+
+//-------------------------------------------------------------------
+int DmpEvtBgoShower::GetLayerIDOfMinRFRatio()const
+{
+  double v = 1000,tmp = 0;
+  int id =0;
+  for(int i=0;i<BGO_LayerNO;++i){
+    tmp = fRMS[i]  / fFValue[i];
+    if(tmp < v){
       v = tmp;
       id = i;
     }
@@ -626,6 +658,32 @@ int DmpEvtBgoShower::GetLayerIDOfMaxRMS()const
   return id;
 }
 
+int DmpEvtBgoShower::GetLayerIDOfMinRMS()const
+{
+  int id = 0;
+  double v = 999.9;
+  for(int i = 0;i<BGO_LayerNO;++i){
+    if(fRMS[i]<v && !(fRMS[i] <0)){
+      v = fRMS[i];
+      id = i;
+    }
+  }
+  return id;
+}
 
+DmpBgoFiredBar* DmpEvtBgoShower::GetEMaxBar()const
+{
+  DmpBgoFiredBar *it = 0;
+  double max_e = 0;
+  int nC = fClusters->GetEntriesFast();
+  for(int i=0;i<nC;++i){
+    DmpEvtBgoCluster *aC = dynamic_cast<DmpEvtBgoCluster*>(fClusters->At(i));
+    if(aC->GetSeedBar()->fE > max_e){
+      it = aC->GetSeedBar();
+      max_e = it->fE;
+    }
+  }
+  return it;
+}
 
 
