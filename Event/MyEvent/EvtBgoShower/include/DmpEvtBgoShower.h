@@ -100,7 +100,9 @@ public:
   int GetLayerIDOfMaxRFRatio()const;
   int GetLayerIDOfMinRFRatio()const;
   int GetLayerIDOfMaxRMS()const;
-  int GetLayerIDOfMinRMS()const;
+  int GetLayerIDOfMinRMS()const;    // exclude un-fired layers
+  double GetMaxRMS()const;
+  double GetMinRMS()const;  // exclude un-fired layers
   double GetMaxRFRatio()const;
   double GetMyValue(int nHalfLayer = 2)const;
 

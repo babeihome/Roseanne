@@ -9,6 +9,7 @@
 
 #include <math.h>
 #include <iostream>
+#include <algorithm>
 #include "TH2D.h"
 #include "TF1.h"
 #include "TMath.h"
@@ -645,6 +646,7 @@ double DmpEvtBgoShower::GetMyValue(int nHalfLayer)const
   return v;
 }
 
+//-------------------------------------------------------------------
 int DmpEvtBgoShower::GetLayerIDOfMaxRMS()const
 {
   int id = 0;
@@ -658,6 +660,25 @@ int DmpEvtBgoShower::GetLayerIDOfMaxRMS()const
   return id;
 }
 
+//-------------------------------------------------------------------
+double DmpEvtBgoShower::GetMaxRMS()const
+{
+   return *std::max_element(fRMS,fRMS+BGO_LayerNO);
+}
+
+//-------------------------------------------------------------------
+double DmpEvtBgoShower::GetMinRMS()const
+{
+  double v = 999.9;
+  for(int i = 0;i<BGO_LayerNO;++i){
+    if(fRMS[i]<v && !(fRMS[i] <0)){
+      v = fRMS[i];
+    }
+  }
+  return v;
+}
+
+//-------------------------------------------------------------------
 int DmpEvtBgoShower::GetLayerIDOfMinRMS()const
 {
   int id = 0;
