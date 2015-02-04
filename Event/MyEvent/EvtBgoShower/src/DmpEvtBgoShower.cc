@@ -443,9 +443,11 @@ double DmpEvtBgoShower::GetPileupRatio()const
   return (fClusters->GetEntriesFast() / (double)BGO_LayerNO - 1);
 }
 
-double DmpEvtBgoShower::GetRFRatio(int layerID)const
+double DmpEvtBgoShower::GetGValue(int layerID)const
 {
-  return fRMS[layerID] / fFValue[layerID];
+  double v = fRMS[layerID];
+  if(v <= 0) return v;
+  return fRMS[layerID]*fRMS[layerID] * fTotE / this->GetTotalEnergy(layerID);
 }
 
 double DmpEvtBgoShower::GetTotalRMS()const
@@ -532,11 +534,9 @@ void DmpEvtBgoShower::Calculation()
     if(aC){
       if(i%2 == 0){
         yz_posi.Fill(aC->fCenter.z(),aC->fCenter.y(),aC->fTotE);
-        //yz_posi.SetBinError(aC);
       }else{
         xz_posi.Fill(aC->fCenter.z(),aC->fCenter.x(),aC->fTotE);
       }
-    //std::cout<<"\t\tDEBUG i = "<<i<<"\t"<<aC->fCenter.x()<<"\t"<<aC->fCenter.y()<<"\t"<<aC->fCenter.z()<<"\t"<<aC->fTotE<<std::endl;
     }
   }
   if(xz_posi.GetEntries()>1 && yz_posi.GetEntries()>1){
@@ -585,9 +585,9 @@ void DmpEvtBgoShower::MyPrint(bool allInfor)const
 }
 
 //-------------------------------------------------------------------
-double DmpEvtBgoShower::GetRFRatioOfEMaxLayer()const
+double DmpEvtBgoShower::GetGValueOfEMaxLayer()const
 {
-  return this->GetRFRatio(this->GetLayerIDOfMaxE());
+  return this->GetGValue(this->GetLayerIDOfMaxE());
 }
 
 //-------------------------------------------------------------------
@@ -597,12 +597,12 @@ double DmpEvtBgoShower::GetRMSOfEMaxLayer()const
 }
 
 //-------------------------------------------------------------------
-int DmpEvtBgoShower::GetLayerIDOfMaxRFRatio()const
+int DmpEvtBgoShower::GetLayerIDOfMaxGValue()const
 {
   double v = 0,tmp = 0;
   int id =0;
   for(int i=0;i<BGO_LayerNO;++i){
-    tmp = fRMS[i]  / fFValue[i];
+    tmp = this->GetGValue(i);
     if(tmp > v){
       v = tmp;
       id = i;
@@ -612,12 +612,12 @@ int DmpEvtBgoShower::GetLayerIDOfMaxRFRatio()const
 }
 
 //-------------------------------------------------------------------
-int DmpEvtBgoShower::GetLayerIDOfMinRFRatio()const
+int DmpEvtBgoShower::GetLayerIDOfMinGValue()const
 {
   double v = 1000,tmp = 0;
   int id =0;
   for(int i=0;i<BGO_LayerNO;++i){
-    tmp = fRMS[i]  / fFValue[i];
+    tmp = this->GetGValue(i);
     if(tmp < v){
       v = tmp;
       id = i;
@@ -627,21 +627,21 @@ int DmpEvtBgoShower::GetLayerIDOfMinRFRatio()const
 }
 
 //-------------------------------------------------------------------
-double DmpEvtBgoShower::GetMaxRFRatio()const
+double DmpEvtBgoShower::GetMaxGValue()const
 {
-  int lid = this->GetLayerIDOfMaxRFRatio();
-  return fRMS[lid] / fFValue[lid];
+  int lid = this->GetLayerIDOfMaxGValue();
+  return this->GetGValue(lid);
 }
 
 //-------------------------------------------------------------------
 double DmpEvtBgoShower::GetMyValue(int nHalfLayer)const
 {
-  int id = this->GetLayerIDOfMaxRFRatio();
+  int id = this->GetLayerIDOfMaxGValue();
   double v = 0;
   int min = (id - nHalfLayer)<0 ? 0: (id-nHalfLayer);
   int max = (id + nHalfLayer)>13 ? 13: (id+nHalfLayer);
   for(int i = min;i<=max;++i){
-    v += fRMS[i] / fFValue[i];
+    v += this->GetGValue(i);
   }
   return v;
 }
@@ -664,6 +664,12 @@ int DmpEvtBgoShower::GetLayerIDOfMaxRMS()const
 double DmpEvtBgoShower::GetMaxRMS()const
 {
    return *std::max_element(fRMS,fRMS+BGO_LayerNO);
+}
+
+//-------------------------------------------------------------------
+double DmpEvtBgoShower::GetMaxFValue()const
+{
+   return *std::max_element(fFValue,fFValue+BGO_LayerNO);
 }
 
 //-------------------------------------------------------------------
@@ -705,6 +711,286 @@ DmpBgoFiredBar* DmpEvtBgoShower::GetEMaxBar()const
     }
   }
   return it;
+}
+
+//-------------------------------------------------------------------
+//-------------------------------------------------------------------
+#define EOfMips    23.0
+bool DmpEvtBgoShower::_triggerFromLayer(int layerID,double threshold)const
+{
+  std::vector<DmpEvtBgoCluster*> clus = GetAllClusterInLayer(layerID);
+  for(int ic=0;ic<clus.size();++ic){
+    for(int ib=0;ib<clus[ic]->fFiredBar->GetEntriesFast();++ib){
+      if((dynamic_cast<DmpBgoFiredBar*>(clus[ic]->fFiredBar->At(ib)))->fE > threshold*EOfMips){
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::T0(double threshold)const
+{
+  return _triggerFromLayer(0,threshold);
+}
+
+bool DmpEvtBgoShower::Group0_01(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(0,threshold)&&_triggerFromLayer(1,threshold)&&_triggerFromLayer(2,threshold)&&_triggerFromLayer(3,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group0_10(double threshold)const
+{
+  if(this->T0()){
+    return Group0_01(threshold);
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group0_11(double threshold)const
+{
+  if(this->T0()){
+    return Group0_01(threshold);
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group1_00(double threshold)const
+{
+  if(this->T0()){
+    bool plan0 = _triggerFromLayer(0,threshold)||_triggerFromLayer(1,threshold);
+    bool plan1 = _triggerFromLayer(2,threshold)||_triggerFromLayer(3,threshold);
+    bool plan5 = _triggerFromLayer(10,threshold)||_triggerFromLayer(11,threshold);
+    bool plan6 = _triggerFromLayer(12,threshold)||_triggerFromLayer(13,threshold);
+    return (plan0 && plan1 && plan5 && plan6);
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group1_01(double threshold)const
+{
+  if(this->T0()){
+    bool plan0 = _triggerFromLayer(0,threshold)||_triggerFromLayer(1,threshold);
+    bool plan6 = _triggerFromLayer(12,threshold)||_triggerFromLayer(13,threshold);
+    return (plan0 && plan6);
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group1_10(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(2,threshold) && _triggerFromLayer(10,threshold) && _triggerFromLayer(12,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group1_11(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(0,threshold) && _triggerFromLayer(12,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group2_00(double threshold)const
+{
+  if(this->T0()){
+    bool plan0 = _triggerFromLayer(0,threshold)||_triggerFromLayer(1,threshold);
+    bool plan1 = _triggerFromLayer(2,threshold)&&_triggerFromLayer(3,threshold);
+    bool plan5 = _triggerFromLayer(10,threshold)&&_triggerFromLayer(11,threshold);
+    bool plan6 = _triggerFromLayer(12,threshold)&&_triggerFromLayer(13,threshold);
+    return (plan0 && plan1 && plan5 && plan6);
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group2_01(double threshold)const
+{
+  if(this->T0()){
+    bool plan0 = _triggerFromLayer(0,threshold)&&_triggerFromLayer(1,threshold);
+    bool plan6 = _triggerFromLayer(12,threshold)&&_triggerFromLayer(13,threshold);
+    return (plan0 && plan6);
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group2_10(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(3,threshold) && _triggerFromLayer(11,threshold) && _triggerFromLayer(13,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group2_11(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(1,threshold) && _triggerFromLayer(13,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_0000(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(0,threshold) && _triggerFromLayer(1,threshold) && _triggerFromLayer(2,threshold) && _triggerFromLayer(3,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_0001(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(0,threshold) && _triggerFromLayer(1,threshold) && _triggerFromLayer(2,threshold) && _triggerFromLayer(3,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_0010(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(0,threshold) && _triggerFromLayer(1,threshold) && _triggerFromLayer(2,threshold) && _triggerFromLayer(3,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_0011(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(0,threshold) && _triggerFromLayer(1,threshold) && _triggerFromLayer(2,threshold) && _triggerFromLayer(3,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_0100(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(0,threshold) && _triggerFromLayer(1,threshold) && _triggerFromLayer(2,threshold) && _triggerFromLayer(3,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_0101(double threshold)const
+{
+  if(this->T0()){
+    return (_triggerFromLayer(0,threshold) || _triggerFromLayer(1,threshold) && _triggerFromLayer(2,threshold) && _triggerFromLayer(3,threshold));
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_0110(double threshold)const
+{
+  if(this->T0()){
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_0111(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_1000(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_1001(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_1010(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group3_else(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group4_000(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group4_001(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group4_010(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group4_011(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group4_100(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group4_101(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group4_110(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
+}
+
+bool DmpEvtBgoShower::Group4_111(double threshold)const
+{
+  if(this->T0()){
+    return true;
+  }
+  return false;
 }
 
 

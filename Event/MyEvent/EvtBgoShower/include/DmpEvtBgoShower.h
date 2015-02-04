@@ -87,28 +87,66 @@ public:
   double GetCoGBarIDInLayer(int layerID)const;
   Position GetCoGPositionInLayer(int layerID)const;
   double GetNormalizedRMS(int layerID)const;
-  double GetRFRatio(int layerID)const;  // NOTE:   fRMS[layerID] / fFValue[layerID].consist of information of total energy, energy in layerID and RMS2 in this layer
+  double GetGValue(int layerID)const; // define G = RMS^2 * E_total / E_layer
 
   double GetEnergyOfEMaxLayer()const;
   double GetEnergyRatioOfEMaxLayer()const;
   double GetWindowEnergy(int nBars=3,int nHalf=1)const;  //nHalf: include how may layers above(below) seed layer. Totally: 2*nHalf + 1 layers
   double GetWindowEnergyRatio(int nBars=3,int nHalf = 1)const;
   double GetRMSOfEMaxLayer()const;
-  double GetRFRatioOfEMaxLayer()const;
+  double GetGValueOfEMaxLayer()const;
   int GetLayerIDOfMaxE()const;
   int GetLayerIDOfMaxFiredBarNo()const;
-  int GetLayerIDOfMaxRFRatio()const;
-  int GetLayerIDOfMinRFRatio()const;
+  int GetLayerIDOfMaxGValue()const;
+  int GetLayerIDOfMinGValue()const;
   int GetLayerIDOfMaxRMS()const;
   int GetLayerIDOfMinRMS()const;    // exclude un-fired layers
   double GetMaxRMS()const;
+  double GetMaxFValue()const;
   double GetMinRMS()const;  // exclude un-fired layers
-  double GetMaxRFRatio()const;
+  double GetMaxGValue()const;
   double GetMyValue(int nHalfLayer = 2)const;
 
   std::vector<DmpEvtBgoCluster*> GetAllClusterInLayer(int layerID)const;
   DmpEvtBgoCluster *GetMaxClusterInLayer(int layerID)const;
   DmpBgoFiredBar*   GetEMaxBar()const;
+
+public: // for trigger
+  bool T0(double threshold = 0.2)const;      // energy of any bar of first layer > 0.2 Mips (>4.6MeV)
+  bool Group0_01(double threshold)const;    //  l0_d8_p | l1_d8_p | l2_d8_p | l3_d8_p
+  bool Group0_10(double threshold)const;    //  l0_d5_p | l1_d5_p | l2_d5_p | l3_d5_p
+  bool Group0_11(double threshold)const;    //  l0_d8_n | l1_d8_n | l2_d8_n | l3_d8_n
+  bool Group1_00(double threshold)const;    //  (l0_d8_p | l1_d8_p) & (l2_d8_p | l3_d8_p) & (l10_d8_p | l11_d8_p) & (l12_d8_p | l13_d8_p)
+  bool Group1_01(double threshold)const;    //  (l0_d8_n | l1_d8_n) & (l12_d8_n | l13_d8_n)
+  bool Group1_10(double threshold)const;    //  l2_d8_p & l10_d8_p & l12_d8_p
+  bool Group1_11(double threshold)const;    //  l0_d8_n & l12_d8_n
+  bool Group2_00(double threshold)const;    //  l0_d8_p & l1_d8_p & l2_d8_p & l3_d8_p & l10_d8_p & l11_d8_p & l12_d8_p & l13_d8_p
+  bool Group2_01(double threshold)const;    //  l0_d8_n & l1_d8_n & l12_d8_n & l13_d8_n
+  bool Group2_10(double threshold)const;    //  l3_d8_p & l11_d8_p & l13_d8_p
+  bool Group2_11(double threshold)const;    //  l1_d8_n & l13_d8_n
+  bool Group3_0000(double threshold)const;  //  l0_d8_n & l1_d8_n & l2_d8_n & l3_d8_n
+  bool Group3_0001(double threshold)const;  //  l0_d5_n & l1_d5_n & l2_d8_n & l3_d8_n
+  bool Group3_0010(double threshold)const;  //  l0_d5_n & l1_d5_n & l2_d5_n & l3_d8_n
+  bool Group3_0011(double threshold)const;  //  l0_d5_n & l1_d5_n & l2_d5_n & l3_d5_n
+  bool Group3_0100(double threshold)const;  //  l0_d8_n & l1_d8_n & l2_d5_n & l3_d5_n
+  bool Group3_0101(double threshold)const;  //  (l0_d5_n | l1_d8_n) & l2_d8_n & l3_d8_n
+  bool Group3_0110(double threshold)const;  //  l0_d5_n & l1_d8_n & l2_d8_n & l3_d8_n & (l10_d8_n | l11_d8_n | l12_d8_n | l13_d8_n)
+  bool Group3_0111(double threshold)const;  //  l0_d5_p & l1_d5_p & l2_d5_p & l3_d5_p & (l10_d8_p | l11_d8_p | l12_d8_p | l13_d8_p)
+  bool Group3_1000(double threshold)const;  //  (l0_d5_p | l0_d5_n) & (l1_d5_p | l1_d8_n) & (l2_d5_p | l2_d8_n) (l3_d5_p | l3_d8_n)
+  bool Group3_1001(double threshold)const;  //  (l0_d5_p & l1_d5_p & l2_d5_p & l3_d5_p) | (l10_d5_p & l11_d5_p & l12_d5_p & l13_d5_p)
+  bool Group3_1010(double threshold)const;  //  (l0_d5_n & l1_d5_n & l2_d5_n & l3_d5_n) | (l10_d5_n & l11_d5_n & l12_d5_n & l13_d5_n)
+  bool Group3_else(double threshold)const;  //  l0_d5_n & l1_d8_n & l2_d8_n & l3_d8_n
+  bool Group4_000(double threshold)const;   //  l0_d8_p & l1_d8_p & l2_d8_p & l3_d8_p
+  bool Group4_001(double threshold)const;   //  l0_d8_p & l1_d8_p & l2_d8_p & l3_d8_p & !(l10_d8_p | l11_d8_p | l12_d8_p | l13_d8_p)
+  bool Group4_010(double threshold)const;   //  l0_d8_p & l1_d8_p & l2_d8_p & l3_d8_p & !(l10_d8_n | l11_d8_n | l12_d8_n | l13_d8_n)
+  bool Group4_011(double threshold)const;   //  l0_d8_n & l1_d8_p & l2_d8_p & l3_d8_p & !(l10_d8_p | l11_d8_p | l12_d8_p | l13_d8_p)
+  bool Group4_100(double threshold)const;   //  (l0_d8_p | l1_d8_p | l2_d8_p | l3_d8_p) & !(l10_d8_p | l11_d8_p | l12_d8_p | l13_d8_p)
+  bool Group4_101(double threshold)const;   //  l0_d8_n & l1_d8_n & l2_d8_n & l3_d8_n & !(l10_d8_p | l11_d8_p | l12_d8_p | l13_d8_p)
+  bool Group4_110(double threshold)const;   //  l0_d8_n & l1_d8_n & l2_d8_n & l3_d8_n & !(l10_d8_n | l11_d8_n | l12_d8_n | l13_d8_n)
+  bool Group4_111(double threshold)const;   //  l0_d8_n & l1_d8_n & l2_d8_n & l3_d8_n & l10_d8_n & l11_d8_n & l12_d8_n & l13_d8_n
+
+private:
+  bool _triggerFromLayer(int layerID,double threshold)const;
 
 public:
   DmpEvtBgoCluster* AddNewCluster(DmpBgoFiredBar *seedBar);
