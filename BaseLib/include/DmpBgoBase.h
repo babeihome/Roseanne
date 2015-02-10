@@ -24,6 +24,7 @@ namespace DmpBgoBase{
    */
   short ConstructGlobalBarID(const short &l,const short &b);
   short ConstructGlobalPMTID(const short &l,const short &b,const short &s);
+  short ConstructGlobalSideID(const short &l,const short &b,const short &s);
   short ConstructGlobalDynodeID(const short &l,const short &b,const short &s,const short &d);
   short GetLayerID(const short &gid);
   short GetBarID(const short &gid);

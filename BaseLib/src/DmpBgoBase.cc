@@ -21,6 +21,10 @@ short DmpBgoBase::ConstructGlobalPMTID(const short &l,const short &b,const short
   return i;
 }
 
+short DmpBgoBase::ConstructGlobalSideID(const short &l,const short &b,const short &s){
+  return ConstructGlobalPMTID(l,b,s);
+}
+
 //-------------------------------------------------------------------
 short DmpBgoBase::ConstructGlobalDynodeID(const short &l,const short &b,const short &s,const short &d){
   short i = 0;
