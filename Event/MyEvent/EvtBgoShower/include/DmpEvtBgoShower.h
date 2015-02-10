@@ -110,6 +110,7 @@ public:
   std::vector<DmpEvtBgoCluster*> GetAllClusterInLayer(int layerID)const;
   DmpEvtBgoCluster *GetMaxClusterInLayer(int layerID)const;
   DmpBgoFiredBar*   GetEMaxBar()const;
+  std::vector<DmpBgoFiredBar*>  GetIsolatedBar(int layerID,double noise=0.5)const;  // if nextBar.fE < noise, the current bar is isolated
 
 public: // for trigger
   bool T0(double threshold = 0.2)const;      // energy of any bar of first layer > 0.2 Mips (>4.6MeV)

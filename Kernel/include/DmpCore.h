@@ -50,6 +50,7 @@ public:
   const bool& InitializeDone() const {return fInitializeDone;}
   const int&  GetStartTime() const {return fStartTime;}
   const int&  GetStopTime() const {return fStopTime;}
+  long GetSeed() const;
 
 public:
   void TerminateRun()   {fTerminateRun = true;} // call me in algorithms

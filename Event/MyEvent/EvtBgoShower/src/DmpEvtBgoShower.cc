@@ -410,6 +410,37 @@ std::vector<DmpEvtBgoCluster*> DmpEvtBgoShower::GetAllClusterInLayer(int l)const
 }
 
 //-------------------------------------------------------------------
+std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBar(int l,double noise)const
+{
+  std::vector<DmpBgoFiredBar*>  backme;
+  std::vector<DmpBgoFiredBar*>  allB;
+  std::vector<DmpEvtBgoCluster*> allC = this->GetAllClusterInLayer(l);
+  for(int ic=0;ic<allC.size();++ic){
+    int nB = allC[ic]->fFiredBar->GetEntriesFast();
+    for(int i=0;i<nB;++i){
+      DmpBgoFiredBar *aB = dynamic_cast<DmpBgoFiredBar*>(allC[ic]->fFiredBar->At(i));
+      allB.push_back(aB);
+    }
+  }
+  for(int ib=0;ib<allB.size();++ib){
+    int bid = allB[ib]->fBar;
+    bool isIso = true;
+    for(int i = 0;i<allB.size();++i){
+      if(TMath::Abs(allB[i]->fBar - bid) == 1){
+        if(allB[i]->fE > noise){
+          isIso = false;
+          break;
+        }
+      }
+    }
+    if(isIso){
+        backme.push_back(allB[ib]);
+    }
+  }
+  return backme;
+}
+
+//-------------------------------------------------------------------
 double DmpEvtBgoShower::GetCoGBarIDInLayer(int l)const
 {
   double totalEInL = this->GetTotalEnergy(l);

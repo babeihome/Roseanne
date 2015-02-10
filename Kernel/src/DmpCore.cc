@@ -105,6 +105,11 @@ void DmpCore::SetStopTime(const std::string &t1){
   gRootIOSvc->JobOption()->SetOption("StopTime",t1);
 }
 
+long DmpCore::GetSeed()const
+{
+  return gRootIOSvc->JobOption()->JobTime();
+}
+
 //-------------------------------------------------------------------
 DmpCore *gCore = DmpCore::GetInstance();
 
