@@ -51,6 +51,7 @@ public:
   DmpBgoFiredBar *GetSeedBar()const;
   double GetWindowEnergy(int n=3)const;  // n bars around seed bar
   double GetCoGBarID()const;
+  double GetTotalEnergy(int whichSide=-1)const;
 
   void AddNewFiredBar(DmpBgoFiredBar *aBar);
   void MyPrint()const;
@@ -78,7 +79,7 @@ public:
   DmpEvtBgoCluster* GetSeedCluster()const;
   Position GetEntryPoint()const;
   Direction GetTrackDirection()const;
-  double GetTotalEnergy(int layerID = -1)const;
+  double GetTotalEnergy(int whichSide=-1,int layerID = -1)const;
   double GetTotalRMS()const;
   double GetPileupRatio()const;     // (-1,0): some layer not fired. 0: one track. > 1: multi-track
   int GetFiredBarNumber(int layerID = -1)const;
