@@ -94,15 +94,19 @@ bool DmpRootIOSvc::Initialize(){
   DmpLogDebug<<"initialization... "<<DmpLogEndl;
   //-------------------------------------------------------------------
   fInFileName = fInPath+GetInputStem()+GetInputExtension();
-  if(fInFileName.string() != "./"){   // has input file
-    if(fInFileName.extension().string() == ".root"){
-      fInRootFile = new TFile(fInFileName.string().c_str(),"read");
-    }else if(fInFileName.extension().string() == ".txt"){
+  if(fInFileName.extension().string() == ".root"){
+    fInRootFile = TFile::Open(fInFileName.string().c_str(),"READ");
+    if(fInRootFile == 0){
+      return false;
+    }
+  }else if(fInFileName.extension().string() == ".txt"){
 // *
 // *  TODO: 
 // *
-    }else if(fInFileName.extension().string() == ".frd"){
-    }
+  }else if(fInFileName.extension().string() == ".frd"){
+  }else{
+    DmpLogError<<" input is not a root file...\t"<<fInFileName.string()<<DmpLogEndl;
+    return false;
   }
   //-------------------------------------------------------------------
   CreateOutRootFile();
