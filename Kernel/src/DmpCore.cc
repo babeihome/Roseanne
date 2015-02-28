@@ -21,7 +21,8 @@ DmpCore::DmpCore()
   fStopTime(DmpTimeConvertor::Date2Second("2053-01-01 00:00:00")),
   fInitializeDone(false),
   fTerminateRun(false),
-  fCurrentEventID(0)    // must == 0
+  fFirstEventID(0),     // must == 0
+  fCurrentEventID(-9)
 {
   std::cout<<"**************************************************"<<std::endl;
   std::cout<<"      Offline software of DAMPE (DMPSW)"<<std::endl;
@@ -39,6 +40,7 @@ DmpCore::~DmpCore(){
 
 //-------------------------------------------------------------------
 bool DmpCore::Initialize(){
+  fCurrentEventID = fFirstEventID;
   //*
   //* Important! First, initialize servises, then algorithms
   //*
@@ -60,7 +62,7 @@ bool DmpCore::Run(){
 // *
 // *  TODO: use cut of time range??
 // *
-  while((not fTerminateRun) && (fCurrentEventID <= fMaxEventNo || fMaxEventNo == -1)){
+  while((not fTerminateRun) && (fCurrentEventID < fMaxEventNo || fMaxEventNo == -1)){
     if(gRootIOSvc->PrepareEvent(fCurrentEventID)){
       if(fAlgMgr->ProcessOneEvent()){
         gRootIOSvc->FillData("Event");
@@ -108,6 +110,20 @@ void DmpCore::SetStopTime(const std::string &t1){
 long DmpCore::GetSeed()const
 {
   return gRootIOSvc->JobOption()->JobTime();
+}
+
+void DmpCore::SetFirstEventID(const long &i)
+{
+  if(i<0){
+    DmpLogWarning<<"First event ID must >= 0..."<<DmpLogEndl;
+  }else{
+    fFirstEventID = i;
+  }
+}
+
+void DmpCore::LoadFirstEvent()
+{
+  gRootIOSvc->PrepareEvent(fFirstEventID);
 }
 
 //-------------------------------------------------------------------

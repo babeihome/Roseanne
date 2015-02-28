@@ -39,13 +39,14 @@ public:     // binding functions
   void SetEventNumber(const long &n);
   void SetStartTime(const std::string &t0);
   void SetStopTime(const std::string &t1);
-  void SetFirstEventID(const long &i){fCurrentEventID = i;}
+  void SetFirstEventID(const long &i);
   DmpAlgorithmManager*  AlgorithmManager() const {return fAlgMgr;}
   DmpServiceManager*    ServiceManager() const {return fSvcMgr;}
 
 public:
   const long& GetMaxEventNumber() const {return fMaxEventNo;}
   const long& GetCurrentEventID() const {return fCurrentEventID;}
+  const long& GetFirstEventID() const {return fFirstEventID;}
   bool EventInTimeWindow(const int &t) const{return ((fStartTime<=t)&&(t<=fStopTime))?true:false;} // use second of event header
   const bool& InitializeDone() const {return fInitializeDone;}
   const int&  GetStartTime() const {return fStartTime;}
@@ -54,6 +55,7 @@ public:
 
 public:
   void TerminateRun()   {fTerminateRun = true;} // call me in algorithms
+  void LoadFirstEvent();
 
 private:
   DmpCore();
@@ -72,6 +74,7 @@ private:
 
 private:
   long      fCurrentEventID;        // the current event ID (processing)
+  long      fFirstEventID;          // from which event, for user
 
 };
 

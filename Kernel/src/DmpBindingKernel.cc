@@ -93,7 +93,7 @@ BOOST_PYTHON_MODULE(libDmpKernel){
     .def("SetEventNumber", &DmpCore::SetEventNumber)
     .def("SetStartTime", &DmpCore::SetStartTime)
     .def("SetStopTime", &DmpCore::SetStopTime)
-    .def("StartFromEvent", &DmpCore::StartFromEvent)
+    .def("SetFirstEventID", &DmpCore::SetFirstEventID)
     .def("AlgorithmManager",    &DmpCore::AlgorithmManager,return_value_policy<reference_existing_object>())
     .def("ServiceManager",      &DmpCore::ServiceManager,return_value_policy<reference_existing_object>())
   ;
