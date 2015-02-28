@@ -39,7 +39,7 @@ public:     // binding functions
   void SetEventNumber(const long &n);
   void SetStartTime(const std::string &t0);
   void SetStopTime(const std::string &t1);
-  void StartFromEvent(const long &i){fCurrentEventID = i;}
+  void SetFirstEventID(const long &i){fCurrentEventID = i;}
   DmpAlgorithmManager*  AlgorithmManager() const {return fAlgMgr;}
   DmpServiceManager*    ServiceManager() const {return fSvcMgr;}
 
