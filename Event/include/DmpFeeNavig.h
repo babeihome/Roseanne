@@ -79,7 +79,7 @@ public:
 public: // Get functions
   DmpERunMode::Type     GetRunMode()const{return (DmpERunMode::Type)(RunMode_ID.to_ulong()>>6);}
   DmpEDetectorID::Type  GetDetectorID()const{return (DmpEDetectorID::Type)(RunMode_ID.to_ulong()>>4 & 0x03);}
-  short GetFeeID()const{return (RunMode_ID.to_ulong() & 0x3f);}
+  short GetFeeID()const{return (RunMode_ID.to_ulong() & 0x3f);} // include detector ID
   short GetTrigger()const{return Trigger;}
   bool ValidFeeData()const{
     bool v = true;
