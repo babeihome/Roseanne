@@ -37,8 +37,8 @@ public:     // binding functions
   void SetLogLevel(const std::string &v)const{DmpLog::SetLogLevel(v);}
   void SetLogHeader(const std::string &v)const{DmpLog::SetLogHeader(v);}
   void SetEventNumber(const long &n);
-  void SetStartTime(const std::string &t0);
-  void SetStopTime(const std::string &t1);
+  void SetStartTime(const std::string &t0); // YYYY-MM-DD HH:MM:SS
+  void SetStopTime(const std::string &t1);  // YYYY-MM-DD HH:MM:SS
   void SetFirstEventID(const long &i);
   DmpAlgorithmManager*  AlgorithmManager() const {return fAlgMgr;}
   DmpServiceManager*    ServiceManager() const {return fSvcMgr;}

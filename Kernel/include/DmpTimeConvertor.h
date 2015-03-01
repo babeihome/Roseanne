@@ -12,7 +12,7 @@ namespace DmpTimeConvertor{
 
 std::string Second2Date(const int &second);
 
-int Date2Second(const std::string &date);
+int Date2Second(const std::string &date);   // date format: YYYY-MM-DD HH:MM:SS
 
 }
 
