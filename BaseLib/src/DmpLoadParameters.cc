@@ -15,19 +15,18 @@
 
 namespace DAMPE{
 namespace Bgo{
- std::map<int, std::vector<double> >  LoadPedestal(std::string inFName)
+  bool LoadPedestal(std::string inFName, DmpParameterHolder &pedPar, std::string &startT, std::string &stopT)
  {
-   std::map<int, std::vector<double> >  pedPar;
    std::ifstream inPed_f(inFName.c_str());
    if(! inPed_f.good()){
-     std::cout<<"open file failed...\t"<<inFName<<std::endl;
+     std::cout<<"ERROr:\tOpen calibration file failed...\t"<<inFName<<std::endl;
      inPed_f.close();
-     return pedPar;
+     return false;
    }
    std::string  tmp;
    getline(inPed_f,tmp);
-   getline(inPed_f,tmp);
-   getline(inPed_f,tmp);
+   getline(inPed_f,startT);
+   getline(inPed_f,stopT);
    int gid=0;
    std::vector<double> mean_sig(2,0);
    while(! inPed_f.eof()){
@@ -40,40 +39,42 @@ namespace Bgo{
    }
 
    inPed_f.close();
-   return pedPar;
+   return true;
  }
 
  void Check(std::string naem)
  {
-   std::map<int, std::vector<double> >  mypedPar = LoadPedestal(naem);
-   for(std::map<int,std::vector<double> >::iterator it = mypedPar.begin();it != mypedPar.end();++it){
-           std::cout<<it->first<<"\t"<<it->second.at(0)<<"\t"<<it->second.at(1)<<std::endl;
+   std::map<int, std::vector<double> >  mypedPar;
+   std::string t0,t1;
+   bool x = LoadPedestal(naem,mypedPar,t0,t1);
+   if(x){
+     for(std::map<int,std::vector<double> >::iterator it = mypedPar.begin();it != mypedPar.end();++it){
+             std::cout<<it->first<<"\t"<<it->second.at(0)<<"\t"<<it->second.at(1)<<std::endl;
+     }
+     std::cout<<t0<<"\t"<<t1<<std::endl;
    }
  }
 
 };
 
 namespace Psd{
- std::map<int, std::vector<double> >  LoadPedestal(std::string inFName)
+ bool LoadPedestal(std::string inFName, DmpParameterHolder &pedPar, std::string &startT, std::string &stopT)
  {
-   std::map<int, std::vector<double> >  pedPar;
-   return pedPar;
+   return true;
  }
 }
 
 namespace Stk{
- std::map<int, std::vector<double> >  LoadPedestal(std::string inFName)
+ bool LoadPedestal(std::string inFName, DmpParameterHolder &pedPar, std::string &startT, std::string &stopT)
  {
-   std::map<int, std::vector<double> >  pedPar;
-   return pedPar;
+   return true;
  }
 }
 
 namespace Nud{
- std::map<int, std::vector<double> >  LoadPedestal(std::string inFName)
+ bool LoadPedestal(std::string inFName, DmpParameterHolder &pedPar, std::string &startT, std::string &stopT)
  {
-   std::map<int, std::vector<double> >  pedPar;
-   return pedPar;
+   return true;
  }
 }
 };

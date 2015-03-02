@@ -19,6 +19,7 @@
 #pragma link C++ namespace DmpParameterStk;
 #pragma link C++ namespace DAMPE;
 #pragma link C++ namespace DAMPE::Bgo;
+#pragma link C++ typedef DmpParameterHolder;
 //#pragma link C++ class DmpEvtBgoHits+;
 
 #endif

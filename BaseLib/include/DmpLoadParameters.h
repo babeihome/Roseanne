@@ -11,19 +11,21 @@
 #include <vector>
 #include <string>
 
+typedef std::map<int, std::vector<double> >     DmpParameterHolder;
+
 namespace DAMPE{
 namespace Bgo{
- std::map<int, std::vector<double> >  LoadPedestal(std::string inFName); // two elements in vector, first: mean, second: sigma
+ bool LoadPedestal(std::string inFName,DmpParameterHolder &GetPar, std::string &GetStartTime, std::string &GetStopTime); // two elements in vector, first: mean, second: sigma
  void Check(std::string naem);
 };
 namespace Psd{
- std::map<int, std::vector<double> >  LoadPedestal(std::string inFName);
+ bool  LoadPedestal(std::string inFName,DmpParameterHolder &GetPar, std::string &GetStartTime, std::string &GetStopTime);
 };
 namespace Stk{
- std::map<int, std::vector<double> >  LoadPedestal(std::string inFName);
+ bool  LoadPedestal(std::string inFName,DmpParameterHolder &GetPar, std::string &GetStartTime, std::string &GetStopTime);
 };
 namespace Nud{
- std::map<int, std::vector<double> >  LoadPedestal(std::string inFName);
+ bool  LoadPedestal(std::string inFName,DmpParameterHolder &GetPar, std::string &GetStartTime, std::string &GetStopTime);
 };
 };
 

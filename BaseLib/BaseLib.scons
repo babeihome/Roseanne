@@ -26,6 +26,14 @@ for tmp in os.listdir(includeDir):
     if "." not in tmp[0] and ".h" in tmp:
         Default(Command(prefix+'/include/'+tmp,includeDir+'/'+tmp,Copy("$TARGET","$SOURCE")))
 
+def ProcessThisDir(fromPath,toPath):
+    for tmp in os.listdir(fromPath):
+        if "." in tmp[0] or "scons" in tmp or "test" in tmp or "Readme" in tmp:   continue
+        if os.path.isdir(fromPath+tmp):  ProcessThisDir(fromPath+tmp,toPath+tmp)
+        else: Default(Command(toPath+'/'+tmp,fromPath+'/'+tmp,Copy("$TARGET","$SOURCE")))
+
+ProcessThisDir("./share/Calibration",prefix+"/share/Calibration")
+
 # main build
 #--------------------------------------------------------------------
 goal=env.SharedLibrary(target,Glob('./src/*.cc'))
