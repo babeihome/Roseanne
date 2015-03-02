@@ -64,10 +64,10 @@ bool DmpCore::Run(){
 // *
   while((not fTerminateRun) && (fCurrentEventID < fMaxEventNo || fMaxEventNo == -1)){
     if(gRootIOSvc->PrepareEvent(fCurrentEventID)){
-      ++fCurrentEventID;
       if(fAlgMgr->ProcessOneEvent()){
         gRootIOSvc->FillData("Event");
       }
+      ++fCurrentEventID;    // must after fAlgMgr->ProcessOneEvent()!!!
     }else{
       fTerminateRun = true;
       break;
