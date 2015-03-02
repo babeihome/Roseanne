@@ -19,23 +19,26 @@ DmpEvtNudRaw::~DmpEvtNudRaw(){
 DmpEvtNudRaw& DmpEvtNudRaw::operator=(const DmpEvtNudRaw &r){
   Reset();
   fFeeNavig = r.fFeeNavig;
-  for(size_t i=0;i<4;++i){
-    fChannelID[i] = r.fChannelID[i];
-    fADC[i] = r.fADC[i];
+  for(int i=0;i<fChannelID.size();++i){
+    fChannelID.push_back(r.fChannelID.at(i));
+    fADC.push_back(r.fADC.at(i));
   }
 }
 
 //-------------------------------------------------------------------
 void DmpEvtNudRaw::Reset(){
+  fFeeNavig.Reset();
+  fChannelID.clear();
+  fADC.clear();
 }
 
 //-------------------------------------------------------------------
 void DmpEvtNudRaw::LoadFrom(DmpEvtNudRaw *r){
   Reset();
   fFeeNavig = r->fFeeNavig;
-  for(size_t i=0;i<4;++i){
-    fChannelID[i] = r->fChannelID[i];
-    fADC[i] = r->fADC[i];
+  for(int i=0;i<fChannelID.size();++i){
+    fChannelID.push_back(r->fChannelID.at(i));
+    fADC.push_back(r->fADC.at(i));
   }
 }
 

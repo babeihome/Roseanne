@@ -19,7 +19,7 @@ namespace Bgo{
  {
    std::ifstream inPed_f(inFName.c_str());
    if(! inPed_f.good()){
-     std::cout<<"ERROr:\tOpen calibration file failed...\t"<<inFName<<std::endl;
+     std::cout<<"ERROR:\tOpen calibration file failed...\t"<<inFName<<std::endl;
      inPed_f.close();
      return false;
    }
@@ -41,25 +41,61 @@ namespace Bgo{
    inPed_f.close();
    return true;
  }
-
- void Check(std::string naem)
- {
-   std::map<int, std::vector<double> >  mypedPar;
-   std::string t0,t1;
-   bool x = LoadPedestal(naem,mypedPar,t0,t1);
-   if(x){
-     for(std::map<int,std::vector<double> >::iterator it = mypedPar.begin();it != mypedPar.end();++it){
-             std::cout<<it->first<<"\t"<<it->second.at(0)<<"\t"<<it->second.at(1)<<std::endl;
-     }
-     std::cout<<t0<<"\t"<<t1<<std::endl;
-   }
- }
-
 };
 
 namespace Psd{
  bool LoadPedestal(std::string inFName, DmpParameterHolder &pedPar, std::string &startT, std::string &stopT)
  {
+   std::ifstream inPed_f(inFName.c_str());
+   if(! inPed_f.good()){
+     std::cout<<"ERROR:\tOpen calibration file failed...\t"<<inFName<<std::endl;
+     inPed_f.close();
+     return false;
+   }
+   std::string  tmp;
+   getline(inPed_f,tmp);
+   getline(inPed_f,startT);
+   getline(inPed_f,stopT);
+   int gid=0;
+   std::vector<double> mean_sig(2,0);
+   while(! inPed_f.eof()){
+     getline(inPed_f,tmp);
+     std::istringstream stream(tmp);
+     stream>>gid;
+     stream>>mean_sig[0]>>mean_sig[0]>>mean_sig[0]>>mean_sig[0]>>mean_sig[0];
+     stream>>mean_sig[1];
+     pedPar.insert(std::make_pair(gid,mean_sig));
+   }
+
+   inPed_f.close();
+   return true;
+ }
+}
+
+namespace Nud{
+ bool LoadPedestal(std::string inFName, DmpParameterHolder &pedPar, std::string &startT, std::string &stopT)
+ {
+   std::ifstream inPed_f(inFName.c_str());
+   if(! inPed_f.good()){
+     std::cout<<"ERROR:\tOpen calibration file failed...\t"<<inFName<<std::endl;
+     inPed_f.close();
+     return false;
+   }
+   std::string  tmp;
+   getline(inPed_f,tmp);
+   getline(inPed_f,startT);
+   getline(inPed_f,stopT);
+   int gid=0;
+   std::vector<double> mean_sig(2,0);
+   while(! inPed_f.eof()){
+     getline(inPed_f,tmp);
+     std::istringstream stream(tmp);
+     stream>>gid;
+     stream>>mean_sig[0];
+     stream>>mean_sig[1];
+     pedPar.insert(std::make_pair(gid,mean_sig));
+   }
+   inPed_f.close();
    return true;
  }
 }
@@ -71,12 +107,26 @@ namespace Stk{
  }
 }
 
-namespace Nud{
- bool LoadPedestal(std::string inFName, DmpParameterHolder &pedPar, std::string &startT, std::string &stopT)
+ void CheckPed(std::string naem, std::string ID)
  {
-   return true;
+   std::map<int, std::vector<double> >  mypedPar;
+   std::string t0,t1;
+   bool x = false;
+   if(ID == "Bgo"){
+           x = Bgo::LoadPedestal(naem,mypedPar,t0,t1);
+   }else if(ID == "Psd"){
+           x = Psd::LoadPedestal(naem,mypedPar,t0,t1);
+   }else if(ID == "Nud"){
+           x = Nud::LoadPedestal(naem,mypedPar,t0,t1);
+   }
+   if(x){
+     for(std::map<int,std::vector<double> >::iterator it = mypedPar.begin();it != mypedPar.end();++it){
+             std::cout<<it->first<<"\t"<<it->second.at(0)<<"\t"<<it->second.at(1)<<std::endl;
+     }
+     std::cout<<t0<<"\t"<<t1<<std::endl;
+   }
  }
-}
+
 };
 
 #endif

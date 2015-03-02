@@ -16,7 +16,6 @@ typedef std::map<int, std::vector<double> >     DmpParameterHolder;
 namespace DAMPE{
 namespace Bgo{
  bool LoadPedestal(std::string inFName,DmpParameterHolder &GetPar, std::string &GetStartTime, std::string &GetStopTime); // two elements in vector, first: mean, second: sigma
- void Check(std::string naem);
 };
 namespace Psd{
  bool  LoadPedestal(std::string inFName,DmpParameterHolder &GetPar, std::string &GetStartTime, std::string &GetStopTime);
@@ -27,6 +26,8 @@ namespace Stk{
 namespace Nud{
  bool  LoadPedestal(std::string inFName,DmpParameterHolder &GetPar, std::string &GetStartTime, std::string &GetStopTime);
 };
+
+ void CheckPed(std::string naem,std::string DetectorID="Bgo");
 };
 
 

@@ -75,6 +75,11 @@ public:
     Status = r.Status;
   }
   DmpFeeNavig(DmpFeeModeID rid,const short &trigger,DmpFeeStatus s):RunMode_ID(rid),Trigger(trigger),Status(s){}
+  void Reset(){
+    Trigger = -1;
+    RunMode_ID.reset();
+    Status.reset();
+  }
 
 public: // Get functions
   DmpERunMode::Type     GetRunMode()const{return (DmpERunMode::Type)(RunMode_ID.to_ulong()>>6);}
