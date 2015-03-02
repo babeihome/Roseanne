@@ -19,7 +19,7 @@ DmpEvtNudRaw::~DmpEvtNudRaw(){
 DmpEvtNudRaw& DmpEvtNudRaw::operator=(const DmpEvtNudRaw &r){
   Reset();
   fFeeNavig = r.fFeeNavig;
-  for(int i=0;i<fChannelID.size();++i){
+  for(int i=0;i<r.fChannelID.size();++i){
     fChannelID.push_back(r.fChannelID.at(i));
     fADC.push_back(r.fADC.at(i));
   }
@@ -36,7 +36,7 @@ void DmpEvtNudRaw::Reset(){
 void DmpEvtNudRaw::LoadFrom(DmpEvtNudRaw *r){
   Reset();
   fFeeNavig = r->fFeeNavig;
-  for(int i=0;i<fChannelID.size();++i){
+  for(int i=0;i<r->fChannelID.size();++i){
     fChannelID.push_back(r->fChannelID.at(i));
     fADC.push_back(r->fADC.at(i));
   }

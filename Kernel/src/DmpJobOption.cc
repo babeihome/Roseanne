@@ -44,7 +44,7 @@ std::string DmpJobOption::PrintJobTime(const short &level)const{
 // *  TODO: 
 // *
   return DmpTimeConvertor::Second2Date(Time);
-  DmpLogCout<<"Time: "<<Time<<"\t"<<DmpTimeConvertor::Second2Date(Time)<<DmpLogEndl;
+  //DmpLogCout<<"Time: "<<Time<<"\t"<<DmpTimeConvertor::Second2Date(Time)<<DmpLogEndl;
 }
 
 //-------------------------------------------------------------------
