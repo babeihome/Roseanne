@@ -15,7 +15,7 @@ namespace DmpBgoBase{
    *
    *    layer(0~13):    bits 14,13,12,11
    *        = (fGlobalID >> 11) & 0x000f
-   *    bar(0~23):      bits 10,9,8,7,6
+   *    bar(0~21, 22~23):      bits 10,9,8,7,6
    *         = (fGlobalID >> 6) & 0x001f
    *    side(0,1):      bits 4
    *        = (fGlobal >> 4) & 0x0001
