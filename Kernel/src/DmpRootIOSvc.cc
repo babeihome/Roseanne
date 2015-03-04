@@ -104,9 +104,10 @@ bool DmpRootIOSvc::Initialize(){
 // *  TODO: 
 // *
   }else if(fInFileName.extension().string() == ".frd"){
+  }else if(fInFileName.extension().string() == "./"){
   }else{
     DmpLogError<<" input is not a root file...\t"<<fInFileName.string()<<DmpLogEndl;
-    return false;
+    //return false;
   }
   //-------------------------------------------------------------------
   CreateOutRootFile();
