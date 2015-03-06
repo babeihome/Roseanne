@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="S3_v0" unit="mm" x="-375" y="510" z="-11646"/>
+    <position name="S3_v1" unit="mm" x="-225" y="510" z="-11646"/>
+    <position name="S3_v2" unit="mm" x="-375" y="10" z="-11646"/>
+    <position name="S3_v3" unit="mm" x="-225" y="10" z="-11646"/>
+    <position name="S3_v4" unit="mm" x="-375" y="510" z="-11636"/>
+    <position name="S3_v5" unit="mm" x="-375" y="10" z="-11636"/>
+    <position name="S3_v6" unit="mm" x="-225" y="510" z="-11636"/>
+    <position name="S3_v7" unit="mm" x="-225" y="10" z="-11636"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="S30x13bba10">
+      <triangular vertex1="S3_v0" vertex2="S3_v1" vertex3="S3_v2"/>
+      <triangular vertex1="S3_v2" vertex2="S3_v1" vertex3="S3_v3"/>
+      <triangular vertex1="S3_v0" vertex2="S3_v2" vertex3="S3_v4"/>
+      <triangular vertex1="S3_v4" vertex2="S3_v2" vertex3="S3_v5"/>
+      <triangular vertex1="S3_v6" vertex2="S3_v4" vertex3="S3_v7"/>
+      <triangular vertex1="S3_v7" vertex2="S3_v4" vertex3="S3_v5"/>
+      <triangular vertex1="S3_v6" vertex2="S3_v7" vertex3="S3_v1"/>
+      <triangular vertex1="S3_v1" vertex2="S3_v7" vertex3="S3_v3"/>
+      <triangular vertex1="S3_v1" vertex2="S3_v0" vertex3="S3_v6"/>
+      <triangular vertex1="S3_v6" vertex2="S3_v0" vertex3="S3_v4"/>
+      <triangular vertex1="S3_v7" vertex2="S3_v5" vertex3="S3_v3"/>
+      <triangular vertex1="S3_v3" vertex2="S3_v5" vertex3="S3_v2"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="S3">
+    <materialref ref="PLasticScintillatorMaterialBeamTest"/>
+    <solidref ref="S30x13bba10"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="S3"/>
+  </setup>
+
+</gdml>

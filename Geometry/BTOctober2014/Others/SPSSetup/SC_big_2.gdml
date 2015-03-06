@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="SC_big_2_v0" unit="mm" x="180.000030517578" y="-400" z="2680"/>
+    <position name="SC_big_2_v1" unit="mm" x="180.000030517578" y="400" z="2680"/>
+    <position name="SC_big_2_v2" unit="mm" x="180.000030517578" y="-400" z="2720"/>
+    <position name="SC_big_2_v3" unit="mm" x="180.000030517578" y="400" z="2720"/>
+    <position name="SC_big_2_v4" unit="mm" x="-620" y="-400" z="2680"/>
+    <position name="SC_big_2_v5" unit="mm" x="-620" y="-400" z="2720"/>
+    <position name="SC_big_2_v6" unit="mm" x="-620" y="400" z="2680"/>
+    <position name="SC_big_2_v7" unit="mm" x="-620" y="400" z="2720"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="SC_big_20x2772a00">
+      <triangular vertex1="SC_big_2_v0" vertex2="SC_big_2_v1" vertex3="SC_big_2_v2"/>
+      <triangular vertex1="SC_big_2_v2" vertex2="SC_big_2_v1" vertex3="SC_big_2_v3"/>
+      <triangular vertex1="SC_big_2_v4" vertex2="SC_big_2_v0" vertex3="SC_big_2_v5"/>
+      <triangular vertex1="SC_big_2_v5" vertex2="SC_big_2_v0" vertex3="SC_big_2_v2"/>
+      <triangular vertex1="SC_big_2_v6" vertex2="SC_big_2_v4" vertex3="SC_big_2_v7"/>
+      <triangular vertex1="SC_big_2_v7" vertex2="SC_big_2_v4" vertex3="SC_big_2_v5"/>
+      <triangular vertex1="SC_big_2_v1" vertex2="SC_big_2_v6" vertex3="SC_big_2_v3"/>
+      <triangular vertex1="SC_big_2_v3" vertex2="SC_big_2_v6" vertex3="SC_big_2_v7"/>
+      <triangular vertex1="SC_big_2_v6" vertex2="SC_big_2_v1" vertex3="SC_big_2_v4"/>
+      <triangular vertex1="SC_big_2_v4" vertex2="SC_big_2_v1" vertex3="SC_big_2_v0"/>
+      <triangular vertex1="SC_big_2_v3" vertex2="SC_big_2_v7" vertex3="SC_big_2_v2"/>
+      <triangular vertex1="SC_big_2_v2" vertex2="SC_big_2_v7" vertex3="SC_big_2_v5"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="SC_big_2">
+    <materialref ref="PLasticScintillatorMaterialBeamTest"/>
+    <solidref ref="SC_big_20x2772a00"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="SC_big_2"/>
+  </setup>
+
+</gdml>

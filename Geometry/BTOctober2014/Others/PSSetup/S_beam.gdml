@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="S_beam_v0" unit="mm" x="-150" y="50" z="-9400"/>
+    <position name="S_beam_v1" unit="mm" x="-450" y="50" z="-9400"/>
+    <position name="S_beam_v2" unit="mm" x="-150" y="50" z="-9395"/>
+    <position name="S_beam_v3" unit="mm" x="-450" y="50" z="-9395"/>
+    <position name="S_beam_v4" unit="mm" x="-150" y="-50" z="-9400"/>
+    <position name="S_beam_v5" unit="mm" x="-150" y="-50" z="-9395"/>
+    <position name="S_beam_v6" unit="mm" x="-450" y="-50" z="-9400"/>
+    <position name="S_beam_v7" unit="mm" x="-450" y="-50" z="-9395"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="S_beam0x1ae3a30">
+      <triangular vertex1="S_beam_v0" vertex2="S_beam_v1" vertex3="S_beam_v2"/>
+      <triangular vertex1="S_beam_v2" vertex2="S_beam_v1" vertex3="S_beam_v3"/>
+      <triangular vertex1="S_beam_v4" vertex2="S_beam_v0" vertex3="S_beam_v5"/>
+      <triangular vertex1="S_beam_v5" vertex2="S_beam_v0" vertex3="S_beam_v2"/>
+      <triangular vertex1="S_beam_v6" vertex2="S_beam_v4" vertex3="S_beam_v7"/>
+      <triangular vertex1="S_beam_v7" vertex2="S_beam_v4" vertex3="S_beam_v5"/>
+      <triangular vertex1="S_beam_v1" vertex2="S_beam_v6" vertex3="S_beam_v3"/>
+      <triangular vertex1="S_beam_v3" vertex2="S_beam_v6" vertex3="S_beam_v7"/>
+      <triangular vertex1="S_beam_v7" vertex2="S_beam_v5" vertex3="S_beam_v3"/>
+      <triangular vertex1="S_beam_v3" vertex2="S_beam_v5" vertex3="S_beam_v2"/>
+      <triangular vertex1="S_beam_v1" vertex2="S_beam_v0" vertex3="S_beam_v6"/>
+      <triangular vertex1="S_beam_v6" vertex2="S_beam_v0" vertex3="S_beam_v4"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="S_beam">
+    <materialref ref="PSDmaterial_Sci0x9d1cb80"/>
+    <solidref ref="S_beam0x1ae3a30"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="S_beam"/>
+  </setup>
+
+</gdml>

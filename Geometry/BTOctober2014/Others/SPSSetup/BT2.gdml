@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Declare the GDML Schema -->
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+<!--
+     File name: DAMPE.gdml
+     version:0.1
+     Author:weiyf(weiyf@mail.ustc.edu.cn)
+     Time:2013.10.25
+     Description:This GDML file is DAMPE detector geometry description 
+-->
+
+ <define>
+    <position name="BTBOX2_v0" unit="cm" x="-180" y="-150" z="280"/>
+    <position name="BTBOX2_v1" unit="cm" x="-180" y="150" z="280"/>
+    <position name="BTBOX2_v2" unit="cm" x="-180" y="-150" z="170"/>
+    <position name="BTBOX2_v3" unit="cm" x="-180" y="150" z="170"/>
+    <position name="BTBOX2_v4" unit="cm" x="120" y="-150" z="280"/>
+    <position name="BTBOX2_v5" unit="cm" x="120" y="-150" z="170"/>
+    <position name="BTBOX2_v6" unit="cm" x="120" y="150" z="280"/>
+    <position name="BTBOX2_v7" unit="cm" x="120" y="150" z="170"/>
+  </define>
+
+ <materials>
+
+  <!--Vacuum-->
+  <element name="videRef" formula="VACUUM" Z="1">
+   <atom value="1."/>
+  </element>
+  <material formula=" " name="Vacuum">
+   <D value="1.e-25" unit="g/cm3" />
+   <fraction n="1.0" ref="videRef" />
+  </material>
+
+ </materials>
+
+
+ <solids>
+    <tessellated aunit="deg" lunit="mm" name="BT_solid_2">
+      <triangular vertex1="BTBOX2_v0" vertex2="BTBOX2_v1" vertex3="BTBOX2_v2"/>
+      <triangular vertex1="BTBOX2_v2" vertex2="BTBOX2_v1" vertex3="BTBOX2_v3"/>
+      <triangular vertex1="BTBOX2_v4" vertex2="BTBOX2_v0" vertex3="BTBOX2_v5"/>
+      <triangular vertex1="BTBOX2_v5" vertex2="BTBOX2_v0" vertex3="BTBOX2_v2"/>
+      <triangular vertex1="BTBOX2_v6" vertex2="BTBOX2_v4" vertex3="BTBOX2_v7"/>
+      <triangular vertex1="BTBOX2_v7" vertex2="BTBOX2_v4" vertex3="BTBOX2_v5"/>
+      <triangular vertex1="BTBOX2_v1" vertex2="BTBOX2_v6" vertex3="BTBOX2_v3"/>
+      <triangular vertex1="BTBOX2_v3" vertex2="BTBOX2_v6" vertex3="BTBOX2_v7"/>
+      <triangular vertex1="BTBOX2_v7" vertex2="BTBOX2_v5" vertex3="BTBOX2_v3"/>
+      <triangular vertex1="BTBOX2_v3" vertex2="BTBOX2_v5" vertex3="BTBOX2_v2"/>
+      <triangular vertex1="BTBOX2_v1" vertex2="BTBOX2_v0" vertex3="BTBOX2_v6"/>
+      <triangular vertex1="BTBOX2_v6" vertex2="BTBOX2_v0" vertex3="BTBOX2_v4"/>
+    </tessellated>
+  </solids>
+
+
+
+ <structure>
+  
+  <volume name="BT2" >
+   <materialref ref="Vacuum" />
+   <solidref ref="BT_solid_2" />     
+    
+    <physvol>
+      <file name="./Others/SPSSetup/SC_big_2.gdml"/> 
+    </physvol>
+    
+
+    <physvol>
+      <file name="./Others/SPSSetup/Concrete_Dump.gdml"/> 
+    </physvol>
+   
+        
+  </volume>
+ </structure>
+
+
+ <setup name="Default" version="1.0" >
+  <world ref="BT2" />
+ </setup>
+
+
+</gdml>

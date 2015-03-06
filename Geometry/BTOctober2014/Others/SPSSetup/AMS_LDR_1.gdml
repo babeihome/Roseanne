@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="AMS_LDR_1_v0" unit="mm" x="-336.022499084473" y="145.15998840332" z="-25760.25"/>
+    <position name="AMS_LDR_1_v1" unit="mm" x="-263.977500915527" y="145.15998840332" z="-25760.25"/>
+    <position name="AMS_LDR_1_v2" unit="mm" x="-336.022499084473" y="145.15998840332" z="-25759.75"/>
+    <position name="AMS_LDR_1_v3" unit="mm" x="-263.977500915527" y="145.15998840332" z="-25759.75"/>
+    <position name="AMS_LDR_1_v4" unit="mm" x="-263.977500915527" y="186.520004272461" z="-25760.25"/>
+    <position name="AMS_LDR_1_v5" unit="mm" x="-263.977500915527" y="186.520004272461" z="-25759.75"/>
+    <position name="AMS_LDR_1_v6" unit="mm" x="-336.022499084473" y="186.520004272461" z="-25760.25"/>
+    <position name="AMS_LDR_1_v7" unit="mm" x="-336.022499084473" y="186.520004272461" z="-25759.75"/>
+    <position name="AMS_LDR_1_v8" unit="mm" x="-336.022499084473" y="103.699996948242" z="-25760.25"/>
+    <position name="AMS_LDR_1_v9" unit="mm" x="-263.977500915527" y="103.699996948242" z="-25760.25"/>
+    <position name="AMS_LDR_1_v10" unit="mm" x="-336.022499084473" y="103.699996948242" z="-25759.75"/>
+    <position name="AMS_LDR_1_v11" unit="mm" x="-263.977500915527" y="103.699996948242" z="-25759.75"/>
+    <position name="AMS_LDR_1_v12" unit="mm" x="-263.977500915527" y="145.059997558594" z="-25760.25"/>
+    <position name="AMS_LDR_1_v13" unit="mm" x="-263.977500915527" y="145.059997558594" z="-25759.75"/>
+    <position name="AMS_LDR_1_v14" unit="mm" x="-336.022499084473" y="145.059997558594" z="-25760.25"/>
+    <position name="AMS_LDR_1_v15" unit="mm" x="-336.022499084473" y="145.059997558594" z="-25759.75"/>
+    <position name="AMS_LDR_1_v16" unit="mm" x="-336.022499084473" y="62.2399978637695" z="-25760.25"/>
+    <position name="AMS_LDR_1_v17" unit="mm" x="-263.977500915527" y="62.2399978637695" z="-25760.25"/>
+    <position name="AMS_LDR_1_v18" unit="mm" x="-336.022499084473" y="62.2399978637695" z="-25759.75"/>
+    <position name="AMS_LDR_1_v19" unit="mm" x="-263.977500915527" y="62.2399978637695" z="-25759.75"/>
+    <position name="AMS_LDR_1_v20" unit="mm" x="-263.977500915527" y="103.599998474121" z="-25760.25"/>
+    <position name="AMS_LDR_1_v21" unit="mm" x="-263.977500915527" y="103.599998474121" z="-25759.75"/>
+    <position name="AMS_LDR_1_v22" unit="mm" x="-336.022499084473" y="103.599998474121" z="-25760.25"/>
+    <position name="AMS_LDR_1_v23" unit="mm" x="-336.022499084473" y="103.599998474121" z="-25759.75"/>
+    <position name="AMS_LDR_1_v24" unit="mm" x="-336.022499084473" y="20.7800006866455" z="-25760.25"/>
+    <position name="AMS_LDR_1_v25" unit="mm" x="-263.977500915527" y="20.7800006866455" z="-25760.25"/>
+    <position name="AMS_LDR_1_v26" unit="mm" x="-336.022499084473" y="20.7800006866455" z="-25759.75"/>
+    <position name="AMS_LDR_1_v27" unit="mm" x="-263.977500915527" y="20.7800006866455" z="-25759.75"/>
+    <position name="AMS_LDR_1_v28" unit="mm" x="-263.977500915527" y="62.1400032043457" z="-25760.25"/>
+    <position name="AMS_LDR_1_v29" unit="mm" x="-263.977500915527" y="62.1400032043457" z="-25759.75"/>
+    <position name="AMS_LDR_1_v30" unit="mm" x="-336.022499084473" y="62.1400032043457" z="-25760.25"/>
+    <position name="AMS_LDR_1_v31" unit="mm" x="-336.022499084473" y="62.1400032043457" z="-25759.75"/>
+    <position name="AMS_LDR_1_v32" unit="mm" x="-336.022499084473" y="-20.6800003051758" z="-25760.25"/>
+    <position name="AMS_LDR_1_v33" unit="mm" x="-263.977500915527" y="-20.6800003051758" z="-25760.25"/>
+    <position name="AMS_LDR_1_v34" unit="mm" x="-336.022499084473" y="-20.6800003051758" z="-25759.75"/>
+    <position name="AMS_LDR_1_v35" unit="mm" x="-263.977500915527" y="-20.6800003051758" z="-25759.75"/>
+    <position name="AMS_LDR_1_v36" unit="mm" x="-263.977500915527" y="20.6800003051758" z="-25760.25"/>
+    <position name="AMS_LDR_1_v37" unit="mm" x="-263.977500915527" y="20.6800003051758" z="-25759.75"/>
+    <position name="AMS_LDR_1_v38" unit="mm" x="-336.022499084473" y="20.6800003051758" z="-25760.25"/>
+    <position name="AMS_LDR_1_v39" unit="mm" x="-336.022499084473" y="20.6800003051758" z="-25759.75"/>
+    <position name="AMS_LDR_1_v40" unit="mm" x="-336.022499084473" y="-62.1400032043457" z="-25760.25"/>
+    <position name="AMS_LDR_1_v41" unit="mm" x="-263.977500915527" y="-62.1400032043457" z="-25760.25"/>
+    <position name="AMS_LDR_1_v42" unit="mm" x="-336.022499084473" y="-62.1400032043457" z="-25759.75"/>
+    <position name="AMS_LDR_1_v43" unit="mm" x="-263.977500915527" y="-62.1400032043457" z="-25759.75"/>
+    <position name="AMS_LDR_1_v44" unit="mm" x="-263.977500915527" y="-20.7800006866455" z="-25760.25"/>
+    <position name="AMS_LDR_1_v45" unit="mm" x="-263.977500915527" y="-20.7800006866455" z="-25759.75"/>
+    <position name="AMS_LDR_1_v46" unit="mm" x="-336.022499084473" y="-20.7800006866455" z="-25760.25"/>
+    <position name="AMS_LDR_1_v47" unit="mm" x="-336.022499084473" y="-20.7800006866455" z="-25759.75"/>
+    <position name="AMS_LDR_1_v48" unit="mm" x="-336.022499084473" y="-103.599998474121" z="-25760.25"/>
+    <position name="AMS_LDR_1_v49" unit="mm" x="-263.977500915527" y="-103.599998474121" z="-25760.25"/>
+    <position name="AMS_LDR_1_v50" unit="mm" x="-336.022499084473" y="-103.599998474121" z="-25759.75"/>
+    <position name="AMS_LDR_1_v51" unit="mm" x="-263.977500915527" y="-103.599998474121" z="-25759.75"/>
+    <position name="AMS_LDR_1_v52" unit="mm" x="-263.977500915527" y="-62.2399978637695" z="-25760.25"/>
+    <position name="AMS_LDR_1_v53" unit="mm" x="-263.977500915527" y="-62.2399978637695" z="-25759.75"/>
+    <position name="AMS_LDR_1_v54" unit="mm" x="-336.022499084473" y="-62.2399978637695" z="-25760.25"/>
+    <position name="AMS_LDR_1_v55" unit="mm" x="-336.022499084473" y="-62.2399978637695" z="-25759.75"/>
+    <position name="AMS_LDR_1_v56" unit="mm" x="-336.022499084473" y="-145.059997558594" z="-25760.25"/>
+    <position name="AMS_LDR_1_v57" unit="mm" x="-263.977500915527" y="-145.059997558594" z="-25760.25"/>
+    <position name="AMS_LDR_1_v58" unit="mm" x="-336.022499084473" y="-145.059997558594" z="-25759.75"/>
+    <position name="AMS_LDR_1_v59" unit="mm" x="-263.977500915527" y="-145.059997558594" z="-25759.75"/>
+    <position name="AMS_LDR_1_v60" unit="mm" x="-263.977500915527" y="-103.699996948242" z="-25760.25"/>
+    <position name="AMS_LDR_1_v61" unit="mm" x="-263.977500915527" y="-103.699996948242" z="-25759.75"/>
+    <position name="AMS_LDR_1_v62" unit="mm" x="-336.022499084473" y="-103.699996948242" z="-25760.25"/>
+    <position name="AMS_LDR_1_v63" unit="mm" x="-336.022499084473" y="-103.699996948242" z="-25759.75"/>
+    <position name="AMS_LDR_1_v64" unit="mm" x="-336.022499084473" y="-186.520004272461" z="-25760.25"/>
+    <position name="AMS_LDR_1_v65" unit="mm" x="-263.977500915527" y="-186.520004272461" z="-25760.25"/>
+    <position name="AMS_LDR_1_v66" unit="mm" x="-336.022499084473" y="-186.520004272461" z="-25759.75"/>
+    <position name="AMS_LDR_1_v67" unit="mm" x="-263.977500915527" y="-186.520004272461" z="-25759.75"/>
+    <position name="AMS_LDR_1_v68" unit="mm" x="-263.977500915527" y="-145.15998840332" z="-25760.25"/>
+    <position name="AMS_LDR_1_v69" unit="mm" x="-263.977500915527" y="-145.15998840332" z="-25759.75"/>
+    <position name="AMS_LDR_1_v70" unit="mm" x="-336.022499084473" y="-145.15998840332" z="-25760.25"/>
+    <position name="AMS_LDR_1_v71" unit="mm" x="-336.022499084473" y="-145.15998840332" z="-25759.75"/>
+    <position name="AMS_LDR_1_v72" unit="mm" x="-271.582509994507" y="281.162109375" z="-25760.25"/>
+    <position name="AMS_LDR_1_v73" unit="mm" x="-271.582509994507" y="281.162109375" z="-25759.75"/>
+    <position name="AMS_LDR_1_v74" unit="mm" x="-272.022499084473" y="281.220001220703" z="-25760.25"/>
+    <position name="AMS_LDR_1_v75" unit="mm" x="-271.172500610352" y="280.9921875" z="-25759.75"/>
+    <position name="AMS_LDR_1_v76" unit="mm" x="-271.172500610352" y="280.9921875" z="-25760.25"/>
+    <position name="AMS_LDR_1_v77" unit="mm" x="-270.820419311523" y="280.722106933594" z="-25759.75"/>
+    <position name="AMS_LDR_1_v78" unit="mm" x="-270.820419311523" y="280.722106933594" z="-25760.25"/>
+    <position name="AMS_LDR_1_v79" unit="mm" x="-270.550260543823" y="280.369995117188" z="-25759.75"/>
+    <position name="AMS_LDR_1_v80" unit="mm" x="-270.550260543823" y="280.369995117188" z="-25760.25"/>
+    <position name="AMS_LDR_1_v81" unit="mm" x="-270.380430221558" y="279.960021972656" z="-25759.75"/>
+    <position name="AMS_LDR_1_v82" unit="mm" x="-270.380430221558" y="279.960021972656" z="-25760.25"/>
+    <position name="AMS_LDR_1_v83" unit="mm" x="-270.322498321533" y="279.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v84" unit="mm" x="-270.322498321533" y="279.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v85" unit="mm" x="-270.380430221558" y="279.080017089844" z="-25759.75"/>
+    <position name="AMS_LDR_1_v86" unit="mm" x="-270.380430221558" y="279.080017089844" z="-25760.25"/>
+    <position name="AMS_LDR_1_v87" unit="mm" x="-270.550260543823" y="278.670013427734" z="-25759.75"/>
+    <position name="AMS_LDR_1_v88" unit="mm" x="-270.550260543823" y="278.670013427734" z="-25760.25"/>
+    <position name="AMS_LDR_1_v89" unit="mm" x="-270.820419311523" y="278.317901611328" z="-25759.75"/>
+    <position name="AMS_LDR_1_v90" unit="mm" x="-270.820419311523" y="278.317901611328" z="-25760.25"/>
+    <position name="AMS_LDR_1_v91" unit="mm" x="-271.172500610352" y="278.047790527344" z="-25759.75"/>
+    <position name="AMS_LDR_1_v92" unit="mm" x="-271.172500610352" y="278.047790527344" z="-25760.25"/>
+    <position name="AMS_LDR_1_v93" unit="mm" x="-271.582509994507" y="277.877899169922" z="-25759.75"/>
+    <position name="AMS_LDR_1_v94" unit="mm" x="-271.582509994507" y="277.877899169922" z="-25760.25"/>
+    <position name="AMS_LDR_1_v95" unit="mm" x="-272.022499084473" y="277.819976806641" z="-25759.75"/>
+    <position name="AMS_LDR_1_v96" unit="mm" x="-272.022499084473" y="277.819976806641" z="-25760.25"/>
+    <position name="AMS_LDR_1_v97" unit="mm" x="-272.462490081787" y="277.877899169922" z="-25759.75"/>
+    <position name="AMS_LDR_1_v98" unit="mm" x="-272.462490081787" y="277.877899169922" z="-25760.25"/>
+    <position name="AMS_LDR_1_v99" unit="mm" x="-272.872501373291" y="278.047790527344" z="-25759.75"/>
+    <position name="AMS_LDR_1_v100" unit="mm" x="-272.872501373291" y="278.047790527344" z="-25760.25"/>
+    <position name="AMS_LDR_1_v101" unit="mm" x="-273.224580764771" y="278.317901611328" z="-25759.75"/>
+    <position name="AMS_LDR_1_v102" unit="mm" x="-273.224580764771" y="278.317901611328" z="-25760.25"/>
+    <position name="AMS_LDR_1_v103" unit="mm" x="-273.494739532471" y="278.670013427734" z="-25759.75"/>
+    <position name="AMS_LDR_1_v104" unit="mm" x="-273.494739532471" y="278.670013427734" z="-25760.25"/>
+    <position name="AMS_LDR_1_v105" unit="mm" x="-273.664569854736" y="279.080017089844" z="-25759.75"/>
+    <position name="AMS_LDR_1_v106" unit="mm" x="-273.664569854736" y="279.080017089844" z="-25760.25"/>
+    <position name="AMS_LDR_1_v107" unit="mm" x="-273.722499847412" y="279.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v108" unit="mm" x="-273.722499847412" y="279.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v109" unit="mm" x="-273.664569854736" y="279.960021972656" z="-25759.75"/>
+    <position name="AMS_LDR_1_v110" unit="mm" x="-273.664569854736" y="279.960021972656" z="-25760.25"/>
+    <position name="AMS_LDR_1_v111" unit="mm" x="-273.494739532471" y="280.369995117188" z="-25759.75"/>
+    <position name="AMS_LDR_1_v112" unit="mm" x="-273.494739532471" y="280.369995117188" z="-25760.25"/>
+    <position name="AMS_LDR_1_v113" unit="mm" x="-273.224580764771" y="280.722106933594" z="-25759.75"/>
+    <position name="AMS_LDR_1_v114" unit="mm" x="-273.224580764771" y="280.722106933594" z="-25760.25"/>
+    <position name="AMS_LDR_1_v115" unit="mm" x="-272.872501373291" y="280.9921875" z="-25759.75"/>
+    <position name="AMS_LDR_1_v116" unit="mm" x="-272.872501373291" y="280.9921875" z="-25760.25"/>
+    <position name="AMS_LDR_1_v117" unit="mm" x="-272.462490081787" y="281.162109375" z="-25759.75"/>
+    <position name="AMS_LDR_1_v118" unit="mm" x="-272.462490081787" y="281.162109375" z="-25760.25"/>
+    <position name="AMS_LDR_1_v119" unit="mm" x="-272.022499084473" y="281.220001220703" z="-25759.75"/>
+    <position name="AMS_LDR_1_v120" unit="mm" x="-327.582509994507" y="281.162109375" z="-25760.25"/>
+    <position name="AMS_LDR_1_v121" unit="mm" x="-327.582509994507" y="281.162109375" z="-25759.75"/>
+    <position name="AMS_LDR_1_v122" unit="mm" x="-328.022499084473" y="281.220001220703" z="-25760.25"/>
+    <position name="AMS_LDR_1_v123" unit="mm" x="-327.172498703003" y="280.9921875" z="-25759.75"/>
+    <position name="AMS_LDR_1_v124" unit="mm" x="-327.172498703003" y="280.9921875" z="-25760.25"/>
+    <position name="AMS_LDR_1_v125" unit="mm" x="-326.820421218872" y="280.722106933594" z="-25759.75"/>
+    <position name="AMS_LDR_1_v126" unit="mm" x="-326.820421218872" y="280.722106933594" z="-25760.25"/>
+    <position name="AMS_LDR_1_v127" unit="mm" x="-326.550258636475" y="280.369995117188" z="-25759.75"/>
+    <position name="AMS_LDR_1_v128" unit="mm" x="-326.550258636475" y="280.369995117188" z="-25760.25"/>
+    <position name="AMS_LDR_1_v129" unit="mm" x="-326.380428314209" y="279.960021972656" z="-25759.75"/>
+    <position name="AMS_LDR_1_v130" unit="mm" x="-326.380428314209" y="279.960021972656" z="-25760.25"/>
+    <position name="AMS_LDR_1_v131" unit="mm" x="-326.322500228882" y="279.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v132" unit="mm" x="-326.322500228882" y="279.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v133" unit="mm" x="-326.380428314209" y="279.080017089844" z="-25759.75"/>
+    <position name="AMS_LDR_1_v134" unit="mm" x="-326.380428314209" y="279.080017089844" z="-25760.25"/>
+    <position name="AMS_LDR_1_v135" unit="mm" x="-326.550258636475" y="278.670013427734" z="-25759.75"/>
+    <position name="AMS_LDR_1_v136" unit="mm" x="-326.550258636475" y="278.670013427734" z="-25760.25"/>
+    <position name="AMS_LDR_1_v137" unit="mm" x="-326.820421218872" y="278.317901611328" z="-25759.75"/>
+    <position name="AMS_LDR_1_v138" unit="mm" x="-326.820421218872" y="278.317901611328" z="-25760.25"/>
+    <position name="AMS_LDR_1_v139" unit="mm" x="-327.172498703003" y="278.047790527344" z="-25759.75"/>
+    <position name="AMS_LDR_1_v140" unit="mm" x="-327.172498703003" y="278.047790527344" z="-25760.25"/>
+    <position name="AMS_LDR_1_v141" unit="mm" x="-327.582509994507" y="277.877899169922" z="-25759.75"/>
+    <position name="AMS_LDR_1_v142" unit="mm" x="-327.582509994507" y="277.877899169922" z="-25760.25"/>
+    <position name="AMS_LDR_1_v143" unit="mm" x="-328.022499084473" y="277.819976806641" z="-25759.75"/>
+    <position name="AMS_LDR_1_v144" unit="mm" x="-328.022499084473" y="277.819976806641" z="-25760.25"/>
+    <position name="AMS_LDR_1_v145" unit="mm" x="-328.462490081787" y="277.877899169922" z="-25759.75"/>
+    <position name="AMS_LDR_1_v146" unit="mm" x="-328.462490081787" y="277.877899169922" z="-25760.25"/>
+    <position name="AMS_LDR_1_v147" unit="mm" x="-328.872499465942" y="278.047790527344" z="-25759.75"/>
+    <position name="AMS_LDR_1_v148" unit="mm" x="-328.872499465942" y="278.047790527344" z="-25760.25"/>
+    <position name="AMS_LDR_1_v149" unit="mm" x="-329.224578857422" y="278.317901611328" z="-25759.75"/>
+    <position name="AMS_LDR_1_v150" unit="mm" x="-329.224578857422" y="278.317901611328" z="-25760.25"/>
+    <position name="AMS_LDR_1_v151" unit="mm" x="-329.494739532471" y="278.670013427734" z="-25759.75"/>
+    <position name="AMS_LDR_1_v152" unit="mm" x="-329.494739532471" y="278.670013427734" z="-25760.25"/>
+    <position name="AMS_LDR_1_v153" unit="mm" x="-329.664569854736" y="279.080017089844" z="-25759.75"/>
+    <position name="AMS_LDR_1_v154" unit="mm" x="-329.664569854736" y="279.080017089844" z="-25760.25"/>
+    <position name="AMS_LDR_1_v155" unit="mm" x="-329.722499847412" y="279.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v156" unit="mm" x="-329.722499847412" y="279.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v157" unit="mm" x="-329.664569854736" y="279.960021972656" z="-25759.75"/>
+    <position name="AMS_LDR_1_v158" unit="mm" x="-329.664569854736" y="279.960021972656" z="-25760.25"/>
+    <position name="AMS_LDR_1_v159" unit="mm" x="-329.494739532471" y="280.369995117188" z="-25759.75"/>
+    <position name="AMS_LDR_1_v160" unit="mm" x="-329.494739532471" y="280.369995117188" z="-25760.25"/>
+    <position name="AMS_LDR_1_v161" unit="mm" x="-329.224578857422" y="280.722106933594" z="-25759.75"/>
+    <position name="AMS_LDR_1_v162" unit="mm" x="-329.224578857422" y="280.722106933594" z="-25760.25"/>
+    <position name="AMS_LDR_1_v163" unit="mm" x="-328.872499465942" y="280.9921875" z="-25759.75"/>
+    <position name="AMS_LDR_1_v164" unit="mm" x="-328.872499465942" y="280.9921875" z="-25760.25"/>
+    <position name="AMS_LDR_1_v165" unit="mm" x="-328.462490081787" y="281.162109375" z="-25759.75"/>
+    <position name="AMS_LDR_1_v166" unit="mm" x="-328.462490081787" y="281.162109375" z="-25760.25"/>
+    <position name="AMS_LDR_1_v167" unit="mm" x="-328.022499084473" y="281.220001220703" z="-25759.75"/>
+    <position name="AMS_LDR_1_v168" unit="mm" x="-327.582509994507" y="256.162109375" z="-25760.25"/>
+    <position name="AMS_LDR_1_v169" unit="mm" x="-327.582509994507" y="256.162109375" z="-25759.75"/>
+    <position name="AMS_LDR_1_v170" unit="mm" x="-328.022499084473" y="256.220001220703" z="-25760.25"/>
+    <position name="AMS_LDR_1_v171" unit="mm" x="-327.172498703003" y="255.992202758789" z="-25759.75"/>
+    <position name="AMS_LDR_1_v172" unit="mm" x="-327.172498703003" y="255.992202758789" z="-25760.25"/>
+    <position name="AMS_LDR_1_v173" unit="mm" x="-326.820421218872" y="255.722091674805" z="-25759.75"/>
+    <position name="AMS_LDR_1_v174" unit="mm" x="-326.820421218872" y="255.722091674805" z="-25760.25"/>
+    <position name="AMS_LDR_1_v175" unit="mm" x="-326.550258636475" y="255.369995117188" z="-25759.75"/>
+    <position name="AMS_LDR_1_v176" unit="mm" x="-326.550258636475" y="255.369995117188" z="-25760.25"/>
+    <position name="AMS_LDR_1_v177" unit="mm" x="-326.380428314209" y="254.960006713867" z="-25759.75"/>
+    <position name="AMS_LDR_1_v178" unit="mm" x="-326.380428314209" y="254.960006713867" z="-25760.25"/>
+    <position name="AMS_LDR_1_v179" unit="mm" x="-326.322500228882" y="254.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v180" unit="mm" x="-326.322500228882" y="254.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v181" unit="mm" x="-326.380428314209" y="254.080017089844" z="-25759.75"/>
+    <position name="AMS_LDR_1_v182" unit="mm" x="-326.380428314209" y="254.080017089844" z="-25760.25"/>
+    <position name="AMS_LDR_1_v183" unit="mm" x="-326.550258636475" y="253.669998168945" z="-25759.75"/>
+    <position name="AMS_LDR_1_v184" unit="mm" x="-326.550258636475" y="253.669998168945" z="-25760.25"/>
+    <position name="AMS_LDR_1_v185" unit="mm" x="-326.820421218872" y="253.317901611328" z="-25759.75"/>
+    <position name="AMS_LDR_1_v186" unit="mm" x="-326.820421218872" y="253.317901611328" z="-25760.25"/>
+    <position name="AMS_LDR_1_v187" unit="mm" x="-327.172498703003" y="253.047805786133" z="-25759.75"/>
+    <position name="AMS_LDR_1_v188" unit="mm" x="-327.172498703003" y="253.047805786133" z="-25760.25"/>
+    <position name="AMS_LDR_1_v189" unit="mm" x="-327.582509994507" y="252.877899169922" z="-25759.75"/>
+    <position name="AMS_LDR_1_v190" unit="mm" x="-327.582509994507" y="252.877899169922" z="-25760.25"/>
+    <position name="AMS_LDR_1_v191" unit="mm" x="-328.022499084473" y="252.81999206543" z="-25759.75"/>
+    <position name="AMS_LDR_1_v192" unit="mm" x="-328.022499084473" y="252.81999206543" z="-25760.25"/>
+    <position name="AMS_LDR_1_v193" unit="mm" x="-328.462490081787" y="252.877899169922" z="-25759.75"/>
+    <position name="AMS_LDR_1_v194" unit="mm" x="-328.462490081787" y="252.877899169922" z="-25760.25"/>
+    <position name="AMS_LDR_1_v195" unit="mm" x="-328.872499465942" y="253.047805786133" z="-25759.75"/>
+    <position name="AMS_LDR_1_v196" unit="mm" x="-328.872499465942" y="253.047805786133" z="-25760.25"/>
+    <position name="AMS_LDR_1_v197" unit="mm" x="-329.224578857422" y="253.317901611328" z="-25759.75"/>
+    <position name="AMS_LDR_1_v198" unit="mm" x="-329.224578857422" y="253.317901611328" z="-25760.25"/>
+    <position name="AMS_LDR_1_v199" unit="mm" x="-329.494739532471" y="253.669998168945" z="-25759.75"/>
+    <position name="AMS_LDR_1_v200" unit="mm" x="-329.494739532471" y="253.669998168945" z="-25760.25"/>
+    <position name="AMS_LDR_1_v201" unit="mm" x="-329.664569854736" y="254.080017089844" z="-25759.75"/>
+    <position name="AMS_LDR_1_v202" unit="mm" x="-329.664569854736" y="254.080017089844" z="-25760.25"/>
+    <position name="AMS_LDR_1_v203" unit="mm" x="-329.722499847412" y="254.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v204" unit="mm" x="-329.722499847412" y="254.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v205" unit="mm" x="-329.664569854736" y="254.960006713867" z="-25759.75"/>
+    <position name="AMS_LDR_1_v206" unit="mm" x="-329.664569854736" y="254.960006713867" z="-25760.25"/>
+    <position name="AMS_LDR_1_v207" unit="mm" x="-329.494739532471" y="255.369995117188" z="-25759.75"/>
+    <position name="AMS_LDR_1_v208" unit="mm" x="-329.494739532471" y="255.369995117188" z="-25760.25"/>
+    <position name="AMS_LDR_1_v209" unit="mm" x="-329.224578857422" y="255.722091674805" z="-25759.75"/>
+    <position name="AMS_LDR_1_v210" unit="mm" x="-329.224578857422" y="255.722091674805" z="-25760.25"/>
+    <position name="AMS_LDR_1_v211" unit="mm" x="-328.872499465942" y="255.992202758789" z="-25759.75"/>
+    <position name="AMS_LDR_1_v212" unit="mm" x="-328.872499465942" y="255.992202758789" z="-25760.25"/>
+    <position name="AMS_LDR_1_v213" unit="mm" x="-328.462490081787" y="256.162109375" z="-25759.75"/>
+    <position name="AMS_LDR_1_v214" unit="mm" x="-328.462490081787" y="256.162109375" z="-25760.25"/>
+    <position name="AMS_LDR_1_v215" unit="mm" x="-328.022499084473" y="256.220001220703" z="-25759.75"/>
+    <position name="AMS_LDR_1_v216" unit="mm" x="-271.582509994507" y="256.162109375" z="-25760.25"/>
+    <position name="AMS_LDR_1_v217" unit="mm" x="-271.582509994507" y="256.162109375" z="-25759.75"/>
+    <position name="AMS_LDR_1_v218" unit="mm" x="-272.022499084473" y="256.220001220703" z="-25760.25"/>
+    <position name="AMS_LDR_1_v219" unit="mm" x="-271.172500610352" y="255.992202758789" z="-25759.75"/>
+    <position name="AMS_LDR_1_v220" unit="mm" x="-271.172500610352" y="255.992202758789" z="-25760.25"/>
+    <position name="AMS_LDR_1_v221" unit="mm" x="-270.820419311523" y="255.722091674805" z="-25759.75"/>
+    <position name="AMS_LDR_1_v222" unit="mm" x="-270.820419311523" y="255.722091674805" z="-25760.25"/>
+    <position name="AMS_LDR_1_v223" unit="mm" x="-270.550260543823" y="255.369995117188" z="-25759.75"/>
+    <position name="AMS_LDR_1_v224" unit="mm" x="-270.550260543823" y="255.369995117188" z="-25760.25"/>
+    <position name="AMS_LDR_1_v225" unit="mm" x="-270.380430221558" y="254.960006713867" z="-25759.75"/>
+    <position name="AMS_LDR_1_v226" unit="mm" x="-270.380430221558" y="254.960006713867" z="-25760.25"/>
+    <position name="AMS_LDR_1_v227" unit="mm" x="-270.322498321533" y="254.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v228" unit="mm" x="-270.322498321533" y="254.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v229" unit="mm" x="-270.380430221558" y="254.080017089844" z="-25759.75"/>
+    <position name="AMS_LDR_1_v230" unit="mm" x="-270.380430221558" y="254.080017089844" z="-25760.25"/>
+    <position name="AMS_LDR_1_v231" unit="mm" x="-270.550260543823" y="253.669998168945" z="-25759.75"/>
+    <position name="AMS_LDR_1_v232" unit="mm" x="-270.550260543823" y="253.669998168945" z="-25760.25"/>
+    <position name="AMS_LDR_1_v233" unit="mm" x="-270.820419311523" y="253.317901611328" z="-25759.75"/>
+    <position name="AMS_LDR_1_v234" unit="mm" x="-270.820419311523" y="253.317901611328" z="-25760.25"/>
+    <position name="AMS_LDR_1_v235" unit="mm" x="-271.172500610352" y="253.047805786133" z="-25759.75"/>
+    <position name="AMS_LDR_1_v236" unit="mm" x="-271.172500610352" y="253.047805786133" z="-25760.25"/>
+    <position name="AMS_LDR_1_v237" unit="mm" x="-271.582509994507" y="252.877899169922" z="-25759.75"/>
+    <position name="AMS_LDR_1_v238" unit="mm" x="-271.582509994507" y="252.877899169922" z="-25760.25"/>
+    <position name="AMS_LDR_1_v239" unit="mm" x="-272.022499084473" y="252.81999206543" z="-25759.75"/>
+    <position name="AMS_LDR_1_v240" unit="mm" x="-272.022499084473" y="252.81999206543" z="-25760.25"/>
+    <position name="AMS_LDR_1_v241" unit="mm" x="-272.462490081787" y="252.877899169922" z="-25759.75"/>
+    <position name="AMS_LDR_1_v242" unit="mm" x="-272.462490081787" y="252.877899169922" z="-25760.25"/>
+    <position name="AMS_LDR_1_v243" unit="mm" x="-272.872501373291" y="253.047805786133" z="-25759.75"/>
+    <position name="AMS_LDR_1_v244" unit="mm" x="-272.872501373291" y="253.047805786133" z="-25760.25"/>
+    <position name="AMS_LDR_1_v245" unit="mm" x="-273.224580764771" y="253.317901611328" z="-25759.75"/>
+    <position name="AMS_LDR_1_v246" unit="mm" x="-273.224580764771" y="253.317901611328" z="-25760.25"/>
+    <position name="AMS_LDR_1_v247" unit="mm" x="-273.494739532471" y="253.669998168945" z="-25759.75"/>
+    <position name="AMS_LDR_1_v248" unit="mm" x="-273.494739532471" y="253.669998168945" z="-25760.25"/>
+    <position name="AMS_LDR_1_v249" unit="mm" x="-273.664569854736" y="254.080017089844" z="-25759.75"/>
+    <position name="AMS_LDR_1_v250" unit="mm" x="-273.664569854736" y="254.080017089844" z="-25760.25"/>
+    <position name="AMS_LDR_1_v251" unit="mm" x="-273.722499847412" y="254.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v252" unit="mm" x="-273.722499847412" y="254.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v253" unit="mm" x="-273.664569854736" y="254.960006713867" z="-25759.75"/>
+    <position name="AMS_LDR_1_v254" unit="mm" x="-273.664569854736" y="254.960006713867" z="-25760.25"/>
+    <position name="AMS_LDR_1_v255" unit="mm" x="-273.494739532471" y="255.369995117188" z="-25759.75"/>
+    <position name="AMS_LDR_1_v256" unit="mm" x="-273.494739532471" y="255.369995117188" z="-25760.25"/>
+    <position name="AMS_LDR_1_v257" unit="mm" x="-273.224580764771" y="255.722091674805" z="-25759.75"/>
+    <position name="AMS_LDR_1_v258" unit="mm" x="-273.224580764771" y="255.722091674805" z="-25760.25"/>
+    <position name="AMS_LDR_1_v259" unit="mm" x="-272.872501373291" y="255.992202758789" z="-25759.75"/>
+    <position name="AMS_LDR_1_v260" unit="mm" x="-272.872501373291" y="255.992202758789" z="-25760.25"/>
+    <position name="AMS_LDR_1_v261" unit="mm" x="-272.462490081787" y="256.162109375" z="-25759.75"/>
+    <position name="AMS_LDR_1_v262" unit="mm" x="-272.462490081787" y="256.162109375" z="-25760.25"/>
+    <position name="AMS_LDR_1_v263" unit="mm" x="-272.022499084473" y="256.220001220703" z="-25759.75"/>
+    <position name="AMS_LDR_1_v264" unit="mm" x="-334.022499084473" y="250.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v265" unit="mm" x="-334.022499084473" y="205.520004272461" z="-25760.25"/>
+    <position name="AMS_LDR_1_v266" unit="mm" x="-334.022499084473" y="250.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v267" unit="mm" x="-334.022499084473" y="205.520004272461" z="-25759.75"/>
+    <position name="AMS_LDR_1_v268" unit="mm" x="-266.022499084473" y="205.520004272461" z="-25760.25"/>
+    <position name="AMS_LDR_1_v269" unit="mm" x="-266.022499084473" y="205.520004272461" z="-25759.75"/>
+    <position name="AMS_LDR_1_v270" unit="mm" x="-266.022499084473" y="250.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v271" unit="mm" x="-266.022499084473" y="250.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v272" unit="mm" x="-268.522500991821" y="250.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v273" unit="mm" x="-268.522500991821" y="250.519989013672" z="-25759.75"/>
+    <position name="AMS_LDR_1_v274" unit="mm" x="-268.522500991821" y="283.52001953125" z="-25760.25"/>
+    <position name="AMS_LDR_1_v275" unit="mm" x="-268.522500991821" y="283.52001953125" z="-25759.75"/>
+    <position name="AMS_LDR_1_v276" unit="mm" x="-331.522500991821" y="283.52001953125" z="-25760.25"/>
+    <position name="AMS_LDR_1_v277" unit="mm" x="-331.522500991821" y="283.52001953125" z="-25759.75"/>
+    <position name="AMS_LDR_1_v278" unit="mm" x="-331.522500991821" y="250.519989013672" z="-25760.25"/>
+    <position name="AMS_LDR_1_v279" unit="mm" x="-331.522500991821" y="250.519989013672" z="-25759.75"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="AMS_LDR_10x2098a90">
+      <triangular vertex1="AMS_LDR_1_v0" vertex2="AMS_LDR_1_v1" vertex3="AMS_LDR_1_v2"/>
+      <triangular vertex1="AMS_LDR_1_v2" vertex2="AMS_LDR_1_v1" vertex3="AMS_LDR_1_v3"/>
+      <triangular vertex1="AMS_LDR_1_v1" vertex2="AMS_LDR_1_v4" vertex3="AMS_LDR_1_v3"/>
+      <triangular vertex1="AMS_LDR_1_v3" vertex2="AMS_LDR_1_v4" vertex3="AMS_LDR_1_v5"/>
+      <triangular vertex1="AMS_LDR_1_v4" vertex2="AMS_LDR_1_v6" vertex3="AMS_LDR_1_v5"/>
+      <triangular vertex1="AMS_LDR_1_v5" vertex2="AMS_LDR_1_v6" vertex3="AMS_LDR_1_v7"/>
+      <triangular vertex1="AMS_LDR_1_v6" vertex2="AMS_LDR_1_v0" vertex3="AMS_LDR_1_v7"/>
+      <triangular vertex1="AMS_LDR_1_v7" vertex2="AMS_LDR_1_v0" vertex3="AMS_LDR_1_v2"/>
+      <triangular vertex1="AMS_LDR_1_v3" vertex2="AMS_LDR_1_v5" vertex3="AMS_LDR_1_v2"/>
+      <triangular vertex1="AMS_LDR_1_v2" vertex2="AMS_LDR_1_v5" vertex3="AMS_LDR_1_v7"/>
+      <triangular vertex1="AMS_LDR_1_v0" vertex2="AMS_LDR_1_v6" vertex3="AMS_LDR_1_v1"/>
+      <triangular vertex1="AMS_LDR_1_v1" vertex2="AMS_LDR_1_v6" vertex3="AMS_LDR_1_v4"/>
+      <triangular vertex1="AMS_LDR_1_v8" vertex2="AMS_LDR_1_v9" vertex3="AMS_LDR_1_v10"/>
+      <triangular vertex1="AMS_LDR_1_v10" vertex2="AMS_LDR_1_v9" vertex3="AMS_LDR_1_v11"/>
+      <triangular vertex1="AMS_LDR_1_v9" vertex2="AMS_LDR_1_v12" vertex3="AMS_LDR_1_v11"/>
+      <triangular vertex1="AMS_LDR_1_v11" vertex2="AMS_LDR_1_v12" vertex3="AMS_LDR_1_v13"/>
+      <triangular vertex1="AMS_LDR_1_v12" vertex2="AMS_LDR_1_v14" vertex3="AMS_LDR_1_v13"/>
+      <triangular vertex1="AMS_LDR_1_v13" vertex2="AMS_LDR_1_v14" vertex3="AMS_LDR_1_v15"/>
+      <triangular vertex1="AMS_LDR_1_v14" vertex2="AMS_LDR_1_v8" vertex3="AMS_LDR_1_v15"/>
+      <triangular vertex1="AMS_LDR_1_v15" vertex2="AMS_LDR_1_v8" vertex3="AMS_LDR_1_v10"/>
+      <triangular vertex1="AMS_LDR_1_v11" vertex2="AMS_LDR_1_v13" vertex3="AMS_LDR_1_v10"/>
+      <triangular vertex1="AMS_LDR_1_v10" vertex2="AMS_LDR_1_v13" vertex3="AMS_LDR_1_v15"/>
+      <triangular vertex1="AMS_LDR_1_v8" vertex2="AMS_LDR_1_v14" vertex3="AMS_LDR_1_v9"/>
+      <triangular vertex1="AMS_LDR_1_v9" vertex2="AMS_LDR_1_v14" vertex3="AMS_LDR_1_v12"/>
+      <triangular vertex1="AMS_LDR_1_v16" vertex2="AMS_LDR_1_v17" vertex3="AMS_LDR_1_v18"/>
+      <triangular vertex1="AMS_LDR_1_v18" vertex2="AMS_LDR_1_v17" vertex3="AMS_LDR_1_v19"/>
+      <triangular vertex1="AMS_LDR_1_v17" vertex2="AMS_LDR_1_v20" vertex3="AMS_LDR_1_v19"/>
+      <triangular vertex1="AMS_LDR_1_v19" vertex2="AMS_LDR_1_v20" vertex3="AMS_LDR_1_v21"/>
+      <triangular vertex1="AMS_LDR_1_v20" vertex2="AMS_LDR_1_v22" vertex3="AMS_LDR_1_v21"/>
+      <triangular vertex1="AMS_LDR_1_v21" vertex2="AMS_LDR_1_v22" vertex3="AMS_LDR_1_v23"/>
+      <triangular vertex1="AMS_LDR_1_v22" vertex2="AMS_LDR_1_v16" vertex3="AMS_LDR_1_v23"/>
+      <triangular vertex1="AMS_LDR_1_v23" vertex2="AMS_LDR_1_v16" vertex3="AMS_LDR_1_v18"/>
+      <triangular vertex1="AMS_LDR_1_v19" vertex2="AMS_LDR_1_v21" vertex3="AMS_LDR_1_v18"/>
+      <triangular vertex1="AMS_LDR_1_v18" vertex2="AMS_LDR_1_v21" vertex3="AMS_LDR_1_v23"/>
+      <triangular vertex1="AMS_LDR_1_v16" vertex2="AMS_LDR_1_v22" vertex3="AMS_LDR_1_v17"/>
+      <triangular vertex1="AMS_LDR_1_v17" vertex2="AMS_LDR_1_v22" vertex3="AMS_LDR_1_v20"/>
+      <triangular vertex1="AMS_LDR_1_v24" vertex2="AMS_LDR_1_v25" vertex3="AMS_LDR_1_v26"/>
+      <triangular vertex1="AMS_LDR_1_v26" vertex2="AMS_LDR_1_v25" vertex3="AMS_LDR_1_v27"/>
+      <triangular vertex1="AMS_LDR_1_v25" vertex2="AMS_LDR_1_v28" vertex3="AMS_LDR_1_v27"/>
+      <triangular vertex1="AMS_LDR_1_v27" vertex2="AMS_LDR_1_v28" vertex3="AMS_LDR_1_v29"/>
+      <triangular vertex1="AMS_LDR_1_v28" vertex2="AMS_LDR_1_v30" vertex3="AMS_LDR_1_v29"/>
+      <triangular vertex1="AMS_LDR_1_v29" vertex2="AMS_LDR_1_v30" vertex3="AMS_LDR_1_v31"/>
+      <triangular vertex1="AMS_LDR_1_v30" vertex2="AMS_LDR_1_v24" vertex3="AMS_LDR_1_v31"/>
+      <triangular vertex1="AMS_LDR_1_v31" vertex2="AMS_LDR_1_v24" vertex3="AMS_LDR_1_v26"/>
+      <triangular vertex1="AMS_LDR_1_v27" vertex2="AMS_LDR_1_v29" vertex3="AMS_LDR_1_v26"/>
+      <triangular vertex1="AMS_LDR_1_v26" vertex2="AMS_LDR_1_v29" vertex3="AMS_LDR_1_v31"/>
+      <triangular vertex1="AMS_LDR_1_v24" vertex2="AMS_LDR_1_v30" vertex3="AMS_LDR_1_v25"/>
+      <triangular vertex1="AMS_LDR_1_v25" vertex2="AMS_LDR_1_v30" vertex3="AMS_LDR_1_v28"/>
+      <triangular vertex1="AMS_LDR_1_v32" vertex2="AMS_LDR_1_v33" vertex3="AMS_LDR_1_v34"/>
+      <triangular vertex1="AMS_LDR_1_v34" vertex2="AMS_LDR_1_v33" vertex3="AMS_LDR_1_v35"/>
+      <triangular vertex1="AMS_LDR_1_v33" vertex2="AMS_LDR_1_v36" vertex3="AMS_LDR_1_v35"/>
+      <triangular vertex1="AMS_LDR_1_v35" vertex2="AMS_LDR_1_v36" vertex3="AMS_LDR_1_v37"/>
+      <triangular vertex1="AMS_LDR_1_v36" vertex2="AMS_LDR_1_v38" vertex3="AMS_LDR_1_v37"/>
+      <triangular vertex1="AMS_LDR_1_v37" vertex2="AMS_LDR_1_v38" vertex3="AMS_LDR_1_v39"/>
+      <triangular vertex1="AMS_LDR_1_v38" vertex2="AMS_LDR_1_v32" vertex3="AMS_LDR_1_v39"/>
+      <triangular vertex1="AMS_LDR_1_v39" vertex2="AMS_LDR_1_v32" vertex3="AMS_LDR_1_v34"/>
+      <triangular vertex1="AMS_LDR_1_v35" vertex2="AMS_LDR_1_v37" vertex3="AMS_LDR_1_v34"/>
+      <triangular vertex1="AMS_LDR_1_v34" vertex2="AMS_LDR_1_v37" vertex3="AMS_LDR_1_v39"/>
+      <triangular vertex1="AMS_LDR_1_v32" vertex2="AMS_LDR_1_v38" vertex3="AMS_LDR_1_v33"/>
+      <triangular vertex1="AMS_LDR_1_v33" vertex2="AMS_LDR_1_v38" vertex3="AMS_LDR_1_v36"/>
+      <triangular vertex1="AMS_LDR_1_v40" vertex2="AMS_LDR_1_v41" vertex3="AMS_LDR_1_v42"/>
+      <triangular vertex1="AMS_LDR_1_v42" vertex2="AMS_LDR_1_v41" vertex3="AMS_LDR_1_v43"/>
+      <triangular vertex1="AMS_LDR_1_v41" vertex2="AMS_LDR_1_v44" vertex3="AMS_LDR_1_v43"/>
+      <triangular vertex1="AMS_LDR_1_v43" vertex2="AMS_LDR_1_v44" vertex3="AMS_LDR_1_v45"/>
+      <triangular vertex1="AMS_LDR_1_v44" vertex2="AMS_LDR_1_v46" vertex3="AMS_LDR_1_v45"/>
+      <triangular vertex1="AMS_LDR_1_v45" vertex2="AMS_LDR_1_v46" vertex3="AMS_LDR_1_v47"/>
+      <triangular vertex1="AMS_LDR_1_v46" vertex2="AMS_LDR_1_v40" vertex3="AMS_LDR_1_v47"/>
+      <triangular vertex1="AMS_LDR_1_v47" vertex2="AMS_LDR_1_v40" vertex3="AMS_LDR_1_v42"/>
+      <triangular vertex1="AMS_LDR_1_v43" vertex2="AMS_LDR_1_v45" vertex3="AMS_LDR_1_v42"/>
+      <triangular vertex1="AMS_LDR_1_v42" vertex2="AMS_LDR_1_v45" vertex3="AMS_LDR_1_v47"/>
+      <triangular vertex1="AMS_LDR_1_v40" vertex2="AMS_LDR_1_v46" vertex3="AMS_LDR_1_v41"/>
+      <triangular vertex1="AMS_LDR_1_v41" vertex2="AMS_LDR_1_v46" vertex3="AMS_LDR_1_v44"/>
+      <triangular vertex1="AMS_LDR_1_v48" vertex2="AMS_LDR_1_v49" vertex3="AMS_LDR_1_v50"/>
+      <triangular vertex1="AMS_LDR_1_v50" vertex2="AMS_LDR_1_v49" vertex3="AMS_LDR_1_v51"/>
+      <triangular vertex1="AMS_LDR_1_v49" vertex2="AMS_LDR_1_v52" vertex3="AMS_LDR_1_v51"/>
+      <triangular vertex1="AMS_LDR_1_v51" vertex2="AMS_LDR_1_v52" vertex3="AMS_LDR_1_v53"/>
+      <triangular vertex1="AMS_LDR_1_v52" vertex2="AMS_LDR_1_v54" vertex3="AMS_LDR_1_v53"/>
+      <triangular vertex1="AMS_LDR_1_v53" vertex2="AMS_LDR_1_v54" vertex3="AMS_LDR_1_v55"/>
+      <triangular vertex1="AMS_LDR_1_v54" vertex2="AMS_LDR_1_v48" vertex3="AMS_LDR_1_v55"/>
+      <triangular vertex1="AMS_LDR_1_v55" vertex2="AMS_LDR_1_v48" vertex3="AMS_LDR_1_v50"/>
+      <triangular vertex1="AMS_LDR_1_v51" vertex2="AMS_LDR_1_v53" vertex3="AMS_LDR_1_v50"/>
+      <triangular vertex1="AMS_LDR_1_v50" vertex2="AMS_LDR_1_v53" vertex3="AMS_LDR_1_v55"/>
+      <triangular vertex1="AMS_LDR_1_v48" vertex2="AMS_LDR_1_v54" vertex3="AMS_LDR_1_v49"/>
+      <triangular vertex1="AMS_LDR_1_v49" vertex2="AMS_LDR_1_v54" vertex3="AMS_LDR_1_v52"/>
+      <triangular vertex1="AMS_LDR_1_v56" vertex2="AMS_LDR_1_v57" vertex3="AMS_LDR_1_v58"/>
+      <triangular vertex1="AMS_LDR_1_v58" vertex2="AMS_LDR_1_v57" vertex3="AMS_LDR_1_v59"/>
+      <triangular vertex1="AMS_LDR_1_v57" vertex2="AMS_LDR_1_v60" vertex3="AMS_LDR_1_v59"/>
+      <triangular vertex1="AMS_LDR_1_v59" vertex2="AMS_LDR_1_v60" vertex3="AMS_LDR_1_v61"/>
+      <triangular vertex1="AMS_LDR_1_v60" vertex2="AMS_LDR_1_v62" vertex3="AMS_LDR_1_v61"/>
+      <triangular vertex1="AMS_LDR_1_v61" vertex2="AMS_LDR_1_v62" vertex3="AMS_LDR_1_v63"/>
+      <triangular vertex1="AMS_LDR_1_v62" vertex2="AMS_LDR_1_v56" vertex3="AMS_LDR_1_v63"/>
+      <triangular vertex1="AMS_LDR_1_v63" vertex2="AMS_LDR_1_v56" vertex3="AMS_LDR_1_v58"/>
+      <triangular vertex1="AMS_LDR_1_v59" vertex2="AMS_LDR_1_v61" vertex3="AMS_LDR_1_v58"/>
+      <triangular vertex1="AMS_LDR_1_v58" vertex2="AMS_LDR_1_v61" vertex3="AMS_LDR_1_v63"/>
+      <triangular vertex1="AMS_LDR_1_v56" vertex2="AMS_LDR_1_v62" vertex3="AMS_LDR_1_v57"/>
+      <triangular vertex1="AMS_LDR_1_v57" vertex2="AMS_LDR_1_v62" vertex3="AMS_LDR_1_v60"/>
+      <triangular vertex1="AMS_LDR_1_v64" vertex2="AMS_LDR_1_v65" vertex3="AMS_LDR_1_v66"/>
+      <triangular vertex1="AMS_LDR_1_v66" vertex2="AMS_LDR_1_v65" vertex3="AMS_LDR_1_v67"/>
+      <triangular vertex1="AMS_LDR_1_v65" vertex2="AMS_LDR_1_v68" vertex3="AMS_LDR_1_v67"/>
+      <triangular vertex1="AMS_LDR_1_v67" vertex2="AMS_LDR_1_v68" vertex3="AMS_LDR_1_v69"/>
+      <triangular vertex1="AMS_LDR_1_v68" vertex2="AMS_LDR_1_v70" vertex3="AMS_LDR_1_v69"/>
+      <triangular vertex1="AMS_LDR_1_v69" vertex2="AMS_LDR_1_v70" vertex3="AMS_LDR_1_v71"/>
+      <triangular vertex1="AMS_LDR_1_v70" vertex2="AMS_LDR_1_v64" vertex3="AMS_LDR_1_v71"/>
+      <triangular vertex1="AMS_LDR_1_v71" vertex2="AMS_LDR_1_v64" vertex3="AMS_LDR_1_v66"/>
+      <triangular vertex1="AMS_LDR_1_v67" vertex2="AMS_LDR_1_v69" vertex3="AMS_LDR_1_v66"/>
+      <triangular vertex1="AMS_LDR_1_v66" vertex2="AMS_LDR_1_v69" vertex3="AMS_LDR_1_v71"/>
+      <triangular vertex1="AMS_LDR_1_v64" vertex2="AMS_LDR_1_v70" vertex3="AMS_LDR_1_v65"/>
+      <triangular vertex1="AMS_LDR_1_v65" vertex2="AMS_LDR_1_v70" vertex3="AMS_LDR_1_v68"/>
+      <triangular vertex1="AMS_LDR_1_v72" vertex2="AMS_LDR_1_v73" vertex3="AMS_LDR_1_v74"/>
+      <triangular vertex1="AMS_LDR_1_v72" vertex2="AMS_LDR_1_v75" vertex3="AMS_LDR_1_v73"/>
+      <triangular vertex1="AMS_LDR_1_v72" vertex2="AMS_LDR_1_v76" vertex3="AMS_LDR_1_v75"/>
+      <triangular vertex1="AMS_LDR_1_v75" vertex2="AMS_LDR_1_v76" vertex3="AMS_LDR_1_v77"/>
+      <triangular vertex1="AMS_LDR_1_v77" vertex2="AMS_LDR_1_v76" vertex3="AMS_LDR_1_v78"/>
+      <triangular vertex1="AMS_LDR_1_v79" vertex2="AMS_LDR_1_v78" vertex3="AMS_LDR_1_v80"/>
+      <triangular vertex1="AMS_LDR_1_v81" vertex2="AMS_LDR_1_v80" vertex3="AMS_LDR_1_v82"/>
+      <triangular vertex1="AMS_LDR_1_v83" vertex2="AMS_LDR_1_v82" vertex3="AMS_LDR_1_v84"/>
+      <triangular vertex1="AMS_LDR_1_v85" vertex2="AMS_LDR_1_v84" vertex3="AMS_LDR_1_v86"/>
+      <triangular vertex1="AMS_LDR_1_v87" vertex2="AMS_LDR_1_v86" vertex3="AMS_LDR_1_v88"/>
+      <triangular vertex1="AMS_LDR_1_v89" vertex2="AMS_LDR_1_v88" vertex3="AMS_LDR_1_v90"/>
+      <triangular vertex1="AMS_LDR_1_v91" vertex2="AMS_LDR_1_v90" vertex3="AMS_LDR_1_v92"/>
+      <triangular vertex1="AMS_LDR_1_v93" vertex2="AMS_LDR_1_v92" vertex3="AMS_LDR_1_v94"/>
+      <triangular vertex1="AMS_LDR_1_v95" vertex2="AMS_LDR_1_v94" vertex3="AMS_LDR_1_v96"/>
+      <triangular vertex1="AMS_LDR_1_v97" vertex2="AMS_LDR_1_v96" vertex3="AMS_LDR_1_v98"/>
+      <triangular vertex1="AMS_LDR_1_v99" vertex2="AMS_LDR_1_v98" vertex3="AMS_LDR_1_v100"/>
+      <triangular vertex1="AMS_LDR_1_v101" vertex2="AMS_LDR_1_v100" vertex3="AMS_LDR_1_v102"/>
+      <triangular vertex1="AMS_LDR_1_v103" vertex2="AMS_LDR_1_v102" vertex3="AMS_LDR_1_v104"/>
+      <triangular vertex1="AMS_LDR_1_v105" vertex2="AMS_LDR_1_v104" vertex3="AMS_LDR_1_v106"/>
+      <triangular vertex1="AMS_LDR_1_v107" vertex2="AMS_LDR_1_v106" vertex3="AMS_LDR_1_v108"/>
+      <triangular vertex1="AMS_LDR_1_v109" vertex2="AMS_LDR_1_v108" vertex3="AMS_LDR_1_v110"/>
+      <triangular vertex1="AMS_LDR_1_v111" vertex2="AMS_LDR_1_v110" vertex3="AMS_LDR_1_v112"/>
+      <triangular vertex1="AMS_LDR_1_v113" vertex2="AMS_LDR_1_v112" vertex3="AMS_LDR_1_v114"/>
+      <triangular vertex1="AMS_LDR_1_v115" vertex2="AMS_LDR_1_v114" vertex3="AMS_LDR_1_v116"/>
+      <triangular vertex1="AMS_LDR_1_v117" vertex2="AMS_LDR_1_v116" vertex3="AMS_LDR_1_v118"/>
+      <triangular vertex1="AMS_LDR_1_v119" vertex2="AMS_LDR_1_v118" vertex3="AMS_LDR_1_v74"/>
+      <triangular vertex1="AMS_LDR_1_v73" vertex2="AMS_LDR_1_v119" vertex3="AMS_LDR_1_v74"/>
+      <triangular vertex1="AMS_LDR_1_v77" vertex2="AMS_LDR_1_v78" vertex3="AMS_LDR_1_v79"/>
+      <triangular vertex1="AMS_LDR_1_v79" vertex2="AMS_LDR_1_v80" vertex3="AMS_LDR_1_v81"/>
+      <triangular vertex1="AMS_LDR_1_v81" vertex2="AMS_LDR_1_v82" vertex3="AMS_LDR_1_v83"/>
+      <triangular vertex1="AMS_LDR_1_v83" vertex2="AMS_LDR_1_v84" vertex3="AMS_LDR_1_v85"/>
+      <triangular vertex1="AMS_LDR_1_v85" vertex2="AMS_LDR_1_v86" vertex3="AMS_LDR_1_v87"/>
+      <triangular vertex1="AMS_LDR_1_v87" vertex2="AMS_LDR_1_v88" vertex3="AMS_LDR_1_v89"/>
+      <triangular vertex1="AMS_LDR_1_v89" vertex2="AMS_LDR_1_v90" vertex3="AMS_LDR_1_v91"/>
+      <triangular vertex1="AMS_LDR_1_v91" vertex2="AMS_LDR_1_v92" vertex3="AMS_LDR_1_v93"/>
+      <triangular vertex1="AMS_LDR_1_v93" vertex2="AMS_LDR_1_v94" vertex3="AMS_LDR_1_v95"/>
+      <triangular vertex1="AMS_LDR_1_v95" vertex2="AMS_LDR_1_v96" vertex3="AMS_LDR_1_v97"/>
+      <triangular vertex1="AMS_LDR_1_v97" vertex2="AMS_LDR_1_v98" vertex3="AMS_LDR_1_v99"/>
+      <triangular vertex1="AMS_LDR_1_v99" vertex2="AMS_LDR_1_v100" vertex3="AMS_LDR_1_v101"/>
+      <triangular vertex1="AMS_LDR_1_v101" vertex2="AMS_LDR_1_v102" vertex3="AMS_LDR_1_v103"/>
+      <triangular vertex1="AMS_LDR_1_v103" vertex2="AMS_LDR_1_v104" vertex3="AMS_LDR_1_v105"/>
+      <triangular vertex1="AMS_LDR_1_v105" vertex2="AMS_LDR_1_v106" vertex3="AMS_LDR_1_v107"/>
+      <triangular vertex1="AMS_LDR_1_v107" vertex2="AMS_LDR_1_v108" vertex3="AMS_LDR_1_v109"/>
+      <triangular vertex1="AMS_LDR_1_v109" vertex2="AMS_LDR_1_v110" vertex3="AMS_LDR_1_v111"/>
+      <triangular vertex1="AMS_LDR_1_v111" vertex2="AMS_LDR_1_v112" vertex3="AMS_LDR_1_v113"/>
+      <triangular vertex1="AMS_LDR_1_v113" vertex2="AMS_LDR_1_v114" vertex3="AMS_LDR_1_v115"/>
+      <triangular vertex1="AMS_LDR_1_v115" vertex2="AMS_LDR_1_v116" vertex3="AMS_LDR_1_v117"/>
+      <triangular vertex1="AMS_LDR_1_v117" vertex2="AMS_LDR_1_v118" vertex3="AMS_LDR_1_v119"/>
+      <triangular vertex1="AMS_LDR_1_v120" vertex2="AMS_LDR_1_v121" vertex3="AMS_LDR_1_v122"/>
+      <triangular vertex1="AMS_LDR_1_v120" vertex2="AMS_LDR_1_v123" vertex3="AMS_LDR_1_v121"/>
+      <triangular vertex1="AMS_LDR_1_v120" vertex2="AMS_LDR_1_v124" vertex3="AMS_LDR_1_v123"/>
+      <triangular vertex1="AMS_LDR_1_v123" vertex2="AMS_LDR_1_v124" vertex3="AMS_LDR_1_v125"/>
+      <triangular vertex1="AMS_LDR_1_v125" vertex2="AMS_LDR_1_v124" vertex3="AMS_LDR_1_v126"/>
+      <triangular vertex1="AMS_LDR_1_v127" vertex2="AMS_LDR_1_v126" vertex3="AMS_LDR_1_v128"/>
+      <triangular vertex1="AMS_LDR_1_v129" vertex2="AMS_LDR_1_v128" vertex3="AMS_LDR_1_v130"/>
+      <triangular vertex1="AMS_LDR_1_v131" vertex2="AMS_LDR_1_v130" vertex3="AMS_LDR_1_v132"/>
+      <triangular vertex1="AMS_LDR_1_v133" vertex2="AMS_LDR_1_v132" vertex3="AMS_LDR_1_v134"/>
+      <triangular vertex1="AMS_LDR_1_v135" vertex2="AMS_LDR_1_v134" vertex3="AMS_LDR_1_v136"/>
+      <triangular vertex1="AMS_LDR_1_v137" vertex2="AMS_LDR_1_v136" vertex3="AMS_LDR_1_v138"/>
+      <triangular vertex1="AMS_LDR_1_v139" vertex2="AMS_LDR_1_v138" vertex3="AMS_LDR_1_v140"/>
+      <triangular vertex1="AMS_LDR_1_v141" vertex2="AMS_LDR_1_v140" vertex3="AMS_LDR_1_v142"/>
+      <triangular vertex1="AMS_LDR_1_v143" vertex2="AMS_LDR_1_v142" vertex3="AMS_LDR_1_v144"/>
+      <triangular vertex1="AMS_LDR_1_v145" vertex2="AMS_LDR_1_v144" vertex3="AMS_LDR_1_v146"/>
+      <triangular vertex1="AMS_LDR_1_v147" vertex2="AMS_LDR_1_v146" vertex3="AMS_LDR_1_v148"/>
+      <triangular vertex1="AMS_LDR_1_v149" vertex2="AMS_LDR_1_v148" vertex3="AMS_LDR_1_v150"/>
+      <triangular vertex1="AMS_LDR_1_v151" vertex2="AMS_LDR_1_v150" vertex3="AMS_LDR_1_v152"/>
+      <triangular vertex1="AMS_LDR_1_v153" vertex2="AMS_LDR_1_v152" vertex3="AMS_LDR_1_v154"/>
+      <triangular vertex1="AMS_LDR_1_v155" vertex2="AMS_LDR_1_v154" vertex3="AMS_LDR_1_v156"/>
+      <triangular vertex1="AMS_LDR_1_v157" vertex2="AMS_LDR_1_v156" vertex3="AMS_LDR_1_v158"/>
+      <triangular vertex1="AMS_LDR_1_v159" vertex2="AMS_LDR_1_v158" vertex3="AMS_LDR_1_v160"/>
+      <triangular vertex1="AMS_LDR_1_v161" vertex2="AMS_LDR_1_v160" vertex3="AMS_LDR_1_v162"/>
+      <triangular vertex1="AMS_LDR_1_v163" vertex2="AMS_LDR_1_v162" vertex3="AMS_LDR_1_v164"/>
+      <triangular vertex1="AMS_LDR_1_v165" vertex2="AMS_LDR_1_v164" vertex3="AMS_LDR_1_v166"/>
+      <triangular vertex1="AMS_LDR_1_v167" vertex2="AMS_LDR_1_v166" vertex3="AMS_LDR_1_v122"/>
+      <triangular vertex1="AMS_LDR_1_v121" vertex2="AMS_LDR_1_v167" vertex3="AMS_LDR_1_v122"/>
+      <triangular vertex1="AMS_LDR_1_v125" vertex2="AMS_LDR_1_v126" vertex3="AMS_LDR_1_v127"/>
+      <triangular vertex1="AMS_LDR_1_v127" vertex2="AMS_LDR_1_v128" vertex3="AMS_LDR_1_v129"/>
+      <triangular vertex1="AMS_LDR_1_v129" vertex2="AMS_LDR_1_v130" vertex3="AMS_LDR_1_v131"/>
+      <triangular vertex1="AMS_LDR_1_v131" vertex2="AMS_LDR_1_v132" vertex3="AMS_LDR_1_v133"/>
+      <triangular vertex1="AMS_LDR_1_v133" vertex2="AMS_LDR_1_v134" vertex3="AMS_LDR_1_v135"/>
+      <triangular vertex1="AMS_LDR_1_v135" vertex2="AMS_LDR_1_v136" vertex3="AMS_LDR_1_v137"/>
+      <triangular vertex1="AMS_LDR_1_v137" vertex2="AMS_LDR_1_v138" vertex3="AMS_LDR_1_v139"/>
+      <triangular vertex1="AMS_LDR_1_v139" vertex2="AMS_LDR_1_v140" vertex3="AMS_LDR_1_v141"/>
+      <triangular vertex1="AMS_LDR_1_v141" vertex2="AMS_LDR_1_v142" vertex3="AMS_LDR_1_v143"/>
+      <triangular vertex1="AMS_LDR_1_v143" vertex2="AMS_LDR_1_v144" vertex3="AMS_LDR_1_v145"/>
+      <triangular vertex1="AMS_LDR_1_v145" vertex2="AMS_LDR_1_v146" vertex3="AMS_LDR_1_v147"/>
+      <triangular vertex1="AMS_LDR_1_v147" vertex2="AMS_LDR_1_v148" vertex3="AMS_LDR_1_v149"/>
+      <triangular vertex1="AMS_LDR_1_v149" vertex2="AMS_LDR_1_v150" vertex3="AMS_LDR_1_v151"/>
+      <triangular vertex1="AMS_LDR_1_v151" vertex2="AMS_LDR_1_v152" vertex3="AMS_LDR_1_v153"/>
+      <triangular vertex1="AMS_LDR_1_v153" vertex2="AMS_LDR_1_v154" vertex3="AMS_LDR_1_v155"/>
+      <triangular vertex1="AMS_LDR_1_v155" vertex2="AMS_LDR_1_v156" vertex3="AMS_LDR_1_v157"/>
+      <triangular vertex1="AMS_LDR_1_v157" vertex2="AMS_LDR_1_v158" vertex3="AMS_LDR_1_v159"/>
+      <triangular vertex1="AMS_LDR_1_v159" vertex2="AMS_LDR_1_v160" vertex3="AMS_LDR_1_v161"/>
+      <triangular vertex1="AMS_LDR_1_v161" vertex2="AMS_LDR_1_v162" vertex3="AMS_LDR_1_v163"/>
+      <triangular vertex1="AMS_LDR_1_v163" vertex2="AMS_LDR_1_v164" vertex3="AMS_LDR_1_v165"/>
+      <triangular vertex1="AMS_LDR_1_v165" vertex2="AMS_LDR_1_v166" vertex3="AMS_LDR_1_v167"/>
+      <triangular vertex1="AMS_LDR_1_v168" vertex2="AMS_LDR_1_v169" vertex3="AMS_LDR_1_v170"/>
+      <triangular vertex1="AMS_LDR_1_v168" vertex2="AMS_LDR_1_v171" vertex3="AMS_LDR_1_v169"/>
+      <triangular vertex1="AMS_LDR_1_v168" vertex2="AMS_LDR_1_v172" vertex3="AMS_LDR_1_v171"/>
+      <triangular vertex1="AMS_LDR_1_v171" vertex2="AMS_LDR_1_v172" vertex3="AMS_LDR_1_v173"/>
+      <triangular vertex1="AMS_LDR_1_v173" vertex2="AMS_LDR_1_v172" vertex3="AMS_LDR_1_v174"/>
+      <triangular vertex1="AMS_LDR_1_v175" vertex2="AMS_LDR_1_v174" vertex3="AMS_LDR_1_v176"/>
+      <triangular vertex1="AMS_LDR_1_v177" vertex2="AMS_LDR_1_v176" vertex3="AMS_LDR_1_v178"/>
+      <triangular vertex1="AMS_LDR_1_v179" vertex2="AMS_LDR_1_v178" vertex3="AMS_LDR_1_v180"/>
+      <triangular vertex1="AMS_LDR_1_v181" vertex2="AMS_LDR_1_v180" vertex3="AMS_LDR_1_v182"/>
+      <triangular vertex1="AMS_LDR_1_v183" vertex2="AMS_LDR_1_v182" vertex3="AMS_LDR_1_v184"/>
+      <triangular vertex1="AMS_LDR_1_v185" vertex2="AMS_LDR_1_v184" vertex3="AMS_LDR_1_v186"/>
+      <triangular vertex1="AMS_LDR_1_v187" vertex2="AMS_LDR_1_v186" vertex3="AMS_LDR_1_v188"/>
+      <triangular vertex1="AMS_LDR_1_v189" vertex2="AMS_LDR_1_v188" vertex3="AMS_LDR_1_v190"/>
+      <triangular vertex1="AMS_LDR_1_v191" vertex2="AMS_LDR_1_v190" vertex3="AMS_LDR_1_v192"/>
+      <triangular vertex1="AMS_LDR_1_v193" vertex2="AMS_LDR_1_v192" vertex3="AMS_LDR_1_v194"/>
+      <triangular vertex1="AMS_LDR_1_v195" vertex2="AMS_LDR_1_v194" vertex3="AMS_LDR_1_v196"/>
+      <triangular vertex1="AMS_LDR_1_v197" vertex2="AMS_LDR_1_v196" vertex3="AMS_LDR_1_v198"/>
+      <triangular vertex1="AMS_LDR_1_v199" vertex2="AMS_LDR_1_v198" vertex3="AMS_LDR_1_v200"/>
+      <triangular vertex1="AMS_LDR_1_v201" vertex2="AMS_LDR_1_v200" vertex3="AMS_LDR_1_v202"/>
+      <triangular vertex1="AMS_LDR_1_v203" vertex2="AMS_LDR_1_v202" vertex3="AMS_LDR_1_v204"/>
+      <triangular vertex1="AMS_LDR_1_v205" vertex2="AMS_LDR_1_v204" vertex3="AMS_LDR_1_v206"/>
+      <triangular vertex1="AMS_LDR_1_v207" vertex2="AMS_LDR_1_v206" vertex3="AMS_LDR_1_v208"/>
+      <triangular vertex1="AMS_LDR_1_v209" vertex2="AMS_LDR_1_v208" vertex3="AMS_LDR_1_v210"/>
+      <triangular vertex1="AMS_LDR_1_v211" vertex2="AMS_LDR_1_v210" vertex3="AMS_LDR_1_v212"/>
+      <triangular vertex1="AMS_LDR_1_v213" vertex2="AMS_LDR_1_v212" vertex3="AMS_LDR_1_v214"/>
+      <triangular vertex1="AMS_LDR_1_v215" vertex2="AMS_LDR_1_v214" vertex3="AMS_LDR_1_v170"/>
+      <triangular vertex1="AMS_LDR_1_v169" vertex2="AMS_LDR_1_v215" vertex3="AMS_LDR_1_v170"/>
+      <triangular vertex1="AMS_LDR_1_v173" vertex2="AMS_LDR_1_v174" vertex3="AMS_LDR_1_v175"/>
+      <triangular vertex1="AMS_LDR_1_v175" vertex2="AMS_LDR_1_v176" vertex3="AMS_LDR_1_v177"/>
+      <triangular vertex1="AMS_LDR_1_v177" vertex2="AMS_LDR_1_v178" vertex3="AMS_LDR_1_v179"/>
+      <triangular vertex1="AMS_LDR_1_v179" vertex2="AMS_LDR_1_v180" vertex3="AMS_LDR_1_v181"/>
+      <triangular vertex1="AMS_LDR_1_v181" vertex2="AMS_LDR_1_v182" vertex3="AMS_LDR_1_v183"/>
+      <triangular vertex1="AMS_LDR_1_v183" vertex2="AMS_LDR_1_v184" vertex3="AMS_LDR_1_v185"/>
+      <triangular vertex1="AMS_LDR_1_v185" vertex2="AMS_LDR_1_v186" vertex3="AMS_LDR_1_v187"/>
+      <triangular vertex1="AMS_LDR_1_v187" vertex2="AMS_LDR_1_v188" vertex3="AMS_LDR_1_v189"/>
+      <triangular vertex1="AMS_LDR_1_v189" vertex2="AMS_LDR_1_v190" vertex3="AMS_LDR_1_v191"/>
+      <triangular vertex1="AMS_LDR_1_v191" vertex2="AMS_LDR_1_v192" vertex3="AMS_LDR_1_v193"/>
+      <triangular vertex1="AMS_LDR_1_v193" vertex2="AMS_LDR_1_v194" vertex3="AMS_LDR_1_v195"/>
+      <triangular vertex1="AMS_LDR_1_v195" vertex2="AMS_LDR_1_v196" vertex3="AMS_LDR_1_v197"/>
+      <triangular vertex1="AMS_LDR_1_v197" vertex2="AMS_LDR_1_v198" vertex3="AMS_LDR_1_v199"/>
+      <triangular vertex1="AMS_LDR_1_v199" vertex2="AMS_LDR_1_v200" vertex3="AMS_LDR_1_v201"/>
+      <triangular vertex1="AMS_LDR_1_v201" vertex2="AMS_LDR_1_v202" vertex3="AMS_LDR_1_v203"/>
+      <triangular vertex1="AMS_LDR_1_v203" vertex2="AMS_LDR_1_v204" vertex3="AMS_LDR_1_v205"/>
+      <triangular vertex1="AMS_LDR_1_v205" vertex2="AMS_LDR_1_v206" vertex3="AMS_LDR_1_v207"/>
+      <triangular vertex1="AMS_LDR_1_v207" vertex2="AMS_LDR_1_v208" vertex3="AMS_LDR_1_v209"/>
+      <triangular vertex1="AMS_LDR_1_v209" vertex2="AMS_LDR_1_v210" vertex3="AMS_LDR_1_v211"/>
+      <triangular vertex1="AMS_LDR_1_v211" vertex2="AMS_LDR_1_v212" vertex3="AMS_LDR_1_v213"/>
+      <triangular vertex1="AMS_LDR_1_v213" vertex2="AMS_LDR_1_v214" vertex3="AMS_LDR_1_v215"/>
+      <triangular vertex1="AMS_LDR_1_v216" vertex2="AMS_LDR_1_v217" vertex3="AMS_LDR_1_v218"/>
+      <triangular vertex1="AMS_LDR_1_v216" vertex2="AMS_LDR_1_v219" vertex3="AMS_LDR_1_v217"/>
+      <triangular vertex1="AMS_LDR_1_v216" vertex2="AMS_LDR_1_v220" vertex3="AMS_LDR_1_v219"/>
+      <triangular vertex1="AMS_LDR_1_v219" vertex2="AMS_LDR_1_v220" vertex3="AMS_LDR_1_v221"/>
+      <triangular vertex1="AMS_LDR_1_v221" vertex2="AMS_LDR_1_v220" vertex3="AMS_LDR_1_v222"/>
+      <triangular vertex1="AMS_LDR_1_v223" vertex2="AMS_LDR_1_v222" vertex3="AMS_LDR_1_v224"/>
+      <triangular vertex1="AMS_LDR_1_v225" vertex2="AMS_LDR_1_v224" vertex3="AMS_LDR_1_v226"/>
+      <triangular vertex1="AMS_LDR_1_v227" vertex2="AMS_LDR_1_v226" vertex3="AMS_LDR_1_v228"/>
+      <triangular vertex1="AMS_LDR_1_v229" vertex2="AMS_LDR_1_v228" vertex3="AMS_LDR_1_v230"/>
+      <triangular vertex1="AMS_LDR_1_v231" vertex2="AMS_LDR_1_v230" vertex3="AMS_LDR_1_v232"/>
+      <triangular vertex1="AMS_LDR_1_v233" vertex2="AMS_LDR_1_v232" vertex3="AMS_LDR_1_v234"/>
+      <triangular vertex1="AMS_LDR_1_v235" vertex2="AMS_LDR_1_v234" vertex3="AMS_LDR_1_v236"/>
+      <triangular vertex1="AMS_LDR_1_v237" vertex2="AMS_LDR_1_v236" vertex3="AMS_LDR_1_v238"/>
+      <triangular vertex1="AMS_LDR_1_v239" vertex2="AMS_LDR_1_v238" vertex3="AMS_LDR_1_v240"/>
+      <triangular vertex1="AMS_LDR_1_v241" vertex2="AMS_LDR_1_v240" vertex3="AMS_LDR_1_v242"/>
+      <triangular vertex1="AMS_LDR_1_v243" vertex2="AMS_LDR_1_v242" vertex3="AMS_LDR_1_v244"/>
+      <triangular vertex1="AMS_LDR_1_v245" vertex2="AMS_LDR_1_v244" vertex3="AMS_LDR_1_v246"/>
+      <triangular vertex1="AMS_LDR_1_v247" vertex2="AMS_LDR_1_v246" vertex3="AMS_LDR_1_v248"/>
+      <triangular vertex1="AMS_LDR_1_v249" vertex2="AMS_LDR_1_v248" vertex3="AMS_LDR_1_v250"/>
+      <triangular vertex1="AMS_LDR_1_v251" vertex2="AMS_LDR_1_v250" vertex3="AMS_LDR_1_v252"/>
+      <triangular vertex1="AMS_LDR_1_v253" vertex2="AMS_LDR_1_v252" vertex3="AMS_LDR_1_v254"/>
+      <triangular vertex1="AMS_LDR_1_v255" vertex2="AMS_LDR_1_v254" vertex3="AMS_LDR_1_v256"/>
+      <triangular vertex1="AMS_LDR_1_v257" vertex2="AMS_LDR_1_v256" vertex3="AMS_LDR_1_v258"/>
+      <triangular vertex1="AMS_LDR_1_v259" vertex2="AMS_LDR_1_v258" vertex3="AMS_LDR_1_v260"/>
+      <triangular vertex1="AMS_LDR_1_v261" vertex2="AMS_LDR_1_v260" vertex3="AMS_LDR_1_v262"/>
+      <triangular vertex1="AMS_LDR_1_v263" vertex2="AMS_LDR_1_v262" vertex3="AMS_LDR_1_v218"/>
+      <triangular vertex1="AMS_LDR_1_v217" vertex2="AMS_LDR_1_v263" vertex3="AMS_LDR_1_v218"/>
+      <triangular vertex1="AMS_LDR_1_v221" vertex2="AMS_LDR_1_v222" vertex3="AMS_LDR_1_v223"/>
+      <triangular vertex1="AMS_LDR_1_v223" vertex2="AMS_LDR_1_v224" vertex3="AMS_LDR_1_v225"/>
+      <triangular vertex1="AMS_LDR_1_v225" vertex2="AMS_LDR_1_v226" vertex3="AMS_LDR_1_v227"/>
+      <triangular vertex1="AMS_LDR_1_v227" vertex2="AMS_LDR_1_v228" vertex3="AMS_LDR_1_v229"/>
+      <triangular vertex1="AMS_LDR_1_v229" vertex2="AMS_LDR_1_v230" vertex3="AMS_LDR_1_v231"/>
+      <triangular vertex1="AMS_LDR_1_v231" vertex2="AMS_LDR_1_v232" vertex3="AMS_LDR_1_v233"/>
+      <triangular vertex1="AMS_LDR_1_v233" vertex2="AMS_LDR_1_v234" vertex3="AMS_LDR_1_v235"/>
+      <triangular vertex1="AMS_LDR_1_v235" vertex2="AMS_LDR_1_v236" vertex3="AMS_LDR_1_v237"/>
+      <triangular vertex1="AMS_LDR_1_v237" vertex2="AMS_LDR_1_v238" vertex3="AMS_LDR_1_v239"/>
+      <triangular vertex1="AMS_LDR_1_v239" vertex2="AMS_LDR_1_v240" vertex3="AMS_LDR_1_v241"/>
+      <triangular vertex1="AMS_LDR_1_v241" vertex2="AMS_LDR_1_v242" vertex3="AMS_LDR_1_v243"/>
+      <triangular vertex1="AMS_LDR_1_v243" vertex2="AMS_LDR_1_v244" vertex3="AMS_LDR_1_v245"/>
+      <triangular vertex1="AMS_LDR_1_v245" vertex2="AMS_LDR_1_v246" vertex3="AMS_LDR_1_v247"/>
+      <triangular vertex1="AMS_LDR_1_v247" vertex2="AMS_LDR_1_v248" vertex3="AMS_LDR_1_v249"/>
+      <triangular vertex1="AMS_LDR_1_v249" vertex2="AMS_LDR_1_v250" vertex3="AMS_LDR_1_v251"/>
+      <triangular vertex1="AMS_LDR_1_v251" vertex2="AMS_LDR_1_v252" vertex3="AMS_LDR_1_v253"/>
+      <triangular vertex1="AMS_LDR_1_v253" vertex2="AMS_LDR_1_v254" vertex3="AMS_LDR_1_v255"/>
+      <triangular vertex1="AMS_LDR_1_v255" vertex2="AMS_LDR_1_v256" vertex3="AMS_LDR_1_v257"/>
+      <triangular vertex1="AMS_LDR_1_v257" vertex2="AMS_LDR_1_v258" vertex3="AMS_LDR_1_v259"/>
+      <triangular vertex1="AMS_LDR_1_v259" vertex2="AMS_LDR_1_v260" vertex3="AMS_LDR_1_v261"/>
+      <triangular vertex1="AMS_LDR_1_v261" vertex2="AMS_LDR_1_v262" vertex3="AMS_LDR_1_v263"/>
+      <triangular vertex1="AMS_LDR_1_v264" vertex2="AMS_LDR_1_v265" vertex3="AMS_LDR_1_v266"/>
+      <triangular vertex1="AMS_LDR_1_v266" vertex2="AMS_LDR_1_v265" vertex3="AMS_LDR_1_v267"/>
+      <triangular vertex1="AMS_LDR_1_v265" vertex2="AMS_LDR_1_v268" vertex3="AMS_LDR_1_v267"/>
+      <triangular vertex1="AMS_LDR_1_v267" vertex2="AMS_LDR_1_v268" vertex3="AMS_LDR_1_v269"/>
+      <triangular vertex1="AMS_LDR_1_v268" vertex2="AMS_LDR_1_v270" vertex3="AMS_LDR_1_v269"/>
+      <triangular vertex1="AMS_LDR_1_v269" vertex2="AMS_LDR_1_v270" vertex3="AMS_LDR_1_v271"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v270"/>
+      <triangular vertex1="AMS_LDR_1_v270" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v271"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v274" vertex3="AMS_LDR_1_v273"/>
+      <triangular vertex1="AMS_LDR_1_v273" vertex2="AMS_LDR_1_v274" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v274" vertex2="AMS_LDR_1_v276" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v275" vertex2="AMS_LDR_1_v276" vertex3="AMS_LDR_1_v277"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v278" vertex3="AMS_LDR_1_v277"/>
+      <triangular vertex1="AMS_LDR_1_v277" vertex2="AMS_LDR_1_v278" vertex3="AMS_LDR_1_v279"/>
+      <triangular vertex1="AMS_LDR_1_v278" vertex2="AMS_LDR_1_v264" vertex3="AMS_LDR_1_v279"/>
+      <triangular vertex1="AMS_LDR_1_v279" vertex2="AMS_LDR_1_v264" vertex3="AMS_LDR_1_v266"/>
+      <triangular vertex1="AMS_LDR_1_v266" vertex2="AMS_LDR_1_v267" vertex3="AMS_LDR_1_v279"/>
+      <triangular vertex1="AMS_LDR_1_v279" vertex2="AMS_LDR_1_v267" vertex3="AMS_LDR_1_v187"/>
+      <triangular vertex1="AMS_LDR_1_v189" vertex2="AMS_LDR_1_v279" vertex3="AMS_LDR_1_v187"/>
+      <triangular vertex1="AMS_LDR_1_v189" vertex2="AMS_LDR_1_v191" vertex3="AMS_LDR_1_v279"/>
+      <triangular vertex1="AMS_LDR_1_v279" vertex2="AMS_LDR_1_v191" vertex3="AMS_LDR_1_v193"/>
+      <triangular vertex1="AMS_LDR_1_v195" vertex2="AMS_LDR_1_v279" vertex3="AMS_LDR_1_v193"/>
+      <triangular vertex1="AMS_LDR_1_v195" vertex2="AMS_LDR_1_v197" vertex3="AMS_LDR_1_v279"/>
+      <triangular vertex1="AMS_LDR_1_v279" vertex2="AMS_LDR_1_v197" vertex3="AMS_LDR_1_v199"/>
+      <triangular vertex1="AMS_LDR_1_v201" vertex2="AMS_LDR_1_v279" vertex3="AMS_LDR_1_v199"/>
+      <triangular vertex1="AMS_LDR_1_v201" vertex2="AMS_LDR_1_v203" vertex3="AMS_LDR_1_v279"/>
+      <triangular vertex1="AMS_LDR_1_v279" vertex2="AMS_LDR_1_v203" vertex3="AMS_LDR_1_v205"/>
+      <triangular vertex1="AMS_LDR_1_v153" vertex2="AMS_LDR_1_v205" vertex3="AMS_LDR_1_v151"/>
+      <triangular vertex1="AMS_LDR_1_v153" vertex2="AMS_LDR_1_v279" vertex3="AMS_LDR_1_v205"/>
+      <triangular vertex1="AMS_LDR_1_v153" vertex2="AMS_LDR_1_v277" vertex3="AMS_LDR_1_v279"/>
+      <triangular vertex1="AMS_LDR_1_v153" vertex2="AMS_LDR_1_v155" vertex3="AMS_LDR_1_v277"/>
+      <triangular vertex1="AMS_LDR_1_v277" vertex2="AMS_LDR_1_v155" vertex3="AMS_LDR_1_v157"/>
+      <triangular vertex1="AMS_LDR_1_v159" vertex2="AMS_LDR_1_v277" vertex3="AMS_LDR_1_v157"/>
+      <triangular vertex1="AMS_LDR_1_v159" vertex2="AMS_LDR_1_v161" vertex3="AMS_LDR_1_v277"/>
+      <triangular vertex1="AMS_LDR_1_v277" vertex2="AMS_LDR_1_v161" vertex3="AMS_LDR_1_v163"/>
+      <triangular vertex1="AMS_LDR_1_v165" vertex2="AMS_LDR_1_v277" vertex3="AMS_LDR_1_v163"/>
+      <triangular vertex1="AMS_LDR_1_v165" vertex2="AMS_LDR_1_v167" vertex3="AMS_LDR_1_v277"/>
+      <triangular vertex1="AMS_LDR_1_v277" vertex2="AMS_LDR_1_v167" vertex3="AMS_LDR_1_v121"/>
+      <triangular vertex1="AMS_LDR_1_v123" vertex2="AMS_LDR_1_v277" vertex3="AMS_LDR_1_v121"/>
+      <triangular vertex1="AMS_LDR_1_v123" vertex2="AMS_LDR_1_v275" vertex3="AMS_LDR_1_v277"/>
+      <triangular vertex1="AMS_LDR_1_v123" vertex2="AMS_LDR_1_v115" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v123" vertex2="AMS_LDR_1_v125" vertex3="AMS_LDR_1_v115"/>
+      <triangular vertex1="AMS_LDR_1_v115" vertex2="AMS_LDR_1_v125" vertex3="AMS_LDR_1_v113"/>
+      <triangular vertex1="AMS_LDR_1_v113" vertex2="AMS_LDR_1_v125" vertex3="AMS_LDR_1_v127"/>
+      <triangular vertex1="AMS_LDR_1_v111" vertex2="AMS_LDR_1_v127" vertex3="AMS_LDR_1_v129"/>
+      <triangular vertex1="AMS_LDR_1_v109" vertex2="AMS_LDR_1_v129" vertex3="AMS_LDR_1_v131"/>
+      <triangular vertex1="AMS_LDR_1_v107" vertex2="AMS_LDR_1_v131" vertex3="AMS_LDR_1_v105"/>
+      <triangular vertex1="AMS_LDR_1_v107" vertex2="AMS_LDR_1_v109" vertex3="AMS_LDR_1_v131"/>
+      <triangular vertex1="AMS_LDR_1_v187" vertex2="AMS_LDR_1_v267" vertex3="AMS_LDR_1_v185"/>
+      <triangular vertex1="AMS_LDR_1_v185" vertex2="AMS_LDR_1_v267" vertex3="AMS_LDR_1_v269"/>
+      <triangular vertex1="AMS_LDR_1_v245" vertex2="AMS_LDR_1_v269" vertex3="AMS_LDR_1_v243"/>
+      <triangular vertex1="AMS_LDR_1_v245" vertex2="AMS_LDR_1_v185" vertex3="AMS_LDR_1_v269"/>
+      <triangular vertex1="AMS_LDR_1_v245" vertex2="AMS_LDR_1_v247" vertex3="AMS_LDR_1_v185"/>
+      <triangular vertex1="AMS_LDR_1_v185" vertex2="AMS_LDR_1_v247" vertex3="AMS_LDR_1_v183"/>
+      <triangular vertex1="AMS_LDR_1_v183" vertex2="AMS_LDR_1_v247" vertex3="AMS_LDR_1_v249"/>
+      <triangular vertex1="AMS_LDR_1_v181" vertex2="AMS_LDR_1_v249" vertex3="AMS_LDR_1_v179"/>
+      <triangular vertex1="AMS_LDR_1_v181" vertex2="AMS_LDR_1_v183" vertex3="AMS_LDR_1_v249"/>
+      <triangular vertex1="AMS_LDR_1_v271" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v269"/>
+      <triangular vertex1="AMS_LDR_1_v269" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v243"/>
+      <triangular vertex1="AMS_LDR_1_v243" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v241"/>
+      <triangular vertex1="AMS_LDR_1_v241" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v239"/>
+      <triangular vertex1="AMS_LDR_1_v239" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v237"/>
+      <triangular vertex1="AMS_LDR_1_v237" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v235"/>
+      <triangular vertex1="AMS_LDR_1_v235" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v233"/>
+      <triangular vertex1="AMS_LDR_1_v233" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v231"/>
+      <triangular vertex1="AMS_LDR_1_v231" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v229"/>
+      <triangular vertex1="AMS_LDR_1_v229" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v227"/>
+      <triangular vertex1="AMS_LDR_1_v227" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v225"/>
+      <triangular vertex1="AMS_LDR_1_v225" vertex2="AMS_LDR_1_v273" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v85" vertex2="AMS_LDR_1_v275" vertex3="AMS_LDR_1_v83"/>
+      <triangular vertex1="AMS_LDR_1_v85" vertex2="AMS_LDR_1_v225" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v85" vertex2="AMS_LDR_1_v223" vertex3="AMS_LDR_1_v225"/>
+      <triangular vertex1="AMS_LDR_1_v85" vertex2="AMS_LDR_1_v87" vertex3="AMS_LDR_1_v223"/>
+      <triangular vertex1="AMS_LDR_1_v223" vertex2="AMS_LDR_1_v87" vertex3="AMS_LDR_1_v221"/>
+      <triangular vertex1="AMS_LDR_1_v221" vertex2="AMS_LDR_1_v87" vertex3="AMS_LDR_1_v89"/>
+      <triangular vertex1="AMS_LDR_1_v219" vertex2="AMS_LDR_1_v89" vertex3="AMS_LDR_1_v91"/>
+      <triangular vertex1="AMS_LDR_1_v217" vertex2="AMS_LDR_1_v91" vertex3="AMS_LDR_1_v93"/>
+      <triangular vertex1="AMS_LDR_1_v263" vertex2="AMS_LDR_1_v93" vertex3="AMS_LDR_1_v95"/>
+      <triangular vertex1="AMS_LDR_1_v261" vertex2="AMS_LDR_1_v95" vertex3="AMS_LDR_1_v97"/>
+      <triangular vertex1="AMS_LDR_1_v259" vertex2="AMS_LDR_1_v97" vertex3="AMS_LDR_1_v99"/>
+      <triangular vertex1="AMS_LDR_1_v257" vertex2="AMS_LDR_1_v99" vertex3="AMS_LDR_1_v101"/>
+      <triangular vertex1="AMS_LDR_1_v255" vertex2="AMS_LDR_1_v101" vertex3="AMS_LDR_1_v103"/>
+      <triangular vertex1="AMS_LDR_1_v253" vertex2="AMS_LDR_1_v103" vertex3="AMS_LDR_1_v105"/>
+      <triangular vertex1="AMS_LDR_1_v177" vertex2="AMS_LDR_1_v105" vertex3="AMS_LDR_1_v133"/>
+      <triangular vertex1="AMS_LDR_1_v175" vertex2="AMS_LDR_1_v133" vertex3="AMS_LDR_1_v135"/>
+      <triangular vertex1="AMS_LDR_1_v173" vertex2="AMS_LDR_1_v135" vertex3="AMS_LDR_1_v137"/>
+      <triangular vertex1="AMS_LDR_1_v171" vertex2="AMS_LDR_1_v137" vertex3="AMS_LDR_1_v139"/>
+      <triangular vertex1="AMS_LDR_1_v169" vertex2="AMS_LDR_1_v139" vertex3="AMS_LDR_1_v141"/>
+      <triangular vertex1="AMS_LDR_1_v215" vertex2="AMS_LDR_1_v141" vertex3="AMS_LDR_1_v143"/>
+      <triangular vertex1="AMS_LDR_1_v213" vertex2="AMS_LDR_1_v143" vertex3="AMS_LDR_1_v145"/>
+      <triangular vertex1="AMS_LDR_1_v211" vertex2="AMS_LDR_1_v145" vertex3="AMS_LDR_1_v147"/>
+      <triangular vertex1="AMS_LDR_1_v209" vertex2="AMS_LDR_1_v147" vertex3="AMS_LDR_1_v149"/>
+      <triangular vertex1="AMS_LDR_1_v207" vertex2="AMS_LDR_1_v149" vertex3="AMS_LDR_1_v151"/>
+      <triangular vertex1="AMS_LDR_1_v205" vertex2="AMS_LDR_1_v207" vertex3="AMS_LDR_1_v151"/>
+      <triangular vertex1="AMS_LDR_1_v117" vertex2="AMS_LDR_1_v119" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v115" vertex2="AMS_LDR_1_v117" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v119" vertex2="AMS_LDR_1_v73" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v275" vertex2="AMS_LDR_1_v73" vertex3="AMS_LDR_1_v75"/>
+      <triangular vertex1="AMS_LDR_1_v77" vertex2="AMS_LDR_1_v275" vertex3="AMS_LDR_1_v75"/>
+      <triangular vertex1="AMS_LDR_1_v77" vertex2="AMS_LDR_1_v79" vertex3="AMS_LDR_1_v275"/>
+      <triangular vertex1="AMS_LDR_1_v275" vertex2="AMS_LDR_1_v79" vertex3="AMS_LDR_1_v81"/>
+      <triangular vertex1="AMS_LDR_1_v83" vertex2="AMS_LDR_1_v275" vertex3="AMS_LDR_1_v81"/>
+      <triangular vertex1="AMS_LDR_1_v221" vertex2="AMS_LDR_1_v89" vertex3="AMS_LDR_1_v219"/>
+      <triangular vertex1="AMS_LDR_1_v219" vertex2="AMS_LDR_1_v91" vertex3="AMS_LDR_1_v217"/>
+      <triangular vertex1="AMS_LDR_1_v217" vertex2="AMS_LDR_1_v93" vertex3="AMS_LDR_1_v263"/>
+      <triangular vertex1="AMS_LDR_1_v263" vertex2="AMS_LDR_1_v95" vertex3="AMS_LDR_1_v261"/>
+      <triangular vertex1="AMS_LDR_1_v261" vertex2="AMS_LDR_1_v97" vertex3="AMS_LDR_1_v259"/>
+      <triangular vertex1="AMS_LDR_1_v259" vertex2="AMS_LDR_1_v99" vertex3="AMS_LDR_1_v257"/>
+      <triangular vertex1="AMS_LDR_1_v257" vertex2="AMS_LDR_1_v101" vertex3="AMS_LDR_1_v255"/>
+      <triangular vertex1="AMS_LDR_1_v255" vertex2="AMS_LDR_1_v103" vertex3="AMS_LDR_1_v253"/>
+      <triangular vertex1="AMS_LDR_1_v133" vertex2="AMS_LDR_1_v105" vertex3="AMS_LDR_1_v131"/>
+      <triangular vertex1="AMS_LDR_1_v109" vertex2="AMS_LDR_1_v111" vertex3="AMS_LDR_1_v129"/>
+      <triangular vertex1="AMS_LDR_1_v111" vertex2="AMS_LDR_1_v113" vertex3="AMS_LDR_1_v127"/>
+      <triangular vertex1="AMS_LDR_1_v177" vertex2="AMS_LDR_1_v133" vertex3="AMS_LDR_1_v175"/>
+      <triangular vertex1="AMS_LDR_1_v175" vertex2="AMS_LDR_1_v135" vertex3="AMS_LDR_1_v173"/>
+      <triangular vertex1="AMS_LDR_1_v173" vertex2="AMS_LDR_1_v137" vertex3="AMS_LDR_1_v171"/>
+      <triangular vertex1="AMS_LDR_1_v171" vertex2="AMS_LDR_1_v139" vertex3="AMS_LDR_1_v169"/>
+      <triangular vertex1="AMS_LDR_1_v169" vertex2="AMS_LDR_1_v141" vertex3="AMS_LDR_1_v215"/>
+      <triangular vertex1="AMS_LDR_1_v215" vertex2="AMS_LDR_1_v143" vertex3="AMS_LDR_1_v213"/>
+      <triangular vertex1="AMS_LDR_1_v213" vertex2="AMS_LDR_1_v145" vertex3="AMS_LDR_1_v211"/>
+      <triangular vertex1="AMS_LDR_1_v211" vertex2="AMS_LDR_1_v147" vertex3="AMS_LDR_1_v209"/>
+      <triangular vertex1="AMS_LDR_1_v209" vertex2="AMS_LDR_1_v149" vertex3="AMS_LDR_1_v207"/>
+      <triangular vertex1="AMS_LDR_1_v105" vertex2="AMS_LDR_1_v177" vertex3="AMS_LDR_1_v253"/>
+      <triangular vertex1="AMS_LDR_1_v253" vertex2="AMS_LDR_1_v177" vertex3="AMS_LDR_1_v179"/>
+      <triangular vertex1="AMS_LDR_1_v251" vertex2="AMS_LDR_1_v179" vertex3="AMS_LDR_1_v249"/>
+      <triangular vertex1="AMS_LDR_1_v251" vertex2="AMS_LDR_1_v253" vertex3="AMS_LDR_1_v179"/>
+      <triangular vertex1="AMS_LDR_1_v264" vertex2="AMS_LDR_1_v278" vertex3="AMS_LDR_1_v265"/>
+      <triangular vertex1="AMS_LDR_1_v265" vertex2="AMS_LDR_1_v278" vertex3="AMS_LDR_1_v188"/>
+      <triangular vertex1="AMS_LDR_1_v186" vertex2="AMS_LDR_1_v265" vertex3="AMS_LDR_1_v188"/>
+      <triangular vertex1="AMS_LDR_1_v186" vertex2="AMS_LDR_1_v268" vertex3="AMS_LDR_1_v265"/>
+      <triangular vertex1="AMS_LDR_1_v186" vertex2="AMS_LDR_1_v246" vertex3="AMS_LDR_1_v268"/>
+      <triangular vertex1="AMS_LDR_1_v186" vertex2="AMS_LDR_1_v248" vertex3="AMS_LDR_1_v246"/>
+      <triangular vertex1="AMS_LDR_1_v186" vertex2="AMS_LDR_1_v184" vertex3="AMS_LDR_1_v248"/>
+      <triangular vertex1="AMS_LDR_1_v248" vertex2="AMS_LDR_1_v184" vertex3="AMS_LDR_1_v250"/>
+      <triangular vertex1="AMS_LDR_1_v250" vertex2="AMS_LDR_1_v184" vertex3="AMS_LDR_1_v182"/>
+      <triangular vertex1="AMS_LDR_1_v180" vertex2="AMS_LDR_1_v250" vertex3="AMS_LDR_1_v182"/>
+      <triangular vertex1="AMS_LDR_1_v180" vertex2="AMS_LDR_1_v252" vertex3="AMS_LDR_1_v250"/>
+      <triangular vertex1="AMS_LDR_1_v180" vertex2="AMS_LDR_1_v254" vertex3="AMS_LDR_1_v252"/>
+      <triangular vertex1="AMS_LDR_1_v180" vertex2="AMS_LDR_1_v178" vertex3="AMS_LDR_1_v254"/>
+      <triangular vertex1="AMS_LDR_1_v254" vertex2="AMS_LDR_1_v178" vertex3="AMS_LDR_1_v134"/>
+      <triangular vertex1="AMS_LDR_1_v106" vertex2="AMS_LDR_1_v134" vertex3="AMS_LDR_1_v132"/>
+      <triangular vertex1="AMS_LDR_1_v108" vertex2="AMS_LDR_1_v132" vertex3="AMS_LDR_1_v110"/>
+      <triangular vertex1="AMS_LDR_1_v108" vertex2="AMS_LDR_1_v106" vertex3="AMS_LDR_1_v132"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v206" vertex3="AMS_LDR_1_v278"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v154" vertex3="AMS_LDR_1_v206"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v156" vertex3="AMS_LDR_1_v154"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v158" vertex3="AMS_LDR_1_v156"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v160" vertex3="AMS_LDR_1_v158"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v162" vertex3="AMS_LDR_1_v160"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v164" vertex3="AMS_LDR_1_v162"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v166" vertex3="AMS_LDR_1_v164"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v122" vertex3="AMS_LDR_1_v166"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v120" vertex3="AMS_LDR_1_v122"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v124" vertex3="AMS_LDR_1_v120"/>
+      <triangular vertex1="AMS_LDR_1_v276" vertex2="AMS_LDR_1_v274" vertex3="AMS_LDR_1_v124"/>
+      <triangular vertex1="AMS_LDR_1_v124" vertex2="AMS_LDR_1_v274" vertex3="AMS_LDR_1_v116"/>
+      <triangular vertex1="AMS_LDR_1_v126" vertex2="AMS_LDR_1_v116" vertex3="AMS_LDR_1_v114"/>
+      <triangular vertex1="AMS_LDR_1_v128" vertex2="AMS_LDR_1_v114" vertex3="AMS_LDR_1_v112"/>
+      <triangular vertex1="AMS_LDR_1_v130" vertex2="AMS_LDR_1_v112" vertex3="AMS_LDR_1_v110"/>
+      <triangular vertex1="AMS_LDR_1_v132" vertex2="AMS_LDR_1_v130" vertex3="AMS_LDR_1_v110"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v86" vertex3="AMS_LDR_1_v274"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v226" vertex3="AMS_LDR_1_v86"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v228" vertex3="AMS_LDR_1_v226"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v230" vertex3="AMS_LDR_1_v228"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v232" vertex3="AMS_LDR_1_v230"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v234" vertex3="AMS_LDR_1_v232"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v236" vertex3="AMS_LDR_1_v234"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v238" vertex3="AMS_LDR_1_v236"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v240" vertex3="AMS_LDR_1_v238"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v242" vertex3="AMS_LDR_1_v240"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v244" vertex3="AMS_LDR_1_v242"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v268" vertex3="AMS_LDR_1_v244"/>
+      <triangular vertex1="AMS_LDR_1_v272" vertex2="AMS_LDR_1_v270" vertex3="AMS_LDR_1_v268"/>
+      <triangular vertex1="AMS_LDR_1_v72" vertex2="AMS_LDR_1_v74" vertex3="AMS_LDR_1_v274"/>
+      <triangular vertex1="AMS_LDR_1_v76" vertex2="AMS_LDR_1_v274" vertex3="AMS_LDR_1_v78"/>
+      <triangular vertex1="AMS_LDR_1_v76" vertex2="AMS_LDR_1_v72" vertex3="AMS_LDR_1_v274"/>
+      <triangular vertex1="AMS_LDR_1_v74" vertex2="AMS_LDR_1_v118" vertex3="AMS_LDR_1_v274"/>
+      <triangular vertex1="AMS_LDR_1_v274" vertex2="AMS_LDR_1_v118" vertex3="AMS_LDR_1_v116"/>
+      <triangular vertex1="AMS_LDR_1_v124" vertex2="AMS_LDR_1_v116" vertex3="AMS_LDR_1_v126"/>
+      <triangular vertex1="AMS_LDR_1_v126" vertex2="AMS_LDR_1_v114" vertex3="AMS_LDR_1_v128"/>
+      <triangular vertex1="AMS_LDR_1_v128" vertex2="AMS_LDR_1_v112" vertex3="AMS_LDR_1_v130"/>
+      <triangular vertex1="AMS_LDR_1_v104" vertex2="AMS_LDR_1_v256" vertex3="AMS_LDR_1_v106"/>
+      <triangular vertex1="AMS_LDR_1_v104" vertex2="AMS_LDR_1_v258" vertex3="AMS_LDR_1_v256"/>
+      <triangular vertex1="AMS_LDR_1_v104" vertex2="AMS_LDR_1_v102" vertex3="AMS_LDR_1_v258"/>
+      <triangular vertex1="AMS_LDR_1_v258" vertex2="AMS_LDR_1_v102" vertex3="AMS_LDR_1_v260"/>
+      <triangular vertex1="AMS_LDR_1_v260" vertex2="AMS_LDR_1_v102" vertex3="AMS_LDR_1_v100"/>
+      <triangular vertex1="AMS_LDR_1_v262" vertex2="AMS_LDR_1_v100" vertex3="AMS_LDR_1_v98"/>
+      <triangular vertex1="AMS_LDR_1_v218" vertex2="AMS_LDR_1_v98" vertex3="AMS_LDR_1_v96"/>
+      <triangular vertex1="AMS_LDR_1_v216" vertex2="AMS_LDR_1_v96" vertex3="AMS_LDR_1_v94"/>
+      <triangular vertex1="AMS_LDR_1_v220" vertex2="AMS_LDR_1_v94" vertex3="AMS_LDR_1_v92"/>
+      <triangular vertex1="AMS_LDR_1_v222" vertex2="AMS_LDR_1_v92" vertex3="AMS_LDR_1_v90"/>
+      <triangular vertex1="AMS_LDR_1_v224" vertex2="AMS_LDR_1_v90" vertex3="AMS_LDR_1_v88"/>
+      <triangular vertex1="AMS_LDR_1_v226" vertex2="AMS_LDR_1_v88" vertex3="AMS_LDR_1_v86"/>
+      <triangular vertex1="AMS_LDR_1_v226" vertex2="AMS_LDR_1_v224" vertex3="AMS_LDR_1_v88"/>
+      <triangular vertex1="AMS_LDR_1_v260" vertex2="AMS_LDR_1_v100" vertex3="AMS_LDR_1_v262"/>
+      <triangular vertex1="AMS_LDR_1_v262" vertex2="AMS_LDR_1_v98" vertex3="AMS_LDR_1_v218"/>
+      <triangular vertex1="AMS_LDR_1_v218" vertex2="AMS_LDR_1_v96" vertex3="AMS_LDR_1_v216"/>
+      <triangular vertex1="AMS_LDR_1_v216" vertex2="AMS_LDR_1_v94" vertex3="AMS_LDR_1_v220"/>
+      <triangular vertex1="AMS_LDR_1_v220" vertex2="AMS_LDR_1_v92" vertex3="AMS_LDR_1_v222"/>
+      <triangular vertex1="AMS_LDR_1_v222" vertex2="AMS_LDR_1_v90" vertex3="AMS_LDR_1_v224"/>
+      <triangular vertex1="AMS_LDR_1_v86" vertex2="AMS_LDR_1_v84" vertex3="AMS_LDR_1_v274"/>
+      <triangular vertex1="AMS_LDR_1_v274" vertex2="AMS_LDR_1_v84" vertex3="AMS_LDR_1_v82"/>
+      <triangular vertex1="AMS_LDR_1_v80" vertex2="AMS_LDR_1_v274" vertex3="AMS_LDR_1_v82"/>
+      <triangular vertex1="AMS_LDR_1_v80" vertex2="AMS_LDR_1_v78" vertex3="AMS_LDR_1_v274"/>
+      <triangular vertex1="AMS_LDR_1_v206" vertex2="AMS_LDR_1_v154" vertex3="AMS_LDR_1_v208"/>
+      <triangular vertex1="AMS_LDR_1_v208" vertex2="AMS_LDR_1_v154" vertex3="AMS_LDR_1_v152"/>
+      <triangular vertex1="AMS_LDR_1_v210" vertex2="AMS_LDR_1_v152" vertex3="AMS_LDR_1_v150"/>
+      <triangular vertex1="AMS_LDR_1_v212" vertex2="AMS_LDR_1_v150" vertex3="AMS_LDR_1_v148"/>
+      <triangular vertex1="AMS_LDR_1_v214" vertex2="AMS_LDR_1_v148" vertex3="AMS_LDR_1_v146"/>
+      <triangular vertex1="AMS_LDR_1_v170" vertex2="AMS_LDR_1_v146" vertex3="AMS_LDR_1_v144"/>
+      <triangular vertex1="AMS_LDR_1_v168" vertex2="AMS_LDR_1_v144" vertex3="AMS_LDR_1_v142"/>
+      <triangular vertex1="AMS_LDR_1_v172" vertex2="AMS_LDR_1_v142" vertex3="AMS_LDR_1_v140"/>
+      <triangular vertex1="AMS_LDR_1_v174" vertex2="AMS_LDR_1_v140" vertex3="AMS_LDR_1_v138"/>
+      <triangular vertex1="AMS_LDR_1_v176" vertex2="AMS_LDR_1_v138" vertex3="AMS_LDR_1_v136"/>
+      <triangular vertex1="AMS_LDR_1_v178" vertex2="AMS_LDR_1_v136" vertex3="AMS_LDR_1_v134"/>
+      <triangular vertex1="AMS_LDR_1_v178" vertex2="AMS_LDR_1_v176" vertex3="AMS_LDR_1_v136"/>
+      <triangular vertex1="AMS_LDR_1_v208" vertex2="AMS_LDR_1_v152" vertex3="AMS_LDR_1_v210"/>
+      <triangular vertex1="AMS_LDR_1_v210" vertex2="AMS_LDR_1_v150" vertex3="AMS_LDR_1_v212"/>
+      <triangular vertex1="AMS_LDR_1_v212" vertex2="AMS_LDR_1_v148" vertex3="AMS_LDR_1_v214"/>
+      <triangular vertex1="AMS_LDR_1_v214" vertex2="AMS_LDR_1_v146" vertex3="AMS_LDR_1_v170"/>
+      <triangular vertex1="AMS_LDR_1_v170" vertex2="AMS_LDR_1_v144" vertex3="AMS_LDR_1_v168"/>
+      <triangular vertex1="AMS_LDR_1_v168" vertex2="AMS_LDR_1_v142" vertex3="AMS_LDR_1_v172"/>
+      <triangular vertex1="AMS_LDR_1_v172" vertex2="AMS_LDR_1_v140" vertex3="AMS_LDR_1_v174"/>
+      <triangular vertex1="AMS_LDR_1_v174" vertex2="AMS_LDR_1_v138" vertex3="AMS_LDR_1_v176"/>
+      <triangular vertex1="AMS_LDR_1_v254" vertex2="AMS_LDR_1_v134" vertex3="AMS_LDR_1_v106"/>
+      <triangular vertex1="AMS_LDR_1_v256" vertex2="AMS_LDR_1_v254" vertex3="AMS_LDR_1_v106"/>
+      <triangular vertex1="AMS_LDR_1_v206" vertex2="AMS_LDR_1_v204" vertex3="AMS_LDR_1_v278"/>
+      <triangular vertex1="AMS_LDR_1_v278" vertex2="AMS_LDR_1_v204" vertex3="AMS_LDR_1_v202"/>
+      <triangular vertex1="AMS_LDR_1_v200" vertex2="AMS_LDR_1_v278" vertex3="AMS_LDR_1_v202"/>
+      <triangular vertex1="AMS_LDR_1_v200" vertex2="AMS_LDR_1_v198" vertex3="AMS_LDR_1_v278"/>
+      <triangular vertex1="AMS_LDR_1_v278" vertex2="AMS_LDR_1_v198" vertex3="AMS_LDR_1_v196"/>
+      <triangular vertex1="AMS_LDR_1_v194" vertex2="AMS_LDR_1_v278" vertex3="AMS_LDR_1_v196"/>
+      <triangular vertex1="AMS_LDR_1_v194" vertex2="AMS_LDR_1_v192" vertex3="AMS_LDR_1_v278"/>
+      <triangular vertex1="AMS_LDR_1_v278" vertex2="AMS_LDR_1_v192" vertex3="AMS_LDR_1_v190"/>
+      <triangular vertex1="AMS_LDR_1_v188" vertex2="AMS_LDR_1_v278" vertex3="AMS_LDR_1_v190"/>
+      <triangular vertex1="AMS_LDR_1_v246" vertex2="AMS_LDR_1_v244" vertex3="AMS_LDR_1_v268"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="AMS_LDR_1">
+    <materialref ref="Silicon"/>
+    <solidref ref="AMS_LDR_10x2098a90"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="AMS_LDR_1"/>
+  </setup>
+
+</gdml>
