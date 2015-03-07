@@ -26,7 +26,7 @@ bool DmpAlgorithmManager::ProcessOneEvent(){
   return true;
 }
 
-std::string DmpAlgorithmManager::AlgorithmFlow()
+std::string DmpAlgorithmManager::Sequence()
 {
   std::string algList;
   for(std::list<DmpVAlg*>::iterator it = fElements.begin();it != fElements.end();++it){

@@ -50,7 +50,7 @@ bool DmpCore::Initialize(){
   //*
   //* Important! First, initialize servises, then algorithms
   //*
-  std::cout<<"\n  [DmpCore::Initialize] Initialize..."<<std::endl;
+  std::cout<<"\n  [DmpCore::Initialize] Initializing..."<<std::endl;
   if(not fSvcMgr->Initialize()) return false;
   if(not fAlgMgr->Initialize()) return false;
   if(not fInitializeDone && gRootIOSvc->GetOutputRootFile()){
@@ -62,8 +62,8 @@ bool DmpCore::Initialize(){
   fJobOpt->SetOption("Core/TimeWindowStart",DmpTimeConvertor::Second2Date(fStartTime));
   fJobOpt->SetOption("Core/TimeWindowStop",DmpTimeConvertor::Second2Date(fStopTime));
   fJobOpt->SetOption("Core/MaxEventNumber",boost::lexical_cast<std::string>(fMaxEventNo));
-  fJobOpt->SetJobName(this->GetSeedString()+"_"+fAlgMgr->AlgorithmFlow());
-  std::cout<<"  [DmpCore::Initialize] ... initialized successfully"<<std::endl;
+  fJobOpt->SetJobName(fAlgMgr->Sequence());
+  std::cout<<"  [DmpCore::Initialize] ... Done"<<std::endl;
   fInitializeDone = true;
   return fInitializeDone;
 }
@@ -99,7 +99,7 @@ bool DmpCore::Finalize(){
   if(not fInitializeDone){
     return false;
   }
-  std::cout<<"\n  [DmpCore::Finalize] Finalize..."<<std::endl;
+  std::cout<<"\n  [DmpCore::Finalize] Finalizing..."<<std::endl;
   if(DmpLog::logLevel >= DmpLog::INFO){
     std::cout<<std::endl;
     fJobOpt->PrintOptions();
@@ -110,7 +110,7 @@ bool DmpCore::Finalize(){
   //*
   fAlgMgr->Finalize();
   fSvcMgr->Finalize();
-  std::cout<<"  [DmpCore::Finalize] ... finalized successfully"<<std::endl;
+  std::cout<<"  [DmpCore::Finalize] ... Done\n\n"<<std::endl;
   return true;
 }
 

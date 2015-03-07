@@ -130,13 +130,17 @@ bool DmpRootIOSvc::Initialize()
       this->SetOutputFile("DmpData_T"+gCore->GetSeedString()+".root");
     }else{
       if(fInFileName.extension().string() == ".root"){
-        fInFileName = fInPath+GetInputStem()+".root";
-        fInRootFile = TFile::Open(fInFileName.string().c_str(),"UPDATE");
-        if(fInRootFile == 0){
-          return false;
+        if(fOutFileKey == ""){
+          fInFileName = fInPath+GetInputStem()+".root";
+          fInRootFile = TFile::Open(fInFileName.string().c_str(),"UPDATE");
+          if(fInRootFile == 0){
+            return false;
+          }
+          fOutRootFile = fInRootFile;     // check flag for output file
+          fOutFileName = fInFileName;
+        }else{
+          this->SetOutputFile(GetInputStem()+".root");
         }
-        fOutRootFile = fInRootFile;     // check flag for output file
-        fOutFileName = fInFileName;
       }else{
         if(fInFileName.extension().string() == ".frd"){
           this->SetOutputFile(GetInputStem()+".root");
@@ -171,8 +175,8 @@ bool DmpRootIOSvc::Initialize()
         fOutFileName = output.substr(0,found)+fOutFileKey+".root";
       }
       fOutRootFile = new TFile(fOutFileName.string().c_str(),"RECREATE");
-      fOutRootFile->mkdir("Event");
-      fOutRootFile->mkdir("Metadata");
+      //fOutRootFile->mkdir("Event");
+      //fOutRootFile->mkdir("Metadata");
     }
   }
   //-------------------------------------------------------------------
@@ -338,10 +342,12 @@ bool DmpRootIOSvc::PrepareFirstEvent()
 
 //-------------------------------------------------------------------
 void DmpRootIOSvc::FillData(const std::string &floder){
-  for(DmpRootIOTreeMap::iterator it=fOutTreeSet[floder].begin();it!=fOutTreeSet[floder].end();++it){
-    DmpLogDebug<<it->first<<"\tFill "<<floder<<" data "<<it->second->GetEntries()<<DmpLogEndl;
-    it->second->Fill();
-    ++fWritingEvtID;
+  if(fOutTreeSet.find(floder) != fOutTreeSet.end()){
+    for(DmpRootIOTreeMap::iterator it=fOutTreeSet[floder].begin();it!=fOutTreeSet[floder].end();++it){
+      DmpLogDebug<<it->first<<"\tFill "<<floder<<" data "<<it->second->GetEntries()<<DmpLogEndl;
+      it->second->Fill();
+      ++fWritingEvtID;
+    }
   }
 }
 
