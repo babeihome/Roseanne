@@ -25,6 +25,9 @@ public:
   ~DmpAlgorithmManager();
   bool ProcessOneEvent();
 
+public:
+  std::string AlgorithmFlow();
+
 private:
   DmpAlgorithmManager();
 

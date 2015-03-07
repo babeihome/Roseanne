@@ -38,23 +38,23 @@ public:
 
 public:         // binding functions
   void SetInputPath(const std::string &v);
-  void SetInputFile(const std::string &v);
   void SetOutputPath(const std::string &v);
-  void SetOutputFile(const std::string &v);
-  bool SetWriteList(const std::string &v);
-  void SetOutputKey(const std::string &v){fOutFileKey = v;}
+  void SetInputFile(const std::string &v);  // input should be a root file
+  void SetOutputFile(const std::string &v); // if not use it, will save data into input root file(if input not exist, will create a default one)
+  void SetWriteList(std::string path_SplitBySemicolon);  // Floder/Tree;Floder/Tree1;Floder1/Tree2
+  void SetOutputKey(std::string v){fOutFileKey = v;}
+  void SetFirstInputEvent(long i);
+  void AddWriteList(std::string path_SplitBySemicolon);
 
 public:
   bool WriteValid(const std::string &treeName); // in write list, no branch
-  TTree* GetOutputTree(const std::string &folderName,const std::string &treeName);
-  TTree* GetInputTree(const std::string &folderName,const std::string &treeName);
-  void PrepareMetaData();
-  bool PrepareEvent(const long &evtID); //only read fInTreeSet["Event"]
+  TTree* GetOutputTree(std::string folder_treeName);
+  TTree* GetInputTree(std::string folder_treeName);
+  bool PrepareEvent(); //only read fInTreeSet["Event"]
+  bool PrepareFirstEvent(); //only read fFirstInputEntry from fInTreeSet["Event"]
   void FillData(const std::string &floderName);
  /*
   *  invoke FillData("Event") in DmpCore::Run(), if fAlgMgr->ProcessThisEvent() return true
-  *
-  *  invoke FillData("Calibration") in the begin of DmpRootIOSvc::Finalize()
   *
   */
 
@@ -68,12 +68,22 @@ public:
   std::string GetInputExtension()const{return fInFileName.extension().string();}
   std::string GetOutputExtension()const{return fOutFileName.extension().string();}
   std::string GetOutFileKey()const{return fOutFileKey;}
-  DmpJobOption *JobOption()const{return fJobOpt;}
-  //DmpJobOption *GetInputFileJobOption()const;
+
+public:
+  long GetFirstInputEntryID()const{return fFirstInputEntry;}
+  long GetInputEventID()const;
+  long GetOutputEventID()const{return fWritingEvtID;}
+
+public:
+  TFile *GetOutputRootFile()const{return fOutRootFile;}
+  TFile *GetInputRootFile()const{return fInRootFile;}
+  std::string GetJobOptTreeName();
+  int GetJobOptSize()const; // only used for fInRootFile = fOutRootFile.
+  std::vector<DmpJobOption*> GetPreviousJobOpt();
 
 private:
   DmpRootIOSvc();
-  void CreateOutRootFile();
+  std::vector<std::string> SplitIt(std::string arg, std::string m="/",int size = 2)const;
 
 private:
 typedef std::map<std::string, TTree*>  DmpRootIOTreeMap;                // key is "Tree"
@@ -88,10 +98,15 @@ typedef std::map<std::string, DmpRootIOTreeMap>  DmpRootIOFolderMap;    // key i
   std::vector<std::string>  fWriteList;         // folderName/treeName
   TFile         *fInRootFile;
   TFile         *fOutRootFile;
-  std::map<std::string,long>    fEntriesOfTree; // entries of each input event tree. key is "Folder/Tree"
   DmpRootIOFolderMap    fInTreeSet;     // input trees
   DmpRootIOFolderMap    fOutTreeSet;    // output trees
-  DmpJobOption       *fJobOpt;    // output job option
+
+private:
+  long      fFirstInputEntry;      // for user. from this entry in input tree
+  long      fCurrentInputEntry;    // 
+  long      fEntriesOfTree;     // all input tree must have the same entries
+  long      fWritingEvtID;       // into output tree
+
 };
 
 //-------------------------------------------------------------------

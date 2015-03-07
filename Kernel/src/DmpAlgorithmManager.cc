@@ -26,3 +26,17 @@ bool DmpAlgorithmManager::ProcessOneEvent(){
   return true;
 }
 
+std::string DmpAlgorithmManager::AlgorithmFlow()
+{
+  std::string algList;
+  for(std::list<DmpVAlg*>::iterator it = fElements.begin();it != fElements.end();++it){
+    if(it != fElements.begin()){
+      algList +="-->";
+    }
+    algList += (*it)->GetName();
+  }
+  if(algList == "") algList = "NoAlg";
+  return algList;
+}
+
+

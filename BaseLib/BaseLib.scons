@@ -32,7 +32,7 @@ def ProcessThisDir(fromPath,toPath):
         if os.path.isdir(fromPath+tmp):  ProcessThisDir(fromPath+tmp,toPath+tmp)
         else: Default(Command(toPath+'/'+tmp,fromPath+'/'+tmp,Copy("$TARGET","$SOURCE")))
 
-ProcessThisDir("./share/Calibration",prefix+"/share/Calibration")
+ProcessThisDir("./share",prefix+"/share")
 
 # main build
 #--------------------------------------------------------------------

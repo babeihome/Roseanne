@@ -71,15 +71,15 @@ BOOST_PYTHON_MODULE(libDmpKernel){
   class_<DmpAlgorithmManager,boost::noncopyable>("DmpAlgorithmManager",no_init)
     .def("Append",  &DmpAlgorithmManager::Append)
     .def("Delete",  &DmpAlgorithmManager::Delete)
-    //.def("Get",     &DmpAlgorithmManager::Get,return_value_policy<reference_existing_object>())
-    .def("ListAllElements",&DmpAlgorithmManager::ListAllElements)
+    .def("Get",     &DmpAlgorithmManager::Get,return_value_policy<reference_existing_object>())
+    .def("PrintAllElements",&DmpAlgorithmManager::PrintAllElements)
   ;
   // DmpServiceManager
   class_<DmpServiceManager,boost::noncopyable>("DmpServiceManager",no_init)
     .def("Append",  &DmpServiceManager::Append)
     .def("Delete",  &DmpServiceManager::Delete)
     .def("Get",     &DmpServiceManager::Get,return_value_policy<reference_existing_object>())
-    .def("ListAllElements",&DmpServiceManager::ListAllElements)
+    .def("PrintAllElements",&DmpServiceManager::PrintAllElements)
   ;
   // DmpCore
   class_<DmpCore,boost::noncopyable>("DmpCore",no_init)
@@ -87,24 +87,26 @@ BOOST_PYTHON_MODULE(libDmpKernel){
     .staticmethod("GetInstance")
     .def("Initialize",  &DmpCore::Initialize)
     .def("Run",         &DmpCore::Run)
+    .def("TerminateRun",&DmpCore::TerminateRun)
     .def("Finalize",    &DmpCore::Finalize)
-    .def("SetLogLevel", &DmpCore::SetLogLevel)
-    .def("SetLogHeader", &DmpCore::SetLogHeader)
-    .def("SetEventNumber", &DmpCore::SetEventNumber)
     .def("SetStartTime", &DmpCore::SetStartTime)
     .def("SetStopTime", &DmpCore::SetStopTime)
-    .def("SetFirstEventID", &DmpCore::SetFirstEventID)
+    .def("SetEventNumber", &DmpCore::SetEventNumber)
+    .def("SetLogLevel", &DmpCore::SetLogLevel)
+    .def("SetLogHeader", &DmpCore::SetLogHeader)
     .def("AlgorithmManager",    &DmpCore::AlgorithmManager,return_value_policy<reference_existing_object>())
     .def("ServiceManager",      &DmpCore::ServiceManager,return_value_policy<reference_existing_object>())
   ;
   // DmpRootIOSvc
   class_<DmpRootIOSvc,boost::noncopyable,bases<DmpVSvc> >("DmpRootIOSvc",no_init)
+    //.def("GetInstance", &DmpRootIOSvc::GetInstance,return_value_policy<reference_existing_object>())
     .def("SetInputPath", &DmpRootIOSvc::SetInputPath)
     .def("SetInputFile", &DmpRootIOSvc::SetInputFile)
     .def("SetOutputPath",&DmpRootIOSvc::SetOutputPath)
     .def("SetOutputFile",&DmpRootIOSvc::SetOutputFile)
     .def("SetWriteList", &DmpRootIOSvc::SetWriteList)
     .def("SetOutputKey",&DmpRootIOSvc::SetOutputKey)
+    .def("SetFirstInputEvent", &DmpRootIOSvc::SetFirstInputEvent)
   ;
 
 }

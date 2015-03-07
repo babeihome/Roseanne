@@ -16,14 +16,16 @@ class DmpElementManager{
 public:
   DmpElementManager(const std::string&);
   virtual ~DmpElementManager();
+  bool Initialize();
+  bool Finalize();
 
 public:
   void Delete(const std::string&);
   void Append(DmpElement*);
-  void ListAllElements();
-  bool Initialize();
-  bool Finalize();
+  void PrintAllElements();
   DmpElement* Get(const std::string&);
+  //DmpElement* Get(int index);
+  //int GetElementSize()const;
 
 protected:
   const std::string& Name() const {return fName;}
@@ -81,7 +83,7 @@ void DmpElementManager<DmpElement>::Append(DmpElement *aEle){
 
 //-------------------------------------------------------------------
 template<typename DmpElement>
-void DmpElementManager<DmpElement>::ListAllElements(){
+void DmpElementManager<DmpElement>::PrintAllElements(){
   std::cout<<"There are "<<fElements.size()<<" elements in "<<fName<<std::endl;;
   for(typename std::list<DmpElement*>::iterator it = fElements.begin();it != fElements.end();++it){
     std::cout<<"    name"<<(*it)->Name()<<std::endl;
@@ -122,6 +124,21 @@ DmpElement* DmpElementManager<DmpElement>::Get(const std::string &n) {
   }
   return 0;
 }
+
+/*
+template<typename DmpElement>
+DmpElement* DmpElementManager<DmpElement>::Get(int i)
+{
+  return fElements.at(i);
+}
+
+template<typename DmpElement>
+int DmpElementManager<DmpElement>::GetElementSize()const
+{
+  return fElements.size();
+}
+
+*/
 
 #endif
 

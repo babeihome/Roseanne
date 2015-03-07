@@ -1,5 +1,5 @@
 /*
- *  $Id: DmpTimeConvertor.cc, 2014-12-14 08:22:11 DAMPE $
+ *  $Id: DmpTimeConvertor.cc, 2015-03-05 07:00:01 DAMPE $
  *  Author(s):
  *    Zhiyong ZHANG (zhzhy@mail.ustc.edu.cn) 27/10/2014
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 28/10/2014

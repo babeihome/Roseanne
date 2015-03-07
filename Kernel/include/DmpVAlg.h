@@ -26,7 +26,8 @@ public:
   virtual bool Finalize()=0;
 
 public:
-  const std::string& Name() const {return fName;}
+  std::string Name() const {return fName;}
+  std::string GetName() const {return fName;}
 
 private:
   std::string   fName;
