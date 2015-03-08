@@ -24,24 +24,6 @@ bool DmpDataBuffer::Initialize(){
 
 //-------------------------------------------------------------------
 bool DmpDataBuffer::Finalize(){
-  DmpLogInfo<<"+-Deleting input data..."<<DmpLogEndl;
-  for(DmpDataBufFolderMap::iterator aFolder=fInputDataBufPool.begin();aFolder!=fInputDataBufPool.end();++aFolder){
-    DmpDataBufTreeMap aTreeMap = aFolder->second;
-    DmpLogInfo<<"| |-"<<aFolder->first<<std::endl;
-    for(DmpDataBufTreeMap::iterator aTree=aTreeMap.begin();aTree!=aTreeMap.end();++aTree){
-      DmpDataBufBranchMap aBranchMap = aTree->second;
-    DmpLogInfo<<"| | |-"<<aTree->first<<std::endl;
-      for(DmpDataBufBranchMap::iterator it=aBranchMap.begin();it!=aBranchMap.end();++it){
-    DmpLogInfo<<"| | | |-"<<it->first<<std::endl;
-        delete it->second;
-      }
-      aBranchMap.clear();
-    }
-    aTreeMap.clear();
-  }
-  fInputDataBufPool.clear();
-  DmpLogInfo<<"`-Done"<<DmpLogEndl;
-    //-------------------------------------------------------------------
   DmpLogInfo<<"+-Deleting output data..."<<DmpLogEndl;
   for(DmpDataBufFolderMap::iterator aFolder=fDataBufPool.begin();aFolder!=fDataBufPool.end();++aFolder){
     DmpDataBufTreeMap aTreeMap = aFolder->second;
@@ -64,50 +46,33 @@ bool DmpDataBuffer::Finalize(){
 
 //-------------------------------------------------------------------
 TObject* DmpDataBuffer::ReadObject(const std::string &path){
-  // check path
-  std::string folderName, treeName, branchName;
-  PathCheck(path,folderName,treeName,branchName);
-  // find it in fDataBufPool
-  if(fDataBufPool.find(folderName) != fDataBufPool.end()){
-    if(fDataBufPool[folderName].find(treeName) != fDataBufPool[folderName].end()){
-      if(fDataBufPool[folderName][treeName].find(branchName) != fDataBufPool[folderName][treeName].end()){
-        TObject *dataPtr = fDataBufPool[folderName][treeName][branchName];
-        return dataPtr;
+  std::vector<std::string> p  = PathCheck(path);
+  return ReadObject(p);
+}
+
+TObject* DmpDataBuffer::ReadObject(std::vector<std::string> temp)
+{
+  TObject *ptr = 0;
+  if(fDataBufPool.find(temp[0]) != fDataBufPool.end()){
+    if(fDataBufPool[temp[0]].find(temp[1]) != fDataBufPool[temp[0]].end()){
+      if(fDataBufPool[temp[0]][temp[1]].find(temp[2]) != fDataBufPool[temp[0]][temp[1]].end()){
+        ptr = fDataBufPool[temp[0]][temp[1]][temp[2]];
       }
     }
-  }// create buffer map in input data buffer pool, not here
-  // find it in fInputDataBufPool
-  if(fInputDataBufPool.find(folderName) != fInputDataBufPool.end()){
-    if(fInputDataBufPool[folderName].find(treeName) != fInputDataBufPool[folderName].end()){
-      if(fInputDataBufPool[folderName][treeName].find(branchName) != fInputDataBufPool[folderName][treeName].end()){
-        TObject *dataPtr = fInputDataBufPool[folderName][treeName][branchName];
-        return dataPtr;
-      }
-    }else{
-      DmpDataBufBranchMap aNewBranchMap;
-      fInputDataBufPool[folderName].insert(std::make_pair(treeName,aNewBranchMap));
-    }
-  }else{
-    DmpDataBufTreeMap aNewTreeMap;
-    fInputDataBufPool.insert(std::make_pair(folderName,aNewTreeMap));
-    DmpDataBufBranchMap aNewBranchMap;
-    fInputDataBufPool[folderName].insert(std::make_pair(treeName,aNewBranchMap));
   }
-  return 0;
+  return ptr;
 }
 
 //-------------------------------------------------------------------
-void DmpDataBuffer::PathCheck(const std::string &checkMe,std::string &folderName,std::string &treeName,std::string &branchName){
+std::vector<std::string> DmpDataBuffer::PathCheck(std::string checkMe)const
+{
   std::vector<std::string> temp;
   boost::split(temp,checkMe,boost::is_any_of("/"));
   if(3 != temp.size()){
     DmpLogError<<"Wrong path: "<<checkMe<<DmpLogEndl;
     throw;
-  }else{
-    folderName = temp[0];
-    treeName = temp[1];
-    branchName = temp[2];
   }
+  return temp;
 }
 
 //-------------------------------------------------------------------

@@ -11,7 +11,7 @@
 #include "DmpDataBuffer.h"
 #include "DmpTimeConvertor.h"
 
-#define  JOBOPT "Metadata/Job0"
+#define EVTHEADERL0  "Event/Header/Level0"
 
 //-------------------------------------------------------------------
 DmpCore::DmpCore()
@@ -24,24 +24,31 @@ DmpCore::DmpCore()
   fSeed(0),
   fInitializeDone(false),
   fTerminateRun(false),
+  fHeaderLv0(0),
   fMaxEventNo(-1),      // default < 0, for all events
   fInTimeEvents(0)      // must == 0
 {
   std::cout<<"**************************************************"<<std::endl;
   std::cout<<"      Offline software of DAMPE (DMPSW)"<<std::endl;
-  std::cout<<"      version:  2.1.0(dampeustc)"<<std::endl;
+  std::cout<<"      version:  2.2.0(dampeustc)"<<std::endl;
   std::cout<<"**************************************************"<<std::endl;
   fJobOpt = new DmpJobOption();
   fAlgMgr = DmpAlgorithmManager::GetInstance();
   fSvcMgr = DmpServiceManager::GetInstance();
   fSvcMgr->Append(DmpRootIOSvc::GetInstance());     // must use GetInstance instead of global variable, since, Mac create global variable later than DmpCore::DmpCore()
   fSvcMgr->Append(DmpDataBuffer::GetInstance());
-  gRootIOSvc->AppendWriteList(JOBOPT);
+  gRootIOSvc->AppendWriteList("Event/Header");
+  gRootIOSvc->AppendWriteList("Metadata/Job0"); // default job id is 0
   fSeed = (time((time_t*)NULL));
   char tmptime[256];
   time_t mt = (int)fSeed;
   strftime(tmptime,256,"%F %T",gmtime(&mt));
   fJobTime = (std::string)tmptime;
+  for(int i=0;i<3;++i){
+    for(int j=0;j<2;++j){
+      fTimestamp[i][j] = 0;
+    }
+  }
 }
 
 //-------------------------------------------------------------------
@@ -51,10 +58,18 @@ DmpCore::~DmpCore(){
 //-------------------------------------------------------------------
 bool DmpCore::Initialize(){
   //*
-  //* Important! First, initialize servises, then algorithms
+  //* Important! First, initialize servises, then event header, then algorithms, then job options
   //*
   std::cout<<"\n  [DmpCore::Initialize] Initializing..."<<std::endl;
   if(not fSvcMgr->Initialize()) return false;
+  fHeaderLv0 = dynamic_cast<DmpEvtHeader*>(gDataBuffer->ReadObject(EVTHEADERL0));
+  if(fHeaderLv0 == 0){
+    fHeaderLv0 = new DmpEvtHeader();
+    if(gRootIOSvc->GetInputRootFile()){
+      gDataBuffer->LinkRootFile(EVTHEADERL0,fHeaderLv0);
+    }
+  }
+  gDataBuffer->RegisterObject(EVTHEADERL0,fHeaderLv0);
   if(not fAlgMgr->Initialize()) return false;
   if(not fInitializeDone && gRootIOSvc->GetOutputRootFile()){
     std::string name =gRootIOSvc->GetJobOptTreeName("Metadata");
@@ -80,11 +95,16 @@ bool DmpCore::Run(){
 // *
 // *  TODO: use cut of time range??
 // *
+  gRootIOSvc->PrepareFirstEvent();
+  fTimestamp[0][0] = fHeaderLv0->GetSecond();
   while((not fTerminateRun) && (fInTimeEvents < fMaxEventNo || fMaxEventNo < 0)){
     if(gRootIOSvc->PrepareEvent()){
+      DmpLogDebug<<"input event ID = "<<gRootIOSvc->GetInputEventID()<<"\tin time event ID = "<<fInTimeEvents<<"\t output event ID = "<<gRootIOSvc->GetOutputEventID()<<std::endl;
       if(EventInTimeRange()){
         ++fInTimeEvents;
         if(fAlgMgr->ProcessOneEvent()){
+          if(fTimestamp[2][0] == 0){fTimestamp[2][0] = fHeaderLv0->GetSecond();}
+          fTimestamp[2][1] = fHeaderLv0->GetSecond();
           gRootIOSvc->FillData("Event");
         }
       }
@@ -93,6 +113,7 @@ bool DmpCore::Run(){
       break;
     }
   }
+  fTimestamp[0][1] = fHeaderLv0->GetSecond();
   std::cout<<"  [DmpCore::Run] Done"<<std::endl;
   return true;
 }
@@ -106,6 +127,10 @@ bool DmpCore::Finalize(){
   if(DmpLog::logLevel >= DmpLog::INFO){
     std::cout<<std::endl;
     fJobOpt->PrintOptions();
+    std::cout<<std::endl;
+    std::cout<<"Input event:         "<<GetTimeFirstInput()<<"\t"<<GetTimeLastInput()<<std::endl;
+    std::cout<<"In time range event: "<<GetTimeFirstInTimeWindow()<<"\t"<<GetTimeLastInTimeWindow()<<std::endl;
+    std::cout<<"Output event:        "<<GetTimeFirstOutput()<<"\t"<<GetTimeLastOutput()<<std::endl;
     std::cout<<std::endl;
   }
   //*
@@ -125,11 +150,6 @@ void DmpCore::SetStartTime(const std::string &t0){
 //-------------------------------------------------------------------
 void DmpCore::SetStopTime(const std::string &t1){
   fStopTime = DmpTimeConvertor::Date2Second(t1);
-}
-
-void DmpCore::LoadFirstEvent()
-{
-  gRootIOSvc->PrepareFirstEvent();
 }
 
 std::string DmpCore::GetSeedString()const
@@ -158,13 +178,53 @@ std::vector<DmpJobOption*> DmpCore::GetPreviousJobOpt()const
       gDataBuffer->LinkRootFile((std::string)path,tmp);
       gRootIOSvc->GetInputTree((std::string)treeName)->GetEntry(0);
       allPre.push_back(tmp);
-//std::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<")\t"<<i<<"\t"<<tmp<<"\t"<<tmp->PrintOptions()<<std::endl;
     }
   }
   */
   return allPre;
 }
 
+bool DmpCore::EventInTimeRange()
+{
+  int tc = fHeaderLv0->GetSecond();
+  if((fStartTime <= tc && tc <= fStopTime) || tc <= 0)
+  {
+    if(fTimestamp[1][0] == 0) {fTimestamp[1][0] = fHeaderLv0->GetSecond();}
+    fTimestamp[1][1] = fHeaderLv0->GetSecond();
+    return true;
+  }
+  return false;
+}
+
+std::string DmpCore::GetTimeFirstInput()const
+{
+  return DmpTimeConvertor::Second2Date(fTimestamp[0][0]);
+}
+
+std::string DmpCore::GetTimeLastInput()const
+{
+  return DmpTimeConvertor::Second2Date(fTimestamp[0][1]);
+}
+
+std::string DmpCore::GetTimeFirstInTimeWindow()const
+{
+  return DmpTimeConvertor::Second2Date(fTimestamp[1][0]);
+}
+
+std::string DmpCore::GetTimeLastInTimeWindow()const
+{
+  return DmpTimeConvertor::Second2Date(fTimestamp[1][1]);
+}
+
+std::string DmpCore::GetTimeFirstOutput()const
+{
+  return DmpTimeConvertor::Second2Date(fTimestamp[2][0]);
+}
+
+std::string DmpCore::GetTimeLastOutput()const
+{
+  return DmpTimeConvertor::Second2Date(fTimestamp[2][1]);
+}
 
 //-------------------------------------------------------------------
 DmpCore *gCore = DmpCore::GetInstance();

@@ -1,5 +1,5 @@
 /*
- *  $Id: DmpEventLinkDef.h, 2015-01-23 02:48:47 DAMPE $
+ *  $Id: DmpEventLinkDef.h, 2015-03-08 11:05:45 DAMPE $
  *  Author(s):
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 13/12/2013
 */
@@ -22,7 +22,7 @@
 #pragma link C++ class DmpEvtBTAnc+;
 //#pragma link C++ typedef DmpTriggerStatus;
 //#pragma link C++ typedef DmpSubDetStatus;
-#pragma link C++ class DmpEvtHeader+;
+//#pragma link C++ class DmpEvtHeader+;
 #pragma link C++ class DmpFeeNavig+;
 #pragma link C++ class DmpEvtBgoRaw+;
 #pragma link C++ typedef DmpEvtPsdRaw;

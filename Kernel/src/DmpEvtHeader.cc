@@ -5,8 +5,26 @@
 */
 
 #include <iostream>
-#include "DmpEDetectorID.h"
+//#include "DmpEDetectorID.h"
 #include "DmpEvtHeader.h"
+
+#ifndef DmpEDetectorID_H
+#define DmpEDetectorID_H
+
+namespace DmpEDetectorID{
+  const short gSubDetNo=4;
+  enum Type{
+    kWhole = -1,
+    kStk = 0,
+    kBgo = 1,
+    kPsd = 2,
+    kNud = 3
+  };
+}
+
+#endif
+
+
 
 ClassImp(DmpEvtHeader)
 

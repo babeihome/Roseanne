@@ -1,11 +1,20 @@
 /*
- *  $Id: ReleaseNote, 2014-08-08 12:30:23 DAMPE $
+ *  $Id: ReleaseNote, 2015-03-09 00:57:00 DAMPE $
  *  Author(s):
  *    =========    DMPSW group    ============
  *
 */
 
---->    (next release)2014-08-15  20:08:19
+
+--->    09/03/2015 (next release)
+    1. simulation particle source infor.
+
+--->    09/03/2015 (version 2.2)
+    1.  set time window in DmpCore, for all algorithms
+    2.  could use same pointer to DmpDataBuffer::ReadObject() and DmpDataBuffer::RegisterObject()
+    3.  save "Event/Header/Level0" automatically for all jobs, not need to registe it
+
+--->    2014-08-15  20:08:19
     1.  setup BgoBaseLib
 
 --->    2014-08-15  20:08:19

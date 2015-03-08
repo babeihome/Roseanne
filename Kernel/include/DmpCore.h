@@ -15,6 +15,8 @@
 #include "DmpServiceManager.h"
 #include "DmpJobOption.h"
 
+#include "DmpEvtHeader.h"
+
 class DmpCore{
 /*
  *  DmpCore
@@ -52,12 +54,27 @@ public:
   int  GetStopTime() const {return fStopTime;}
   long GetMaxEventNumber() const {return fMaxEventNo;}
   long GetSeed() const{return fSeed;}
+  DmpEvtHeader *GetEventHeader()const{return fHeaderLv0;}
   std::string GetSeedString()const;
   std::string GetJobTime()const{return fJobTime;}
   //bool EventInTimeWindow(const int &t) const{return ((fStartTime<=t)&&(t<=fStopTime))?true:false;} // use second of event header
-  bool EventInTimeRange(){return true;}
-  void LoadFirstEvent();
+  bool EventInTimeRange();
   bool InitializeDone()const{return fInitializeDone;}
+  DmpEvtHeader *EventHeader(){return fHeaderLv0;}    // for RDC output
+
+public:
+  int  TimeFirstInput()const{return fTimestamp[0][0];}
+  int  TimeLastInput()const{return fTimestamp[0][1];}
+  int  TimeFirstInTimeWindow()const{return fTimestamp[1][0];}
+  int  TimeLastInTimeWindow()const{return fTimestamp[1][1];}
+  int  TimeFirstOutput()const{return fTimestamp[2][0];}
+  int  TimeLastOutput()const{return fTimestamp[2][1];}
+  std::string GetTimeFirstInput()const;
+  std::string GetTimeLastInput()const;
+  std::string GetTimeFirstInTimeWindow()const;
+  std::string GetTimeLastInTimeWindow()const;
+  std::string GetTimeFirstOutput()const;
+  std::string GetTimeLastOutput()const;
 
 private:
   DmpCore();
@@ -71,6 +88,7 @@ private:
   int                   fStopTime;      // unit: second. stop time of time window
   long                  fSeed;          // random seed for whole job. Default value: current time
   DmpJobOption          *fJobOpt;        // all options for this job
+  DmpEvtHeader          *fHeaderLv0;     //  event header level 0, has time
 
 private:
   bool      fInitializeDone;        // default is false
@@ -79,6 +97,20 @@ private:
 private:
   long      fMaxEventNo;            // run how many event (in time range)
   long      fInTimeEvents;          // counter of events in time range (fStartTime ~ fStopTime)
+
+private:
+  int       fTimestamp[3][2];        // timestamp of first in time event
+  /*
+   *    fTimestamp[0]
+   *        0:  first input event 
+   *        1:  last input event
+   *    fTimestamp[1]
+   *        0:  first event >fStartTime
+   *        1:  last event < fStopTime
+   *    fTimestamp[2]
+   *        0:  first output event
+   *        1:  last output event
+   */
 
 };
 

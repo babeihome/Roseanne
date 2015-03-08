@@ -41,7 +41,7 @@ public:         // binding functions
   void SetInputFile(const std::string &v);  // input should be a root file
   void SetOutputFile(const std::string &v); // if not use it, will save data into input root file(if input not exist, will create a default one)
   void SetWriteList(std::string path_SplitBySemicolon);  // Floder/Tree;Floder/Tree1;Floder1/Tree2
-  void SetOutputKey(std::string v){fOutFileKey = v;}
+  void SetOutFileKey(std::string v){fOutFileKey = v;}
   void SetFirstInputEvent(long i);
   void AddWriteList(std::string path_SplitBySemicolon);
   void AppendWriteList(std::string v){fWriteList.push_back(v);}
@@ -95,6 +95,9 @@ typedef std::map<std::string, DmpRootIOTreeMap>  DmpRootIOFolderMap;    // key i
   std::string               fInPath;            // input file path
   std::string               fOutPath;           // output file path
   std::vector<std::string>  fWriteList;         // folderName/treeName
+  /*
+   *    fWriteList[0] and [1]: is defined in DmpCore
+   */
   TFile         *fInRootFile;
   TFile         *fOutRootFile;
   DmpRootIOFolderMap    fInTreeSet;     // input trees

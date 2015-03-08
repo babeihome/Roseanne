@@ -105,7 +105,7 @@ BOOST_PYTHON_MODULE(libDmpKernel){
     .def("SetOutputPath",&DmpRootIOSvc::SetOutputPath)
     .def("SetOutputFile",&DmpRootIOSvc::SetOutputFile)
     .def("SetWriteList", &DmpRootIOSvc::SetWriteList)
-    .def("SetOutputKey",&DmpRootIOSvc::SetOutputKey)
+    .def("SetOutFileKey",&DmpRootIOSvc::SetOutFileKey)
     .def("SetFirstInputEvent", &DmpRootIOSvc::SetFirstInputEvent)
   ;
 
