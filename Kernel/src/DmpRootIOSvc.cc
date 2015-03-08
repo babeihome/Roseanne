@@ -17,8 +17,6 @@
 #include "DmpDataBuffer.h"
 #include "DmpCore.h"
 
-#define  JOBOPT "Metadata/Job0"
-
 //-------------------------------------------------------------------
 DmpRootIOSvc::DmpRootIOSvc()
  :DmpVSvc("DmpRootIOSvc"),
@@ -34,7 +32,6 @@ DmpRootIOSvc::DmpRootIOSvc()
 {
   fInFileName = "";
   fOutFileName = "";
-  fWriteList.push_back(JOBOPT);
 }
 
 //-------------------------------------------------------------------
@@ -175,8 +172,6 @@ bool DmpRootIOSvc::Initialize()
         fOutFileName = output.substr(0,found)+fOutFileKey+".root";
       }
       fOutRootFile = new TFile(fOutFileName.string().c_str(),"RECREATE");
-      //fOutRootFile->mkdir("Event");
-      //fOutRootFile->mkdir("Metadata");
     }
   }
   //-------------------------------------------------------------------
@@ -359,11 +354,12 @@ long DmpRootIOSvc::GetInputEventID()const
   return fCurrentInputEntry - 1;    // must -1
 }
 
-int DmpRootIOSvc::GetJobOptSize()const
+int DmpRootIOSvc::GetTreeNumberInDir(std::string v,TFile *f)const
 {
   int i=0;
-  if(fOutRootFile == fInRootFile && fInRootFile != 0){
-    TDirectory *dir = fOutRootFile->GetDirectory("Metadata");
+  if(f == 0){f = fInRootFile;}
+  if(f != 0){
+    TDirectory *dir = f->GetDirectory(v.c_str());
     if(dir){
       i = dir->GetListOfKeys()->GetEntries();
     }
@@ -371,39 +367,16 @@ int DmpRootIOSvc::GetJobOptSize()const
   return i;
 }
 
-std::string DmpRootIOSvc::GetJobOptTreeName()
+std::string DmpRootIOSvc::GetJobOptTreeName(std::string v)
 {
   static int xxx = 0;
   if(xxx){return fWriteList[0];}
   TString tmp =fWriteList[0];
   tmp.Remove(tmp.Length()-1);
-  tmp += GetJobOptSize();
+  tmp += GetTreeNumberInDir(v);
   fWriteList[0] = (std::string)tmp;
   ++xxx;
   return fWriteList[0];
-}
-
-std::vector<DmpJobOption*> DmpRootIOSvc::GetPreviousJobOpt()
-{
-  static std::vector<DmpJobOption*>  allPre;
-  if(allPre.size()) return allPre;
-  if(fInRootFile != 0){
-    return allPre;
-  }else{    // get previous options
-    //    check size,
-    int nd = gRootIOSvc->GetJobOptSize();
-    for(int i=0;i<nd;++i){
-      TString treeName = "Metadata/Job";
-      treeName += nd;
-      TString path = treeName + "/Option";
-      DmpJobOption *tmp = new DmpJobOption();
-      gDataBuffer->LinkRootFile((std::string)path,tmp);
-      gRootIOSvc->GetInputTree((std::string)treeName)->GetEntry(0);
-      allPre.push_back(tmp);
-//std::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<")\t"<<i<<"\t"<<tmp<<"\t"<<tmp->PrintOptions()<<std::endl;
-    }
-  }
-  return allPre;
 }
 
 //-------------------------------------------------------------------

@@ -13,7 +13,6 @@
 #include <map>
 #include <vector>
 #include "DmpVSvc.h"
-#include "DmpJobOption.h"
 
 class TFile;
 class TTree;
@@ -45,6 +44,7 @@ public:         // binding functions
   void SetOutputKey(std::string v){fOutFileKey = v;}
   void SetFirstInputEvent(long i);
   void AddWriteList(std::string path_SplitBySemicolon);
+  void AppendWriteList(std::string v){fWriteList.push_back(v);}
 
 public:
   bool WriteValid(const std::string &treeName); // in write list, no branch
@@ -77,9 +77,8 @@ public:
 public:
   TFile *GetOutputRootFile()const{return fOutRootFile;}
   TFile *GetInputRootFile()const{return fInRootFile;}
-  std::string GetJobOptTreeName();
-  int GetJobOptSize()const; // only used for fInRootFile = fOutRootFile.
-  std::vector<DmpJobOption*> GetPreviousJobOpt();
+  std::string GetJobOptTreeName(std::string dir);
+  int GetTreeNumberInDir(std::string dirName,TFile *f=0)const; // f == 0: for fInRootFile
 
 private:
   DmpRootIOSvc();

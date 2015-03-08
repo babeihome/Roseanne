@@ -45,8 +45,8 @@ public:     // binding functions
   DmpServiceManager*    ServiceManager() const {return fSvcMgr;}
 
 public:
-  //long GetCurrentEventID() const {return fCurrentEventID;}   // TODO: delete this interface, then check Rdc
   DmpJobOption *GetJobOption(){return fJobOpt;}
+  std::vector<DmpJobOption*> GetPreviousJobOpt()const;
   long GetInTimeEventID() const {return fInTimeEvents-1;}      // only events which in time
   int  GetStartTime() const {return fStartTime;}
   int  GetStopTime() const {return fStopTime;}

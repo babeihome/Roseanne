@@ -11,6 +11,8 @@
 #include "DmpDataBuffer.h"
 #include "DmpTimeConvertor.h"
 
+#define  JOBOPT "Metadata/Job0"
+
 //-------------------------------------------------------------------
 DmpCore::DmpCore()
  :fJobTime(""),
@@ -34,6 +36,7 @@ DmpCore::DmpCore()
   fSvcMgr = DmpServiceManager::GetInstance();
   fSvcMgr->Append(DmpRootIOSvc::GetInstance());     // must use GetInstance instead of global variable, since, Mac create global variable later than DmpCore::DmpCore()
   fSvcMgr->Append(DmpDataBuffer::GetInstance());
+  gRootIOSvc->AppendWriteList(JOBOPT);
   fSeed = (time((time_t*)NULL));
   char tmptime[256];
   time_t mt = (int)fSeed;
@@ -54,7 +57,7 @@ bool DmpCore::Initialize(){
   if(not fSvcMgr->Initialize()) return false;
   if(not fAlgMgr->Initialize()) return false;
   if(not fInitializeDone && gRootIOSvc->GetOutputRootFile()){
-    std::string name =gRootIOSvc->GetJobOptTreeName();
+    std::string name =gRootIOSvc->GetJobOptTreeName("Metadata");
     gDataBuffer->RegisterObject(name+"/option",fJobOpt);
   }
   fJobOpt->SetOption("Core/JobTime",fJobTime);
@@ -133,6 +136,35 @@ std::string DmpCore::GetSeedString()const
 {
   return boost::lexical_cast<std::string>(fSeed);
 }
+
+std::vector<DmpJobOption*> DmpCore::GetPreviousJobOpt()const
+{
+  static std::vector<DmpJobOption*>  allPre;
+// *
+// *  TODO: 
+// *
+  /*
+  if(allPre.size()) return allPre;
+  if(fInRootFile != 0){
+    return allPre;
+  }else{    // get previous options
+    //    check size,
+    int nd = gRootIOSvc->GetJobOptSize();
+    for(int i=0;i<nd;++i){
+      TString treeName = "Metadata/Job";
+      treeName += nd;
+      TString path = treeName + "/Option";
+      DmpJobOption *tmp = new DmpJobOption();
+      gDataBuffer->LinkRootFile((std::string)path,tmp);
+      gRootIOSvc->GetInputTree((std::string)treeName)->GetEntry(0);
+      allPre.push_back(tmp);
+//std::cout<<"DEBUG: "<<__FILE__<<"("<<__LINE__<<")\t"<<i<<"\t"<<tmp<<"\t"<<tmp->PrintOptions()<<std::endl;
+    }
+  }
+  */
+  return allPre;
+}
+
 
 //-------------------------------------------------------------------
 DmpCore *gCore = DmpCore::GetInstance();
