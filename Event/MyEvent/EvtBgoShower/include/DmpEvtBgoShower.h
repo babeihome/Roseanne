@@ -51,7 +51,7 @@ public:
   DmpBgoFiredBar *GetSeedBar()const;
   double GetWindowEnergy(int n=3)const;  // n bars around seed bar
   double GetCoGBarID()const;
-  double GetTotalEnergy(int whichSide=-1)const;
+  double GetTotalEnergy(int whichSide=-1)const;  // whichside = {-1,0,1}= {combined | side_0 | side_1}
 
   void AddNewFiredBar(DmpBgoFiredBar *aBar);
   void MyPrint()const;
@@ -79,7 +79,7 @@ public:
   DmpEvtBgoCluster* GetSeedCluster()const;
   Position GetEntryPoint()const;
   Direction GetTrackDirection()const;
-  double GetTotalEnergy(int whichSide=-1,int layerID = -1)const;
+  double GetTotalEnergy(int layerID = -1, int whichSide=-1)const;   // layer ID == -1, total energy of all layers.  whichside = {-1,0,1}= {combined | side_0 | side_1}
   double GetTotalRMS()const;
   double GetPileupRatio()const;     // (-1,0): some layer not fired. 0: one track. > 1: multi-track
   int GetFiredBarNumber(int layerID = -1)const;
@@ -111,7 +111,8 @@ public:
   std::vector<DmpEvtBgoCluster*> GetAllClusterInLayer(int layerID)const;
   DmpEvtBgoCluster *GetMaxClusterInLayer(int layerID)const;
   DmpBgoFiredBar*   GetEMaxBar()const;
-  std::vector<DmpBgoFiredBar*>  GetIsolatedBar(int layerID,double noise=0.5)const;  // if nextBar.fE < noise, the current bar is isolated
+  std::vector<DmpBgoFiredBar*>  GetIsolatedBar(int layerID,double noise=2)const;  // if nextBar.fE < noise, the current bar is isolated
+  std::vector<DmpBgoFiredBar*>  GetIsolatedBarFromLayer(int layerID,double noise=2)const; // isolated bar from layerID ~ 13
 
 public: // for trigger
   bool T0(double threshold = 0.2)const;      // energy of any bar of first layer > 0.2 Mips (>4.6MeV)

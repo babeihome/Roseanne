@@ -283,7 +283,7 @@ DmpEvtBgoCluster* DmpEvtBgoShower::GetSeedCluster()const
 }
 
 //-------------------------------------------------------------------
-double DmpEvtBgoShower::GetTotalEnergy(int whichSide,int layerid)const
+double DmpEvtBgoShower::GetTotalEnergy(int layerid, int whichSide)const
 {
   double e = 0.;
   for(int i=0;i<fClusters->GetEntriesFast();++i){
@@ -315,7 +315,7 @@ int DmpEvtBgoShower::GetLayerIDOfMaxE()const
   double max_e = 0.;
   int id = -1;
   for(int i=0;i<BGO_LayerNO;++i){
-    double ei = this->GetTotalEnergy(-1,i);
+    double ei = this->GetTotalEnergy(i);
     if(ei > max_e){
       max_e = ei;
       id = i;
@@ -327,7 +327,7 @@ int DmpEvtBgoShower::GetLayerIDOfMaxE()const
 //-------------------------------------------------------------------
 double DmpEvtBgoShower::GetEnergyOfEMaxLayer()const
 {
-  return this->GetTotalEnergy(-1,this->GetLayerIDOfMaxE());
+  return this->GetTotalEnergy(this->GetLayerIDOfMaxE());
 }
 
 //-------------------------------------------------------------------
@@ -436,7 +436,9 @@ std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBar(int l,double noise)
     int nB = allC[ic]->fFiredBar->GetEntriesFast();
     for(int i=0;i<nB;++i){
       DmpBgoFiredBar *aB = dynamic_cast<DmpBgoFiredBar*>(allC[ic]->fFiredBar->At(i));
-      allB.push_back(aB);
+      if(aB->fE > noise){
+        allB.push_back(aB);
+      }
     }
   }
   for(int ib=0;ib<allB.size();++ib){
@@ -444,10 +446,8 @@ std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBar(int l,double noise)
     bool isIso = true;
     for(int i = 0;i<allB.size();++i){
       if(TMath::Abs(allB[i]->fBar - bid) == 1){
-        if(allB[i]->fE > noise){
-          isIso = false;
-          break;
-        }
+        isIso = false;
+        break;
       }
     }
     if(isIso){
@@ -458,9 +458,22 @@ std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBar(int l,double noise)
 }
 
 //-------------------------------------------------------------------
+std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBarFromLayer(int sl,double noise)const
+{
+  std::vector<DmpBgoFiredBar*>  backme;
+  for(int l=sl;l<BGO_LayerNO;++l){
+    std::vector<DmpBgoFiredBar*> tmp = this->GetIsolatedBar(l,noise);
+    for(int i=0;i<tmp.size();++i){
+      backme.push_back(tmp.at(i));
+    }
+  }
+  return backme;
+}
+
+//-------------------------------------------------------------------
 double DmpEvtBgoShower::GetCoGBarIDInLayer(int l)const
 {
-  double totalEInL = this->GetTotalEnergy(-1,l);
+  double totalEInL = this->GetTotalEnergy(l);
   if(totalEInL == 0){return -1;}
 
   double cog = 0;
@@ -475,7 +488,7 @@ double DmpEvtBgoShower::GetCoGBarIDInLayer(int l)const
 Position DmpEvtBgoShower::GetCoGPositionInLayer(int l)const
 {
   Position po(0,0,0);
-  double totalEInL = this->GetTotalEnergy(-1,l);
+  double totalEInL = this->GetTotalEnergy(l);
   if(totalEInL == 0){return po;}    // po.z() must == 0
 
   std::vector<DmpEvtBgoCluster*> cInL = this->GetAllClusterInLayer(l);
@@ -495,7 +508,7 @@ double DmpEvtBgoShower::GetGValue(int layerID)const
 {
   double v = fRMS[layerID];
   if(v <= 0) return v;
-  return fRMS[layerID]*fRMS[layerID] * fTotE / this->GetTotalEnergy(-1,layerID);
+  return fRMS[layerID]*fRMS[layerID] * fTotE / this->GetTotalEnergy(layerID);
 }
 
 double DmpEvtBgoShower::GetTotalRMS()const
@@ -538,7 +551,7 @@ void DmpEvtBgoShower::Calculation()
   std::vector<double>  eInLayer(BGO_LayerNO,0);
 {
   for(int i=0;i<BGO_LayerNO;++i){
-    eInLayer[i] = (this->GetTotalEnergy(-1,i));
+    eInLayer[i] = (this->GetTotalEnergy(i));
   }
   double cenL = 0;
   for(int i=0;i<BGO_LayerNO;++i){
@@ -572,7 +585,6 @@ void DmpEvtBgoShower::Calculation()
   }
 
     //clock_t t3=clock();
-    //std::cout<<"\tt3 = DEBUG: "<<__FILE__<<"("<<__LINE__<<")\t\t"<<t3<<std::endl;
     //
   TH2D xz_posi("xz","xz",550,50,600,800,-400,400);
   TH2D yz_posi("yz","yz",550,50,600,800,-400,400);
