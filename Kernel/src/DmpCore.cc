@@ -4,7 +4,8 @@
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 22/04/2014
 */
 
-#include <time.h>
+//#include <time.h>
+#include <sys/time.h>
 
 #include "DmpCore.h"
 #include "DmpRootIOSvc.h"
@@ -39,9 +40,12 @@ DmpCore::DmpCore()
   fSvcMgr->Append(DmpDataBuffer::GetInstance());
   gRootIOSvc->AppendWriteList("Event/Header");
   gRootIOSvc->AppendWriteList("Metadata/Job0"); // default job id is 0
-  fSeed = (time((time_t*)NULL));
+
+  struct timeval cu;
+  gettimeofday(&cu,NULL);
+  fSeed = cu.tv_sec*1000000 + cu.tv_usec;
+  time_t mt = time(0);
   char tmptime[256];
-  time_t mt = (int)fSeed;
   strftime(tmptime,256,"%F %T",gmtime(&mt));
   fJobTime = (std::string)tmptime;
   for(int i=0;i<3;++i){
