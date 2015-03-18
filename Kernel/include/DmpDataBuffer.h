@@ -43,6 +43,10 @@ typedef std::map<std::string, DmpDataBufTreeMap>        DmpDataBufFolderMap;    
 
   DmpDataBufFolderMap    fDataBufPool;           // new created data pointers in pool. 3-level path: Folder, Tree, Branch
 
+private:
+  std::vector<TObject*>     fDataList;          // for delete
+  void __pushIntoList(TObject *r);
+
 };
 
 //-------------------------------------------------------------------
@@ -66,6 +70,8 @@ template<typename T> void DmpDataBuffer::RegisterObject(const std::string &path,
       throw;
     }
   }
+
+  __pushIntoList(dataPtr);
 }
 
 //-------------------------------------------------------------------
@@ -84,6 +90,8 @@ template<typename T> void DmpDataBuffer::LinkRootFile(const std::string &path,T 
     DmpLogError<<"[DmpDataBuffer::LinkRootFile] not find "<<path<<" in "<<gRootIOSvc->GetInputFileName()<<DmpLogEndl;
     throw;
   }
+
+  __pushIntoList(dataPtr);
 }
 
 //-------------------------------------------------------------------

@@ -24,23 +24,10 @@ bool DmpDataBuffer::Initialize(){
 
 //-------------------------------------------------------------------
 bool DmpDataBuffer::Finalize(){
-  DmpLogInfo<<"+-Deleting output data..."<<DmpLogEndl;
-  for(DmpDataBufFolderMap::iterator aFolder=fDataBufPool.begin();aFolder!=fDataBufPool.end();++aFolder){
-    DmpDataBufTreeMap aTreeMap = aFolder->second;
-    DmpLogInfo<<"| |-"<<aFolder->first<<std::endl;
-    for(DmpDataBufTreeMap::iterator aTree=aTreeMap.begin();aTree!=aTreeMap.end();++aTree){
-      DmpDataBufBranchMap aBranchMap = aTree->second;
-    DmpLogInfo<<"| | |-"<<aTree->first<<std::endl;
-      for(DmpDataBufBranchMap::iterator it=aBranchMap.begin();it!=aBranchMap.end();++it){
-    DmpLogInfo<<"| | | |-"<<it->first<<std::endl;
-        delete it->second;
-      }
-      aBranchMap.clear();
-    }
-    aTreeMap.clear();
+  for(int i=0;i<fDataList.size();++i){
+    delete fDataList[i];
   }
   fDataBufPool.clear();
-  DmpLogInfo<<"`-Done"<<DmpLogEndl;
   return true;
 }
 
@@ -73,6 +60,18 @@ std::vector<std::string> DmpDataBuffer::PathCheck(std::string checkMe)const
     throw;
   }
   return temp;
+}
+
+void DmpDataBuffer::__pushIntoList(TObject *dataPtr)
+{
+  bool insertMe = true;
+  for(int i=0;i<fDataList.size();++i){
+    if(fDataList[i] == dataPtr ){
+      insertMe = false;
+      break;
+    }
+  }
+  if(insertMe){fDataList.push_back(dataPtr);}
 }
 
 //-------------------------------------------------------------------
