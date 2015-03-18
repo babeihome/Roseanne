@@ -168,7 +168,7 @@ bool DmpRootIOSvc::Initialize()
       if(not boost::filesystem::exists(fOutPath)){
         boost::filesystem::create_directories(fOutPath);
       }
-      std::string splitMark = "__";
+      std::string splitMark = "-";
       std::string output = fOutPath+fOutFileName.stem().string();
       unsigned found = output.find_last_of(splitMark);
       if("" != fOutFileKey){
