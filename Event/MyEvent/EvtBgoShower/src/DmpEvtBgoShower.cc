@@ -458,6 +458,37 @@ std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBar(int l,double noise)
 }
 
 //-------------------------------------------------------------------
+std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBar(int l,double eLow, double eHigh,double noise)const
+{
+  std::vector<DmpBgoFiredBar*>  backme;
+  std::vector<DmpBgoFiredBar*>  allB;
+  std::vector<DmpEvtBgoCluster*> allC = this->GetAllClusterInLayer(l);
+  for(int ic=0;ic<allC.size();++ic){
+    int nB = allC[ic]->fFiredBar->GetEntriesFast();
+    for(int i=0;i<nB;++i){
+      DmpBgoFiredBar *aB = dynamic_cast<DmpBgoFiredBar*>(allC[ic]->fFiredBar->At(i));
+      if(aB->fE > noise){
+        allB.push_back(aB);
+      }
+    }
+  }
+  for(int ib=0;ib<allB.size();++ib){
+    int bid = allB[ib]->fBar;
+    bool isIso = true;
+    for(int i = 0;i<allB.size();++i){
+      if(TMath::Abs(allB[i]->fBar - bid) == 1){
+        isIso = false;
+        break;
+      }
+    }
+    if(isIso){
+        if(allB[ib]->fE > eLow && allB[ib]->fE < eHigh) backme.push_back(allB[ib]);
+    }
+  }
+  return backme;
+}
+
+//-------------------------------------------------------------------
 std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBarFromLayer(int sl,double noise)const
 {
   std::vector<DmpBgoFiredBar*>  backme;
@@ -465,6 +496,20 @@ std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBarFromLayer(int sl,dou
     std::vector<DmpBgoFiredBar*> tmp = this->GetIsolatedBar(l,noise);
     for(int i=0;i<tmp.size();++i){
       backme.push_back(tmp.at(i));
+    }
+  }
+  return backme;
+}
+
+std::vector<DmpBgoFiredBar*> DmpEvtBgoShower::GetIsolatedBarFromLayer(int sl,double el,double eh,double noise)const
+{
+  std::vector<DmpBgoFiredBar*>  backme;
+  for(int l=sl;l<BGO_LayerNO;++l){
+    std::vector<DmpBgoFiredBar*> tmp = this->GetIsolatedBar(l,noise);
+    for(int i=0;i<tmp.size();++i){
+      if(tmp.at(i)->fE > el && tmp.at(i)->fE < eh){
+        backme.push_back(tmp.at(i));
+      }
     }
   }
   return backme;
@@ -1053,4 +1098,122 @@ bool DmpEvtBgoShower::Group4_111(double threshold)const
   return false;
 }
 
+/*
+DmpBgoIsolatedBars::DmpBgoIsolatedBars()
+:fEvtBgoShower(0),
+fFromLayerID(0),
+fECutNoise(2),        
+fECutLow(fECutNoise),
+fECutHigh(500)// 500 MeV, a very big value
+{}
 
+DmpBgoIsolatedBars::DmpBgoIsolatedBars(DmpEvtBgoShower *r)
+:fEvtBgoShower(r),
+fFromLayerID(0),
+fECutNoise(2),        
+fECutLow(fECutNoise),
+fECutHigh(500)// 500 MeV, a very big value
+{}
+
+DmpBgoIsolatedBars::DmpBgoIsolatedBars(DmpEvtBgoShower *r,double eBarLow,double eBarH,double noiseCut)
+:fEvtBgoShower(r),
+fECutLow(eBarLow),
+fECutHigh(eBarH),// 500 MeV, a very big value
+fFromLayerID(0),
+fECutNoise(noiseCut)
+{}
+
+DmpBgoIsolatedBars::DmpBgoIsolatedBars(DmpEvtBgoShower *r,double eBarLow,double eBarH,int fromLayerID,double noiseCut)
+:fEvtBgoShower(r),
+fECutLow(eBarLow),
+fECutHigh(eBarH),// 500 MeV, a very big value
+fFromLayerID(fromLayerID),
+fECutNoise(noiseCut)
+{}
+
+DmpBgoIsolatedBars::~DmpBgoIsolatedBars()
+{
+}
+
+bool DmpBgoIsolatedBars::UpdateEvent()
+{
+  if(fEvtBgoShower == 0){return false;}
+  this->Reset();
+  fIsolatedBars = fEvtBgoShower->GetIsolatedBarFromLayer(fFromLayerID,fECutLow, fECutHigh,fECutNoise);
+  fNIsoBars = fIsolatedBars.size();
+  if(fNIsoBars == 0) {return true;}
+
+  int lidList[fNIsoBars];
+  int bidList[fNIsoBars];
+  int bidList_0[fNIsoBars];
+  int nBarInL_0=0;
+  int bidList_1[fNIsoBars];
+  int nBarInL_1=0;
+  double eList[fNIsoBars];
+
+  for(int i=0;i<fNIsoBars;++i){
+    int l = fIsolatedBars[i]->fLayer;
+    int b = fIsolatedBars[i]->fBar;
+    lidList[i] = l;
+    bidList[i] = b;
+    if(l%2 == 0){
+      bidList_0[nBarInL_0] = b;
+      ++nBarInL_0;
+    }else{
+      bidList_1[nBarInL_1] = b;
+      ++nBarInL_1;
+    }
+    eList[i] = fIsolatedBars[i]->fE;
+    fETotal += eList[i];
+  }
+
+  fEMean = fETotal / fNIsoBars;
+  fRMSLayer = TMath::RMS(fNIsoBars,lidList);
+  fRMSBar = TMath::RMS(fNIsoBars,bidList);
+  fRMSBar_L0 = TMath::RMS(nBarInL_0,bidList_0);
+  fRMSBar_L1 = TMath::RMS(nBarInL_1,bidList_1);
+  fBarIDMean_L0 = TMath::Mean(nBarInL_0,bidList_0);
+  fBarIDMean_L1 = TMath::Mean(nBarInL_1,bidList_1);
+
+  for(int i=0;i<fNIsoBars;++i){
+    if(lidList[i] < fFirstLID){ fFirstLID = l;}
+    bool noHas = true;
+    for(int xx = 0;xx<i;++xx){
+      if(lidList[xx] == lidList[i]){
+        noHas = false;
+        break;
+      }
+    }
+    if(noHas) ++fNLayerID;
+  }
+
+  for(int i=0;i<fNIsoBars;++i){
+    bool noHas = true;
+    for(int xx = 0;xx<i;++xx){
+      if(bidList[xx] == bidList[i]){
+        noHas = false;
+        break;
+      }
+    }
+    if(noHas) ++fNBarID;
+  }
+
+}
+
+void DmpBgoIsolatedBars::Reset()
+{
+  fNIsoBars = 0;
+  fETotal = 0;  // must be 0, use it somewhere else
+  fEMean = 0;
+  fRMSLayer = -99;
+  fRMSBar = -99;
+  fRMSBar_L0 = -99;
+  fRMSBar_L1 = -99;
+  fBarIDMean_L0 = -99;
+  fBarIDMean_L1 = -99;
+  fNBarID = 0;  // must be 0
+  fNLayerID = 0;    // must set to 0
+  fFirstLID = BGO_LayerNO;   // must be this value
+}
+
+*/

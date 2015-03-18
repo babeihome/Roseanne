@@ -112,7 +112,9 @@ public:
   DmpEvtBgoCluster *GetMaxClusterInLayer(int layerID)const;
   DmpBgoFiredBar*   GetEMaxBar()const;
   std::vector<DmpBgoFiredBar*>  GetIsolatedBar(int layerID,double noise=2)const;  // if nextBar.fE < noise, the current bar is isolated
+  std::vector<DmpBgoFiredBar*>  GetIsolatedBar(int layerID,double eLow,double eHigh,double noise=2)const;  // if nextBar.fE < noise, the current bar is isolated, only return isolated bar whose energy > eLow and < eHigh
   std::vector<DmpBgoFiredBar*>  GetIsolatedBarFromLayer(int layerID,double noise=2)const; // isolated bar from layerID ~ 13
+  std::vector<DmpBgoFiredBar*>  GetIsolatedBarFromLayer(int layerID,double eLow, double eHi,double noise=2)const; // isolated bar from layerID ~ 13, only return bar e in range(eLow,eHi)
 
 public: // for trigger
   bool T0(double threshold = 0.2)const;      // energy of any bar of first layer > 0.2 Mips (>4.6MeV)
@@ -167,4 +169,53 @@ public:
   ClassDef(DmpEvtBgoShower,1)
 };
 
+/*
+class DmpBgoIsolatedBars
+{
+public:
+  DmpBgoIsolatedBars();
+  DmpBgoIsolatedBars(DmpEvtBgoShower *fromMe);
+  DmpBgoIsolatedBars(DmpEvtBgoShower *fromMe,double eLowOfBar, double eHighOfBar,double noiseCut=2);
+  DmpBgoIsolatedBars(DmpEvtBgoShower *fromMe,double eLowOfBar, double eHighOfBar,int fromLayerID,double noiseCut=2);
+  ~DmpBgoIsolatedBars();
+
+public:
+  void LinkBgoShower(DmpEvtBgoShower *r){fEvtBgoShower = r;}
+  void SetLayerCut(int l){fFromLayerID = l;}
+  void SetNoiseCut(double v) {fECutNoise = v;}
+  void SetIsolatedBarERange(double low, double h) {fECutLow = low;fECutHigh = h;}
+
+public:
+  bool UpdateEvent();   // step 0: update fIsolatedBars, step 1: update other datas
+  void Reset();
+
+private:    // paramters
+  DmpEvtBgoShower   *fEvtBgoShower; // all from this event
+  double            fECutLow;       // energy of isolated bar must bigger than fECutLow
+  double            fECutHigh;      // energy of isolated bar must small than fECutHigh
+  int               fFromLayerID;   // get Isolated from this layerID ~ 13
+  double            fECutNoise;     // parameter of DmpEvtBgoShower::GetIsolatedBarFromLayer()
+
+private:    // update those value in UpdateEvent()
+  std::vector<DmpBgoFiredBar*>      fIsolatedBars; // all choosed isolated bars
+
+public:
+  int       fNIsoBars;         // number of isolated bars
+  double    fETotal;        // total energy of all isolated bars
+  double    fEMean;         // mean energy
+  double    fRMSLayer;      // layer id of all isolated bars, get them RMS
+  double    fRMSBar;        // bar id RMS
+  double    fRMSBar_L0;     // bar id RMS for all isolated bar which layerID % 2 == 0
+  double    fRMSBar_L1;     // bar id RMS for all isolated bar which layerID % 2 == 1
+  double    fBarIDMean_L0;  // 
+  double    fBarIDMean_L1;  // 
+  int       fNBarID;        // number of unique bar id
+  int       fNLayerID;       // number of unique layer id
+  int       fFirstLID;      // first layer ID
+};
+*/
+
+
 #endif
+
+
