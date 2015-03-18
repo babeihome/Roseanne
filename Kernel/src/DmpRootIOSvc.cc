@@ -126,9 +126,6 @@ bool DmpRootIOSvc::Initialize()
     wlist += fWriteList.at(i);
   }
   gCore->GetJobOption()->SetOption("IO/WriteList",wlist);
-  gCore->GetJobOption()->SetOption("IO/InputFile",fInFileName.string());
-  gCore->GetJobOption()->SetOption("IO/OutputFile",fOutFileName.string());
-  gCore->GetJobOption()->SetOption("IO/FirstInputEventID",boost::lexical_cast<std::string>(gRootIOSvc->GetFirstInputEntryID()));  // SetOption in the end of Initialize, not in SetXXXX() !!!
   //-------------------------------------------------------------------
   if(fOutFileName.string() == ""){  // save output into input root file
     if(fInFileName.string() == ""){
@@ -148,6 +145,7 @@ bool DmpRootIOSvc::Initialize()
         }
       }else{
         if(fInFileName.extension().string() == ".frd"){
+          fInFileName = fInPath+GetInputStem()+".frd";
           this->SetOutputFile(GetInputStem()+".root");
         }else{
           DmpLogError<<" input is not a root file...\t"<<fInFileName.string()<<DmpLogEndl;
@@ -184,6 +182,9 @@ bool DmpRootIOSvc::Initialize()
   }
   //-------------------------------------------------------------------
   DmpLogDebug<<"... initialization done "<<DmpLogEndl;
+  gCore->GetJobOption()->SetOption("IO/InputFile",fInFileName.string());
+  gCore->GetJobOption()->SetOption("IO/OutputFile",fOutFileName.string());
+  gCore->GetJobOption()->SetOption("IO/FirstInputEventID",boost::lexical_cast<std::string>(gRootIOSvc->GetFirstInputEntryID()));  // SetOption in the end of Initialize, not in SetXXXX() !!!
   return true;
 }
 
