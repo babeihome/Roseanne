@@ -21,14 +21,14 @@ DmpEvtBgoRaw::~DmpEvtBgoRaw(){
 DmpEvtBgoRaw& DmpEvtBgoRaw::operator=(const DmpEvtBgoRaw &r){
   Reset();
   fFeeNavig = r.fFeeNavig;
-  fGlobalDynodeID = r.fGlobalDynodeID;
+  //fGlobalDynodeID = r.fGlobalDynodeID;
   fADC = r.fADC;
 }
 
 //-------------------------------------------------------------------
 void DmpEvtBgoRaw::Reset(){
   fFeeNavig.clear();
-  fGlobalDynodeID.clear();
+  //fGlobalDynodeID.clear();
   fADC.clear();
 }
 
@@ -36,7 +36,7 @@ void DmpEvtBgoRaw::Reset(){
 void DmpEvtBgoRaw::LoadFrom(DmpEvtBgoRaw *r){
   Reset();
   fFeeNavig = r->fFeeNavig;
-  fGlobalDynodeID = r->fGlobalDynodeID;
+  //fGlobalDynodeID = r->fGlobalDynodeID;
   fADC = r->fADC;
 }
 

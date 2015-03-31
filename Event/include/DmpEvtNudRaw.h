@@ -32,9 +32,7 @@ public:
 
 public:
   DmpFeeNavig   fFeeNavig;
-  //std::map<short,double>    fADC;   // key is channel ID: 0~3; value is ADC count
-  std::vector<short>    fChannelID;
-  std::vector<double>   fADC;
+  double   fADC[4];
 
   ClassDef(DmpEvtNudRaw,1)
 };
