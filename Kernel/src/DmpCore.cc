@@ -142,6 +142,7 @@ bool DmpCore::Finalize(){
   //*
   fAlgMgr->Finalize();
   fSvcMgr->Finalize();
+  fHeaderLv0 = 0;
   std::cout<<"  [DmpCore::Finalize] ... Done\n\n"<<std::endl;
   return true;
 }
