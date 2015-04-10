@@ -10,7 +10,6 @@
 #include <map>
 #include "DmpFeeNavig.h"
 
-//-------------------------------------------------------------------
 class DmpEvtBgoRaw : public TObject{
 /*
  *  DmpEvtBgoRaw
@@ -40,6 +39,8 @@ public:
 
   ClassDef(DmpEvtBgoRaw,1)
 };
+
+typedef DmpEvtBgoRaw DmpEvtPsdRaw;
 
 #endif
 

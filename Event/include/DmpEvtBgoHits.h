@@ -51,7 +51,5 @@ public:
   ClassDef(DmpEvtBgoHits,1)
 };
 
-typedef DmpEvtBgoHits DmpEvtPsdHits;
-
 #endif
 
