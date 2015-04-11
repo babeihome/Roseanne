@@ -79,9 +79,9 @@ public:
 public: // Get functions
   bool IsGoodEvent(const short &SubDetectorID=-1)const;
   short GetTrigger()const{return fTrigger;} // ONLY trigger of trigger system
-  const float &GetDeltaTime()const{return fDeltaTime;}
-  const int &GetSecond()const{return fSecond;}
-  const short &GetMillisecond()const{return fMillisecond;}
+  float GetDeltaTime()const{return fDeltaTime;}
+  int   GetSecond()const{return fSecond;}
+  short GetMillisecond()const{return fMillisecond;}
   bool IsFakeData(const short &SubDetectorID)const;
   bool TriggerDataCheckRight()const{return (not fTriggerStatus[30]);}
   bool TriggersMatch(const short &SubDetectorID=-1)const;  // if the argument is sub-det id, just check triggers of all fee of this sub-det
