@@ -49,7 +49,8 @@ public:
    */
   typedef std::bitset<8>    DmpSubDetStatus;
   /*
-   *  bit 7 == 0:   not used
+   *  // bit 7 == 0:   not used
+   *  bit 7 == 1:    out of dynamic range
    *  bit 6 == 1:   fake data
    *  bit 5 == 1:   CRC error
    *  bit 4 == 1:   package flag error
@@ -60,6 +61,7 @@ public:
    */
   enum TagType
   {
+    tag_Overflow = 7,
     tag_FakeData = 6,
     tag_CRCError = 5,
     tag_PkgFlagError = 4,

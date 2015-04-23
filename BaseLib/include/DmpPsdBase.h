@@ -20,6 +20,7 @@ namespace DmpPsdBase{
    */
   short ConstructGlobalStripID(const short &l,const short &s);
   short ConstructGlobalPMTID(const short &l,const short &strip,const short &side);
+  short ConstructGlobalSideID(const short &l,const short &strip,const short &side);
   short ConstructGlobalDynodeID(const short &l,const short &strip,const short &side,const short &d);
   short GetLayerID(const short &gid);
   short GetStripID(const short &gid);

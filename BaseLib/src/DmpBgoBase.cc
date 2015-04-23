@@ -4,6 +4,7 @@
  *    Chi WANG (chiwang@mail.ustc.edu.cn) 20/08/2014
 */
 
+#include <iostream>
 #include "DmpBgoBase.h"
 #include "TXMLEngine.h"
 
@@ -27,6 +28,10 @@ short DmpBgoBase::ConstructGlobalSideID(const short &l,const short &b,const shor
 
 //-------------------------------------------------------------------
 short DmpBgoBase::ConstructGlobalDynodeID(const short &l,const short &b,const short &s,const short &d){
+  if(d != 2 && d !=5 && d != 8){
+          std::cout<<"ERROR:\tdynode ID of DmpBgoBase::ConstructGlobalDynodeID() is "<<d<<"\tshould be {2 | 5 | 8}"<<std::endl;
+    throw;
+  }
   short i = 0;
   i = (l<<11) + (b<<6) + (s<<4) + d;
   return i;

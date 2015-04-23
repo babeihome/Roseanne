@@ -20,6 +20,10 @@ short DmpPsdBase::ConstructGlobalPMTID(const short &l,const short &b,const short
   return i;
 }
 
+short DmpPsdBase::ConstructGlobalSideID(const short &l,const short &b,const short &s){
+  return DmpPsdBase::ConstructGlobalPMTID(l,b,s);
+}
+
 //-------------------------------------------------------------------
 short DmpPsdBase::ConstructGlobalDynodeID(const short &l,const short &b,const short &s,const short &d){
   short i = 0;
