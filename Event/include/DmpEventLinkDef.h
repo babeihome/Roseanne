@@ -13,8 +13,11 @@
 //#pragma link C++ nestedtypedef;
 
 #pragma link C++ namespace DmpEDetectorID;
-#pragma link C++ class DmpEvtBgoHits+;
+#pragma link C++ struct _dmpAHit+;
+#pragma link C++ typedef _dmpHits;
+#pragma link C++ class DmpEvtBgoHits2+;
 #pragma link C++ typedef DmpEvtPsdHits;
+#pragma link C++ class DmpEvtBgoHits+;
 #pragma link C++ class DmpEvtNudHits+;
 #pragma link C++ class Cluster+;
 #pragma link C++ class RHClass+;
