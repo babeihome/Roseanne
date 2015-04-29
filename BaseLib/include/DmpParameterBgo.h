@@ -25,6 +25,7 @@ public:
   short DynodeNumber()const{return fDyNo;}
   short FeeNumber()const{return fFeeNo;}
   TVector3 BarCenter(const short &GlobalBarID)const;
+  TVector3 BarCenter(short layerID,short barID)const;
   TVector3 LayerCenter(const short &globalLayerID)const;
 
 private:

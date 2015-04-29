@@ -33,6 +33,11 @@ DmpParameterBgo_c::~DmpParameterBgo_c(){
 TVector3 DmpParameterBgo_c::BarCenter(const short &GlobalBarID)const{
   short l = DmpBgoBase::GetLayerID(GlobalBarID);
   short b = DmpBgoBase::GetBarID(GlobalBarID);
+  return this->BarCenter(l,b);
+}
+
+TVector3 DmpParameterBgo_c::BarCenter(short l,short b)const
+{
   TVector3 tmp;
 
   if ((l<0)||(l>14)){
