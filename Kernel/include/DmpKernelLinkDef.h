@@ -20,9 +20,11 @@
 #pragma link C++ class DmpServiceManager;
 #pragma link C++ class DmpCore;
 #pragma link C++ class DmpRootIOSvc;
+#pragma link C++ class DmpSvcDatabase;
 #pragma link C++ class DmpDataBuffer;
 #pragma link C++ global gCore;
 #pragma link C++ global gDataBuffer;
+#pragma link C++ global gDatabase;
 #pragma link C++ global gRootIOSvc;
 
 #endif

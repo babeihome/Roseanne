@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="MWPC_v0" unit="mm" x="-350" y="-50" z="-8965"/>
+    <position name="MWPC_v1" unit="mm" x="-350" y="50" z="-8965"/>
+    <position name="MWPC_v2" unit="mm" x="-350" y="-50" z="-9015"/>
+    <position name="MWPC_v3" unit="mm" x="-350" y="50" z="-9015"/>
+    <position name="MWPC_v4" unit="mm" x="-250" y="-50" z="-8965"/>
+    <position name="MWPC_v5" unit="mm" x="-250" y="-50" z="-9015"/>
+    <position name="MWPC_v6" unit="mm" x="-250" y="50" z="-8965"/>
+    <position name="MWPC_v7" unit="mm" x="-250" y="50" z="-9015"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="MWPC0x1205a30">
+      <triangular vertex1="MWPC_v0" vertex2="MWPC_v1" vertex3="MWPC_v2"/>
+      <triangular vertex1="MWPC_v2" vertex2="MWPC_v1" vertex3="MWPC_v3"/>
+      <triangular vertex1="MWPC_v4" vertex2="MWPC_v0" vertex3="MWPC_v5"/>
+      <triangular vertex1="MWPC_v5" vertex2="MWPC_v0" vertex3="MWPC_v2"/>
+      <triangular vertex1="MWPC_v6" vertex2="MWPC_v4" vertex3="MWPC_v7"/>
+      <triangular vertex1="MWPC_v7" vertex2="MWPC_v4" vertex3="MWPC_v5"/>
+      <triangular vertex1="MWPC_v1" vertex2="MWPC_v6" vertex3="MWPC_v3"/>
+      <triangular vertex1="MWPC_v3" vertex2="MWPC_v6" vertex3="MWPC_v7"/>
+      <triangular vertex1="MWPC_v7" vertex2="MWPC_v5" vertex3="MWPC_v3"/>
+      <triangular vertex1="MWPC_v3" vertex2="MWPC_v5" vertex3="MWPC_v2"/>
+      <triangular vertex1="MWPC_v1" vertex2="MWPC_v0" vertex3="MWPC_v6"/>
+      <triangular vertex1="MWPC_v6" vertex2="MWPC_v0" vertex3="MWPC_v4"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="MWPC">
+    <materialref ref="ArCO2"/>
+    <solidref ref="MWPC0x1205a30"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="MWPC"/>
+  </setup>
+
+</gdml>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="Sh_v0" unit="mm" x="-302.781512022018" y="-12.1865997314453" z="-25890"/>
+    <position name="Sh_v1" unit="mm" x="-302.781512022018" y="-12.1865997314453" z="-25880"/>
+    <position name="Sh_v2" unit="mm" x="-300" y="-12.5" z="-25890"/>
+    <position name="Sh_v3" unit="mm" x="-305.423546791077" y="-11.262110710144" z="-25880"/>
+    <position name="Sh_v4" unit="mm" x="-305.423546791077" y="-11.262110710144" z="-25890"/>
+    <position name="Sh_v5" unit="mm" x="-307.793622970581" y="-9.77289390563965" z="-25880"/>
+    <position name="Sh_v6" unit="mm" x="-307.793622970581" y="-9.77289390563965" z="-25890"/>
+    <position name="Sh_v7" unit="mm" x="-309.77289390564" y="-7.79362297058105" z="-25880"/>
+    <position name="Sh_v8" unit="mm" x="-309.77289390564" y="-7.79362297058105" z="-25890"/>
+    <position name="Sh_v9" unit="mm" x="-311.262110710144" y="-5.42354679107666" z="-25880"/>
+    <position name="Sh_v10" unit="mm" x="-311.262110710144" y="-5.42354679107666" z="-25890"/>
+    <position name="Sh_v11" unit="mm" x="-312.186599731445" y="-2.78151202201843" z="-25880"/>
+    <position name="Sh_v12" unit="mm" x="-312.186599731445" y="-2.78151202201843" z="-25890"/>
+    <position name="Sh_v13" unit="mm" x="-312.5" y="-1.08877601487541e-13" z="-25880"/>
+    <position name="Sh_v14" unit="mm" x="-312.5" y="-1.05815997511558e-13" z="-25890"/>
+    <position name="Sh_v15" unit="mm" x="-312.186599731445" y="2.78151202201843" z="-25880"/>
+    <position name="Sh_v16" unit="mm" x="-312.186599731445" y="2.78151202201843" z="-25890"/>
+    <position name="Sh_v17" unit="mm" x="-311.262110710144" y="5.42354679107666" z="-25880"/>
+    <position name="Sh_v18" unit="mm" x="-311.262110710144" y="5.42354679107666" z="-25890"/>
+    <position name="Sh_v19" unit="mm" x="-309.77289390564" y="7.79362297058105" z="-25880"/>
+    <position name="Sh_v20" unit="mm" x="-309.77289390564" y="7.79362297058105" z="-25890"/>
+    <position name="Sh_v21" unit="mm" x="-307.793622970581" y="9.77289390563965" z="-25880"/>
+    <position name="Sh_v22" unit="mm" x="-307.793622970581" y="9.77289390563965" z="-25890"/>
+    <position name="Sh_v23" unit="mm" x="-305.423546791077" y="11.262110710144" z="-25880"/>
+    <position name="Sh_v24" unit="mm" x="-305.423546791077" y="11.262110710144" z="-25890"/>
+    <position name="Sh_v25" unit="mm" x="-302.781512022018" y="12.1865997314453" z="-25880"/>
+    <position name="Sh_v26" unit="mm" x="-302.781512022018" y="12.1865997314453" z="-25890"/>
+    <position name="Sh_v27" unit="mm" x="-300" y="12.5" z="-25880"/>
+    <position name="Sh_v28" unit="mm" x="-300" y="12.5" z="-25890"/>
+    <position name="Sh_v29" unit="mm" x="-297.218487977982" y="12.1865997314453" z="-25880"/>
+    <position name="Sh_v30" unit="mm" x="-297.218487977982" y="12.1865997314453" z="-25890"/>
+    <position name="Sh_v31" unit="mm" x="-294.576453208923" y="11.262110710144" z="-25880"/>
+    <position name="Sh_v32" unit="mm" x="-294.576453208923" y="11.262110710144" z="-25890"/>
+    <position name="Sh_v33" unit="mm" x="-292.206377029419" y="9.77289390563965" z="-25880"/>
+    <position name="Sh_v34" unit="mm" x="-292.206377029419" y="9.77289390563965" z="-25890"/>
+    <position name="Sh_v35" unit="mm" x="-290.22710609436" y="7.79362297058105" z="-25880"/>
+    <position name="Sh_v36" unit="mm" x="-290.22710609436" y="7.79362297058105" z="-25890"/>
+    <position name="Sh_v37" unit="mm" x="-288.737889289856" y="5.42354679107666" z="-25880"/>
+    <position name="Sh_v38" unit="mm" x="-288.737889289856" y="5.42354679107666" z="-25890"/>
+    <position name="Sh_v39" unit="mm" x="-287.813400268555" y="2.78151202201843" z="-25880"/>
+    <position name="Sh_v40" unit="mm" x="-287.813400268555" y="2.78151202201843" z="-25890"/>
+    <position name="Sh_v41" unit="mm" x="-287.5" y="-1.05815997511558e-13" z="-25880"/>
+    <position name="Sh_v42" unit="mm" x="-287.5" y="-1.05815997511558e-13" z="-25890"/>
+    <position name="Sh_v43" unit="mm" x="-287.813400268555" y="-2.78151202201843" z="-25880"/>
+    <position name="Sh_v44" unit="mm" x="-287.813400268555" y="-2.78151202201843" z="-25890"/>
+    <position name="Sh_v45" unit="mm" x="-288.737889289856" y="-5.42354679107666" z="-25880"/>
+    <position name="Sh_v46" unit="mm" x="-288.737889289856" y="-5.42354679107666" z="-25890"/>
+    <position name="Sh_v47" unit="mm" x="-290.22710609436" y="-7.79362297058105" z="-25880"/>
+    <position name="Sh_v48" unit="mm" x="-290.22710609436" y="-7.79362297058105" z="-25890"/>
+    <position name="Sh_v49" unit="mm" x="-292.206377029419" y="-9.77289390563965" z="-25880"/>
+    <position name="Sh_v50" unit="mm" x="-292.206377029419" y="-9.77289390563965" z="-25890"/>
+    <position name="Sh_v51" unit="mm" x="-294.576453208923" y="-11.262110710144" z="-25880"/>
+    <position name="Sh_v52" unit="mm" x="-294.576453208923" y="-11.262110710144" z="-25890"/>
+    <position name="Sh_v53" unit="mm" x="-297.218487977982" y="-12.1865997314453" z="-25880"/>
+    <position name="Sh_v54" unit="mm" x="-297.218487977982" y="-12.1865997314453" z="-25890"/>
+    <position name="Sh_v55" unit="mm" x="-300" y="-12.5" z="-25880"/>
+    <position name="Sh_v56" unit="mm" x="-50" y="75" z="-25880"/>
+    <position name="Sh_v57" unit="mm" x="-50" y="-75" z="-25880"/>
+    <position name="Sh_v58" unit="mm" x="-550" y="-75" z="-25880"/>
+    <position name="Sh_v59" unit="mm" x="-550" y="75" z="-25880"/>
+    <position name="Sh_v60" unit="mm" x="-50" y="-75" z="-25890"/>
+    <position name="Sh_v61" unit="mm" x="-550" y="-75" z="-25890"/>
+    <position name="Sh_v62" unit="mm" x="-50" y="75" z="-25890"/>
+    <position name="Sh_v63" unit="mm" x="-550" y="75" z="-25890"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="Sh0x2305fb0">
+      <triangular vertex1="Sh_v0" vertex2="Sh_v1" vertex3="Sh_v2"/>
+      <triangular vertex1="Sh_v0" vertex2="Sh_v3" vertex3="Sh_v1"/>
+      <triangular vertex1="Sh_v0" vertex2="Sh_v4" vertex3="Sh_v3"/>
+      <triangular vertex1="Sh_v3" vertex2="Sh_v4" vertex3="Sh_v5"/>
+      <triangular vertex1="Sh_v5" vertex2="Sh_v4" vertex3="Sh_v6"/>
+      <triangular vertex1="Sh_v7" vertex2="Sh_v6" vertex3="Sh_v8"/>
+      <triangular vertex1="Sh_v9" vertex2="Sh_v8" vertex3="Sh_v10"/>
+      <triangular vertex1="Sh_v11" vertex2="Sh_v10" vertex3="Sh_v12"/>
+      <triangular vertex1="Sh_v13" vertex2="Sh_v12" vertex3="Sh_v14"/>
+      <triangular vertex1="Sh_v15" vertex2="Sh_v14" vertex3="Sh_v16"/>
+      <triangular vertex1="Sh_v17" vertex2="Sh_v16" vertex3="Sh_v18"/>
+      <triangular vertex1="Sh_v19" vertex2="Sh_v18" vertex3="Sh_v20"/>
+      <triangular vertex1="Sh_v21" vertex2="Sh_v20" vertex3="Sh_v22"/>
+      <triangular vertex1="Sh_v23" vertex2="Sh_v22" vertex3="Sh_v24"/>
+      <triangular vertex1="Sh_v25" vertex2="Sh_v24" vertex3="Sh_v26"/>
+      <triangular vertex1="Sh_v27" vertex2="Sh_v26" vertex3="Sh_v28"/>
+      <triangular vertex1="Sh_v29" vertex2="Sh_v28" vertex3="Sh_v30"/>
+      <triangular vertex1="Sh_v31" vertex2="Sh_v30" vertex3="Sh_v32"/>
+      <triangular vertex1="Sh_v33" vertex2="Sh_v32" vertex3="Sh_v34"/>
+      <triangular vertex1="Sh_v35" vertex2="Sh_v34" vertex3="Sh_v36"/>
+      <triangular vertex1="Sh_v37" vertex2="Sh_v36" vertex3="Sh_v38"/>
+      <triangular vertex1="Sh_v39" vertex2="Sh_v38" vertex3="Sh_v40"/>
+      <triangular vertex1="Sh_v41" vertex2="Sh_v40" vertex3="Sh_v42"/>
+      <triangular vertex1="Sh_v43" vertex2="Sh_v42" vertex3="Sh_v44"/>
+      <triangular vertex1="Sh_v45" vertex2="Sh_v44" vertex3="Sh_v46"/>
+      <triangular vertex1="Sh_v47" vertex2="Sh_v46" vertex3="Sh_v48"/>
+      <triangular vertex1="Sh_v49" vertex2="Sh_v48" vertex3="Sh_v50"/>
+      <triangular vertex1="Sh_v51" vertex2="Sh_v50" vertex3="Sh_v52"/>
+      <triangular vertex1="Sh_v53" vertex2="Sh_v52" vertex3="Sh_v54"/>
+      <triangular vertex1="Sh_v55" vertex2="Sh_v54" vertex3="Sh_v2"/>
+      <triangular vertex1="Sh_v1" vertex2="Sh_v55" vertex3="Sh_v2"/>
+      <triangular vertex1="Sh_v5" vertex2="Sh_v6" vertex3="Sh_v7"/>
+      <triangular vertex1="Sh_v7" vertex2="Sh_v8" vertex3="Sh_v9"/>
+      <triangular vertex1="Sh_v9" vertex2="Sh_v10" vertex3="Sh_v11"/>
+      <triangular vertex1="Sh_v11" vertex2="Sh_v12" vertex3="Sh_v13"/>
+      <triangular vertex1="Sh_v13" vertex2="Sh_v14" vertex3="Sh_v15"/>
+      <triangular vertex1="Sh_v15" vertex2="Sh_v16" vertex3="Sh_v17"/>
+      <triangular vertex1="Sh_v17" vertex2="Sh_v18" vertex3="Sh_v19"/>
+      <triangular vertex1="Sh_v19" vertex2="Sh_v20" vertex3="Sh_v21"/>
+      <triangular vertex1="Sh_v21" vertex2="Sh_v22" vertex3="Sh_v23"/>
+      <triangular vertex1="Sh_v23" vertex2="Sh_v24" vertex3="Sh_v25"/>
+      <triangular vertex1="Sh_v25" vertex2="Sh_v26" vertex3="Sh_v27"/>
+      <triangular vertex1="Sh_v27" vertex2="Sh_v28" vertex3="Sh_v29"/>
+      <triangular vertex1="Sh_v29" vertex2="Sh_v30" vertex3="Sh_v31"/>
+      <triangular vertex1="Sh_v31" vertex2="Sh_v32" vertex3="Sh_v33"/>
+      <triangular vertex1="Sh_v33" vertex2="Sh_v34" vertex3="Sh_v35"/>
+      <triangular vertex1="Sh_v35" vertex2="Sh_v36" vertex3="Sh_v37"/>
+      <triangular vertex1="Sh_v37" vertex2="Sh_v38" vertex3="Sh_v39"/>
+      <triangular vertex1="Sh_v39" vertex2="Sh_v40" vertex3="Sh_v41"/>
+      <triangular vertex1="Sh_v41" vertex2="Sh_v42" vertex3="Sh_v43"/>
+      <triangular vertex1="Sh_v43" vertex2="Sh_v44" vertex3="Sh_v45"/>
+      <triangular vertex1="Sh_v45" vertex2="Sh_v46" vertex3="Sh_v47"/>
+      <triangular vertex1="Sh_v47" vertex2="Sh_v48" vertex3="Sh_v49"/>
+      <triangular vertex1="Sh_v49" vertex2="Sh_v50" vertex3="Sh_v51"/>
+      <triangular vertex1="Sh_v51" vertex2="Sh_v52" vertex3="Sh_v53"/>
+      <triangular vertex1="Sh_v53" vertex2="Sh_v54" vertex3="Sh_v55"/>
+      <triangular vertex1="Sh_v29" vertex2="Sh_v56" vertex3="Sh_v27"/>
+      <triangular vertex1="Sh_v29" vertex2="Sh_v31" vertex3="Sh_v56"/>
+      <triangular vertex1="Sh_v56" vertex2="Sh_v31" vertex3="Sh_v33"/>
+      <triangular vertex1="Sh_v35" vertex2="Sh_v56" vertex3="Sh_v33"/>
+      <triangular vertex1="Sh_v35" vertex2="Sh_v37" vertex3="Sh_v56"/>
+      <triangular vertex1="Sh_v56" vertex2="Sh_v37" vertex3="Sh_v39"/>
+      <triangular vertex1="Sh_v41" vertex2="Sh_v56" vertex3="Sh_v39"/>
+      <triangular vertex1="Sh_v41" vertex2="Sh_v57" vertex3="Sh_v56"/>
+      <triangular vertex1="Sh_v41" vertex2="Sh_v43" vertex3="Sh_v57"/>
+      <triangular vertex1="Sh_v57" vertex2="Sh_v43" vertex3="Sh_v45"/>
+      <triangular vertex1="Sh_v47" vertex2="Sh_v57" vertex3="Sh_v45"/>
+      <triangular vertex1="Sh_v47" vertex2="Sh_v49" vertex3="Sh_v57"/>
+      <triangular vertex1="Sh_v57" vertex2="Sh_v49" vertex3="Sh_v51"/>
+      <triangular vertex1="Sh_v53" vertex2="Sh_v57" vertex3="Sh_v51"/>
+      <triangular vertex1="Sh_v53" vertex2="Sh_v55" vertex3="Sh_v57"/>
+      <triangular vertex1="Sh_v57" vertex2="Sh_v55" vertex3="Sh_v58"/>
+      <triangular vertex1="Sh_v58" vertex2="Sh_v55" vertex3="Sh_v1"/>
+      <triangular vertex1="Sh_v3" vertex2="Sh_v58" vertex3="Sh_v1"/>
+      <triangular vertex1="Sh_v3" vertex2="Sh_v5" vertex3="Sh_v58"/>
+      <triangular vertex1="Sh_v58" vertex2="Sh_v5" vertex3="Sh_v7"/>
+      <triangular vertex1="Sh_v9" vertex2="Sh_v58" vertex3="Sh_v7"/>
+      <triangular vertex1="Sh_v9" vertex2="Sh_v11" vertex3="Sh_v58"/>
+      <triangular vertex1="Sh_v58" vertex2="Sh_v11" vertex3="Sh_v13"/>
+      <triangular vertex1="Sh_v59" vertex2="Sh_v13" vertex3="Sh_v15"/>
+      <triangular vertex1="Sh_v17" vertex2="Sh_v59" vertex3="Sh_v15"/>
+      <triangular vertex1="Sh_v17" vertex2="Sh_v19" vertex3="Sh_v59"/>
+      <triangular vertex1="Sh_v59" vertex2="Sh_v19" vertex3="Sh_v21"/>
+      <triangular vertex1="Sh_v23" vertex2="Sh_v59" vertex3="Sh_v21"/>
+      <triangular vertex1="Sh_v23" vertex2="Sh_v25" vertex3="Sh_v59"/>
+      <triangular vertex1="Sh_v59" vertex2="Sh_v25" vertex3="Sh_v27"/>
+      <triangular vertex1="Sh_v56" vertex2="Sh_v59" vertex3="Sh_v27"/>
+      <triangular vertex1="Sh_v58" vertex2="Sh_v13" vertex3="Sh_v59"/>
+      <triangular vertex1="Sh_v57" vertex2="Sh_v58" vertex3="Sh_v60"/>
+      <triangular vertex1="Sh_v60" vertex2="Sh_v58" vertex3="Sh_v61"/>
+      <triangular vertex1="Sh_v54" vertex2="Sh_v60" vertex3="Sh_v2"/>
+      <triangular vertex1="Sh_v54" vertex2="Sh_v52" vertex3="Sh_v60"/>
+      <triangular vertex1="Sh_v60" vertex2="Sh_v52" vertex3="Sh_v50"/>
+      <triangular vertex1="Sh_v48" vertex2="Sh_v60" vertex3="Sh_v50"/>
+      <triangular vertex1="Sh_v48" vertex2="Sh_v46" vertex3="Sh_v60"/>
+      <triangular vertex1="Sh_v60" vertex2="Sh_v46" vertex3="Sh_v44"/>
+      <triangular vertex1="Sh_v42" vertex2="Sh_v60" vertex3="Sh_v44"/>
+      <triangular vertex1="Sh_v42" vertex2="Sh_v62" vertex3="Sh_v60"/>
+      <triangular vertex1="Sh_v42" vertex2="Sh_v40" vertex3="Sh_v62"/>
+      <triangular vertex1="Sh_v62" vertex2="Sh_v40" vertex3="Sh_v38"/>
+      <triangular vertex1="Sh_v36" vertex2="Sh_v62" vertex3="Sh_v38"/>
+      <triangular vertex1="Sh_v36" vertex2="Sh_v34" vertex3="Sh_v62"/>
+      <triangular vertex1="Sh_v62" vertex2="Sh_v34" vertex3="Sh_v32"/>
+      <triangular vertex1="Sh_v30" vertex2="Sh_v62" vertex3="Sh_v32"/>
+      <triangular vertex1="Sh_v30" vertex2="Sh_v28" vertex3="Sh_v62"/>
+      <triangular vertex1="Sh_v62" vertex2="Sh_v28" vertex3="Sh_v63"/>
+      <triangular vertex1="Sh_v63" vertex2="Sh_v28" vertex3="Sh_v26"/>
+      <triangular vertex1="Sh_v24" vertex2="Sh_v63" vertex3="Sh_v26"/>
+      <triangular vertex1="Sh_v24" vertex2="Sh_v22" vertex3="Sh_v63"/>
+      <triangular vertex1="Sh_v63" vertex2="Sh_v22" vertex3="Sh_v20"/>
+      <triangular vertex1="Sh_v18" vertex2="Sh_v63" vertex3="Sh_v20"/>
+      <triangular vertex1="Sh_v18" vertex2="Sh_v16" vertex3="Sh_v63"/>
+      <triangular vertex1="Sh_v63" vertex2="Sh_v16" vertex3="Sh_v14"/>
+      <triangular vertex1="Sh_v61" vertex2="Sh_v14" vertex3="Sh_v12"/>
+      <triangular vertex1="Sh_v10" vertex2="Sh_v61" vertex3="Sh_v12"/>
+      <triangular vertex1="Sh_v10" vertex2="Sh_v8" vertex3="Sh_v61"/>
+      <triangular vertex1="Sh_v61" vertex2="Sh_v8" vertex3="Sh_v6"/>
+      <triangular vertex1="Sh_v4" vertex2="Sh_v61" vertex3="Sh_v6"/>
+      <triangular vertex1="Sh_v4" vertex2="Sh_v0" vertex3="Sh_v61"/>
+      <triangular vertex1="Sh_v61" vertex2="Sh_v0" vertex3="Sh_v2"/>
+      <triangular vertex1="Sh_v60" vertex2="Sh_v61" vertex3="Sh_v2"/>
+      <triangular vertex1="Sh_v63" vertex2="Sh_v14" vertex3="Sh_v61"/>
+      <triangular vertex1="Sh_v62" vertex2="Sh_v63" vertex3="Sh_v56"/>
+      <triangular vertex1="Sh_v56" vertex2="Sh_v63" vertex3="Sh_v59"/>
+      <triangular vertex1="Sh_v56" vertex2="Sh_v57" vertex3="Sh_v62"/>
+      <triangular vertex1="Sh_v62" vertex2="Sh_v57" vertex3="Sh_v60"/>
+      <triangular vertex1="Sh_v63" vertex2="Sh_v61" vertex3="Sh_v59"/>
+      <triangular vertex1="Sh_v59" vertex2="Sh_v61" vertex3="Sh_v58"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="Sh">
+    <materialref ref="PLasticScintillatorMaterialBeamTest"/>
+    <solidref ref="Sh0x2305fb0"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="Sh"/>
+  </setup>
+
+</gdml>

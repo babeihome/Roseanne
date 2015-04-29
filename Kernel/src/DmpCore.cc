@@ -10,6 +10,7 @@
 #include "DmpCore.h"
 #include "DmpRootIOSvc.h"
 #include "DmpDataBuffer.h"
+#include "DmpSvcDatabase.h"
 #include "DmpTimeConvertor.h"
 
 #define EVTHEADERL0  "Event/Header/Level0"
@@ -38,6 +39,7 @@ DmpCore::DmpCore()
   fSvcMgr = DmpServiceManager::GetInstance();
   fSvcMgr->Append(DmpRootIOSvc::GetInstance());     // must use GetInstance instead of global variable, since, Mac create global variable later than DmpCore::DmpCore()
   fSvcMgr->Append(DmpDataBuffer::GetInstance());
+  fSvcMgr->Append(DmpSvcDatabase::GetInstance());     // must use GetInstance instead of global variable, since, Mac create global variable later than DmpCore::DmpCore()
   gRootIOSvc->AppendWriteList("Event/Header");
   gRootIOSvc->AppendWriteList("Metadata/Job0"); // default job id is 0
 

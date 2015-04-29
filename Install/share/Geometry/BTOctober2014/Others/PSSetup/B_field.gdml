@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="B_field_v0" unit="mm" x="-260" y="40" z="-5765"/>
+    <position name="B_field_v1" unit="mm" x="-260" y="40" z="-6165"/>
+    <position name="B_field_v2" unit="mm" x="-340" y="40" z="-5765"/>
+    <position name="B_field_v3" unit="mm" x="-340" y="40" z="-6165"/>
+    <position name="B_field_v4" unit="mm" x="-260" y="-40" z="-5765"/>
+    <position name="B_field_v5" unit="mm" x="-340" y="-40" z="-5765"/>
+    <position name="B_field_v6" unit="mm" x="-260" y="-40" z="-6165"/>
+    <position name="B_field_v7" unit="mm" x="-340" y="-40" z="-6165"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="B_field0x1e70a30">
+      <triangular vertex1="B_field_v0" vertex2="B_field_v1" vertex3="B_field_v2"/>
+      <triangular vertex1="B_field_v2" vertex2="B_field_v1" vertex3="B_field_v3"/>
+      <triangular vertex1="B_field_v4" vertex2="B_field_v0" vertex3="B_field_v5"/>
+      <triangular vertex1="B_field_v5" vertex2="B_field_v0" vertex3="B_field_v2"/>
+      <triangular vertex1="B_field_v6" vertex2="B_field_v4" vertex3="B_field_v7"/>
+      <triangular vertex1="B_field_v7" vertex2="B_field_v4" vertex3="B_field_v5"/>
+      <triangular vertex1="B_field_v1" vertex2="B_field_v6" vertex3="B_field_v3"/>
+      <triangular vertex1="B_field_v3" vertex2="B_field_v6" vertex3="B_field_v7"/>
+      <triangular vertex1="B_field_v3" vertex2="B_field_v7" vertex3="B_field_v2"/>
+      <triangular vertex1="B_field_v2" vertex2="B_field_v7" vertex3="B_field_v5"/>
+      <triangular vertex1="B_field_v6" vertex2="B_field_v1" vertex3="B_field_v4"/>
+      <triangular vertex1="B_field_v4" vertex2="B_field_v1" vertex3="B_field_v0"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="B_field">
+    <materialref ref="Vacuum"/>
+    <solidref ref="B_field0x1e70a30"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="B_field"/>
+  </setup>
+
+</gdml>

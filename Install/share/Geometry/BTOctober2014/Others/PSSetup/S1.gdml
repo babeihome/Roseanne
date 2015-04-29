@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="S1_v0" unit="mm" x="-310" y="-25" z="-8095.99951171875"/>
+    <position name="S1_v1" unit="mm" x="-290" y="-25" z="-8095.99951171875"/>
+    <position name="S1_v2" unit="mm" x="-310" y="25" z="-8095.99951171875"/>
+    <position name="S1_v3" unit="mm" x="-290" y="25" z="-8095.99951171875"/>
+    <position name="S1_v4" unit="mm" x="-310" y="-25" z="-8099"/>
+    <position name="S1_v5" unit="mm" x="-310" y="25" z="-8099"/>
+    <position name="S1_v6" unit="mm" x="-290" y="-25" z="-8099"/>
+    <position name="S1_v7" unit="mm" x="-290" y="25" z="-8099"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="S10x256da30">
+      <triangular vertex1="S1_v0" vertex2="S1_v1" vertex3="S1_v2"/>
+      <triangular vertex1="S1_v2" vertex2="S1_v1" vertex3="S1_v3"/>
+      <triangular vertex1="S1_v4" vertex2="S1_v0" vertex3="S1_v5"/>
+      <triangular vertex1="S1_v5" vertex2="S1_v0" vertex3="S1_v2"/>
+      <triangular vertex1="S1_v6" vertex2="S1_v4" vertex3="S1_v7"/>
+      <triangular vertex1="S1_v7" vertex2="S1_v4" vertex3="S1_v5"/>
+      <triangular vertex1="S1_v1" vertex2="S1_v6" vertex3="S1_v3"/>
+      <triangular vertex1="S1_v3" vertex2="S1_v6" vertex3="S1_v7"/>
+      <triangular vertex1="S1_v1" vertex2="S1_v0" vertex3="S1_v6"/>
+      <triangular vertex1="S1_v6" vertex2="S1_v0" vertex3="S1_v4"/>
+      <triangular vertex1="S1_v7" vertex2="S1_v5" vertex3="S1_v3"/>
+      <triangular vertex1="S1_v3" vertex2="S1_v5" vertex3="S1_v2"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="S1">
+    <materialref ref="PSDmaterial_Sci0x9d1cb80"/>
+    <solidref ref="S10x256da30"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="S1"/>
+  </setup>
+
+</gdml>

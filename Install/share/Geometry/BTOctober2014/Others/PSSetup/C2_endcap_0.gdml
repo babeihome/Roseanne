@@ -1,0 +1,655 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="C2_endcap_0_v0" unit="mm" x="-175.223693847656" y="-7.47551918029785" z="-11935"/>
+    <position name="C2_endcap_0_v1" unit="mm" x="-175.223693847656" y="-7.47551918029785" z="-11940"/>
+    <position name="C2_endcap_0_v2" unit="mm" x="-175" y="1.53080791722186e-14" z="-11935"/>
+    <position name="C2_endcap_0_v3" unit="mm" x="-175.894096374512" y="-14.924280166626" z="-11940"/>
+    <position name="C2_endcap_0_v4" unit="mm" x="-175.894096374512" y="-14.924280166626" z="-11935"/>
+    <position name="C2_endcap_0_v5" unit="mm" x="-177.008796691895" y="-22.3196105957031" z="-11940"/>
+    <position name="C2_endcap_0_v6" unit="mm" x="-177.008796691895" y="-22.3196105957031" z="-11935"/>
+    <position name="C2_endcap_0_v7" unit="mm" x="-178.563705444336" y="-29.6350498199463" z="-11940"/>
+    <position name="C2_endcap_0_v8" unit="mm" x="-178.563705444336" y="-29.6350498199463" z="-11935"/>
+    <position name="C2_endcap_0_v9" unit="mm" x="-180.553398132324" y="-36.8444023132324" z="-11940"/>
+    <position name="C2_endcap_0_v10" unit="mm" x="-180.553398132324" y="-36.8444023132324" z="-11935"/>
+    <position name="C2_endcap_0_v11" unit="mm" x="-182.970596313477" y="-43.9218521118164" z="-11940"/>
+    <position name="C2_endcap_0_v12" unit="mm" x="-182.970596313477" y="-43.9218521118164" z="-11935"/>
+    <position name="C2_endcap_0_v13" unit="mm" x="-185.806800842285" y="-50.8420791625977" z="-11940"/>
+    <position name="C2_endcap_0_v14" unit="mm" x="-185.806800842285" y="-50.8420791625977" z="-11935"/>
+    <position name="C2_endcap_0_v15" unit="mm" x="-189.051795959473" y="-57.5803070068359" z="-11940"/>
+    <position name="C2_endcap_0_v16" unit="mm" x="-189.051795959473" y="-57.5803070068359" z="-11935"/>
+    <position name="C2_endcap_0_v17" unit="mm" x="-192.693901062012" y="-64.1124114990234" z="-11940"/>
+    <position name="C2_endcap_0_v18" unit="mm" x="-192.693901062012" y="-64.1124114990234" z="-11935"/>
+    <position name="C2_endcap_0_v19" unit="mm" x="-196.720191955566" y="-70.4150085449219" z="-11940"/>
+    <position name="C2_endcap_0_v20" unit="mm" x="-196.720191955566" y="-70.4150085449219" z="-11935"/>
+    <position name="C2_endcap_0_v21" unit="mm" x="-201.116119384766" y="-76.4655380249023" z="-11940"/>
+    <position name="C2_endcap_0_v22" unit="mm" x="-201.116119384766" y="-76.4655380249023" z="-11935"/>
+    <position name="C2_endcap_0_v23" unit="mm" x="-205.866073608398" y="-82.2423400878906" z="-11940"/>
+    <position name="C2_endcap_0_v24" unit="mm" x="-205.866073608398" y="-82.2423400878906" z="-11935"/>
+    <position name="C2_endcap_0_v25" unit="mm" x="-210.952987670898" y="-87.7247467041016" z="-11940"/>
+    <position name="C2_endcap_0_v26" unit="mm" x="-210.952987670898" y="-87.7247467041016" z="-11935"/>
+    <position name="C2_endcap_0_v27" unit="mm" x="-216.358673095703" y="-92.8931045532227" z="-11940"/>
+    <position name="C2_endcap_0_v28" unit="mm" x="-216.358673095703" y="-92.8931045532227" z="-11935"/>
+    <position name="C2_endcap_0_v29" unit="mm" x="-222.063766479492" y="-97.7289428710938" z="-11940"/>
+    <position name="C2_endcap_0_v30" unit="mm" x="-222.063766479492" y="-97.7289428710938" z="-11935"/>
+    <position name="C2_endcap_0_v31" unit="mm" x="-228.047874450684" y="-102.214897155762" z="-11940"/>
+    <position name="C2_endcap_0_v32" unit="mm" x="-228.047874450684" y="-102.214897155762" z="-11935"/>
+    <position name="C2_endcap_0_v33" unit="mm" x="-234.289535522461" y="-106.334999084473" z="-11940"/>
+    <position name="C2_endcap_0_v34" unit="mm" x="-234.289535522461" y="-106.334999084473" z="-11935"/>
+    <position name="C2_endcap_0_v35" unit="mm" x="-240.766418457031" y="-110.074401855469" z="-11940"/>
+    <position name="C2_endcap_0_v36" unit="mm" x="-240.766418457031" y="-110.074401855469" z="-11935"/>
+    <position name="C2_endcap_0_v37" unit="mm" x="-247.455348968506" y="-113.419792175293" z="-11940"/>
+    <position name="C2_endcap_0_v38" unit="mm" x="-247.455348968506" y="-113.419792175293" z="-11935"/>
+    <position name="C2_endcap_0_v39" unit="mm" x="-254.332370758057" y="-116.359199523926" z="-11940"/>
+    <position name="C2_endcap_0_v40" unit="mm" x="-254.332370758057" y="-116.359199523926" z="-11935"/>
+    <position name="C2_endcap_0_v41" unit="mm" x="-261.37287902832" y="-118.882095336914" z="-11940"/>
+    <position name="C2_endcap_0_v42" unit="mm" x="-261.37287902832" y="-118.882095336914" z="-11935"/>
+    <position name="C2_endcap_0_v43" unit="mm" x="-268.551651000977" y="-120.979293823242" z="-11940"/>
+    <position name="C2_endcap_0_v44" unit="mm" x="-268.551651000977" y="-120.979293823242" z="-11935"/>
+    <position name="C2_endcap_0_v45" unit="mm" x="-275.84300994873" y="-122.643493652344" z="-11940"/>
+    <position name="C2_endcap_0_v46" unit="mm" x="-275.84300994873" y="-122.643493652344" z="-11935"/>
+    <position name="C2_endcap_0_v47" unit="mm" x="-283.220840454102" y="-123.868705749512" z="-11940"/>
+    <position name="C2_endcap_0_v48" unit="mm" x="-283.220840454102" y="-123.868705749512" z="-11935"/>
+    <position name="C2_endcap_0_v49" unit="mm" x="-290.658738136292" y="-124.650505065918" z="-11940"/>
+    <position name="C2_endcap_0_v50" unit="mm" x="-290.658738136292" y="-124.650505065918" z="-11935"/>
+    <position name="C2_endcap_0_v51" unit="mm" x="-298.1300740242" y="-124.98600769043" z="-11940"/>
+    <position name="C2_endcap_0_v52" unit="mm" x="-298.1300740242" y="-124.98600769043" z="-11935"/>
+    <position name="C2_endcap_0_v53" unit="mm" x="-305.608103752136" y="-124.874099731445" z="-11940"/>
+    <position name="C2_endcap_0_v54" unit="mm" x="-305.608103752136" y="-124.874099731445" z="-11935"/>
+    <position name="C2_endcap_0_v55" unit="mm" x="-313.066061019897" y="-124.315200805664" z="-11940"/>
+    <position name="C2_endcap_0_v56" unit="mm" x="-313.066061019897" y="-124.315200805664" z="-11935"/>
+    <position name="C2_endcap_0_v57" unit="mm" x="-320.477239608765" y="-123.311302185059" z="-11940"/>
+    <position name="C2_endcap_0_v58" unit="mm" x="-320.477239608765" y="-123.311302185059" z="-11935"/>
+    <position name="C2_endcap_0_v59" unit="mm" x="-327.815120697021" y="-121.865997314453" z="-11940"/>
+    <position name="C2_endcap_0_v60" unit="mm" x="-327.815120697021" y="-121.865997314453" z="-11935"/>
+    <position name="C2_endcap_0_v61" unit="mm" x="-335.053421020508" y="-119.984397888184" z="-11940"/>
+    <position name="C2_endcap_0_v62" unit="mm" x="-335.053421020508" y="-119.984397888184" z="-11935"/>
+    <position name="C2_endcap_0_v63" unit="mm" x="-342.16625213623" y="-117.673301696777" z="-11940"/>
+    <position name="C2_endcap_0_v64" unit="mm" x="-342.16625213623" y="-117.673301696777" z="-11935"/>
+    <position name="C2_endcap_0_v65" unit="mm" x="-349.128131866455" y="-114.94100189209" z="-11940"/>
+    <position name="C2_endcap_0_v66" unit="mm" x="-349.128131866455" y="-114.94100189209" z="-11935"/>
+    <position name="C2_endcap_0_v67" unit="mm" x="-355.914138793945" y="-111.797203063965" z="-11940"/>
+    <position name="C2_endcap_0_v68" unit="mm" x="-355.914138793945" y="-111.797203063965" z="-11935"/>
+    <position name="C2_endcap_0_v69" unit="mm" x="-362.5" y="-108.253204345703" z="-11940"/>
+    <position name="C2_endcap_0_v70" unit="mm" x="-362.5" y="-108.253204345703" z="-11935"/>
+    <position name="C2_endcap_0_v71" unit="mm" x="-368.862121582031" y="-104.32169342041" z="-11940"/>
+    <position name="C2_endcap_0_v72" unit="mm" x="-368.862121582031" y="-104.32169342041" z="-11935"/>
+    <position name="C2_endcap_0_v73" unit="mm" x="-374.977737426758" y="-100.016700744629" z="-11940"/>
+    <position name="C2_endcap_0_v74" unit="mm" x="-374.977737426758" y="-100.016700744629" z="-11935"/>
+    <position name="C2_endcap_0_v75" unit="mm" x="-380.824951171875" y="-95.3536987304688" z="-11940"/>
+    <position name="C2_endcap_0_v76" unit="mm" x="-380.824951171875" y="-95.3536987304688" z="-11935"/>
+    <position name="C2_endcap_0_v77" unit="mm" x="-386.382827758789" y="-90.3493576049805" z="-11940"/>
+    <position name="C2_endcap_0_v78" unit="mm" x="-386.382827758789" y="-90.3493576049805" z="-11935"/>
+    <position name="C2_endcap_0_v79" unit="mm" x="-391.631477355957" y="-85.0215911865234" z="-11940"/>
+    <position name="C2_endcap_0_v80" unit="mm" x="-391.631477355957" y="-85.0215911865234" z="-11935"/>
+    <position name="C2_endcap_0_v81" unit="mm" x="-396.552124023438" y="-79.3894729614258" z="-11940"/>
+    <position name="C2_endcap_0_v82" unit="mm" x="-396.552124023438" y="-79.3894729614258" z="-11935"/>
+    <position name="C2_endcap_0_v83" unit="mm" x="-401.127098083496" y="-73.4731597900391" z="-11940"/>
+    <position name="C2_endcap_0_v84" unit="mm" x="-401.127098083496" y="-73.4731597900391" z="-11935"/>
+    <position name="C2_endcap_0_v85" unit="mm" x="-405.340103149414" y="-67.293830871582" z="-11940"/>
+    <position name="C2_endcap_0_v86" unit="mm" x="-405.340103149414" y="-67.293830871582" z="-11935"/>
+    <position name="C2_endcap_0_v87" unit="mm" x="-409.176002502441" y="-60.8736000061035" z="-11940"/>
+    <position name="C2_endcap_0_v88" unit="mm" x="-409.176002502441" y="-60.8736000061035" z="-11935"/>
+    <position name="C2_endcap_0_v89" unit="mm" x="-412.621101379395" y="-54.235466003418" z="-11940"/>
+    <position name="C2_endcap_0_v90" unit="mm" x="-412.621101379395" y="-54.235466003418" z="-11935"/>
+    <position name="C2_endcap_0_v91" unit="mm" x="-415.66300201416" y="-47.4031791687012" z="-11940"/>
+    <position name="C2_endcap_0_v92" unit="mm" x="-415.66300201416" y="-47.4031791687012" z="-11935"/>
+    <position name="C2_endcap_0_v93" unit="mm" x="-418.290901184082" y="-40.4012107849121" z="-11940"/>
+    <position name="C2_endcap_0_v94" unit="mm" x="-418.290901184082" y="-40.4012107849121" z="-11935"/>
+    <position name="C2_endcap_0_v95" unit="mm" x="-420.495399475098" y="-33.2546081542969" z="-11940"/>
+    <position name="C2_endcap_0_v96" unit="mm" x="-420.495399475098" y="-33.2546081542969" z="-11935"/>
+    <position name="C2_endcap_0_v97" unit="mm" x="-422.268501281738" y="-25.9889602661133" z="-11940"/>
+    <position name="C2_endcap_0_v98" unit="mm" x="-422.268501281738" y="-25.9889602661133" z="-11935"/>
+    <position name="C2_endcap_0_v99" unit="mm" x="-423.603904724121" y="-18.6302795410156" z="-11940"/>
+    <position name="C2_endcap_0_v100" unit="mm" x="-423.603904724121" y="-18.6302795410156" z="-11935"/>
+    <position name="C2_endcap_0_v101" unit="mm" x="-424.496795654297" y="-11.2049102783203" z="-11940"/>
+    <position name="C2_endcap_0_v102" unit="mm" x="-424.496795654297" y="-11.2049102783203" z="-11935"/>
+    <position name="C2_endcap_0_v103" unit="mm" x="-424.94409942627" y="-3.73943305015564" z="-11940"/>
+    <position name="C2_endcap_0_v104" unit="mm" x="-424.94409942627" y="-3.73943305015564" z="-11935"/>
+    <position name="C2_endcap_0_v105" unit="mm" x="-424.94409942627" y="3.73943305015564" z="-11940"/>
+    <position name="C2_endcap_0_v106" unit="mm" x="-424.94409942627" y="3.73943305015564" z="-11935"/>
+    <position name="C2_endcap_0_v107" unit="mm" x="-424.496795654297" y="11.2049102783203" z="-11940"/>
+    <position name="C2_endcap_0_v108" unit="mm" x="-424.496795654297" y="11.2049102783203" z="-11935"/>
+    <position name="C2_endcap_0_v109" unit="mm" x="-423.603904724121" y="18.6302795410156" z="-11940"/>
+    <position name="C2_endcap_0_v110" unit="mm" x="-423.603904724121" y="18.6302795410156" z="-11935"/>
+    <position name="C2_endcap_0_v111" unit="mm" x="-422.268501281738" y="25.9889602661133" z="-11940"/>
+    <position name="C2_endcap_0_v112" unit="mm" x="-422.268501281738" y="25.9889602661133" z="-11935"/>
+    <position name="C2_endcap_0_v113" unit="mm" x="-420.495399475098" y="33.2546081542969" z="-11940"/>
+    <position name="C2_endcap_0_v114" unit="mm" x="-420.495399475098" y="33.2546081542969" z="-11935"/>
+    <position name="C2_endcap_0_v115" unit="mm" x="-418.290901184082" y="40.4012107849121" z="-11940"/>
+    <position name="C2_endcap_0_v116" unit="mm" x="-418.290901184082" y="40.4012107849121" z="-11935"/>
+    <position name="C2_endcap_0_v117" unit="mm" x="-415.66300201416" y="47.4031791687012" z="-11940"/>
+    <position name="C2_endcap_0_v118" unit="mm" x="-415.66300201416" y="47.4031791687012" z="-11935"/>
+    <position name="C2_endcap_0_v119" unit="mm" x="-412.621101379395" y="54.235466003418" z="-11940"/>
+    <position name="C2_endcap_0_v120" unit="mm" x="-412.621101379395" y="54.235466003418" z="-11935"/>
+    <position name="C2_endcap_0_v121" unit="mm" x="-409.176002502441" y="60.8736000061035" z="-11940"/>
+    <position name="C2_endcap_0_v122" unit="mm" x="-409.176002502441" y="60.8736000061035" z="-11935"/>
+    <position name="C2_endcap_0_v123" unit="mm" x="-405.340103149414" y="67.293830871582" z="-11940"/>
+    <position name="C2_endcap_0_v124" unit="mm" x="-405.340103149414" y="67.293830871582" z="-11935"/>
+    <position name="C2_endcap_0_v125" unit="mm" x="-401.127098083496" y="73.4731597900391" z="-11940"/>
+    <position name="C2_endcap_0_v126" unit="mm" x="-401.127098083496" y="73.4731597900391" z="-11935"/>
+    <position name="C2_endcap_0_v127" unit="mm" x="-396.552124023438" y="79.3894729614258" z="-11940"/>
+    <position name="C2_endcap_0_v128" unit="mm" x="-396.552124023438" y="79.3894729614258" z="-11935"/>
+    <position name="C2_endcap_0_v129" unit="mm" x="-391.631477355957" y="85.0215911865234" z="-11940"/>
+    <position name="C2_endcap_0_v130" unit="mm" x="-391.631477355957" y="85.0215911865234" z="-11935"/>
+    <position name="C2_endcap_0_v131" unit="mm" x="-386.382827758789" y="90.3493576049805" z="-11940"/>
+    <position name="C2_endcap_0_v132" unit="mm" x="-386.382827758789" y="90.3493576049805" z="-11935"/>
+    <position name="C2_endcap_0_v133" unit="mm" x="-380.824951171875" y="95.3536987304688" z="-11940"/>
+    <position name="C2_endcap_0_v134" unit="mm" x="-380.824951171875" y="95.3536987304688" z="-11935"/>
+    <position name="C2_endcap_0_v135" unit="mm" x="-374.977737426758" y="100.016700744629" z="-11940"/>
+    <position name="C2_endcap_0_v136" unit="mm" x="-374.977737426758" y="100.016700744629" z="-11935"/>
+    <position name="C2_endcap_0_v137" unit="mm" x="-368.862121582031" y="104.32169342041" z="-11940"/>
+    <position name="C2_endcap_0_v138" unit="mm" x="-368.862121582031" y="104.32169342041" z="-11935"/>
+    <position name="C2_endcap_0_v139" unit="mm" x="-362.5" y="108.253204345703" z="-11940"/>
+    <position name="C2_endcap_0_v140" unit="mm" x="-362.5" y="108.253204345703" z="-11935"/>
+    <position name="C2_endcap_0_v141" unit="mm" x="-355.914138793945" y="111.797203063965" z="-11940"/>
+    <position name="C2_endcap_0_v142" unit="mm" x="-355.914138793945" y="111.797203063965" z="-11935"/>
+    <position name="C2_endcap_0_v143" unit="mm" x="-349.128131866455" y="114.94100189209" z="-11940"/>
+    <position name="C2_endcap_0_v144" unit="mm" x="-349.128131866455" y="114.94100189209" z="-11935"/>
+    <position name="C2_endcap_0_v145" unit="mm" x="-342.16625213623" y="117.673301696777" z="-11940"/>
+    <position name="C2_endcap_0_v146" unit="mm" x="-342.16625213623" y="117.673301696777" z="-11935"/>
+    <position name="C2_endcap_0_v147" unit="mm" x="-335.053421020508" y="119.984397888184" z="-11940"/>
+    <position name="C2_endcap_0_v148" unit="mm" x="-335.053421020508" y="119.984397888184" z="-11935"/>
+    <position name="C2_endcap_0_v149" unit="mm" x="-327.815120697021" y="121.865997314453" z="-11940"/>
+    <position name="C2_endcap_0_v150" unit="mm" x="-327.815120697021" y="121.865997314453" z="-11935"/>
+    <position name="C2_endcap_0_v151" unit="mm" x="-320.477239608765" y="123.311302185059" z="-11940"/>
+    <position name="C2_endcap_0_v152" unit="mm" x="-320.477239608765" y="123.311302185059" z="-11935"/>
+    <position name="C2_endcap_0_v153" unit="mm" x="-313.066061019897" y="124.315200805664" z="-11940"/>
+    <position name="C2_endcap_0_v154" unit="mm" x="-313.066061019897" y="124.315200805664" z="-11935"/>
+    <position name="C2_endcap_0_v155" unit="mm" x="-305.608103752136" y="124.874099731445" z="-11940"/>
+    <position name="C2_endcap_0_v156" unit="mm" x="-305.608103752136" y="124.874099731445" z="-11935"/>
+    <position name="C2_endcap_0_v157" unit="mm" x="-298.1300740242" y="124.98600769043" z="-11940"/>
+    <position name="C2_endcap_0_v158" unit="mm" x="-298.1300740242" y="124.98600769043" z="-11935"/>
+    <position name="C2_endcap_0_v159" unit="mm" x="-290.658738136292" y="124.650505065918" z="-11940"/>
+    <position name="C2_endcap_0_v160" unit="mm" x="-290.658738136292" y="124.650505065918" z="-11935"/>
+    <position name="C2_endcap_0_v161" unit="mm" x="-283.220840454102" y="123.868705749512" z="-11940"/>
+    <position name="C2_endcap_0_v162" unit="mm" x="-283.220840454102" y="123.868705749512" z="-11935"/>
+    <position name="C2_endcap_0_v163" unit="mm" x="-275.84300994873" y="122.643493652344" z="-11940"/>
+    <position name="C2_endcap_0_v164" unit="mm" x="-275.84300994873" y="122.643493652344" z="-11935"/>
+    <position name="C2_endcap_0_v165" unit="mm" x="-268.551651000977" y="120.979293823242" z="-11940"/>
+    <position name="C2_endcap_0_v166" unit="mm" x="-268.551651000977" y="120.979293823242" z="-11935"/>
+    <position name="C2_endcap_0_v167" unit="mm" x="-261.37287902832" y="118.882095336914" z="-11940"/>
+    <position name="C2_endcap_0_v168" unit="mm" x="-261.37287902832" y="118.882095336914" z="-11935"/>
+    <position name="C2_endcap_0_v169" unit="mm" x="-254.332370758057" y="116.359199523926" z="-11940"/>
+    <position name="C2_endcap_0_v170" unit="mm" x="-254.332370758057" y="116.359199523926" z="-11935"/>
+    <position name="C2_endcap_0_v171" unit="mm" x="-247.455348968506" y="113.419792175293" z="-11940"/>
+    <position name="C2_endcap_0_v172" unit="mm" x="-247.455348968506" y="113.419792175293" z="-11935"/>
+    <position name="C2_endcap_0_v173" unit="mm" x="-240.766418457031" y="110.074401855469" z="-11940"/>
+    <position name="C2_endcap_0_v174" unit="mm" x="-240.766418457031" y="110.074401855469" z="-11935"/>
+    <position name="C2_endcap_0_v175" unit="mm" x="-234.289535522461" y="106.334999084473" z="-11940"/>
+    <position name="C2_endcap_0_v176" unit="mm" x="-234.289535522461" y="106.334999084473" z="-11935"/>
+    <position name="C2_endcap_0_v177" unit="mm" x="-228.047874450684" y="102.214897155762" z="-11940"/>
+    <position name="C2_endcap_0_v178" unit="mm" x="-228.047874450684" y="102.214897155762" z="-11935"/>
+    <position name="C2_endcap_0_v179" unit="mm" x="-222.063766479492" y="97.7289428710938" z="-11940"/>
+    <position name="C2_endcap_0_v180" unit="mm" x="-222.063766479492" y="97.7289428710938" z="-11935"/>
+    <position name="C2_endcap_0_v181" unit="mm" x="-216.358673095703" y="92.8931045532227" z="-11940"/>
+    <position name="C2_endcap_0_v182" unit="mm" x="-216.358673095703" y="92.8931045532227" z="-11935"/>
+    <position name="C2_endcap_0_v183" unit="mm" x="-210.952987670898" y="87.7247467041016" z="-11940"/>
+    <position name="C2_endcap_0_v184" unit="mm" x="-210.952987670898" y="87.7247467041016" z="-11935"/>
+    <position name="C2_endcap_0_v185" unit="mm" x="-205.866073608398" y="82.2423400878906" z="-11940"/>
+    <position name="C2_endcap_0_v186" unit="mm" x="-205.866073608398" y="82.2423400878906" z="-11935"/>
+    <position name="C2_endcap_0_v187" unit="mm" x="-201.116119384766" y="76.4655380249023" z="-11940"/>
+    <position name="C2_endcap_0_v188" unit="mm" x="-201.116119384766" y="76.4655380249023" z="-11935"/>
+    <position name="C2_endcap_0_v189" unit="mm" x="-196.720191955566" y="70.4150085449219" z="-11940"/>
+    <position name="C2_endcap_0_v190" unit="mm" x="-196.720191955566" y="70.4150085449219" z="-11935"/>
+    <position name="C2_endcap_0_v191" unit="mm" x="-192.693901062012" y="64.1124114990234" z="-11940"/>
+    <position name="C2_endcap_0_v192" unit="mm" x="-192.693901062012" y="64.1124114990234" z="-11935"/>
+    <position name="C2_endcap_0_v193" unit="mm" x="-189.051795959473" y="57.5803070068359" z="-11940"/>
+    <position name="C2_endcap_0_v194" unit="mm" x="-189.051795959473" y="57.5803070068359" z="-11935"/>
+    <position name="C2_endcap_0_v195" unit="mm" x="-185.806800842285" y="50.8420791625977" z="-11940"/>
+    <position name="C2_endcap_0_v196" unit="mm" x="-185.806800842285" y="50.8420791625977" z="-11935"/>
+    <position name="C2_endcap_0_v197" unit="mm" x="-182.970596313477" y="43.9218521118164" z="-11940"/>
+    <position name="C2_endcap_0_v198" unit="mm" x="-182.970596313477" y="43.9218521118164" z="-11935"/>
+    <position name="C2_endcap_0_v199" unit="mm" x="-180.553398132324" y="36.8444023132324" z="-11940"/>
+    <position name="C2_endcap_0_v200" unit="mm" x="-180.553398132324" y="36.8444023132324" z="-11935"/>
+    <position name="C2_endcap_0_v201" unit="mm" x="-178.563705444336" y="29.6350498199463" z="-11940"/>
+    <position name="C2_endcap_0_v202" unit="mm" x="-178.563705444336" y="29.6350498199463" z="-11935"/>
+    <position name="C2_endcap_0_v203" unit="mm" x="-177.008796691895" y="22.3196105957031" z="-11940"/>
+    <position name="C2_endcap_0_v204" unit="mm" x="-177.008796691895" y="22.3196105957031" z="-11935"/>
+    <position name="C2_endcap_0_v205" unit="mm" x="-175.894096374512" y="14.924280166626" z="-11940"/>
+    <position name="C2_endcap_0_v206" unit="mm" x="-175.894096374512" y="14.924280166626" z="-11935"/>
+    <position name="C2_endcap_0_v207" unit="mm" x="-175.223693847656" y="7.47551918029785" z="-11940"/>
+    <position name="C2_endcap_0_v208" unit="mm" x="-175.223693847656" y="7.47551918029785" z="-11935"/>
+    <position name="C2_endcap_0_v209" unit="mm" x="-175" y="1.53080791722186e-14" z="-11940"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="C2_endcap_00xbf1fb0">
+      <triangular vertex1="C2_endcap_0_v0" vertex2="C2_endcap_0_v1" vertex3="C2_endcap_0_v2"/>
+      <triangular vertex1="C2_endcap_0_v0" vertex2="C2_endcap_0_v3" vertex3="C2_endcap_0_v1"/>
+      <triangular vertex1="C2_endcap_0_v0" vertex2="C2_endcap_0_v4" vertex3="C2_endcap_0_v3"/>
+      <triangular vertex1="C2_endcap_0_v3" vertex2="C2_endcap_0_v4" vertex3="C2_endcap_0_v5"/>
+      <triangular vertex1="C2_endcap_0_v5" vertex2="C2_endcap_0_v4" vertex3="C2_endcap_0_v6"/>
+      <triangular vertex1="C2_endcap_0_v7" vertex2="C2_endcap_0_v6" vertex3="C2_endcap_0_v8"/>
+      <triangular vertex1="C2_endcap_0_v9" vertex2="C2_endcap_0_v8" vertex3="C2_endcap_0_v10"/>
+      <triangular vertex1="C2_endcap_0_v11" vertex2="C2_endcap_0_v10" vertex3="C2_endcap_0_v12"/>
+      <triangular vertex1="C2_endcap_0_v13" vertex2="C2_endcap_0_v12" vertex3="C2_endcap_0_v14"/>
+      <triangular vertex1="C2_endcap_0_v15" vertex2="C2_endcap_0_v14" vertex3="C2_endcap_0_v16"/>
+      <triangular vertex1="C2_endcap_0_v17" vertex2="C2_endcap_0_v16" vertex3="C2_endcap_0_v18"/>
+      <triangular vertex1="C2_endcap_0_v19" vertex2="C2_endcap_0_v18" vertex3="C2_endcap_0_v20"/>
+      <triangular vertex1="C2_endcap_0_v21" vertex2="C2_endcap_0_v20" vertex3="C2_endcap_0_v22"/>
+      <triangular vertex1="C2_endcap_0_v23" vertex2="C2_endcap_0_v22" vertex3="C2_endcap_0_v24"/>
+      <triangular vertex1="C2_endcap_0_v25" vertex2="C2_endcap_0_v24" vertex3="C2_endcap_0_v26"/>
+      <triangular vertex1="C2_endcap_0_v27" vertex2="C2_endcap_0_v26" vertex3="C2_endcap_0_v28"/>
+      <triangular vertex1="C2_endcap_0_v29" vertex2="C2_endcap_0_v28" vertex3="C2_endcap_0_v30"/>
+      <triangular vertex1="C2_endcap_0_v31" vertex2="C2_endcap_0_v30" vertex3="C2_endcap_0_v32"/>
+      <triangular vertex1="C2_endcap_0_v33" vertex2="C2_endcap_0_v32" vertex3="C2_endcap_0_v34"/>
+      <triangular vertex1="C2_endcap_0_v35" vertex2="C2_endcap_0_v34" vertex3="C2_endcap_0_v36"/>
+      <triangular vertex1="C2_endcap_0_v37" vertex2="C2_endcap_0_v36" vertex3="C2_endcap_0_v38"/>
+      <triangular vertex1="C2_endcap_0_v39" vertex2="C2_endcap_0_v38" vertex3="C2_endcap_0_v40"/>
+      <triangular vertex1="C2_endcap_0_v41" vertex2="C2_endcap_0_v40" vertex3="C2_endcap_0_v42"/>
+      <triangular vertex1="C2_endcap_0_v43" vertex2="C2_endcap_0_v42" vertex3="C2_endcap_0_v44"/>
+      <triangular vertex1="C2_endcap_0_v45" vertex2="C2_endcap_0_v44" vertex3="C2_endcap_0_v46"/>
+      <triangular vertex1="C2_endcap_0_v47" vertex2="C2_endcap_0_v46" vertex3="C2_endcap_0_v48"/>
+      <triangular vertex1="C2_endcap_0_v49" vertex2="C2_endcap_0_v48" vertex3="C2_endcap_0_v50"/>
+      <triangular vertex1="C2_endcap_0_v51" vertex2="C2_endcap_0_v50" vertex3="C2_endcap_0_v52"/>
+      <triangular vertex1="C2_endcap_0_v53" vertex2="C2_endcap_0_v52" vertex3="C2_endcap_0_v54"/>
+      <triangular vertex1="C2_endcap_0_v55" vertex2="C2_endcap_0_v54" vertex3="C2_endcap_0_v56"/>
+      <triangular vertex1="C2_endcap_0_v57" vertex2="C2_endcap_0_v56" vertex3="C2_endcap_0_v58"/>
+      <triangular vertex1="C2_endcap_0_v59" vertex2="C2_endcap_0_v58" vertex3="C2_endcap_0_v60"/>
+      <triangular vertex1="C2_endcap_0_v61" vertex2="C2_endcap_0_v60" vertex3="C2_endcap_0_v62"/>
+      <triangular vertex1="C2_endcap_0_v63" vertex2="C2_endcap_0_v62" vertex3="C2_endcap_0_v64"/>
+      <triangular vertex1="C2_endcap_0_v65" vertex2="C2_endcap_0_v64" vertex3="C2_endcap_0_v66"/>
+      <triangular vertex1="C2_endcap_0_v67" vertex2="C2_endcap_0_v66" vertex3="C2_endcap_0_v68"/>
+      <triangular vertex1="C2_endcap_0_v69" vertex2="C2_endcap_0_v68" vertex3="C2_endcap_0_v70"/>
+      <triangular vertex1="C2_endcap_0_v71" vertex2="C2_endcap_0_v70" vertex3="C2_endcap_0_v72"/>
+      <triangular vertex1="C2_endcap_0_v73" vertex2="C2_endcap_0_v72" vertex3="C2_endcap_0_v74"/>
+      <triangular vertex1="C2_endcap_0_v75" vertex2="C2_endcap_0_v74" vertex3="C2_endcap_0_v76"/>
+      <triangular vertex1="C2_endcap_0_v77" vertex2="C2_endcap_0_v76" vertex3="C2_endcap_0_v78"/>
+      <triangular vertex1="C2_endcap_0_v79" vertex2="C2_endcap_0_v78" vertex3="C2_endcap_0_v80"/>
+      <triangular vertex1="C2_endcap_0_v81" vertex2="C2_endcap_0_v80" vertex3="C2_endcap_0_v82"/>
+      <triangular vertex1="C2_endcap_0_v83" vertex2="C2_endcap_0_v82" vertex3="C2_endcap_0_v84"/>
+      <triangular vertex1="C2_endcap_0_v85" vertex2="C2_endcap_0_v84" vertex3="C2_endcap_0_v86"/>
+      <triangular vertex1="C2_endcap_0_v87" vertex2="C2_endcap_0_v86" vertex3="C2_endcap_0_v88"/>
+      <triangular vertex1="C2_endcap_0_v89" vertex2="C2_endcap_0_v88" vertex3="C2_endcap_0_v90"/>
+      <triangular vertex1="C2_endcap_0_v91" vertex2="C2_endcap_0_v90" vertex3="C2_endcap_0_v92"/>
+      <triangular vertex1="C2_endcap_0_v93" vertex2="C2_endcap_0_v92" vertex3="C2_endcap_0_v94"/>
+      <triangular vertex1="C2_endcap_0_v95" vertex2="C2_endcap_0_v94" vertex3="C2_endcap_0_v96"/>
+      <triangular vertex1="C2_endcap_0_v97" vertex2="C2_endcap_0_v96" vertex3="C2_endcap_0_v98"/>
+      <triangular vertex1="C2_endcap_0_v99" vertex2="C2_endcap_0_v98" vertex3="C2_endcap_0_v100"/>
+      <triangular vertex1="C2_endcap_0_v101" vertex2="C2_endcap_0_v100" vertex3="C2_endcap_0_v102"/>
+      <triangular vertex1="C2_endcap_0_v103" vertex2="C2_endcap_0_v102" vertex3="C2_endcap_0_v104"/>
+      <triangular vertex1="C2_endcap_0_v105" vertex2="C2_endcap_0_v104" vertex3="C2_endcap_0_v106"/>
+      <triangular vertex1="C2_endcap_0_v107" vertex2="C2_endcap_0_v106" vertex3="C2_endcap_0_v108"/>
+      <triangular vertex1="C2_endcap_0_v109" vertex2="C2_endcap_0_v108" vertex3="C2_endcap_0_v110"/>
+      <triangular vertex1="C2_endcap_0_v111" vertex2="C2_endcap_0_v110" vertex3="C2_endcap_0_v112"/>
+      <triangular vertex1="C2_endcap_0_v113" vertex2="C2_endcap_0_v112" vertex3="C2_endcap_0_v114"/>
+      <triangular vertex1="C2_endcap_0_v115" vertex2="C2_endcap_0_v114" vertex3="C2_endcap_0_v116"/>
+      <triangular vertex1="C2_endcap_0_v117" vertex2="C2_endcap_0_v116" vertex3="C2_endcap_0_v118"/>
+      <triangular vertex1="C2_endcap_0_v119" vertex2="C2_endcap_0_v118" vertex3="C2_endcap_0_v120"/>
+      <triangular vertex1="C2_endcap_0_v121" vertex2="C2_endcap_0_v120" vertex3="C2_endcap_0_v122"/>
+      <triangular vertex1="C2_endcap_0_v123" vertex2="C2_endcap_0_v122" vertex3="C2_endcap_0_v124"/>
+      <triangular vertex1="C2_endcap_0_v125" vertex2="C2_endcap_0_v124" vertex3="C2_endcap_0_v126"/>
+      <triangular vertex1="C2_endcap_0_v127" vertex2="C2_endcap_0_v126" vertex3="C2_endcap_0_v128"/>
+      <triangular vertex1="C2_endcap_0_v129" vertex2="C2_endcap_0_v128" vertex3="C2_endcap_0_v130"/>
+      <triangular vertex1="C2_endcap_0_v131" vertex2="C2_endcap_0_v130" vertex3="C2_endcap_0_v132"/>
+      <triangular vertex1="C2_endcap_0_v133" vertex2="C2_endcap_0_v132" vertex3="C2_endcap_0_v134"/>
+      <triangular vertex1="C2_endcap_0_v135" vertex2="C2_endcap_0_v134" vertex3="C2_endcap_0_v136"/>
+      <triangular vertex1="C2_endcap_0_v137" vertex2="C2_endcap_0_v136" vertex3="C2_endcap_0_v138"/>
+      <triangular vertex1="C2_endcap_0_v139" vertex2="C2_endcap_0_v138" vertex3="C2_endcap_0_v140"/>
+      <triangular vertex1="C2_endcap_0_v141" vertex2="C2_endcap_0_v140" vertex3="C2_endcap_0_v142"/>
+      <triangular vertex1="C2_endcap_0_v143" vertex2="C2_endcap_0_v142" vertex3="C2_endcap_0_v144"/>
+      <triangular vertex1="C2_endcap_0_v145" vertex2="C2_endcap_0_v144" vertex3="C2_endcap_0_v146"/>
+      <triangular vertex1="C2_endcap_0_v147" vertex2="C2_endcap_0_v146" vertex3="C2_endcap_0_v148"/>
+      <triangular vertex1="C2_endcap_0_v149" vertex2="C2_endcap_0_v148" vertex3="C2_endcap_0_v150"/>
+      <triangular vertex1="C2_endcap_0_v151" vertex2="C2_endcap_0_v150" vertex3="C2_endcap_0_v152"/>
+      <triangular vertex1="C2_endcap_0_v153" vertex2="C2_endcap_0_v152" vertex3="C2_endcap_0_v154"/>
+      <triangular vertex1="C2_endcap_0_v155" vertex2="C2_endcap_0_v154" vertex3="C2_endcap_0_v156"/>
+      <triangular vertex1="C2_endcap_0_v157" vertex2="C2_endcap_0_v156" vertex3="C2_endcap_0_v158"/>
+      <triangular vertex1="C2_endcap_0_v159" vertex2="C2_endcap_0_v158" vertex3="C2_endcap_0_v160"/>
+      <triangular vertex1="C2_endcap_0_v161" vertex2="C2_endcap_0_v160" vertex3="C2_endcap_0_v162"/>
+      <triangular vertex1="C2_endcap_0_v163" vertex2="C2_endcap_0_v162" vertex3="C2_endcap_0_v164"/>
+      <triangular vertex1="C2_endcap_0_v165" vertex2="C2_endcap_0_v164" vertex3="C2_endcap_0_v166"/>
+      <triangular vertex1="C2_endcap_0_v167" vertex2="C2_endcap_0_v166" vertex3="C2_endcap_0_v168"/>
+      <triangular vertex1="C2_endcap_0_v169" vertex2="C2_endcap_0_v168" vertex3="C2_endcap_0_v170"/>
+      <triangular vertex1="C2_endcap_0_v171" vertex2="C2_endcap_0_v170" vertex3="C2_endcap_0_v172"/>
+      <triangular vertex1="C2_endcap_0_v173" vertex2="C2_endcap_0_v172" vertex3="C2_endcap_0_v174"/>
+      <triangular vertex1="C2_endcap_0_v175" vertex2="C2_endcap_0_v174" vertex3="C2_endcap_0_v176"/>
+      <triangular vertex1="C2_endcap_0_v177" vertex2="C2_endcap_0_v176" vertex3="C2_endcap_0_v178"/>
+      <triangular vertex1="C2_endcap_0_v179" vertex2="C2_endcap_0_v178" vertex3="C2_endcap_0_v180"/>
+      <triangular vertex1="C2_endcap_0_v181" vertex2="C2_endcap_0_v180" vertex3="C2_endcap_0_v182"/>
+      <triangular vertex1="C2_endcap_0_v183" vertex2="C2_endcap_0_v182" vertex3="C2_endcap_0_v184"/>
+      <triangular vertex1="C2_endcap_0_v185" vertex2="C2_endcap_0_v184" vertex3="C2_endcap_0_v186"/>
+      <triangular vertex1="C2_endcap_0_v187" vertex2="C2_endcap_0_v186" vertex3="C2_endcap_0_v188"/>
+      <triangular vertex1="C2_endcap_0_v189" vertex2="C2_endcap_0_v188" vertex3="C2_endcap_0_v190"/>
+      <triangular vertex1="C2_endcap_0_v191" vertex2="C2_endcap_0_v190" vertex3="C2_endcap_0_v192"/>
+      <triangular vertex1="C2_endcap_0_v193" vertex2="C2_endcap_0_v192" vertex3="C2_endcap_0_v194"/>
+      <triangular vertex1="C2_endcap_0_v195" vertex2="C2_endcap_0_v194" vertex3="C2_endcap_0_v196"/>
+      <triangular vertex1="C2_endcap_0_v197" vertex2="C2_endcap_0_v196" vertex3="C2_endcap_0_v198"/>
+      <triangular vertex1="C2_endcap_0_v199" vertex2="C2_endcap_0_v198" vertex3="C2_endcap_0_v200"/>
+      <triangular vertex1="C2_endcap_0_v201" vertex2="C2_endcap_0_v200" vertex3="C2_endcap_0_v202"/>
+      <triangular vertex1="C2_endcap_0_v203" vertex2="C2_endcap_0_v202" vertex3="C2_endcap_0_v204"/>
+      <triangular vertex1="C2_endcap_0_v205" vertex2="C2_endcap_0_v204" vertex3="C2_endcap_0_v206"/>
+      <triangular vertex1="C2_endcap_0_v207" vertex2="C2_endcap_0_v206" vertex3="C2_endcap_0_v208"/>
+      <triangular vertex1="C2_endcap_0_v209" vertex2="C2_endcap_0_v208" vertex3="C2_endcap_0_v2"/>
+      <triangular vertex1="C2_endcap_0_v1" vertex2="C2_endcap_0_v209" vertex3="C2_endcap_0_v2"/>
+      <triangular vertex1="C2_endcap_0_v5" vertex2="C2_endcap_0_v6" vertex3="C2_endcap_0_v7"/>
+      <triangular vertex1="C2_endcap_0_v7" vertex2="C2_endcap_0_v8" vertex3="C2_endcap_0_v9"/>
+      <triangular vertex1="C2_endcap_0_v9" vertex2="C2_endcap_0_v10" vertex3="C2_endcap_0_v11"/>
+      <triangular vertex1="C2_endcap_0_v11" vertex2="C2_endcap_0_v12" vertex3="C2_endcap_0_v13"/>
+      <triangular vertex1="C2_endcap_0_v13" vertex2="C2_endcap_0_v14" vertex3="C2_endcap_0_v15"/>
+      <triangular vertex1="C2_endcap_0_v15" vertex2="C2_endcap_0_v16" vertex3="C2_endcap_0_v17"/>
+      <triangular vertex1="C2_endcap_0_v17" vertex2="C2_endcap_0_v18" vertex3="C2_endcap_0_v19"/>
+      <triangular vertex1="C2_endcap_0_v19" vertex2="C2_endcap_0_v20" vertex3="C2_endcap_0_v21"/>
+      <triangular vertex1="C2_endcap_0_v21" vertex2="C2_endcap_0_v22" vertex3="C2_endcap_0_v23"/>
+      <triangular vertex1="C2_endcap_0_v23" vertex2="C2_endcap_0_v24" vertex3="C2_endcap_0_v25"/>
+      <triangular vertex1="C2_endcap_0_v25" vertex2="C2_endcap_0_v26" vertex3="C2_endcap_0_v27"/>
+      <triangular vertex1="C2_endcap_0_v27" vertex2="C2_endcap_0_v28" vertex3="C2_endcap_0_v29"/>
+      <triangular vertex1="C2_endcap_0_v29" vertex2="C2_endcap_0_v30" vertex3="C2_endcap_0_v31"/>
+      <triangular vertex1="C2_endcap_0_v31" vertex2="C2_endcap_0_v32" vertex3="C2_endcap_0_v33"/>
+      <triangular vertex1="C2_endcap_0_v33" vertex2="C2_endcap_0_v34" vertex3="C2_endcap_0_v35"/>
+      <triangular vertex1="C2_endcap_0_v35" vertex2="C2_endcap_0_v36" vertex3="C2_endcap_0_v37"/>
+      <triangular vertex1="C2_endcap_0_v37" vertex2="C2_endcap_0_v38" vertex3="C2_endcap_0_v39"/>
+      <triangular vertex1="C2_endcap_0_v39" vertex2="C2_endcap_0_v40" vertex3="C2_endcap_0_v41"/>
+      <triangular vertex1="C2_endcap_0_v41" vertex2="C2_endcap_0_v42" vertex3="C2_endcap_0_v43"/>
+      <triangular vertex1="C2_endcap_0_v43" vertex2="C2_endcap_0_v44" vertex3="C2_endcap_0_v45"/>
+      <triangular vertex1="C2_endcap_0_v45" vertex2="C2_endcap_0_v46" vertex3="C2_endcap_0_v47"/>
+      <triangular vertex1="C2_endcap_0_v47" vertex2="C2_endcap_0_v48" vertex3="C2_endcap_0_v49"/>
+      <triangular vertex1="C2_endcap_0_v49" vertex2="C2_endcap_0_v50" vertex3="C2_endcap_0_v51"/>
+      <triangular vertex1="C2_endcap_0_v51" vertex2="C2_endcap_0_v52" vertex3="C2_endcap_0_v53"/>
+      <triangular vertex1="C2_endcap_0_v53" vertex2="C2_endcap_0_v54" vertex3="C2_endcap_0_v55"/>
+      <triangular vertex1="C2_endcap_0_v55" vertex2="C2_endcap_0_v56" vertex3="C2_endcap_0_v57"/>
+      <triangular vertex1="C2_endcap_0_v57" vertex2="C2_endcap_0_v58" vertex3="C2_endcap_0_v59"/>
+      <triangular vertex1="C2_endcap_0_v59" vertex2="C2_endcap_0_v60" vertex3="C2_endcap_0_v61"/>
+      <triangular vertex1="C2_endcap_0_v61" vertex2="C2_endcap_0_v62" vertex3="C2_endcap_0_v63"/>
+      <triangular vertex1="C2_endcap_0_v63" vertex2="C2_endcap_0_v64" vertex3="C2_endcap_0_v65"/>
+      <triangular vertex1="C2_endcap_0_v65" vertex2="C2_endcap_0_v66" vertex3="C2_endcap_0_v67"/>
+      <triangular vertex1="C2_endcap_0_v67" vertex2="C2_endcap_0_v68" vertex3="C2_endcap_0_v69"/>
+      <triangular vertex1="C2_endcap_0_v69" vertex2="C2_endcap_0_v70" vertex3="C2_endcap_0_v71"/>
+      <triangular vertex1="C2_endcap_0_v71" vertex2="C2_endcap_0_v72" vertex3="C2_endcap_0_v73"/>
+      <triangular vertex1="C2_endcap_0_v73" vertex2="C2_endcap_0_v74" vertex3="C2_endcap_0_v75"/>
+      <triangular vertex1="C2_endcap_0_v75" vertex2="C2_endcap_0_v76" vertex3="C2_endcap_0_v77"/>
+      <triangular vertex1="C2_endcap_0_v77" vertex2="C2_endcap_0_v78" vertex3="C2_endcap_0_v79"/>
+      <triangular vertex1="C2_endcap_0_v79" vertex2="C2_endcap_0_v80" vertex3="C2_endcap_0_v81"/>
+      <triangular vertex1="C2_endcap_0_v81" vertex2="C2_endcap_0_v82" vertex3="C2_endcap_0_v83"/>
+      <triangular vertex1="C2_endcap_0_v83" vertex2="C2_endcap_0_v84" vertex3="C2_endcap_0_v85"/>
+      <triangular vertex1="C2_endcap_0_v85" vertex2="C2_endcap_0_v86" vertex3="C2_endcap_0_v87"/>
+      <triangular vertex1="C2_endcap_0_v87" vertex2="C2_endcap_0_v88" vertex3="C2_endcap_0_v89"/>
+      <triangular vertex1="C2_endcap_0_v89" vertex2="C2_endcap_0_v90" vertex3="C2_endcap_0_v91"/>
+      <triangular vertex1="C2_endcap_0_v91" vertex2="C2_endcap_0_v92" vertex3="C2_endcap_0_v93"/>
+      <triangular vertex1="C2_endcap_0_v93" vertex2="C2_endcap_0_v94" vertex3="C2_endcap_0_v95"/>
+      <triangular vertex1="C2_endcap_0_v95" vertex2="C2_endcap_0_v96" vertex3="C2_endcap_0_v97"/>
+      <triangular vertex1="C2_endcap_0_v97" vertex2="C2_endcap_0_v98" vertex3="C2_endcap_0_v99"/>
+      <triangular vertex1="C2_endcap_0_v99" vertex2="C2_endcap_0_v100" vertex3="C2_endcap_0_v101"/>
+      <triangular vertex1="C2_endcap_0_v101" vertex2="C2_endcap_0_v102" vertex3="C2_endcap_0_v103"/>
+      <triangular vertex1="C2_endcap_0_v103" vertex2="C2_endcap_0_v104" vertex3="C2_endcap_0_v105"/>
+      <triangular vertex1="C2_endcap_0_v105" vertex2="C2_endcap_0_v106" vertex3="C2_endcap_0_v107"/>
+      <triangular vertex1="C2_endcap_0_v107" vertex2="C2_endcap_0_v108" vertex3="C2_endcap_0_v109"/>
+      <triangular vertex1="C2_endcap_0_v109" vertex2="C2_endcap_0_v110" vertex3="C2_endcap_0_v111"/>
+      <triangular vertex1="C2_endcap_0_v111" vertex2="C2_endcap_0_v112" vertex3="C2_endcap_0_v113"/>
+      <triangular vertex1="C2_endcap_0_v113" vertex2="C2_endcap_0_v114" vertex3="C2_endcap_0_v115"/>
+      <triangular vertex1="C2_endcap_0_v115" vertex2="C2_endcap_0_v116" vertex3="C2_endcap_0_v117"/>
+      <triangular vertex1="C2_endcap_0_v117" vertex2="C2_endcap_0_v118" vertex3="C2_endcap_0_v119"/>
+      <triangular vertex1="C2_endcap_0_v119" vertex2="C2_endcap_0_v120" vertex3="C2_endcap_0_v121"/>
+      <triangular vertex1="C2_endcap_0_v121" vertex2="C2_endcap_0_v122" vertex3="C2_endcap_0_v123"/>
+      <triangular vertex1="C2_endcap_0_v123" vertex2="C2_endcap_0_v124" vertex3="C2_endcap_0_v125"/>
+      <triangular vertex1="C2_endcap_0_v125" vertex2="C2_endcap_0_v126" vertex3="C2_endcap_0_v127"/>
+      <triangular vertex1="C2_endcap_0_v127" vertex2="C2_endcap_0_v128" vertex3="C2_endcap_0_v129"/>
+      <triangular vertex1="C2_endcap_0_v129" vertex2="C2_endcap_0_v130" vertex3="C2_endcap_0_v131"/>
+      <triangular vertex1="C2_endcap_0_v131" vertex2="C2_endcap_0_v132" vertex3="C2_endcap_0_v133"/>
+      <triangular vertex1="C2_endcap_0_v133" vertex2="C2_endcap_0_v134" vertex3="C2_endcap_0_v135"/>
+      <triangular vertex1="C2_endcap_0_v135" vertex2="C2_endcap_0_v136" vertex3="C2_endcap_0_v137"/>
+      <triangular vertex1="C2_endcap_0_v137" vertex2="C2_endcap_0_v138" vertex3="C2_endcap_0_v139"/>
+      <triangular vertex1="C2_endcap_0_v139" vertex2="C2_endcap_0_v140" vertex3="C2_endcap_0_v141"/>
+      <triangular vertex1="C2_endcap_0_v141" vertex2="C2_endcap_0_v142" vertex3="C2_endcap_0_v143"/>
+      <triangular vertex1="C2_endcap_0_v143" vertex2="C2_endcap_0_v144" vertex3="C2_endcap_0_v145"/>
+      <triangular vertex1="C2_endcap_0_v145" vertex2="C2_endcap_0_v146" vertex3="C2_endcap_0_v147"/>
+      <triangular vertex1="C2_endcap_0_v147" vertex2="C2_endcap_0_v148" vertex3="C2_endcap_0_v149"/>
+      <triangular vertex1="C2_endcap_0_v149" vertex2="C2_endcap_0_v150" vertex3="C2_endcap_0_v151"/>
+      <triangular vertex1="C2_endcap_0_v151" vertex2="C2_endcap_0_v152" vertex3="C2_endcap_0_v153"/>
+      <triangular vertex1="C2_endcap_0_v153" vertex2="C2_endcap_0_v154" vertex3="C2_endcap_0_v155"/>
+      <triangular vertex1="C2_endcap_0_v155" vertex2="C2_endcap_0_v156" vertex3="C2_endcap_0_v157"/>
+      <triangular vertex1="C2_endcap_0_v157" vertex2="C2_endcap_0_v158" vertex3="C2_endcap_0_v159"/>
+      <triangular vertex1="C2_endcap_0_v159" vertex2="C2_endcap_0_v160" vertex3="C2_endcap_0_v161"/>
+      <triangular vertex1="C2_endcap_0_v161" vertex2="C2_endcap_0_v162" vertex3="C2_endcap_0_v163"/>
+      <triangular vertex1="C2_endcap_0_v163" vertex2="C2_endcap_0_v164" vertex3="C2_endcap_0_v165"/>
+      <triangular vertex1="C2_endcap_0_v165" vertex2="C2_endcap_0_v166" vertex3="C2_endcap_0_v167"/>
+      <triangular vertex1="C2_endcap_0_v167" vertex2="C2_endcap_0_v168" vertex3="C2_endcap_0_v169"/>
+      <triangular vertex1="C2_endcap_0_v169" vertex2="C2_endcap_0_v170" vertex3="C2_endcap_0_v171"/>
+      <triangular vertex1="C2_endcap_0_v171" vertex2="C2_endcap_0_v172" vertex3="C2_endcap_0_v173"/>
+      <triangular vertex1="C2_endcap_0_v173" vertex2="C2_endcap_0_v174" vertex3="C2_endcap_0_v175"/>
+      <triangular vertex1="C2_endcap_0_v175" vertex2="C2_endcap_0_v176" vertex3="C2_endcap_0_v177"/>
+      <triangular vertex1="C2_endcap_0_v177" vertex2="C2_endcap_0_v178" vertex3="C2_endcap_0_v179"/>
+      <triangular vertex1="C2_endcap_0_v179" vertex2="C2_endcap_0_v180" vertex3="C2_endcap_0_v181"/>
+      <triangular vertex1="C2_endcap_0_v181" vertex2="C2_endcap_0_v182" vertex3="C2_endcap_0_v183"/>
+      <triangular vertex1="C2_endcap_0_v183" vertex2="C2_endcap_0_v184" vertex3="C2_endcap_0_v185"/>
+      <triangular vertex1="C2_endcap_0_v185" vertex2="C2_endcap_0_v186" vertex3="C2_endcap_0_v187"/>
+      <triangular vertex1="C2_endcap_0_v187" vertex2="C2_endcap_0_v188" vertex3="C2_endcap_0_v189"/>
+      <triangular vertex1="C2_endcap_0_v189" vertex2="C2_endcap_0_v190" vertex3="C2_endcap_0_v191"/>
+      <triangular vertex1="C2_endcap_0_v191" vertex2="C2_endcap_0_v192" vertex3="C2_endcap_0_v193"/>
+      <triangular vertex1="C2_endcap_0_v193" vertex2="C2_endcap_0_v194" vertex3="C2_endcap_0_v195"/>
+      <triangular vertex1="C2_endcap_0_v195" vertex2="C2_endcap_0_v196" vertex3="C2_endcap_0_v197"/>
+      <triangular vertex1="C2_endcap_0_v197" vertex2="C2_endcap_0_v198" vertex3="C2_endcap_0_v199"/>
+      <triangular vertex1="C2_endcap_0_v199" vertex2="C2_endcap_0_v200" vertex3="C2_endcap_0_v201"/>
+      <triangular vertex1="C2_endcap_0_v201" vertex2="C2_endcap_0_v202" vertex3="C2_endcap_0_v203"/>
+      <triangular vertex1="C2_endcap_0_v203" vertex2="C2_endcap_0_v204" vertex3="C2_endcap_0_v205"/>
+      <triangular vertex1="C2_endcap_0_v205" vertex2="C2_endcap_0_v206" vertex3="C2_endcap_0_v207"/>
+      <triangular vertex1="C2_endcap_0_v207" vertex2="C2_endcap_0_v208" vertex3="C2_endcap_0_v209"/>
+      <triangular vertex1="C2_endcap_0_v1" vertex2="C2_endcap_0_v103" vertex3="C2_endcap_0_v209"/>
+      <triangular vertex1="C2_endcap_0_v1" vertex2="C2_endcap_0_v101" vertex3="C2_endcap_0_v103"/>
+      <triangular vertex1="C2_endcap_0_v1" vertex2="C2_endcap_0_v3" vertex3="C2_endcap_0_v101"/>
+      <triangular vertex1="C2_endcap_0_v101" vertex2="C2_endcap_0_v3" vertex3="C2_endcap_0_v99"/>
+      <triangular vertex1="C2_endcap_0_v99" vertex2="C2_endcap_0_v3" vertex3="C2_endcap_0_v5"/>
+      <triangular vertex1="C2_endcap_0_v97" vertex2="C2_endcap_0_v5" vertex3="C2_endcap_0_v7"/>
+      <triangular vertex1="C2_endcap_0_v95" vertex2="C2_endcap_0_v7" vertex3="C2_endcap_0_v9"/>
+      <triangular vertex1="C2_endcap_0_v93" vertex2="C2_endcap_0_v9" vertex3="C2_endcap_0_v11"/>
+      <triangular vertex1="C2_endcap_0_v91" vertex2="C2_endcap_0_v11" vertex3="C2_endcap_0_v13"/>
+      <triangular vertex1="C2_endcap_0_v89" vertex2="C2_endcap_0_v13" vertex3="C2_endcap_0_v15"/>
+      <triangular vertex1="C2_endcap_0_v87" vertex2="C2_endcap_0_v15" vertex3="C2_endcap_0_v17"/>
+      <triangular vertex1="C2_endcap_0_v85" vertex2="C2_endcap_0_v17" vertex3="C2_endcap_0_v19"/>
+      <triangular vertex1="C2_endcap_0_v83" vertex2="C2_endcap_0_v19" vertex3="C2_endcap_0_v21"/>
+      <triangular vertex1="C2_endcap_0_v81" vertex2="C2_endcap_0_v21" vertex3="C2_endcap_0_v23"/>
+      <triangular vertex1="C2_endcap_0_v79" vertex2="C2_endcap_0_v23" vertex3="C2_endcap_0_v25"/>
+      <triangular vertex1="C2_endcap_0_v77" vertex2="C2_endcap_0_v25" vertex3="C2_endcap_0_v27"/>
+      <triangular vertex1="C2_endcap_0_v75" vertex2="C2_endcap_0_v27" vertex3="C2_endcap_0_v29"/>
+      <triangular vertex1="C2_endcap_0_v73" vertex2="C2_endcap_0_v29" vertex3="C2_endcap_0_v31"/>
+      <triangular vertex1="C2_endcap_0_v71" vertex2="C2_endcap_0_v31" vertex3="C2_endcap_0_v33"/>
+      <triangular vertex1="C2_endcap_0_v69" vertex2="C2_endcap_0_v33" vertex3="C2_endcap_0_v35"/>
+      <triangular vertex1="C2_endcap_0_v67" vertex2="C2_endcap_0_v35" vertex3="C2_endcap_0_v37"/>
+      <triangular vertex1="C2_endcap_0_v65" vertex2="C2_endcap_0_v37" vertex3="C2_endcap_0_v39"/>
+      <triangular vertex1="C2_endcap_0_v63" vertex2="C2_endcap_0_v39" vertex3="C2_endcap_0_v41"/>
+      <triangular vertex1="C2_endcap_0_v61" vertex2="C2_endcap_0_v41" vertex3="C2_endcap_0_v43"/>
+      <triangular vertex1="C2_endcap_0_v59" vertex2="C2_endcap_0_v43" vertex3="C2_endcap_0_v45"/>
+      <triangular vertex1="C2_endcap_0_v57" vertex2="C2_endcap_0_v45" vertex3="C2_endcap_0_v47"/>
+      <triangular vertex1="C2_endcap_0_v55" vertex2="C2_endcap_0_v47" vertex3="C2_endcap_0_v49"/>
+      <triangular vertex1="C2_endcap_0_v53" vertex2="C2_endcap_0_v49" vertex3="C2_endcap_0_v51"/>
+      <triangular vertex1="C2_endcap_0_v53" vertex2="C2_endcap_0_v55" vertex3="C2_endcap_0_v49"/>
+      <triangular vertex1="C2_endcap_0_v99" vertex2="C2_endcap_0_v5" vertex3="C2_endcap_0_v97"/>
+      <triangular vertex1="C2_endcap_0_v97" vertex2="C2_endcap_0_v7" vertex3="C2_endcap_0_v95"/>
+      <triangular vertex1="C2_endcap_0_v95" vertex2="C2_endcap_0_v9" vertex3="C2_endcap_0_v93"/>
+      <triangular vertex1="C2_endcap_0_v93" vertex2="C2_endcap_0_v11" vertex3="C2_endcap_0_v91"/>
+      <triangular vertex1="C2_endcap_0_v91" vertex2="C2_endcap_0_v13" vertex3="C2_endcap_0_v89"/>
+      <triangular vertex1="C2_endcap_0_v89" vertex2="C2_endcap_0_v15" vertex3="C2_endcap_0_v87"/>
+      <triangular vertex1="C2_endcap_0_v87" vertex2="C2_endcap_0_v17" vertex3="C2_endcap_0_v85"/>
+      <triangular vertex1="C2_endcap_0_v85" vertex2="C2_endcap_0_v19" vertex3="C2_endcap_0_v83"/>
+      <triangular vertex1="C2_endcap_0_v83" vertex2="C2_endcap_0_v21" vertex3="C2_endcap_0_v81"/>
+      <triangular vertex1="C2_endcap_0_v81" vertex2="C2_endcap_0_v23" vertex3="C2_endcap_0_v79"/>
+      <triangular vertex1="C2_endcap_0_v79" vertex2="C2_endcap_0_v25" vertex3="C2_endcap_0_v77"/>
+      <triangular vertex1="C2_endcap_0_v77" vertex2="C2_endcap_0_v27" vertex3="C2_endcap_0_v75"/>
+      <triangular vertex1="C2_endcap_0_v75" vertex2="C2_endcap_0_v29" vertex3="C2_endcap_0_v73"/>
+      <triangular vertex1="C2_endcap_0_v73" vertex2="C2_endcap_0_v31" vertex3="C2_endcap_0_v71"/>
+      <triangular vertex1="C2_endcap_0_v71" vertex2="C2_endcap_0_v33" vertex3="C2_endcap_0_v69"/>
+      <triangular vertex1="C2_endcap_0_v69" vertex2="C2_endcap_0_v35" vertex3="C2_endcap_0_v67"/>
+      <triangular vertex1="C2_endcap_0_v67" vertex2="C2_endcap_0_v37" vertex3="C2_endcap_0_v65"/>
+      <triangular vertex1="C2_endcap_0_v65" vertex2="C2_endcap_0_v39" vertex3="C2_endcap_0_v63"/>
+      <triangular vertex1="C2_endcap_0_v63" vertex2="C2_endcap_0_v41" vertex3="C2_endcap_0_v61"/>
+      <triangular vertex1="C2_endcap_0_v61" vertex2="C2_endcap_0_v43" vertex3="C2_endcap_0_v59"/>
+      <triangular vertex1="C2_endcap_0_v59" vertex2="C2_endcap_0_v45" vertex3="C2_endcap_0_v57"/>
+      <triangular vertex1="C2_endcap_0_v57" vertex2="C2_endcap_0_v47" vertex3="C2_endcap_0_v55"/>
+      <triangular vertex1="C2_endcap_0_v103" vertex2="C2_endcap_0_v105" vertex3="C2_endcap_0_v209"/>
+      <triangular vertex1="C2_endcap_0_v209" vertex2="C2_endcap_0_v105" vertex3="C2_endcap_0_v207"/>
+      <triangular vertex1="C2_endcap_0_v207" vertex2="C2_endcap_0_v105" vertex3="C2_endcap_0_v107"/>
+      <triangular vertex1="C2_endcap_0_v205" vertex2="C2_endcap_0_v107" vertex3="C2_endcap_0_v109"/>
+      <triangular vertex1="C2_endcap_0_v203" vertex2="C2_endcap_0_v109" vertex3="C2_endcap_0_v111"/>
+      <triangular vertex1="C2_endcap_0_v201" vertex2="C2_endcap_0_v111" vertex3="C2_endcap_0_v113"/>
+      <triangular vertex1="C2_endcap_0_v199" vertex2="C2_endcap_0_v113" vertex3="C2_endcap_0_v115"/>
+      <triangular vertex1="C2_endcap_0_v197" vertex2="C2_endcap_0_v115" vertex3="C2_endcap_0_v117"/>
+      <triangular vertex1="C2_endcap_0_v195" vertex2="C2_endcap_0_v117" vertex3="C2_endcap_0_v119"/>
+      <triangular vertex1="C2_endcap_0_v193" vertex2="C2_endcap_0_v119" vertex3="C2_endcap_0_v121"/>
+      <triangular vertex1="C2_endcap_0_v191" vertex2="C2_endcap_0_v121" vertex3="C2_endcap_0_v123"/>
+      <triangular vertex1="C2_endcap_0_v189" vertex2="C2_endcap_0_v123" vertex3="C2_endcap_0_v125"/>
+      <triangular vertex1="C2_endcap_0_v187" vertex2="C2_endcap_0_v125" vertex3="C2_endcap_0_v127"/>
+      <triangular vertex1="C2_endcap_0_v185" vertex2="C2_endcap_0_v127" vertex3="C2_endcap_0_v129"/>
+      <triangular vertex1="C2_endcap_0_v183" vertex2="C2_endcap_0_v129" vertex3="C2_endcap_0_v131"/>
+      <triangular vertex1="C2_endcap_0_v181" vertex2="C2_endcap_0_v131" vertex3="C2_endcap_0_v133"/>
+      <triangular vertex1="C2_endcap_0_v179" vertex2="C2_endcap_0_v133" vertex3="C2_endcap_0_v135"/>
+      <triangular vertex1="C2_endcap_0_v177" vertex2="C2_endcap_0_v135" vertex3="C2_endcap_0_v137"/>
+      <triangular vertex1="C2_endcap_0_v175" vertex2="C2_endcap_0_v137" vertex3="C2_endcap_0_v139"/>
+      <triangular vertex1="C2_endcap_0_v173" vertex2="C2_endcap_0_v139" vertex3="C2_endcap_0_v141"/>
+      <triangular vertex1="C2_endcap_0_v171" vertex2="C2_endcap_0_v141" vertex3="C2_endcap_0_v143"/>
+      <triangular vertex1="C2_endcap_0_v169" vertex2="C2_endcap_0_v143" vertex3="C2_endcap_0_v145"/>
+      <triangular vertex1="C2_endcap_0_v167" vertex2="C2_endcap_0_v145" vertex3="C2_endcap_0_v147"/>
+      <triangular vertex1="C2_endcap_0_v165" vertex2="C2_endcap_0_v147" vertex3="C2_endcap_0_v149"/>
+      <triangular vertex1="C2_endcap_0_v163" vertex2="C2_endcap_0_v149" vertex3="C2_endcap_0_v151"/>
+      <triangular vertex1="C2_endcap_0_v161" vertex2="C2_endcap_0_v151" vertex3="C2_endcap_0_v153"/>
+      <triangular vertex1="C2_endcap_0_v159" vertex2="C2_endcap_0_v153" vertex3="C2_endcap_0_v155"/>
+      <triangular vertex1="C2_endcap_0_v157" vertex2="C2_endcap_0_v159" vertex3="C2_endcap_0_v155"/>
+      <triangular vertex1="C2_endcap_0_v207" vertex2="C2_endcap_0_v107" vertex3="C2_endcap_0_v205"/>
+      <triangular vertex1="C2_endcap_0_v205" vertex2="C2_endcap_0_v109" vertex3="C2_endcap_0_v203"/>
+      <triangular vertex1="C2_endcap_0_v203" vertex2="C2_endcap_0_v111" vertex3="C2_endcap_0_v201"/>
+      <triangular vertex1="C2_endcap_0_v201" vertex2="C2_endcap_0_v113" vertex3="C2_endcap_0_v199"/>
+      <triangular vertex1="C2_endcap_0_v199" vertex2="C2_endcap_0_v115" vertex3="C2_endcap_0_v197"/>
+      <triangular vertex1="C2_endcap_0_v197" vertex2="C2_endcap_0_v117" vertex3="C2_endcap_0_v195"/>
+      <triangular vertex1="C2_endcap_0_v195" vertex2="C2_endcap_0_v119" vertex3="C2_endcap_0_v193"/>
+      <triangular vertex1="C2_endcap_0_v193" vertex2="C2_endcap_0_v121" vertex3="C2_endcap_0_v191"/>
+      <triangular vertex1="C2_endcap_0_v191" vertex2="C2_endcap_0_v123" vertex3="C2_endcap_0_v189"/>
+      <triangular vertex1="C2_endcap_0_v189" vertex2="C2_endcap_0_v125" vertex3="C2_endcap_0_v187"/>
+      <triangular vertex1="C2_endcap_0_v187" vertex2="C2_endcap_0_v127" vertex3="C2_endcap_0_v185"/>
+      <triangular vertex1="C2_endcap_0_v185" vertex2="C2_endcap_0_v129" vertex3="C2_endcap_0_v183"/>
+      <triangular vertex1="C2_endcap_0_v183" vertex2="C2_endcap_0_v131" vertex3="C2_endcap_0_v181"/>
+      <triangular vertex1="C2_endcap_0_v181" vertex2="C2_endcap_0_v133" vertex3="C2_endcap_0_v179"/>
+      <triangular vertex1="C2_endcap_0_v179" vertex2="C2_endcap_0_v135" vertex3="C2_endcap_0_v177"/>
+      <triangular vertex1="C2_endcap_0_v177" vertex2="C2_endcap_0_v137" vertex3="C2_endcap_0_v175"/>
+      <triangular vertex1="C2_endcap_0_v175" vertex2="C2_endcap_0_v139" vertex3="C2_endcap_0_v173"/>
+      <triangular vertex1="C2_endcap_0_v173" vertex2="C2_endcap_0_v141" vertex3="C2_endcap_0_v171"/>
+      <triangular vertex1="C2_endcap_0_v171" vertex2="C2_endcap_0_v143" vertex3="C2_endcap_0_v169"/>
+      <triangular vertex1="C2_endcap_0_v169" vertex2="C2_endcap_0_v145" vertex3="C2_endcap_0_v167"/>
+      <triangular vertex1="C2_endcap_0_v167" vertex2="C2_endcap_0_v147" vertex3="C2_endcap_0_v165"/>
+      <triangular vertex1="C2_endcap_0_v165" vertex2="C2_endcap_0_v149" vertex3="C2_endcap_0_v163"/>
+      <triangular vertex1="C2_endcap_0_v163" vertex2="C2_endcap_0_v151" vertex3="C2_endcap_0_v161"/>
+      <triangular vertex1="C2_endcap_0_v161" vertex2="C2_endcap_0_v153" vertex3="C2_endcap_0_v159"/>
+      <triangular vertex1="C2_endcap_0_v208" vertex2="C2_endcap_0_v106" vertex3="C2_endcap_0_v2"/>
+      <triangular vertex1="C2_endcap_0_v208" vertex2="C2_endcap_0_v108" vertex3="C2_endcap_0_v106"/>
+      <triangular vertex1="C2_endcap_0_v208" vertex2="C2_endcap_0_v206" vertex3="C2_endcap_0_v108"/>
+      <triangular vertex1="C2_endcap_0_v108" vertex2="C2_endcap_0_v206" vertex3="C2_endcap_0_v110"/>
+      <triangular vertex1="C2_endcap_0_v110" vertex2="C2_endcap_0_v206" vertex3="C2_endcap_0_v204"/>
+      <triangular vertex1="C2_endcap_0_v112" vertex2="C2_endcap_0_v204" vertex3="C2_endcap_0_v202"/>
+      <triangular vertex1="C2_endcap_0_v114" vertex2="C2_endcap_0_v202" vertex3="C2_endcap_0_v200"/>
+      <triangular vertex1="C2_endcap_0_v116" vertex2="C2_endcap_0_v200" vertex3="C2_endcap_0_v198"/>
+      <triangular vertex1="C2_endcap_0_v118" vertex2="C2_endcap_0_v198" vertex3="C2_endcap_0_v196"/>
+      <triangular vertex1="C2_endcap_0_v120" vertex2="C2_endcap_0_v196" vertex3="C2_endcap_0_v194"/>
+      <triangular vertex1="C2_endcap_0_v122" vertex2="C2_endcap_0_v194" vertex3="C2_endcap_0_v192"/>
+      <triangular vertex1="C2_endcap_0_v124" vertex2="C2_endcap_0_v192" vertex3="C2_endcap_0_v190"/>
+      <triangular vertex1="C2_endcap_0_v126" vertex2="C2_endcap_0_v190" vertex3="C2_endcap_0_v188"/>
+      <triangular vertex1="C2_endcap_0_v128" vertex2="C2_endcap_0_v188" vertex3="C2_endcap_0_v186"/>
+      <triangular vertex1="C2_endcap_0_v130" vertex2="C2_endcap_0_v186" vertex3="C2_endcap_0_v184"/>
+      <triangular vertex1="C2_endcap_0_v132" vertex2="C2_endcap_0_v184" vertex3="C2_endcap_0_v182"/>
+      <triangular vertex1="C2_endcap_0_v134" vertex2="C2_endcap_0_v182" vertex3="C2_endcap_0_v180"/>
+      <triangular vertex1="C2_endcap_0_v136" vertex2="C2_endcap_0_v180" vertex3="C2_endcap_0_v178"/>
+      <triangular vertex1="C2_endcap_0_v138" vertex2="C2_endcap_0_v178" vertex3="C2_endcap_0_v176"/>
+      <triangular vertex1="C2_endcap_0_v140" vertex2="C2_endcap_0_v176" vertex3="C2_endcap_0_v174"/>
+      <triangular vertex1="C2_endcap_0_v142" vertex2="C2_endcap_0_v174" vertex3="C2_endcap_0_v172"/>
+      <triangular vertex1="C2_endcap_0_v144" vertex2="C2_endcap_0_v172" vertex3="C2_endcap_0_v170"/>
+      <triangular vertex1="C2_endcap_0_v146" vertex2="C2_endcap_0_v170" vertex3="C2_endcap_0_v168"/>
+      <triangular vertex1="C2_endcap_0_v148" vertex2="C2_endcap_0_v168" vertex3="C2_endcap_0_v166"/>
+      <triangular vertex1="C2_endcap_0_v150" vertex2="C2_endcap_0_v166" vertex3="C2_endcap_0_v164"/>
+      <triangular vertex1="C2_endcap_0_v152" vertex2="C2_endcap_0_v164" vertex3="C2_endcap_0_v162"/>
+      <triangular vertex1="C2_endcap_0_v154" vertex2="C2_endcap_0_v162" vertex3="C2_endcap_0_v160"/>
+      <triangular vertex1="C2_endcap_0_v156" vertex2="C2_endcap_0_v160" vertex3="C2_endcap_0_v158"/>
+      <triangular vertex1="C2_endcap_0_v156" vertex2="C2_endcap_0_v154" vertex3="C2_endcap_0_v160"/>
+      <triangular vertex1="C2_endcap_0_v110" vertex2="C2_endcap_0_v204" vertex3="C2_endcap_0_v112"/>
+      <triangular vertex1="C2_endcap_0_v112" vertex2="C2_endcap_0_v202" vertex3="C2_endcap_0_v114"/>
+      <triangular vertex1="C2_endcap_0_v114" vertex2="C2_endcap_0_v200" vertex3="C2_endcap_0_v116"/>
+      <triangular vertex1="C2_endcap_0_v116" vertex2="C2_endcap_0_v198" vertex3="C2_endcap_0_v118"/>
+      <triangular vertex1="C2_endcap_0_v118" vertex2="C2_endcap_0_v196" vertex3="C2_endcap_0_v120"/>
+      <triangular vertex1="C2_endcap_0_v120" vertex2="C2_endcap_0_v194" vertex3="C2_endcap_0_v122"/>
+      <triangular vertex1="C2_endcap_0_v122" vertex2="C2_endcap_0_v192" vertex3="C2_endcap_0_v124"/>
+      <triangular vertex1="C2_endcap_0_v124" vertex2="C2_endcap_0_v190" vertex3="C2_endcap_0_v126"/>
+      <triangular vertex1="C2_endcap_0_v126" vertex2="C2_endcap_0_v188" vertex3="C2_endcap_0_v128"/>
+      <triangular vertex1="C2_endcap_0_v128" vertex2="C2_endcap_0_v186" vertex3="C2_endcap_0_v130"/>
+      <triangular vertex1="C2_endcap_0_v130" vertex2="C2_endcap_0_v184" vertex3="C2_endcap_0_v132"/>
+      <triangular vertex1="C2_endcap_0_v132" vertex2="C2_endcap_0_v182" vertex3="C2_endcap_0_v134"/>
+      <triangular vertex1="C2_endcap_0_v134" vertex2="C2_endcap_0_v180" vertex3="C2_endcap_0_v136"/>
+      <triangular vertex1="C2_endcap_0_v136" vertex2="C2_endcap_0_v178" vertex3="C2_endcap_0_v138"/>
+      <triangular vertex1="C2_endcap_0_v138" vertex2="C2_endcap_0_v176" vertex3="C2_endcap_0_v140"/>
+      <triangular vertex1="C2_endcap_0_v140" vertex2="C2_endcap_0_v174" vertex3="C2_endcap_0_v142"/>
+      <triangular vertex1="C2_endcap_0_v142" vertex2="C2_endcap_0_v172" vertex3="C2_endcap_0_v144"/>
+      <triangular vertex1="C2_endcap_0_v144" vertex2="C2_endcap_0_v170" vertex3="C2_endcap_0_v146"/>
+      <triangular vertex1="C2_endcap_0_v146" vertex2="C2_endcap_0_v168" vertex3="C2_endcap_0_v148"/>
+      <triangular vertex1="C2_endcap_0_v148" vertex2="C2_endcap_0_v166" vertex3="C2_endcap_0_v150"/>
+      <triangular vertex1="C2_endcap_0_v150" vertex2="C2_endcap_0_v164" vertex3="C2_endcap_0_v152"/>
+      <triangular vertex1="C2_endcap_0_v152" vertex2="C2_endcap_0_v162" vertex3="C2_endcap_0_v154"/>
+      <triangular vertex1="C2_endcap_0_v106" vertex2="C2_endcap_0_v104" vertex3="C2_endcap_0_v2"/>
+      <triangular vertex1="C2_endcap_0_v2" vertex2="C2_endcap_0_v104" vertex3="C2_endcap_0_v0"/>
+      <triangular vertex1="C2_endcap_0_v0" vertex2="C2_endcap_0_v104" vertex3="C2_endcap_0_v102"/>
+      <triangular vertex1="C2_endcap_0_v4" vertex2="C2_endcap_0_v102" vertex3="C2_endcap_0_v100"/>
+      <triangular vertex1="C2_endcap_0_v6" vertex2="C2_endcap_0_v100" vertex3="C2_endcap_0_v98"/>
+      <triangular vertex1="C2_endcap_0_v8" vertex2="C2_endcap_0_v98" vertex3="C2_endcap_0_v96"/>
+      <triangular vertex1="C2_endcap_0_v10" vertex2="C2_endcap_0_v96" vertex3="C2_endcap_0_v94"/>
+      <triangular vertex1="C2_endcap_0_v12" vertex2="C2_endcap_0_v94" vertex3="C2_endcap_0_v92"/>
+      <triangular vertex1="C2_endcap_0_v14" vertex2="C2_endcap_0_v92" vertex3="C2_endcap_0_v90"/>
+      <triangular vertex1="C2_endcap_0_v16" vertex2="C2_endcap_0_v90" vertex3="C2_endcap_0_v88"/>
+      <triangular vertex1="C2_endcap_0_v18" vertex2="C2_endcap_0_v88" vertex3="C2_endcap_0_v86"/>
+      <triangular vertex1="C2_endcap_0_v20" vertex2="C2_endcap_0_v86" vertex3="C2_endcap_0_v84"/>
+      <triangular vertex1="C2_endcap_0_v22" vertex2="C2_endcap_0_v84" vertex3="C2_endcap_0_v82"/>
+      <triangular vertex1="C2_endcap_0_v24" vertex2="C2_endcap_0_v82" vertex3="C2_endcap_0_v80"/>
+      <triangular vertex1="C2_endcap_0_v26" vertex2="C2_endcap_0_v80" vertex3="C2_endcap_0_v78"/>
+      <triangular vertex1="C2_endcap_0_v28" vertex2="C2_endcap_0_v78" vertex3="C2_endcap_0_v76"/>
+      <triangular vertex1="C2_endcap_0_v30" vertex2="C2_endcap_0_v76" vertex3="C2_endcap_0_v74"/>
+      <triangular vertex1="C2_endcap_0_v32" vertex2="C2_endcap_0_v74" vertex3="C2_endcap_0_v72"/>
+      <triangular vertex1="C2_endcap_0_v34" vertex2="C2_endcap_0_v72" vertex3="C2_endcap_0_v70"/>
+      <triangular vertex1="C2_endcap_0_v36" vertex2="C2_endcap_0_v70" vertex3="C2_endcap_0_v68"/>
+      <triangular vertex1="C2_endcap_0_v38" vertex2="C2_endcap_0_v68" vertex3="C2_endcap_0_v66"/>
+      <triangular vertex1="C2_endcap_0_v40" vertex2="C2_endcap_0_v66" vertex3="C2_endcap_0_v64"/>
+      <triangular vertex1="C2_endcap_0_v42" vertex2="C2_endcap_0_v64" vertex3="C2_endcap_0_v62"/>
+      <triangular vertex1="C2_endcap_0_v44" vertex2="C2_endcap_0_v62" vertex3="C2_endcap_0_v60"/>
+      <triangular vertex1="C2_endcap_0_v46" vertex2="C2_endcap_0_v60" vertex3="C2_endcap_0_v58"/>
+      <triangular vertex1="C2_endcap_0_v48" vertex2="C2_endcap_0_v58" vertex3="C2_endcap_0_v56"/>
+      <triangular vertex1="C2_endcap_0_v50" vertex2="C2_endcap_0_v56" vertex3="C2_endcap_0_v54"/>
+      <triangular vertex1="C2_endcap_0_v52" vertex2="C2_endcap_0_v50" vertex3="C2_endcap_0_v54"/>
+      <triangular vertex1="C2_endcap_0_v0" vertex2="C2_endcap_0_v102" vertex3="C2_endcap_0_v4"/>
+      <triangular vertex1="C2_endcap_0_v4" vertex2="C2_endcap_0_v100" vertex3="C2_endcap_0_v6"/>
+      <triangular vertex1="C2_endcap_0_v6" vertex2="C2_endcap_0_v98" vertex3="C2_endcap_0_v8"/>
+      <triangular vertex1="C2_endcap_0_v8" vertex2="C2_endcap_0_v96" vertex3="C2_endcap_0_v10"/>
+      <triangular vertex1="C2_endcap_0_v10" vertex2="C2_endcap_0_v94" vertex3="C2_endcap_0_v12"/>
+      <triangular vertex1="C2_endcap_0_v12" vertex2="C2_endcap_0_v92" vertex3="C2_endcap_0_v14"/>
+      <triangular vertex1="C2_endcap_0_v14" vertex2="C2_endcap_0_v90" vertex3="C2_endcap_0_v16"/>
+      <triangular vertex1="C2_endcap_0_v16" vertex2="C2_endcap_0_v88" vertex3="C2_endcap_0_v18"/>
+      <triangular vertex1="C2_endcap_0_v18" vertex2="C2_endcap_0_v86" vertex3="C2_endcap_0_v20"/>
+      <triangular vertex1="C2_endcap_0_v20" vertex2="C2_endcap_0_v84" vertex3="C2_endcap_0_v22"/>
+      <triangular vertex1="C2_endcap_0_v22" vertex2="C2_endcap_0_v82" vertex3="C2_endcap_0_v24"/>
+      <triangular vertex1="C2_endcap_0_v24" vertex2="C2_endcap_0_v80" vertex3="C2_endcap_0_v26"/>
+      <triangular vertex1="C2_endcap_0_v26" vertex2="C2_endcap_0_v78" vertex3="C2_endcap_0_v28"/>
+      <triangular vertex1="C2_endcap_0_v28" vertex2="C2_endcap_0_v76" vertex3="C2_endcap_0_v30"/>
+      <triangular vertex1="C2_endcap_0_v30" vertex2="C2_endcap_0_v74" vertex3="C2_endcap_0_v32"/>
+      <triangular vertex1="C2_endcap_0_v32" vertex2="C2_endcap_0_v72" vertex3="C2_endcap_0_v34"/>
+      <triangular vertex1="C2_endcap_0_v34" vertex2="C2_endcap_0_v70" vertex3="C2_endcap_0_v36"/>
+      <triangular vertex1="C2_endcap_0_v36" vertex2="C2_endcap_0_v68" vertex3="C2_endcap_0_v38"/>
+      <triangular vertex1="C2_endcap_0_v38" vertex2="C2_endcap_0_v66" vertex3="C2_endcap_0_v40"/>
+      <triangular vertex1="C2_endcap_0_v40" vertex2="C2_endcap_0_v64" vertex3="C2_endcap_0_v42"/>
+      <triangular vertex1="C2_endcap_0_v42" vertex2="C2_endcap_0_v62" vertex3="C2_endcap_0_v44"/>
+      <triangular vertex1="C2_endcap_0_v44" vertex2="C2_endcap_0_v60" vertex3="C2_endcap_0_v46"/>
+      <triangular vertex1="C2_endcap_0_v46" vertex2="C2_endcap_0_v58" vertex3="C2_endcap_0_v48"/>
+      <triangular vertex1="C2_endcap_0_v48" vertex2="C2_endcap_0_v56" vertex3="C2_endcap_0_v50"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="C2_endcap_0">
+    <materialref ref="Plexiglass"/>
+    <solidref ref="C2_endcap_00xbf1fb0"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="C2_endcap_0"/>
+  </setup>
+
+</gdml>

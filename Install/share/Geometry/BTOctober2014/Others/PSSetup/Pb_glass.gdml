@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+
+<!DOCTYPE gdml[
+<!ENTITY materials SYSTEM "../../../Schema/materials.xml">
+]>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Schema/gdml.xsd">
+
+  <define>
+    <position name="Pb_glass_v0" unit="mm" x="-375" y="-80" z="-3975"/>
+    <position name="Pb_glass_v1" unit="mm" x="-225" y="-80" z="-3975"/>
+    <position name="Pb_glass_v2" unit="mm" x="-375" y="-530" z="-3975"/>
+    <position name="Pb_glass_v3" unit="mm" x="-225" y="-530" z="-3975"/>
+    <position name="Pb_glass_v4" unit="mm" x="-375" y="-80" z="-3825"/>
+    <position name="Pb_glass_v5" unit="mm" x="-375" y="-530" z="-3825"/>
+    <position name="Pb_glass_v6" unit="mm" x="-225" y="-80" z="-3825"/>
+    <position name="Pb_glass_v7" unit="mm" x="-225" y="-530" z="-3825"/>
+  </define>
+
+  &materials;
+  <solids>
+    <tessellated aunit="deg" lunit="mm" name="Pb_glass0x1cfba40">
+      <triangular vertex1="Pb_glass_v0" vertex2="Pb_glass_v1" vertex3="Pb_glass_v2"/>
+      <triangular vertex1="Pb_glass_v2" vertex2="Pb_glass_v1" vertex3="Pb_glass_v3"/>
+      <triangular vertex1="Pb_glass_v4" vertex2="Pb_glass_v0" vertex3="Pb_glass_v5"/>
+      <triangular vertex1="Pb_glass_v5" vertex2="Pb_glass_v0" vertex3="Pb_glass_v2"/>
+      <triangular vertex1="Pb_glass_v6" vertex2="Pb_glass_v4" vertex3="Pb_glass_v7"/>
+      <triangular vertex1="Pb_glass_v7" vertex2="Pb_glass_v4" vertex3="Pb_glass_v5"/>
+      <triangular vertex1="Pb_glass_v1" vertex2="Pb_glass_v6" vertex3="Pb_glass_v3"/>
+      <triangular vertex1="Pb_glass_v3" vertex2="Pb_glass_v6" vertex3="Pb_glass_v7"/>
+      <triangular vertex1="Pb_glass_v7" vertex2="Pb_glass_v5" vertex3="Pb_glass_v3"/>
+      <triangular vertex1="Pb_glass_v3" vertex2="Pb_glass_v5" vertex3="Pb_glass_v2"/>
+      <triangular vertex1="Pb_glass_v1" vertex2="Pb_glass_v0" vertex3="Pb_glass_v6"/>
+      <triangular vertex1="Pb_glass_v6" vertex2="Pb_glass_v0" vertex3="Pb_glass_v4"/>
+    </tessellated>
+  </solids>
+
+      
+  <structure>
+    <volume name="Pb_glass">
+    <materialref ref="LeadGlass"/>
+    <solidref ref="Pb_glass0x1cfba40"/>
+  </volume>
+  </structure>
+
+  <setup name="Default" version="1.0">
+    <world ref="Pb_glass"/>
+  </setup>
+
+</gdml>
