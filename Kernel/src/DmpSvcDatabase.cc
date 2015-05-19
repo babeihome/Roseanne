@@ -1,3 +1,4 @@
+#include "DmpLoadParameters.h"
 #include "DmpSvcDatabase.h"
 #include <iostream>
 #include <mysql/mysql.h>
@@ -23,8 +24,12 @@ DmpSvcDatabase::~DmpSvcDatabase(){
 
 bool DmpSvcDatabase::Test()
 {
-	DAMPE::LoadParameter();
-
+	string filepath = "../Bgo_DmpRdcData.ped";
+	DmpParameterSteering parameters;
+	DmpParameterHolder datas;	
+	DAMPE::LoadParameters(filepath, datas, parameters);
+	cout << parameters.size() << " and " << datas.size() <<endl;
+	Import_pedestal(datas, parameters);
 	return true;
 }
 

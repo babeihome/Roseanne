@@ -39,8 +39,9 @@ public:
   
   bool Import_pedestal(bool test,std::string path);
   bool Import_pedestal(DmpParameterHolder &pedPar, DmpParameterSteering &steering);
+  bool Test();
 private:
-	bool Test();
+
 	std::ofstream logfile;
 	MYSQL conn;
 	char * strcpy(char * strDest, const char * strSrc);
