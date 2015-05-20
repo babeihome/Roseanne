@@ -26,6 +26,7 @@ CREATE TABLE `index_table` (
   `exp_id` int(32) NOT NULL AUTO_INCREMENT,
   `StartTime` varchar(32) NOT NULL,
   `StopTime` varchar(32) NOT NULL,
+  `FileName` varchar(32),
   `Temperature` double DEFAULT NULL,
   `Detector` int(2) DEFAULT NULL,
   `Type` int(2) NOT NULL,
@@ -48,7 +49,7 @@ DROP TABLE IF EXISTS `pedestal`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pedestal` (
-  `log_id` int(64) NOT NULL,
+  `log_id` int(64) NOT NULL AUTO_INCREMENT,
   `global_id` int(32) NOT NULL,
   `mean` double NOT NULL,
   `sigma` double NOT NULL,

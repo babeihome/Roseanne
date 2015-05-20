@@ -29,6 +29,18 @@ bool DmpSvcDatabase::Test()
 	DmpParameterHolder datas;	
 	DAMPE::LoadParameters(filepath, datas, parameters);
 	cout << parameters.size() << " and " << datas.size() <<endl;
+	/*
+	for(std::map<int, std::vector<double> >::iterator iter=datas.begin(); iter!=datas.end(); ++iter)
+	{
+		cout << iter->first<< ' ';
+		std::vector<double> double_vec = iter->second;
+		// SIZE need to get
+		for(int i=0; i<5;i++){
+			cout << double_vec[i]<< ' ';
+		}
+		cout << endl;
+	}
+	*/	
 	Import_pedestal(datas, parameters);
 	return true;
 }
@@ -36,7 +48,6 @@ bool DmpSvcDatabase::Test()
 //-------------------------------------------------------------------
 bool DmpSvcDatabase::Initialize(){
 	std::cout<<"xxxxxx----"<<std::endl;
-	return true;
 	mysql_init(&conn);
 	if (&conn == NULL){
 		printf("Error %u: %s\n", mysql_errno(&conn), mysql_error(&conn));
@@ -48,7 +59,7 @@ bool DmpSvcDatabase::Initialize(){
 		printf("Error %u: %s\n", mysql_errno(&conn), mysql_error(&conn));
 		return 0;
 	}
-	GetData("500000");
+	//GetData("500000");
 	//Import_pedestal(true, "");
   	return true;
 }
@@ -168,7 +179,7 @@ bool DmpSvcDatabase::Import_pedestal(DmpParameterHolder &pedPar, DmpParameterSte
 	//Initialize variables
 	int SIZE = 5;	
 	std::string data;
-	std::ostringstream buffer_stream;
+	std::stringstream buffer_stream;
 	std::vector<double> double_vec;
 	map<string,string> data_dict;
 	map<string,string> index(steering);
@@ -188,18 +199,45 @@ bool DmpSvcDatabase::Import_pedestal(DmpParameterHolder &pedPar, DmpParameterSte
 	//Check_ismatch(type, steering);
 	
 	//Construct data map waited inserting
-	InsertData("index",index);
-		
+	cout << "Stage 1"<<endl;
+	/*
+	for(std::map<std::string , std::string >::iterator iter=steering.begin(); iter!=steering.end(); ++iter)
+	{
+		cout << iter->first <<endl;
+		cout << iter->second<<endl;
+		cout<<endl;
+	}
+	*/
+	InsertData("index_table",index);
+	cout << "stage 2";	
 	for(std::map<int, std::vector<double> >::iterator iter=pedPar.begin(); iter!=pedPar.end(); ++iter)
 	{
-		data_dict["global_id"] = iter->first;
+		cout << "Stage 2.1";
+		buffer_stream << iter->first;
+		data = buffer_stream.str();
+		buffer_stream.clear();
+		buffer_stream.str("");
+		data_dict["global_id"] = data;
 		double_vec = iter->second;
+		cout << "Stage 2.2";
 		// SIZE need to get
 		for(int i=0; i<SIZE;i++){
-			data_dict[pedestal[i]] = double_vec[i];
+			buffer_stream << double_vec[i];
+			data = buffer_stream.str();
+			buffer_stream.clear();
+			buffer_stream.str("");
+			data_dict[pedestal[i]] = data;
 		}
+		
+		for(std::map<std::string , std::string >::iterator iter=data_dict.begin(); iter!=data_dict.end(); ++iter)
+		{
+			cout << iter->first <<endl;
+			cout << iter->second<<endl;
+			cout<<endl;
+		}
+		InsertData(type_dict[atoi(steering["type"].c_str())].c_str(), data_dict);
 	}
-	InsertData(type_dict[atoi(steering["type"].c_str())].c_str(), data_dict);
+	cout << "Stage 3";
 
 	return 1;	
 }
