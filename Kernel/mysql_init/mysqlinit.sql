@@ -50,6 +50,7 @@ DROP TABLE IF EXISTS `pedestal`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `pedestal` (
   `log_id` int(64) NOT NULL AUTO_INCREMENT,
+  `exp_id` int(32) NOT NULL,
   `global_id` int(32) NOT NULL,
   `mean` double NOT NULL,
   `sigma` double NOT NULL,
@@ -67,3 +68,76 @@ CREATE TABLE `pedestal` (
 LOCK TABLES `pedestal` WRITE;
 UNLOCK TABLES;
 
+
+
+DROP TABLE IF EXISTS `mips`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `mips` (
+  `log_id` int(64) NOT NULL AUTO_INCREMENT,
+  `exp_id` int(32) NOT NULL,
+  `global_id` int(32) NOT NULL,
+  `width` double NOT NULL,
+  `MP` double NOT NULL,
+  `area` double NOT NULL,
+  `gsigma` double NOT NULL,
+  `X` double NOT NULL,
+  `NDF` double NOT NULL,
+  `entries` double NOT NULL,
+  `fit_status` int(32) NOT NULL,
+  PRIMARY KEY (`log_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `set_data`
+--
+
+LOCK TABLES `mips` WRITE;
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `linear`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `linear` (
+  `log_id` int(64) NOT NULL AUTO_INCREMENT,
+  `exp_id` int(32) NOT NULL,
+  `global_id` int(32) NOT NULL,
+  `p0` double NOT NULL,
+  `p1` double NOT NULL,
+  `NDF` double NOT NULL,
+  `entries` double NOT NULL,
+  `fit_status` int(32) NOT NULL,
+  PRIMARY KEY (`log_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `set_data`
+--
+
+LOCK TABLES `linear` WRITE;
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `attenu`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `attenu` (
+  `log_id` int(64) NOT NULL AUTO_INCREMENT,
+  `exp_id` int(32) NOT NULL,
+  `global_id` int(32) NOT NULL,
+  `p0` double NOT NULL,
+  `p0_error` double NOT NULL,
+  `p1` double NOT NULL,
+  `p1_error` double NOT NULL,
+  PRIMARY KEY (`log_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `set_data`
+--
+
+LOCK TABLES `attenu` WRITE;
+UNLOCK TABLES;
